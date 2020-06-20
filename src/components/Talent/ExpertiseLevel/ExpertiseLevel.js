@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 
 export class ExpertiseLevel extends Component {
+    handleYearSelection = (event) => {
+        console.log(event.target.value, event.target.dataset.skill)
+    }
+
     render() {
         return (
             <div>
@@ -11,7 +15,8 @@ export class ExpertiseLevel extends Component {
                         return(
                             <li>
                                 {skill}
-                                <select> 
+                                <select onChange={this.handleYearSelection} data-skill={skill}  > 
+                                    <option> </option>
                                     <option value = "Less than 1 year"> Less than 1 year </option>
                                     <option value = "2 years"> 2 years </option>
                                     <option value = "3 years"> 3 years </option>

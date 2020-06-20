@@ -2,29 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 export class Skills extends Component {
-    state = {
-        skills: []
-    }
-
+    
+    //sends skill to redux state to add or delete 
     addOrDeleteSkill = (event, property) => {
         this.props.dispatch({ type: 'SET_INITIAL_SKILLS', payload: property })
-        //if state does not include this value, add it 
-        // if (this.state.skills.indexOf(property) < 0) {
-        //     this.setState({
-        //         ...this.state,
-        //         skills: [...this.state.skills, property]
-        //     }) //end of setState
-        //     console.log(this.state.skills)
-        // } //end of if 
-        // //if state does include value, remove it 
-        // else {
-        //     for(let i = 0; i < this.state.skills.length; i++) {
-        //         if(this.state.skills[i] === property) {
-        //             this.state.skills.splice(i, 1)
-        //         } //end of conditional 
-        //     } //end of for loop 
-            
-        // } //end of else 
         
     } //end of addOrDelete function 
 
