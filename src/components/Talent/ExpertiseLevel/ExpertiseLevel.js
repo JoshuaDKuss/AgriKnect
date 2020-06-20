@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 export class ExpertiseLevel extends Component {
     handleYearSelection = (event) => {
         console.log(event.target.value, event.target.dataset.skill)
+        this.props.dispatch({ type: 'SET_SKILLS_EXPERIENCE', payload: { skill: event.target.dataset.skill, time: event.target.value} })
     }
 
     render() {
