@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 export class Skills extends Component {
     state = {
@@ -6,23 +7,24 @@ export class Skills extends Component {
     }
 
     addOrDeleteSkill = (event, property) => {
+        this.props.dispatch({ type: 'SET_INITIAL_SKILLS', payload: property })
         //if state does not include this value, add it 
-        if (this.state.skills.indexOf(property) < 0) {
-            this.setState({
-                ...this.state,
-                skills: [...this.state.skills, property]
-            }) //end of setState
-            console.log(this.state.skills)
-        } //end of if 
-        //if state does include value, remove it 
-        else {
-            for(let i = 0; i < this.state.skills.length; i++) {
-                if(this.state.skills[i] === property) {
-                    this.state.skills.splice(i, 1)
-                } //end of conditional 
-            } //end of for loop 
+        // if (this.state.skills.indexOf(property) < 0) {
+        //     this.setState({
+        //         ...this.state,
+        //         skills: [...this.state.skills, property]
+        //     }) //end of setState
+        //     console.log(this.state.skills)
+        // } //end of if 
+        // //if state does include value, remove it 
+        // else {
+        //     for(let i = 0; i < this.state.skills.length; i++) {
+        //         if(this.state.skills[i] === property) {
+        //             this.state.skills.splice(i, 1)
+        //         } //end of conditional 
+        //     } //end of for loop 
             
-        } //end of else 
+        // } //end of else 
         
     } //end of addOrDelete function 
 
@@ -37,13 +39,14 @@ export class Skills extends Component {
                 <button onClick={(event) => this.addOrDeleteSkill(event, 'Chemical/fertilizer application')}> Chemical/fertilizer application </button>
 
                 <p>Precision Farming Technology </p>
-                
+                <button onClick={(event) => this.addOrDeleteSkill(event, 'John Deere Autotrac')}> John Deere Autotrac </button>
                 <p>Maintenance and Mechanics </p>
-
+                <button onClick={(event) => this.addOrDeleteSkill(event, 'Construction')}> Construction </button>
                 <p>Trucking </p>
+                <button onClick={(event) => this.addOrDeleteSkill(event, 'Semi-truck')}> Semi-truck </button>
             </div>
         )
     }
 }
 
-export default Skills
+export default connect() (Skills);
