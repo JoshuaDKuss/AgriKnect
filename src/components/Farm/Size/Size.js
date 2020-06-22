@@ -17,7 +17,7 @@ export class Size extends Component {
                         return(
                             <li>
                                 {size}
-                                <select onChange={this.handleYearSelection} data-size={size}  > 
+                                <select onChange={this.handleSizeSelection} data-size={size}  > 
                                     <option> </option>
                                     <option value = "1-10 employees"> 1-10 employees </option>
                                     <option value = "10-25 employees"> 10-25 employees </option>
