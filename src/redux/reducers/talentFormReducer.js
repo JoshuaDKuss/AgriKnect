@@ -54,7 +54,22 @@ const talentForm = (state = {
         }
         console.log('skillsExpertise', state.skillsExpertise)
         return state;
-    }else {
+    } else if (action.type === 'SET_EQUIPMENT') {
+        if (state.equipment.indexOf(action.payload) < 0) {
+            state.equipment.push(action.payload);
+        } //end of if 
+        //if state does include value, remove it 
+        else {
+            for (let i = 0; i < state.equipment.length; i++) {
+                if (state.equipment[i] === action.payload) {
+                    state.equipment.splice(i, 1)
+                } //end of conditional 
+            } //end of for loop 
+
+        } //end of else 
+        return state; 
+
+    } else {
         return state; 
     }
 };
