@@ -9,7 +9,7 @@ const AboutPage = () => (
   <div>
     <div>
       <p>
-        This about page is for anyone to read!
+        Edit or delete me please
       </p>
     </div>
   </div>

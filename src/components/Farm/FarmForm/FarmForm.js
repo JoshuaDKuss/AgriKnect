@@ -48,7 +48,7 @@ export class FarmForm extends Component {
             {farmFormToShow}
 
             <Button onClick={(event) => this.changeFarmFormCounter(event, 'subtract')}> Back </Button> 
-            <Button onClick={(event) => this.changeFarmFormCounter(event, 'add')}> Next</Button>
+            <Button onClick={(event) => this.changeFarmFormCounter(event, 'add')}> Next </Button>
             </div>
         )
     }

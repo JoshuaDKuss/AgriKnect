@@ -11,7 +11,7 @@ export class Type extends Component {
     addType = (event, property) => {
         this.props.dispatch({ type: 'SET_FARM_TYPE', payload: property })
         
-    } //end of addTypee function 
+    } //end of addType function 
 
     render() {
         return (
