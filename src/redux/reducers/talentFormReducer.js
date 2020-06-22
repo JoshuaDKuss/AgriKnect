@@ -69,7 +69,21 @@ const talentForm = (state = {
         } //end of else 
         return state; 
 
-    } else {
+    } else if (action.type === 'SET_BRANDS') {
+        if (state.brands.indexOf(action.payload) < 0) {
+            state.brands.push(action.payload);
+        } //end of if 
+        //if state does include value, remove it 
+        else {
+            for (let i = 0; i < state.brands.length; i++) {
+                if (state.brands[i] === action.payload) {
+                    state.brands.splice(i, 1)
+                } //end of conditional 
+            } //end of for loop 
+
+        } //end of else 
+        return state; 
+    }else {
         return state; 
     }
 };
