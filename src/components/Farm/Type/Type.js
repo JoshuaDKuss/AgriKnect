@@ -28,4 +28,11 @@ export class Type extends Component {
     }
 }
 
-export default connect() (Type);
+
+const reduxStateToProps = (reduxState) => {
+    return {
+        type: reduxState.farmForm.type
+    }
+}
+
+export default connect (reduxStateToProps) (Type); 

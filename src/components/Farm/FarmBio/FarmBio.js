@@ -21,4 +21,10 @@ export class FarmBio extends Component {
     }
 }
 
-export default connect() (FarmBio);
+const reduxStateToProps = (reduxState) => {
+    return {
+        farmBio: reduxState.farmForm.farmBio
+    }
+}
+
+export default connect (reduxStateToProps) (FarmBio); 

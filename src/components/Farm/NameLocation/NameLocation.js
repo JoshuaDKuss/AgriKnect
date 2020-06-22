@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 
 export class NameLocation extends Component {
     
-    //sends skill to redux state to add or delete 
+    //sends name and location to redux state to add or delete 
     addFarmNameLocation = (event, property) => {
         this.props.dispatch({ type: 'SET_FARM_NAME_LOCATION', payload: property })
         
-    } //end of addOrDelete function 
+    } //end of addFarmNameLocation function 
 
     render() {
         return (
@@ -22,10 +22,16 @@ export class NameLocation extends Component {
                 <input placeholder="Country" onClick={(event) => this.addFarmNameLocation(event, 'Country')}></input>
                 <input placeholder="Phone Number" onClick={(event) => this.addFarmNameLocation(event, 'Phone Number')}></input>
                 <input placeholder="Email Address" onClick={(event) => this.addFarmNameLocation(event, 'Email Address')}></input>
-            
             </div>
         )
     }
 }
 
-export default connect() (NameLocation);
+
+const reduxStateToProps = (reduxState) => {
+    return {
+        nameLocation: reduxState.farmForm.nameLocation
+    }
+}
+
+export default connect (reduxStateToProps) (NameLocation); 

@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 //import {Button} from '@material-ui/core';
 
 export class Size extends Component {
+
     handleSizeSelection = (event) => {
         console.log(event.target.value)
         this.props.dispatch({ type: 'SET_FARM_SIZE', payload: { size: event.target.value} })
-    }
+    } // end hss
 
     render() {
         return (
@@ -25,7 +26,6 @@ export class Size extends Component {
                                     <option value = "50-75 employees"> 50-75 employees </option>
                                     <option value = "75-100 employees"> 75-100 employees</option>
                                     <option value = "100+ employees"> 100+ employees </option>
-            
                                 </select>
                             </li>
                         )
@@ -35,6 +35,7 @@ export class Size extends Component {
         )
     }
 }
+
 
 const reduxStateToProps = (reduxState) => {
     return {
