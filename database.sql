@@ -31,9 +31,8 @@ CREATE TABLE "farm" (
     "bio" VARCHAR (1000),
     "user_id" INT REFERENCES "user"
 );
-
 CREATE TABLE "certification" (
-	"id" INTEGER,
+    "id" INTEGER,
     "certification_name" VARCHAR (100),
     "issuing_company" VARCHAR (100),
     "issue_date" DATE,
@@ -41,7 +40,7 @@ CREATE TABLE "certification" (
     "user_id" INT REFERENCES "user"
 );
 CREATE TABLE "employment" (
-	"id" INTEGER,
+    "id" INTEGER,
     "employer_name" VARCHAR (100),
     "title" VARCHAR (100),
     "start_date" DATE,
@@ -49,7 +48,7 @@ CREATE TABLE "employment" (
     "user_id" INT REFERENCES "user"
 );
 CREATE TABLE "jobs" (
-	"id" INT PRIMARY KEY,
+    "id" INT PRIMARY KEY,
     "farm_id" INT REFERENCES "farm",
     "title" VARCHAR (100),
     "description" VARCHAR (100),
@@ -63,28 +62,27 @@ CREATE TABLE "jobs" (
     "payment_amount" INT
 );
 CREATE TABLE "job_proficiencies" (
-	"id" INTEGER,
+    "id" INTEGER,
     "proficiency_id" INTEGER,
     "job_id" INT REFERENCES "jobs"
 );
 CREATE TABLE "proficiencies" (
-	"id" INTEGER PRIMARY KEY,
+    "id" INTEGER PRIMARY KEY,
     "proficiency_name" VARCHAR (50),
     "proficiency_category" VARCHAR (100)
 );
 CREATE TABLE "user_proficiencies" (
-	"id" INTEGER,
+    "id" INTEGER,
     "proficiency_id" INT REFERENCES "proficiencies",
     "length_experience" VARCHAR (100),
     "user_id" INTEGER
 );
 CREATE TABLE "education" (
-	"id" INTEGER,
+    "id" INTEGER,
     "institution_name" VARCHAR (100),
     "degree" VARCHAR (100),
     "start_date" DATE,
     "end_date" DATE,
     "user_id" INT REFERENCES "user"
 );
-
 
