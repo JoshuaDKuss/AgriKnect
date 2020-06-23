@@ -33,7 +33,6 @@ CREATE TABLE "farm" (
     "longitude" DECIMAL,
     "user_id" INT REFERENCES "user"
 );
-
 CREATE TABLE "certification" (
 	"id" SERIAL PRIMARY KEY,
     "certification_name" VARCHAR (100),
