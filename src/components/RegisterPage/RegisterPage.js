@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class RegisterPage extends Component {
   state = {
-    username: '',
-    password: '',
+    firstName: "",
+    lastName: "",
+    username: "",
+    password: "",
+    userType: "",
   };
 
   registerUser = (event) => {
@@ -12,36 +15,58 @@ class RegisterPage extends Component {
 
     if (this.state.username && this.state.password) {
       this.props.dispatch({
-        type: 'REGISTER',
+        type: "REGISTER",
         payload: {
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
           username: this.state.username,
           password: this.state.password,
+          userType: this.state.userType,
         },
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({ type: "REGISTRATION_INPUT_ERROR" });
     }
-  } // end registerUser
+  }; // end registerUser
 
-  handleInputChangeFor = propertyName => (event) => {
+  handleInputChangeFor = (propertyName) => (event) => {
     this.setState({
       [propertyName]: event.target.value,
     });
-  }
+  };
 
   render() {
     return (
       <div>
         {this.props.errors.registrationMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
+          <h2 className="alert" role="alert">
             {this.props.errors.registrationMessage}
           </h2>
         )}
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
+          <div>
+            <label htmlFor="firstName">
+              First Name:
+              <input
+                type="text"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleInputChangeFor("firstName")}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="lastName">
+              Last Name:
+              <input
+                type="text"
+                name="lastName"
+                value={this.state.lastName}
+                onChange={this.handleInputChangeFor("lastName")}
+              />
+            </label>
+          </div>
           <div>
             <label htmlFor="username">
               Username:
@@ -49,7 +74,7 @@ class RegisterPage extends Component {
                 type="text"
                 name="username"
                 value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
+                onChange={this.handleInputChangeFor("username")}
               />
             </label>
           </div>
@@ -60,8 +85,21 @@ class RegisterPage extends Component {
                 type="password"
                 name="password"
                 value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
+                onChange={this.handleInputChangeFor("password")}
               />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="userType">
+              User Type:
+              <select
+                name="userType"
+                value={this.state.userType}
+                onChange={this.handleInputChangeFor("userType")}
+              >
+                <option value="talent">talent</option>
+                <option value="employer">employer</option>
+              </select>
             </label>
           </div>
           <div>
@@ -77,7 +115,9 @@ class RegisterPage extends Component {
           <button
             type="button"
             className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+            onClick={() => {
+              this.props.dispatch({ type: "SET_TO_LOGIN_MODE" });
+            }}
           >
             Login
           </button>
@@ -90,9 +130,8 @@ class RegisterPage extends Component {
 // Instead of taking everything from state, we just want the error messages.
 // if you wanted you could write this code like this:
 // const mapStateToProps = ({errors}) => ({ errors });
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   errors: state.errors,
 });
 
 export default connect(mapStateToProps)(RegisterPage);
-
