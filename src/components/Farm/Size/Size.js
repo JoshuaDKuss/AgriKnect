@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 export class Size extends Component {
 
     handleSizeSelection = (event) => {
-        console.log(event.target.value)
-        this.props.dispatch({ type: 'SET_FARM_SIZE', payload: { size: event.target.value} })
+        console.log('farm hss');
+        //console.log(event.target.value);
+        //this.props.dispatch({ type: 'SET_FARM_SIZE', payload: { size: event.target.value} })
     } // end hss
 
     render() {
@@ -14,11 +15,13 @@ export class Size extends Component {
             <div>
                 <h3>  What is the size of your farm? </h3> 
                 <ul>
-                    {this.props.size. map( size => {
-                        return(
+                    {/* {this.props.size.map( size => { */}
+                        {/* return( */}
                             <li>
-                                {size}
-                                <select onChange={this.handleSizeSelection} data-size={size}  > 
+                                {/* {size} */}
+                                <select 
+                                // onChange={this.handleSizeSelection} data-size={size} 
+                                > 
                                     <option> </option>
                                     <option value = "1-10 employees"> 1-10 employees </option>
                                     <option value = "10-25 employees"> 10-25 employees </option>
@@ -28,8 +31,8 @@ export class Size extends Component {
                                     <option value = "100+ employees"> 100+ employees </option>
                                 </select>
                             </li>
-                        )
-                    })}
+                        {/* ) */}
+                    {/* })} */}
                 </ul>
             </div>
         )
@@ -37,10 +40,12 @@ export class Size extends Component {
 }
 
 
-const reduxStateToProps = (reduxState) => {
-    return {
-        size: reduxState.farmForm.size
-    }
-}
+// const reduxStateToProps = (reduxState) => {
+//     return {
+//         size: reduxState.farmForm.size
+//     }
+// }
 
-export default connect (reduxStateToProps) (Size); 
+// export default connect (reduxStateToProps) (Size); 
+
+export default Size;

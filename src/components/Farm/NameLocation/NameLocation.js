@@ -6,7 +6,8 @@ export class NameLocation extends Component {
     
     //sends name and location to redux state to add or delete 
     addFarmNameLocation = (event, property) => {
-        this.props.dispatch({ type: 'SET_FARM_NAME_LOCATION', payload: property })
+        console.log('add Farm N L');
+        //this.props.dispatch({ type: 'SET_FARM_NAME_LOCATION', payload: property })
         
     } //end of addFarmNameLocation function 
 
@@ -28,10 +29,9 @@ export class NameLocation extends Component {
 }
 
 
-const reduxStateToProps = (reduxState) => {
-    return {
-        nameLocation: reduxState.farmForm.nameLocation
-    }
-}
+// const reduxStateToProps = (reduxState) => {
+//     return {nameLocation: reduxState.farmForm.nameLocation};}
 
-export default connect (reduxStateToProps) (NameLocation); 
+// export default connect(reduxStateToProps)(NameLocation); 
+
+export default NameLocation;

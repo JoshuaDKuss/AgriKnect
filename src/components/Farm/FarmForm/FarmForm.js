@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; 
 import {Button} from '@material-ui/core';
 import NameLocation from '../NameLocation/NameLocation'; 
-import Size from '../NameLocation/NameLocation';
+import Size from '../Size/Size';
 import Type from '../Type/Type'; 
 import FarmBio from '../FarmBio/FarmBio'; 
 

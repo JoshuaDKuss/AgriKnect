@@ -9,7 +9,8 @@ export class Type extends Component {
     
     //sends type to redux state 
     addType = (event, property) => {
-        this.props.dispatch({ type: 'SET_FARM_TYPE', payload: property })
+        console.log('add farm type');
+        //this.props.dispatch({ type: 'SET_FARM_TYPE', payload: property })
         
     } //end of addType function 
 
@@ -29,10 +30,12 @@ export class Type extends Component {
 }
 
 
-const reduxStateToProps = (reduxState) => {
-    return {
-        type: reduxState.farmForm.type
-    }
-}
+// const reduxStateToProps = (reduxState) => {
+//     return {
+//         type: reduxState.farmForm.type
+//     }
+// }
 
-export default connect (reduxStateToProps) (Type); 
+// export default connect (reduxStateToProps) (Type); 
+
+export default Type;
