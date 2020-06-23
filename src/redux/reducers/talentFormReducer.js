@@ -90,8 +90,18 @@ const talentForm = (state = {
         } //end of else 
         return state; 
     }else if (action.type === 'SET_CERTIFICATE') {
-       certificateObject.certificate = action.payload;
-        console.log('object', certificateObject )
+       let certificateToAdd = {
+           certificate: '',
+           issuingCompany: '',
+           issueDate: '',
+           expirationDate: ''
+       }
+      certificateToAdd.certificate = action.payload.state.certificate;
+      certificateToAdd.issuingCompany = action.payload.state.issuingCompany;
+      certificateToAdd.issueDate = action.payload.state.issueDate;
+      certificateToAdd.expirationDate = action.payload.expirationDate; 
+
+        state.certifications.push(certificateToAdd); 
         
         return state;
 
