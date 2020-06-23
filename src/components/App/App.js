@@ -14,8 +14,9 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+import UserPage from '../UserPage/UserPage'; //currently not shown anywhere because was at /home
 import InfoPage from '../InfoPage/InfoPage';
+import TalentFrom from '../Talent/TalentForm/TalentForm'; 
 
 import './App.css';
 
@@ -47,6 +48,11 @@ class App extends Component {
               exact
               path="/home"
               component={UserPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/talentForm"
+              component={TalentFrom}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
