@@ -4,7 +4,7 @@ import NameLocation from '../NameLocation/NameLocation';
 import Size from '../Size/Size';
 import Type from '../Type/Type'; 
 import FarmBio from '../FarmBio/FarmBio'; 
-
+import FarmFormReview from '../FarmFormReview/FarmFormReview';
 
 
 export class FarmForm extends Component {
@@ -40,7 +40,9 @@ export class FarmForm extends Component {
             farmFormToShow = <Type />
         } else if (this.state.farmFormCounter === 3) {
             farmFormToShow = <FarmBio />
-        } 
+        } else if (this.state.farmFormCounter === 4) {
+            farmFormToShow = <FarmFormReview />
+        }
         return (
             <div>
                <h1> Farm Form </h1> 

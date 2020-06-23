@@ -14,15 +14,15 @@ export class NameLocation extends Component {
     render() {
         return (
             <div>
-                <h3> What is the name of your farm and where it is located? </h3>
-                <input placeholder="Farm Name" onClick={(event) => this.addFarmNameLocation(event, 'Name')}></input>
-                <input placeholder="Address" onClick={(event) => this.addFarmNameLocation(event, 'Address')}></input>
-                <input placeholder="City" onClick={(event) => this.addFarmNameLocation(event, 'City')}></input>
-                <input placeholder="State" onClick={(event) => this.addFarmNameLocation(event, 'State')}></input>
-                <input placeholder="Postal Code" onClick={(event) => this.addFarmNameLocation(event, 'Postal Code')}></input>
-                <input placeholder="Country" onClick={(event) => this.addFarmNameLocation(event, 'Country')}></input>
-                <input placeholder="Phone Number" onClick={(event) => this.addFarmNameLocation(event, 'Phone Number')}></input>
-                <input placeholder="Email Address" onClick={(event) => this.addFarmNameLocation(event, 'Email Address')}></input>
+                <h3> What is the name of your farm and where is it located? </h3>
+                <input size="60" placeholder="Farm Name" onClick={(event) => this.addFarmNameLocation(event, 'Name')}></input><br/>
+                <input size="60" placeholder="Address" onClick={(event) => this.addFarmNameLocation(event, 'Address')}></input><br/>
+                <input size="35" placeholder="City" onClick={(event) => this.addFarmNameLocation(event, 'City')}></input>
+                <input size="5"  placeholder="State" onClick={(event) => this.addFarmNameLocation(event, 'State')}></input>
+                <input size="10" placeholder="Postal Code" onClick={(event) => this.addFarmNameLocation(event, 'Postal Code')}></input>
+                <br/>
+                <input size="15" placeholder="Phone Number" onClick={(event) => this.addFarmNameLocation(event, 'Phone Number')}></input>
+                <input size="42" placeholder="Email Address" onClick={(event) => this.addFarmNameLocation(event, 'Email Address')}></input>
             </div>
         )
     }
