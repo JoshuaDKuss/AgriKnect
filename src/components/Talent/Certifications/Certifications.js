@@ -3,50 +3,41 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
-import { Button, TextField, Typography } from '@material-ui/core';
+import { Button} from '@material-ui/core';
+import CertificationsItem from '../CertificationsItem/CertificationsItem'; 
 
 
 export class Certifications extends Component {
+
+    state = {
+        certificateList : ['certificate1']
+    }
+
+    //adds a certificate to list 
+    addCertificate = () => {
+        this.setState(previousState => ({
+            certificateList: [...previousState.certificateList, 'newCertificate']
+        }));
+    }
+
     render() {
+        const { classes } = this.props; //need this for Material UI
+
         return (
             <div>
-               
-                <h3> Add any certifications or licenses you have </h3>
-               
-              
-                <Typography>License or certificate: </Typography> 
-                <TextField id="standard-basic" label="Standard" /> 
+                <ul>
+                    {this.state.certificateList.map((item) => {
+                        return (
+                            <CertificationsItem item={item} />
+                        )
 
-                <Typography>Issuing Company: </Typography>
-                <TextField id="standard-basic" label="Standard" />   
+                    })}
+                </ul>
 
-                <div>
-                <TextField
-                    id="date"
-                    label="Issue Date"
-                    type="date"
-                    defaultValue="2017-05-24"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
-                    <TextField
-                        id="date"
-                        label="Expiration Date"
-                        type="date"
-                        defaultValue="2017-05-24"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                    />
-                </div>
+            <Button onClick={this.addCertificate} variant='outlined'> Add another license/certificate</Button>
 
-                <Button onClick={(event) => this.handleClick(event, 'property')}  variant = 'outlined'> Add another license/certificate</Button>
-               
-                         
-
-                
             </div>
+
         )
     }
 }
