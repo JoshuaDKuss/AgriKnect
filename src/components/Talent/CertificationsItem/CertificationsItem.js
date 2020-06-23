@@ -3,23 +3,34 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Button, TextField, Typography } from '@material-ui/core';
+import {TextField, Typography } from '@material-ui/core';
+import CertificateName from '../CertificateName/CertificateName'; 
 
 export class CertificationsItem extends Component {
+
+
+    addCertificate = (event) => {
+        this.props.dispatch({ type: 'SET_CERTIFICATE', payload: event.target.value })
+    }
+
+    addIssuingCompany = (event) => {
+        this.props.dispatch({ type: 'SET_ISSUING_COMPANY', payload: event.target.value })
+        
+    }
+
     render() {
         const { classes } = this.props; //need this for Material UI
         return (
             <div>
                 <div>
 
-                    <h3> Add any certifications or licenses you have </h3>
-
-
                     <Typography>License or certificate: </Typography>
-                    <TextField id="standard-basic" label="Standard" />
-
+                    {/* <CertificateName /> */}
+                    <div ref={node => this.inCertificate = node}>
+                    <TextField id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event)} />
+                    </div>
                     <Typography>Issuing Company: </Typography>
-                    <TextField id="standard-basic" label="Standard" />
+                    <TextField onChange={(event) => this.addIssuingCompany(event)} id="standard-basic" label="Standard" />
 
                     <div>
                         <TextField

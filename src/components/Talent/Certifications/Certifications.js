@@ -26,6 +26,7 @@ export class Certifications extends Component {
         return (
             <div>
                 <ul>
+                    <h3> Add any certifications or licenses you have </h3>
                     {this.state.certificateList.map((item) => {
                         return (
                             <CertificationsItem item={item} />
