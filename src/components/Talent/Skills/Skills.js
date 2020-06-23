@@ -33,7 +33,7 @@ export class Skills extends Component {
     //sends skill to redux state to add or delete 
     addOrDeleteSkill = (event, property, stateToChange) => {
         if (this.state[stateToChange] === '') {
-            console.log('YES');
+          
         
         this.setState({
             ...this.state, 
@@ -44,7 +44,7 @@ export class Skills extends Component {
             ...this.state, 
             [stateToChange]: ''
         })
-    }
+    } //end of conditional 
         console.log(this.state)
         this.props.dispatch({ type: 'SET_INITIAL_SKILLS', payload: property })
         
