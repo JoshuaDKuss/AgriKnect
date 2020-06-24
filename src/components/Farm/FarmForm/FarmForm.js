@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import {Button} from '@material-ui/core';
+//import {Button} from '@material-ui/core';
 import NameLocation from '../NameLocation/NameLocation'; 
 import Size from '../Size/Size';
 import Type from '../Type/Type'; 
@@ -49,8 +49,8 @@ export class FarmForm extends Component {
         
             {farmFormToShow}
 
-            <Button onClick={(event) => this.changeFarmFormCounter(event, 'subtract')}> Back </Button> 
-            <Button onClick={(event) => this.changeFarmFormCounter(event, 'add')}> Next </Button>
+            <button onClick={(event) => this.changeFarmFormCounter(event, 'subtract')}> Back </button> 
+            <button onClick={(event) => this.changeFarmFormCounter(event, 'add')}> Next </button>
             </div>
         )
     }

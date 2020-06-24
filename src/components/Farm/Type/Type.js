@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Button} from '@material-ui/core';
-//import rowCrop from './documentation/agriknect_icons/rowCrop.png';
-//import livestock from './documentation/agriknect_icons/livestock.png';
-//import dairy from './documentation/agriknect_icons/dairy.png';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
+
+//import rowCrop from './documentation/agriknect_icons/rowCrop.png';
+//import livestock from './documentation/agriknect_icons/livestock.png';
+//import dairy from './documentation/agriknect_icons/dairy.png';
 
 export class Type extends Component {
 

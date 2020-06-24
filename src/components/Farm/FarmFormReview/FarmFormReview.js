@@ -24,8 +24,11 @@ export class FarmFormReview extends Component {
                 <p>{this.props.reduxState.fPhone}</p><br/>
                 <p>{this.props.reduxState.fEmail}</p>
                 <h4>Farm Size: </h4>
-                <h4>Farm Type: </h4><br/>
+                <p>{this.props.reduxState.fSize}</p>
+                <h4>Farm Type: </h4>
+                <p>{this.props.reduxState.fType}</p>
                 <h4>Bio: </h4>
+                <p>{this.props.reduxState.fBio}</p>
             </div>
         )
     }

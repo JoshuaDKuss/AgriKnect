@@ -1,6 +1,6 @@
 const farmForm = (state = {
     nameLocation: [],
-    size: [],
+    fSize: [],
     type: [],
     farmBio: ''
 }, action) => {
@@ -40,4 +40,4 @@ const farmForm = (state = {
     return state;
 }
 
-export default farmFormReducer;
+export default farmForm;

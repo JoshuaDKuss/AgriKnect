@@ -4,21 +4,25 @@ import { connect } from 'react-redux';
 
 export class Size extends Component {
 
+    state = {
+        fSize: ''
+    }
+
     handleSizeSelection = (event) => {
-        console.log('farm hss');
-        //console.log(event.target.value);
-        //this.props.dispatch({ type: 'SET_FARM_SIZE', payload: { size: event.target.value} })
+
+        console.log(event.target.value);
+        this.props.dispatch({ type: 'SET_FARM_SIZE', payload: { fSize: event.target.value} })
     } // end hss
 
     render() {
         return (
             <div>
-                <h3>  What is the size of your farm? </h3> 
+                <h3>  What is the size of your farm?  (Number of employees) </h3>
                 <ul>
                             <li>
-                                {/* {size} */}
-                                <select 
-                                // onChange={this.handleSizeSelection} data-size={size} 
+                                {/* {fSize} */}
+                                <select onChange={this.handleSizeSelection} 
+                                //fSize={fSize}
                                 > 
                                     <option> </option>
                                     <option value = "1-10 employees"> 1-10 employees </option>
