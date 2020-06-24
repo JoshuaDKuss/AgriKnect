@@ -152,7 +152,7 @@ const talentForm = (state = {
             endDate: ''
         }
         employerToAdd.key = action.payload.state.key
-        employerToAdd.compnay = action.payload.state.company;
+        employerToAdd.company = action.payload.state.company;
         employerToAdd.title = action.payload.state.title;
         employerToAdd.startDate = action.payload.state.startDate;
         employerToAdd.endDate = action.payload.endDate;
@@ -167,6 +167,12 @@ const talentForm = (state = {
         state.location.state = action.payload.state;
         state.location.zipcode = action.payload.zipcode;
 
+        return state;
+
+    } else if (action.type === 'SET_BIO') {
+
+        state.bio = action.payload.bio;
+     
         return state;
 
     }{
