@@ -18,7 +18,7 @@ import UserPage from '../UserPage/UserPage'; //currently not shown anywhere beca
 import InfoPage from '../InfoPage/InfoPage';
 import TalentForm from '../Talent/TalentForm/TalentForm'; 
 import FarmForm from '../Farm/FarmForm/FarmForm';
-
+import talentProfile from '../TalentProfile/TalentProfile'
 import './App.css';
 
 class App extends Component {
@@ -59,6 +59,11 @@ class App extends Component {
               exact
               path="/farmForm"
               component={FarmForm}
+            />
+            <ProtectedRoute
+              exact
+              path="/talentProfile/:id"
+              component={talentProfile}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
