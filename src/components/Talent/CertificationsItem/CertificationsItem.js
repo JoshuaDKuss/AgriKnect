@@ -4,11 +4,12 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
 import {TextField, Typography } from '@material-ui/core';
-import CertificateName from '../CertificateName/CertificateName'; 
 
 export class CertificationsItem extends Component {
 
     state = {
+        key: this.props.item, 
+        numberOfChanges: 0,
         certificate: '',
         issuingCompany: '',
         issueDate: '',
@@ -17,17 +18,23 @@ export class CertificationsItem extends Component {
 
 
     addCertificate = (event, property) => {
+        if(this.state.numberOfChanges < 1) {
         this.setState({
             ...this.state,
-            [property]: event.target.value
+            [property]: event.target.value,
         })
         console.log(this.state)
-        // this.props.dispatch({ type: 'SET_CERTIFICATE', payload: event.target.value })
+    } else {
+            this.props.dispatch({ type: 'EDIT_CERTIFICATE', payload: { state: this.state, property: property, newValue: event.target.value } })
+    }
     }
 
     sendData = (event) => {
         this.props.dispatch({ type: 'SET_CERTIFICATE', payload: {state: this.state, expirationDate: event.target.value } })
-        
+        this.setState({
+            ...this.state,
+            numberOfChanges: this.state.numberOfChanges + 1
+        })
     }
 
     render() {
@@ -35,6 +42,7 @@ export class CertificationsItem extends Component {
         return (
             <div>
                 <div>
+                   
 
                     <Typography>License or certificate: </Typography>
                     {/* <CertificateName /> */}

@@ -91,11 +91,13 @@ const talentForm = (state = {
         return state; 
     }else if (action.type === 'SET_CERTIFICATE') {
        let certificateToAdd = {
+           key: '',
            certificate: '',
            issuingCompany: '',
            issueDate: '',
            expirationDate: ''
        }
+      certificateToAdd.key = action.payload.state.key
       certificateToAdd.certificate = action.payload.state.certificate;
       certificateToAdd.issuingCompany = action.payload.state.issuingCompany;
       certificateToAdd.issueDate = action.payload.state.issueDate;
@@ -105,11 +107,25 @@ const talentForm = (state = {
         
         return state;
 
-    } else if (action.type == 'SET_ISSUING_COMPANY') {
-        certificateObject.issuingCompany = action.payload
-        console.log('object', certificateObject)
+    } else if (action.type === 'EDIT_CERTIFICATE') {
+        console.log(action.payload);
+        //loop through certifications array to find the certificate to edit based off key 
+        for(let i = 0; i < state.certifications.length; i ++) {
+            //if key (unique ID) matches, then edit it
+            if(state.certifications[i].key === action.payload.state.key){
+                console.log('found it');
+                for (let key in state.certifications[i]) {
+                    if (key === action.payload.property) {
+                        console.log('key',key)
+                        // state.certifications.key = action.payload.newValue
+                    } //end if 
+                } //end for loop key in state.certifications
+                } //end if statement for .key
+
+            } //end for loop for state.certifications
+      
         return state; 
-    }{
+    } else {
         return state; 
     }
 };
