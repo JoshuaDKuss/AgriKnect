@@ -18,7 +18,7 @@ export class FarmFormReview extends Component {
                 <h4>Farm Name and address: </h4><br/>
                 <p>{this.props.reduxState.fName}</p><br/>
                 <p>{this.props.reduxState.fAddress}, {this.props.reduxState.fCity}, 
-                {this.props.reduxState.fState}  {this.props.reduxState.fPostal}</p>
+                {this.props.reduxState.fState}  {this.props.reduxState.fZip}</p>
                 
                 <h4>Phone Number and Email address: </h4><br/>
                 <p>{this.props.reduxState.fPhone}</p><br/>

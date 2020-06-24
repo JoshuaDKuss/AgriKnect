@@ -4,6 +4,7 @@ import {Button} from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
+import { Typography } from '@material-ui/core';
 
 //import rowCrop from './documentation/agriknect_icons/rowCrop.png';
 //import livestock from './documentation/agriknect_icons/livestock.png';
@@ -45,7 +46,7 @@ export class Type extends Component {
         }
         return (
             <div>
-                <h3> What type of farming do you do?  </h3>
+                <Typography> What type of farming do you do? </Typography>
                 
                 {/* <img src={rowCrop} onClick={(event) => this.addType(event, 'Row Crop')}> Row Crop </img> */}
                 <Button variant='contained' color={this.state.rowCropColor} onClick={(event) => this.addType(event, 'Row Crop', 'rowCropColor')}> Row Crop </Button>

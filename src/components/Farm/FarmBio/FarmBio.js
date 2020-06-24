@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //import {Button} from '@material-ui/core';
+import { TextField, Typography } from '@material-ui/core';
 
 export class FarmBio extends Component {
     state = {
@@ -16,7 +17,7 @@ export class FarmBio extends Component {
     render() {
         return (
             <div>
-                <h3> Please tell us about your farm </h3>
+                <Typography> Please tell us about your farm </Typography>
                 <textarea rows="10" cols="70" placeholder="Tell us about your farm" onClick={(event) => this.addFarmBio(event, 'Farm Bio')}></textarea>
             
             </div>

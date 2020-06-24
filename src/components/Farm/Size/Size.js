@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 //import {Button} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 export class Size extends Component {
 
@@ -17,7 +18,7 @@ export class Size extends Component {
     render() {
         return (
             <div>
-                <h3>  What is the size of your farm?  (Number of employees) </h3>
+                <Typography>  What is the size of your farm?  (Number of employees) </Typography>
                 <ul>
                             <li>
                                 {/* {fSize} */}
