@@ -12,7 +12,12 @@ const talentForm = (state = {
     brands: [], 
     certifications: [], 
     education: [],
-    location: [],
+    employment: [],
+    location: {
+        city: '',
+        state: '',
+        zipcode: ''
+    },
     bio: ''
 }, action) => {
     let certificateObject = {
@@ -138,7 +143,33 @@ const talentForm = (state = {
 
         return state;
 
-    } {
+    } else if (action.type === 'SET_EMPLOYMENT') {
+        let employerToAdd = {
+            key: '',
+            company: '',
+            title: '',
+            startDate: '',
+            endDate: ''
+        }
+        employerToAdd.key = action.payload.state.key
+        employerToAdd.compnay = action.payload.state.company;
+        employerToAdd.title = action.payload.state.title;
+        employerToAdd.startDate = action.payload.state.startDate;
+        employerToAdd.endDate = action.payload.endDate;
+
+        state.employment.push(employerToAdd);
+
+        return state;
+
+    } else if (action.type === 'SET_LOCATION') {
+        
+        state.location.city = action.payload.city;
+        state.location.state = action.payload.state;
+        state.location.zipcode = action.payload.zipcode;
+
+        return state;
+
+    }{
         return state; 
     }
 };
