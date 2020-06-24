@@ -52,7 +52,7 @@ export class Type extends Component {
                 <Button variant='contained' color={this.state.rowCropColor} onClick={(event) => this.addType(event, 'Row Crop', 'rowCropColor')}> Row Crop </Button>
                 <Button variant='contained' color={this.state.livestockColor} onClick={(event) => this.addType(event, 'Livestock', 'livestockColor')}> Livestock </Button>
                 <Button variant='contained' color={this.state.dairyColor} onClick={(event) => this.addType(event, 'Dairy', 'dairyColor')}> Dairy </Button>
-                
+                <br/><br/>
             </div>
         )
     }
