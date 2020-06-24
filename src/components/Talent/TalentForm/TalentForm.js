@@ -8,6 +8,7 @@ import Education from '../Education/Education';
 import Employment from '../Employment/Employment'; 
 import Location from '../Location/Location';
 import Bio from '../Bio/Bio'; 
+import ReviewPage from '../ReviewPage/ReviewPage';
 
 export class TalentForm extends Component {
     state = {
@@ -52,6 +53,8 @@ export class TalentForm extends Component {
             formToShow = <Location />
         } else if (this.state.formCounter === 8) {
             formToShow = <Bio />
+        } else if (this.state.formCounter ===9) {
+            formToShow = <ReviewPage />
         }
         return (
             <div>
