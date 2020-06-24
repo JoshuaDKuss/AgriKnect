@@ -14,7 +14,7 @@ export class FarmFormReview extends Component {
     render() {
         return (
             <div>
-                <h3> Review </h3>
+                <h3> Review your information </h3>
                 <h4>Farm Name and address: </h4><br/>
                 <h4>Phone Number and Email address: </h4><br/>
                 <h4>Farm Size: </h4>
