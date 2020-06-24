@@ -1,34 +1,64 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import {Button} from '@material-ui/core';
-//import rowCrop from './documentation/agriknect_icons/rowCrop.png'
-//import livestock from './documentation/agriknect_icons/livestock.png'
-//import dairy from './documentation/agriknect_icons/dairy.png'
+import {Button} from '@material-ui/core';
+//import rowCrop from './documentation/agriknect_icons/rowCrop.png';
+//import livestock from './documentation/agriknect_icons/livestock.png';
+//import dairy from './documentation/agriknect_icons/dairy.png';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import styles from '../../Styles/styles';
 
 export class Type extends Component {
+
+    state = {
+        rowCropColor: '',
+        livestockColor: '',
+        dairyColor: ''
+    }
     
     //sends type to redux state 
-    addType = (event, property) => {
-        console.log('add farm type');
-        //this.props.dispatch({ type: 'SET_FARM_TYPE', payload: property })
+    addType = (event, property, stateToChange) => {
+        if (this.state[stateToChange] === '') {
+          
+            this.setState({
+                ...this.state, 
+                [stateToChange]: 'primary'
+            })
+        } else {
+            this.setState({
+                ...this.state, 
+                [stateToChange]: ''
+            })
+        } //end of conditional 
+        console.log(this.state);
+        this.props.dispatch({ type: 'SET_FARM_TYPE', payload: property })
         
     } //end of addType function 
 
     render() {
+        const { classes } = this.props; //need this for Material UI
+
+        let color = ''; 
+        if (this.state.tillageColor === false) {
+
+        }
         return (
             <div>
                 <h3> What type of farming do you do?  </h3>
                 
                 {/* <img src={rowCrop} onClick={(event) => this.addType(event, 'Row Crop')}> Row Crop </img> */}
-                <button onClick={(event) => this.addType(event, 'Row Crop')}> Row Crop </button>
-                <button onClick={(event) => this.addType(event, 'Livestock')}> Livestock </button>
-                <button onClick={(event) => this.addType(event, 'Dairy')}> Dairy </button>
+                <Button variant='contained' color={this.state.rowCropColor} onClick={(event) => this.addType(event, 'Row Crop', 'rowCropColor')}> Row Crop </Button>
+                <Button variant='contained' color={this.state.livestockColor} onClick={(event) => this.addType(event, 'Livestock', 'livestockColor')}> Livestock </Button>
+                <Button variant='contained' color={this.state.dairyColor} onClick={(event) => this.addType(event, 'Dairy', 'dairyColor')}> Dairy </Button>
                 
             </div>
         )
     }
 }
 
+Type.propTypes = { classes: PropTypes.object.isRequired };
+
+export default connect()(withStyles(styles)(Type)); 
 
 // const reduxStateToProps = (reduxState) => {
 //     return {
@@ -38,4 +68,4 @@ export class Type extends Component {
 
 // export default connect (reduxStateToProps) (Type); 
 
-export default Type;
+// export default Type;

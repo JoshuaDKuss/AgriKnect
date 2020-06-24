@@ -15,8 +15,6 @@ export class Size extends Component {
             <div>
                 <h3>  What is the size of your farm? </h3> 
                 <ul>
-                    {/* {this.props.size.map( size => { */}
-                        {/* return( */}
                             <li>
                                 {/* {size} */}
                                 <select 
@@ -31,8 +29,6 @@ export class Size extends Component {
                                     <option value = "100+ employees"> 100+ employees </option>
                                 </select>
                             </li>
-                        {/* ) */}
-                    {/* })} */}
                 </ul>
             </div>
         )

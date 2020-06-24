@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import {Button} from '@material-ui/core';
+import {Button} from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import styles from '../../Styles/styles'; 
 
 export class NameLocation extends Component {
+
+    state = {
+        fName: '',
+        fAddress: '',
+        fCity: '',
+        fState: '',
+        fPostal: '',
+        fPhone: '',
+        fEmail: ''
+    }
     
     //sends name and location to redux state to add or delete 
     addFarmNameLocation = (event, property) => {
