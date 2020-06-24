@@ -1,14 +1,16 @@
+// {
+// certificate: '',
+//     issuingCompany: '',
+//         startDate: '',
+//             endDate: ''
+//     }, 
+
 const talentForm = (state = {
     initialSkills: [],
     skillsExpertise: [],
     equipment: [],
     brands: [], 
-    certifications: {
-        certificate: '',
-        issuingCompany: '', 
-        startDate: '',
-        endDate: ''
-    }, 
+    certifications: [], 
     education: {
         school: '',
         degree: '',
@@ -18,6 +20,10 @@ const talentForm = (state = {
     location: [],
     bio: ''
 }, action) => {
+    let certificateObject = {
+        certificate: '',
+        issuingCompany: '',
+    }
     //set initial skills 
     if(action.type === 'SET_INITIAL_SKILLS'){
         
@@ -83,7 +89,27 @@ const talentForm = (state = {
 
         } //end of else 
         return state; 
-    }else {
+    }else if (action.type === 'SET_CERTIFICATE') {
+       let certificateToAdd = {
+           certificate: '',
+           issuingCompany: '',
+           issueDate: '',
+           expirationDate: ''
+       }
+      certificateToAdd.certificate = action.payload.state.certificate;
+      certificateToAdd.issuingCompany = action.payload.state.issuingCompany;
+      certificateToAdd.issueDate = action.payload.state.issueDate;
+      certificateToAdd.expirationDate = action.payload.expirationDate; 
+
+        state.certifications.push(certificateToAdd); 
+        
+        return state;
+
+    } else if (action.type == 'SET_ISSUING_COMPANY') {
+        certificateObject.issuingCompany = action.payload
+        console.log('object', certificateObject)
+        return state; 
+    }{
         return state; 
     }
 };
