@@ -11,12 +11,7 @@ const talentForm = (state = {
     equipment: [],
     brands: [], 
     certifications: [], 
-    education: {
-        school: '',
-        degree: '',
-        startDate: '',
-        endDate: ''
-    },
+    education: [],
     location: [],
     bio: ''
 }, action) => {
@@ -125,7 +120,25 @@ const talentForm = (state = {
             } //end for loop for state.certifications
       
         return state; 
-    } else {
+    } else if (action.type === 'SET_EDUCATION') {
+        let educationToAdd = {
+            key: '',
+            school: '',
+            degree: '',
+            startDate: '',
+            endDate: ''
+        }
+        educationToAdd.key = action.payload.state.key
+        educationToAdd.school = action.payload.state.school;
+        educationToAdd.degree = action.payload.state.degree;
+        educationToAdd.startDate = action.payload.state.startDate;
+        educationToAdd.endDate = action.payload.endDate;
+
+        state.education.push(educationToAdd);
+
+        return state;
+
+    } {
         return state; 
     }
 };

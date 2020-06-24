@@ -21,7 +21,8 @@ export class EducationItem extends Component {
                 ...this.state,
                 [property]: event.target.value,
             })
-            // console.log(this.state)
+            console.log(event.target.value);
+            console.log('STATE', this.state)
         } else {
             // this.props.dispatch({ type: 'EDIT_SCHOOL', payload: { state: this.state, property: property, newValue: event.target.value } })
         }
@@ -42,13 +43,13 @@ export class EducationItem extends Component {
                 <div>
 
 
-                    <Typography>School</Typography>
+                  
                    
                     <div ref={node => this.inCertificate = node}>
-                        <TextField id="standard-basic" label="Standard" onChange={(event) => this.addEducation(event, 'school')} />
+                        <TextField id="standard-basic" label="school" onChange={(event) => this.addEducation(event, 'school')} />
                     </div>
-                    <Typography>Degree: </Typography>
-                    <TextField onChange={(event) => this.addEducation(event, 'issuingCompany')} id="standard-basic" label="degree" />
+                    
+                    <TextField onChange={(event) => this.addEducation(event, 'degree')} id="standard-basic" label="degree" />
 
                    
 
