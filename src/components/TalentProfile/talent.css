@@ -1,0 +1,18 @@
+.talentAbout{
+    display: flex;
+    justify-content: space-around;
+    background-color: #E5E5E5;
+    width: 70%;
+    margin:  auto;
+    margin-bottom: 10px;
+}
+.talentExperience{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #E5E5E5;
+    width: 70%;
+    margin: auto
+}
+
+
