@@ -4,59 +4,10 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
+import EquipmentItem from '../EquipmentItem/EquipmentItem'; 
 
 export class Equipment extends Component {
-    state = {
-        tractorColor: '',
-        frontColor: '', 
-        fourColor: '', 
-        chiselColor: '', 
-        discRipperColor: '',
-        discColor: '',
-        fieldColor: '',
-        rowCropColor: '', 
-        grainDrillColor: '',
-        airSeederColor: '',
-        centerFillColor: '', 
-        boxRowColor:  '',
-        stipColor: '',
-        pullBehindColor: '',
-        selfSprayerColor: '',
-        selfPropelledColor: '',
-        pullCartColor: '',
-        floaterColor: '', 
-        manureColor: '',
-        liquidManureColor: '',
-        feedMixColor: '',
-        pullBehindChopperColor: '',
-        selfPropelledColor: '',
-        combineColor: '',
-        grainCartColor: '',
-        gravityColor: '',
-        straightTruckColor: '',
-        semiTruckColor: '',
-        ptoColor: '',
-    }
-
-
-    //sends skill to redux state to add or delete 
-    addOrDeleteEquipment = (event, property, stateToChange) => {
-            if (this.state[stateToChange] === '') {
-                console.log('YES');
-
-                this.setState({
-                    ...this.state,
-                    [stateToChange]: 'primary'
-                })
-            } else {
-                this.setState({
-                    ...this.state,
-                    [stateToChange]: ''
-                })
-            }
-            console.log(this.state);
-        this.props.dispatch({ type: 'SET_EQUIPMENT', payload: property })
-    } //end of addOrDelete function 
+   
 
     render() {
         const { classes } = this.props; //need this for Material UI
@@ -64,7 +15,16 @@ export class Equipment extends Component {
             <div>
                 <h3> What equipment do you have experience with?  </h3>
 
-                <Button variant= 'contained' color = {this.state.tractorColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Tractor (any size)', 'tractorColor' )}> Tractor (any size) </Button>
+                {this.props.proficiencies.equipment.map((item) => {
+                    return (
+                        <EquipmentItem item={item} key={item.id} />
+                    )
+
+                })}
+
+
+
+                {/* <Button variant= 'contained' color = {this.state.tractorColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Tractor (any size)', 'tractorColor' )}> Tractor (any size) </Button>
                 <Button variant='contained' color={this.state.frontColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Front wheel assist tractor', 'frontColor')}> Front wheel assist tractor </Button>
                 <Button variant='contained' color={this.state.fourColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Four wheel drive tractor', 'fourColor')}> Four wheel drive tractor </Button>
                 <Button variant='contained' color={this.state.chiselColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Chisel', 'chiselColor')}> Chisel </Button>
@@ -92,7 +52,7 @@ export class Equipment extends Component {
                 <Button variant='contained' color={this.state.gravityColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Gravity wagon', 'gravityColor')}> Gravity wagon </Button>
                 <Button variant='contained' color={this.state.straightTruckColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Straight truck', 'straightTruckColor')}> Straight truck </Button>
                 <Button variant='contained' color={this.state.semiTruckColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Semi-truck', 'semiTruckColor')}> Semi-truck</Button>
-                <Button variant='contained' color={this.state.ptoColor} onClick={(event) => this.addOrDeleteEquipment(event, 'PTO-Augers', 'ptoColor')}> PTO-Augers </Button>
+                <Button variant='contained' color={this.state.ptoColor} onClick={(event) => this.addOrDeleteEquipment(event, 'PTO-Augers', 'ptoColor')}> PTO-Augers </Button> */}
             </div>
         ) //end return 
     } // end render
@@ -100,4 +60,8 @@ export class Equipment extends Component {
 
 Equipment.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(Equipment)); 
+const mapStateToProps = state => ({
+    proficiencies: state.talentForm.proficiencies,
+});
+
+export default connect(mapStateToProps)(withStyles(styles)(Equipment)); 

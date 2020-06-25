@@ -6,9 +6,12 @@ import styles from '../../Styles/styles';
 import { TextField, Typography } from '@material-ui/core';
 
 export class EmploymentItem extends Component {
+
+    componentWillUnmount() {
+        this.props.dispatch({ type: 'SET_EMPLOYMENT', payload: { state: this.state } })
+    }
+
     state = {
-        key: this.props.item,
-        numberOfChanges: 0,
         company: '',
         title: '',
         startDate: '',
@@ -16,16 +19,14 @@ export class EmploymentItem extends Component {
     }
 
     addEmployment = (event, property) => {
-        if (this.state.numberOfChanges < 1) {
+       
             this.setState({
                 ...this.state,
                 [property]: event.target.value,
             })
             console.log(event.target.value);
             console.log('STATE', this.state)
-        } else {
-            // this.props.dispatch({ type: 'EDIT_SCHOOL', payload: { state: this.state, property: property, newValue: event.target.value } })
-        }
+        
     }
 
     sendData = (event) => {
@@ -73,7 +74,7 @@ export class EmploymentItem extends Component {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                            onChange={(event) => this.sendData(event)}
+                            onChange={(event) => this.addEmployment(event, 'endDate')}
                         />
                     </div>
 

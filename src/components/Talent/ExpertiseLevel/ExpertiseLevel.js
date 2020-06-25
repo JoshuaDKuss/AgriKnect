@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 export class ExpertiseLevel extends Component {
     handleYearSelection = (event) => {
         console.log(event.target.value, event.target.dataset.skill)
-        this.props.dispatch({ type: 'SET_SKILLS_EXPERIENCE', payload: { skill: event.target.dataset.skill, time: event.target.value} })
+        this.props.dispatch({ type: 'SET_SKILLS_EXPERIENCE', payload: { skillId: event.target.dataset.skill, skillName: event.target.dataset.proficiency_name, time: event.target.value} })
     }
 
     render() {
@@ -15,8 +15,8 @@ export class ExpertiseLevel extends Component {
                     {this.props.skills.map( skill => {
                         return(
                             <li>
-                                {skill}
-                                <select onChange={this.handleYearSelection} data-skill={skill}  > 
+                                {skill.proficiency_name}
+                                <select onChange={this.handleYearSelection} data-skill={skill.id}  > 
                                     <option> </option>
                                     <option value = "Less than 1 year"> Less than 1 year </option>
                                     <option value = "2 years"> 2 years </option>
