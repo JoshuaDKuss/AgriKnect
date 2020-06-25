@@ -69,6 +69,12 @@ const formData = (state = {
                 } //end of conditional 
             } //end of for loop 
 
+            // let filteredBrands = state.brands.filter(brand => {
+            //    return brand !== action.payload
+            // })
+
+            return {...state, brands: filteredBrands} 
+
         } //end of else 
         return state; 
     }else if (action.type === 'SET_CERTIFICATE') {
@@ -86,6 +92,8 @@ const formData = (state = {
       certificateToAdd.expirationDate = action.payload.state.expirationDate; 
 
         state.certification.push(certificateToAdd); 
+
+        // return {...state, certification: [...state.certification, certificateToAdd]}
         
         return state;
 
