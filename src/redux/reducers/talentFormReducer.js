@@ -1,23 +1,20 @@
-// {
-// certificate: '',
-//     issuingCompany: '',
-//         startDate: '',
-//             endDate: ''
-//     }, 
+import { combineReducers } from 'redux';
 
-const talentForm = (state = {
+
+
+const formData = (state = {
     initialSkills: [],
     skillsExpertise: [],
     equipment: [],
     brands: [], 
-    certifications: [], 
-    education: {
-        school: '',
-        degree: '',
-        startDate: '',
-        endDate: ''
+    certification: [], 
+    education: [],
+    employment: [],
+    location: {
+        city: '',
+        state: '',
+        zipcode: ''
     },
-    location: [],
     bio: ''
 }, action) => {
     let certificateObject = {
@@ -41,24 +38,9 @@ const talentForm = (state = {
         } //end of else 
         return state; 
     } else if (action.type === 'SET_SKILLS_EXPERIENCE'){
-        //if this skill is already is not in the array, add it 
-        // if (state.skillsExpertise.some(object => object.skill === action.payload.skill)) {
-             if (state.skillsExpertise.findIndex( object => object.skill === action.payload.skill) < 0 ) {
-            console.log('need to add');
-            state.skillsExpertise.push(action.payload);
-            // state.skillsExpertise.splice(i, 1)
-            
-                } 
-        else {
-            console.log('need to delete') ;
-                 for (let i = 0; i < state.skillsExpertise.length; i++) {
-                     if (state.skillsExpertise[i].skill === action.payload.skill) {
-                         state.skillsExpertise.splice(i, 1)
-                     } //end of conditional 
-                 } //end of for loop 
-            state.skillsExpertise.push(action.payload);
-        }
-        console.log('skillsExpertise', state.skillsExpertise)
+        
+         state.skillsExpertise.push(action.payload);
+
         return state;
     } else if (action.type === 'SET_EQUIPMENT') {
         if (state.equipment.indexOf(action.payload) < 0) {
@@ -91,28 +73,106 @@ const talentForm = (state = {
         return state; 
     }else if (action.type === 'SET_CERTIFICATE') {
        let certificateToAdd = {
+           key: '',
            certificate: '',
            issuingCompany: '',
            issueDate: '',
            expirationDate: ''
        }
+      certificateToAdd.key = action.payload.state.key
       certificateToAdd.certificate = action.payload.state.certificate;
       certificateToAdd.issuingCompany = action.payload.state.issuingCompany;
       certificateToAdd.issueDate = action.payload.state.issueDate;
-      certificateToAdd.expirationDate = action.payload.expirationDate; 
+      certificateToAdd.expirationDate = action.payload.state.expirationDate; 
 
-        state.certifications.push(certificateToAdd); 
+        state.certification.push(certificateToAdd); 
         
         return state;
 
-    } else if (action.type == 'SET_ISSUING_COMPANY') {
-        certificateObject.issuingCompany = action.payload
-        console.log('object', certificateObject)
+    } else if (action.type === 'EDIT_CERTIFICATE') {
+        console.log(action.payload);
+        //loop through certifications array to find the certificate to edit based off key 
+        for(let i = 0; i < state.certification.length; i ++) {
+            //if key (unique ID) matches, then edit it
+            if(state.certification[i].key === action.payload.state.key){
+                console.log('found it');
+                for (let key in state.certification[i]) {
+                    if (key === action.payload.property) {
+                        console.log('key',key)
+                        // state.certifications.key = action.payload.newValue
+                    } //end if 
+                } //end for loop key in state.certifications
+                } //end if statement for .key
+
+            } //end for loop for state.certifications
+      
         return state; 
+    } else if (action.type === 'SET_EDUCATION') {
+        let educationToAdd = {
+            key: '',
+            school: '',
+            degree: '',
+            startDate: '',
+            endDate: ''
+        }
+        educationToAdd.key = action.payload.state.key
+        educationToAdd.school = action.payload.state.school;
+        educationToAdd.degree = action.payload.state.degree;
+        educationToAdd.startDate = action.payload.state.startDate;
+        educationToAdd.endDate = action.payload.state.endDate;
+
+        state.education.push(educationToAdd);
+
+        return state;
+
+    } else if (action.type === 'SET_EMPLOYMENT') {
+        let employerToAdd = {
+            key: '',
+            company: '',
+            title: '',
+            startDate: '',
+            endDate: ''
+        }
+        employerToAdd.key = action.payload.state.key
+        employerToAdd.company = action.payload.state.company;
+        employerToAdd.title = action.payload.state.title;
+        employerToAdd.startDate = action.payload.state.startDate;
+        employerToAdd.endDate = action.payload.state.endDate;
+
+        state.employment.push(employerToAdd);
+
+        return state;
+
+    } else if (action.type === 'SET_LOCATION') {
+        
+        state.location.city = action.payload.city;
+        state.location.state = action.payload.state;
+        state.location.zipcode = action.payload.zipcode;
+
+        return state;
+
+    } else if (action.type === 'SET_BIO') {
+
+        state.bio = action.payload.bio;
+     
+        return state;
+
     }{
         return state; 
     }
 };
 
+const proficiencies = (state = [], action) => {
+    if (action.type === 'SET_PROFICIENCIES') {
+        return action.payload;
+    } else {
+        return state;
+    }
+}
 
-export default talentForm;
+export default combineReducers({
+    formData,
+    proficiencies
+});
+
+// export default talentForm;

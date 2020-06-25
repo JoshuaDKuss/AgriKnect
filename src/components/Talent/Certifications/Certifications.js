@@ -10,13 +10,15 @@ import CertificationsItem from '../CertificationsItem/CertificationsItem';
 export class Certifications extends Component {
 
     state = {
-        certificateList : ['certificate1']
+        counter: 0,
+        certificateList : [0]
     }
 
     //adds a certificate to list 
     addCertificate = () => {
         this.setState(previousState => ({
-            certificateList: [...previousState.certificateList, 'newCertificate']
+            counter: this.state.counter +1, 
+            certificateList: [...previousState.certificateList, this.state.counter + 1]
         }));
     }
 
@@ -29,7 +31,7 @@ export class Certifications extends Component {
                     <h3> Add any certifications or licenses you have </h3>
                     {this.state.certificateList.map((item) => {
                         return (
-                            <CertificationsItem item={item} />
+                            <CertificationsItem item={item} key = {item}/>
                         )
 
                     })}

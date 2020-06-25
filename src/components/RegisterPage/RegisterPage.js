@@ -7,7 +7,7 @@ class RegisterPage extends Component {
     lastName: "",
     username: "",
     password: "",
-    userType: "",
+    userType: "talent",
   };
 
   registerUser = (event) => {

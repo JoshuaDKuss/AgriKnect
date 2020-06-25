@@ -4,11 +4,15 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
 import {TextField, Typography } from '@material-ui/core';
-import CertificateName from '../CertificateName/CertificateName'; 
 
 export class CertificationsItem extends Component {
 
+    componentWillUnmount() {
+        this.props.dispatch({ type: 'SET_CERTIFICATE', payload: { state: this.state} })
+    }
+
     state = {
+       
         certificate: '',
         issuingCompany: '',
         issueDate: '',
@@ -17,17 +21,21 @@ export class CertificationsItem extends Component {
 
 
     addCertificate = (event, property) => {
+      
         this.setState({
             ...this.state,
-            [property]: event.target.value
+            [property]: event.target.value,
         })
         console.log(this.state)
-        // this.props.dispatch({ type: 'SET_CERTIFICATE', payload: event.target.value })
+   
     }
 
     sendData = (event) => {
         this.props.dispatch({ type: 'SET_CERTIFICATE', payload: {state: this.state, expirationDate: event.target.value } })
-        
+        this.setState({
+            ...this.state,
+            numberOfChanges: this.state.numberOfChanges + 1
+        })
     }
 
     render() {
@@ -35,11 +43,12 @@ export class CertificationsItem extends Component {
         return (
             <div>
                 <div>
+                   
 
                     <Typography>License or certificate: </Typography>
-                    {/* <CertificateName /> */}
+
                     <div ref={node => this.inCertificate = node}>
-                    <TextField id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
+                        <TextField  id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
                     </div>
                     <Typography>Issuing Company: </Typography>
                     <TextField onChange={(event) => this.addCertificate(event, 'issuingCompany' )} id="standard-basic" label="Standard" />
@@ -64,7 +73,8 @@ export class CertificationsItem extends Component {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                        onChange={(event) => this.sendData(event)}
+                            onChange={(event) => this.addCertificate(event, 'expirationDate')}
+               
                         />
                     </div>
 
