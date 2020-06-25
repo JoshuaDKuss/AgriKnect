@@ -37,19 +37,19 @@ export class TalentForm extends Component {
     render() {
         let formToShow = <span> </span>
         if (this.state.formCounter === 0) {
-            formToShow = <Skills/>
+            formToShow =  <Education />
         } else if (this.state.formCounter === 1) {
-            formToShow = <ExpertiseLevel/>
+            formToShow = <Employment /> 
         } else if (this.state.formCounter === 2) {
-           formToShow = <Equipment />
-        } else if (this.state.formCounter === 3) {
-            formToShow = <Brands />
-        } else if (this.state.formCounter === 4) {
             formToShow = <Certifications />
+        } else if (this.state.formCounter === 3) {
+            formToShow = <Skills /> 
+        } else if (this.state.formCounter === 4) {
+            formToShow = <ExpertiseLevel /> 
         } else if (this.state.formCounter === 5) {
-            formToShow = <Education />
+            formToShow =  <Equipment />
         } else if (this.state.formCounter === 6) {
-            formToShow = <Employment />
+            formToShow =  <Brands /> 
         } else if (this.state.formCounter === 7) {
             formToShow = <Location />
         } else if (this.state.formCounter === 8) {
