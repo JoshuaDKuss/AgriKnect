@@ -14,7 +14,6 @@ const talentRouter = require ('./routes/talent.router');
 const farmRouter = require ('./routes/farm.router'); 
 const jobsRouter = require ('./routes/jobs.router'); 
 const talentTwoRouter = require('./routes/talent.two.router'); 
-const jobsRouter = require ('./routes/jobs.router');
 const proficienciesRouter = require ('./routes/proficiencies.router');  
 
 // Body parser middleware

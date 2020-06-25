@@ -17,12 +17,6 @@ export class TalentForm extends Component {
         generalAgricultureSkills: []
     }
 
-    componentDidMount() {
-        this.props.dispatch({
-            type: 'FETCH_PROFICIENCIES'
-        })
-    }
-
     //changes this.state.formCounter so that the correct part of the form is rendered to the page
     changeFormCounter = (event, property) => {
         if(property === 'add') {

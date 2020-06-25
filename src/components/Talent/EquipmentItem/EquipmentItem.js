@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import styles from '../../Styles/styles'; 
+import styles from '../../Styles/styles';
 
-export class SkillsItem extends Component {
+export class EquipmentItem extends Component {
     state = {
         color: ''
     }
@@ -25,15 +25,15 @@ export class SkillsItem extends Component {
             })
         } //end of conditional 
         console.log(this.state)
-        this.props.dispatch({ type: 'SET_INITIAL_SKILLS', payload: property })
+        this.props.dispatch({ type: 'SET_EQUIPMENT', payload: property })
 
     } //end of addOrDelete function 
 
     render() {
         return (
             <div>
-                <Button variant='contained' color={this.state.color} onClick={(event) => this.addOrDeleteSkill(event, this.props.item.proficiency_name )}> {this.props.item.proficiency_name} </Button>
-               
+                <Button variant='contained' color={this.state.color} onClick={(event) => this.addOrDeleteSkill(event, this.props.item.proficiency_name)}> {this.props.item.proficiency_name} </Button>
+
             </div>
         )
     }
@@ -41,6 +41,6 @@ export class SkillsItem extends Component {
 
 
 
-SkillsItem.propTypes = { classes: PropTypes.object.isRequired };
+EquipmentItem.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(SkillsItem)); 
+export default connect()(withStyles(styles)(EquipmentItem)); 

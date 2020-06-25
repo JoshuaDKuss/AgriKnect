@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import SkillsItem from '../SkillsItem'; 
+import SkillsItem from '../SkillsItem/SkillsItem'; 
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
 
@@ -10,66 +9,56 @@ import styles from '../../Styles/styles';
 
 export class Skills extends Component {
 
-    componentDidMount() {
-        this.props.dispatch({ type: 'GET_SKILLS'})
-    }
-
-    state = {
-        tillageColor: '',
-        plantingColor: '', 
-        harvestingColor: '',
-        chemicalColor: '',
-        johnDeereColor: '',
-        caseColor: '',
-        agColor: '',
-        ravenColor: '',
-        trimbleColor: '',
-        newColor: '',
-        caterpillarColor: '',
-        precisionColor: '',
-        constructionColor: '',
-        autoColor: '',
-        plumbingColor: '',
-        electricalColor: '',
-        semiColor: '',
-        straightColor: ''
-    }
-    
-    //sends skill to redux state to add or delete 
-    addOrDeleteSkill = (event, property, stateToChange) => {
-        if (this.state[stateToChange] === '') {
-          
-        
-        this.setState({
-            ...this.state, 
-            [stateToChange]: 'primary'
-        })
-    } else {
-        this.setState({
-            ...this.state, 
-            [stateToChange]: ''
-        })
-    } //end of conditional 
-        console.log(this.state)
-        this.props.dispatch({ type: 'SET_INITIAL_SKILLS', payload: property })
-        
-    } //end of addOrDelete function 
 
     render() {
         const { classes } = this.props; //need this for Material UI
+        
 
-        let color = ''; 
-        if (this.state.tillageColor === false) {
-
-        }
         return (
             <div>
                 <h3> What skills do you have?  </h3>
-                <p>General Agriculture </p>
+               <h4> General Agriculture </h4>
+              
+                <ul>
+                    {this.props.proficiencies.generalAgriculture.map((item) => {
+                        return (
+                            <SkillsItem item={item}  key={item.id} />
+                        )
 
-                <SkillsItem />
+                    })}
+
+                  
+
+                </ul>
+
+                <h4> Precision Farming Technology  </h4>
+
+                {this.props.proficiencies.precisionFarmingTechnology.map((item) => {
+                    return (
+                        <SkillsItem item={item} key={item.id} />
+                    )
+
+                })}
+
+                <h4> Maintenance and Mechanics  </h4>
+
+                {this.props.proficiencies.maintenanceAndMechanics.map((item) => {
+                    return (
+                        <SkillsItem item={item} key={item.id} />
+                    )
+
+                })}
+
+                <h4>Trucking </h4>
+
+                {this.props.proficiencies.trucking.map((item) => {
+                    return (
+                        <SkillsItem item={item} key={item.id} />
+                    )
+
+                })}
                 
-                <Button variant= 'contained' color = {this.state.tillageColor} onClick={(event) => this.addOrDeleteSkill(event, 'Tillage', 'tillageColor')}> Tillage </Button>
+                {/* <Button variant= 'contained' color = {this.state.tillageColor} onClick={(event) => this.addOrDeleteSkill(event, 'Tillage', 'tillageColor')}> Tillage </Button>
                 <Button variant='contained' color={this.state.plantingColor} onClick={(event) => this.addOrDeleteSkill(event, 'Planting', 'plantingColor')}> Planting </Button>
                 <Button variant= 'contained' color = {this.state.harvestingColor} onClick={(event) => this.addOrDeleteSkill(event, 'Harvesting', 'harvestingColor')}> Harvesting </Button>
                 <Button variant='contained' color = {this.state.chemicalColor} onClick={(event) => this.addOrDeleteSkill(event, 'Chemical/fertilizer application', 'chemicalColor')}> Chemical/fertilizer application </Button>
@@ -92,7 +81,7 @@ export class Skills extends Component {
                 
                 <p>Trucking </p>
                 <Button variant='contained' color = {this.state.semiColor} onClick={(event) => this.addOrDeleteSkill(event, 'Semi-truck', 'semiColor')}> Semi-truck </Button>
-                <Button variant='contained' color={this.state.straightColor} onClick={(event) => this.addOrDeleteSkill(event, 'Straight truck', 'straightColor')}> Straight truck</Button>
+                <Button variant='contained' color={this.state.straightColor} onClick={(event) => this.addOrDeleteSkill(event, 'Straight truck', 'straightColor')}> Straight truck</Button> */}
             </div>
         )
     }
@@ -100,4 +89,8 @@ export class Skills extends Component {
 
 Skills.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(Skills)); 
+const mapStateToProps = state => ({
+    proficiencies: state.talentForm.proficiencies,
+});
+
+export default connect(mapStateToProps)(withStyles(styles)(Skills)); 
