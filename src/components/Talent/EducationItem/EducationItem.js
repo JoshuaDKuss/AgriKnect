@@ -10,6 +10,10 @@ export class EducationItem extends Component {
         this.props.dispatch({ type: 'SET_EDUCATION', payload: { state: this.state } })
     }
 
+    componentDidMount() {
+        console.log('STATE STATE STATE', this.state.school)
+    }
+
     state = {
      
         school: '',
@@ -46,7 +50,7 @@ export class EducationItem extends Component {
                   
                    
                     <div ref={node => this.inCertificate = node}>
-                        <TextField id="standard-basic" label="school" onChange={(event) => this.addEducation(event, 'school')} />
+                        <TextField defaultValue={this.state.school} id="standard-basic" label="school" onChange={(event) => this.addEducation(event, 'school')} />
                     </div>
                     
                     <TextField onChange={(event) => this.addEducation(event, 'degree')} id="standard-basic" label="degree" />

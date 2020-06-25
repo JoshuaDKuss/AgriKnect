@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 export class TalentForm extends Component {
     state = {
         formCounter: 0,
-        generalAgricultureSkills: []
+       
     }
 
     //changes this.state.formCounter so that the correct part of the form is rendered to the page
