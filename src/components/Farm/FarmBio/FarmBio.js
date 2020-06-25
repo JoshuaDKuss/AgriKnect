@@ -8,12 +8,12 @@ import styles from '../../Styles/styles';
 
 export class FarmBio extends Component {
     state = {
-        fBio: "",
+        fBio: ''
     }
     //sends bio to redux state to add or delete 
     addFarmBio = (event, property) => {
-        console.log('add farm bio');
-        this.props.dispatch({ type: 'SET_FARM_BIO', payload: property })
+        console.log('add farm bio', this.state);
+        this.props.dispatch({ type: 'SET_FARM_BIO', payload: { fBio: event.target.value} }) ///payload: property
         
     } //end of addFarmBio  
 
@@ -21,7 +21,7 @@ export class FarmBio extends Component {
         return (
             <div>
                 <Typography> Please tell us about your farm </Typography>
-                <textarea rows="10" cols="70" placeholder="Tell us about your farm" onClick={(event) => this.addFarmBio(event)}></textarea>
+                <textarea rows="10" cols="70" placeholder="Tell us about your farm" onChange={(event) => this.addFarmBio(event)}></textarea>
             
             </div>
         )

@@ -11,7 +11,7 @@ const farmForm = (state = {
     //fAddress: [],
     fSize: [],
     fType: [],
-    fBio: '',
+    fBio: [],
 }, action) => {
     if (action.type === 'SET_FARM_NAME_LOCATION') {
         // switch (action.type) {

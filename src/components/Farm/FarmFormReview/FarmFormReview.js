@@ -33,8 +33,7 @@ export class FarmFormReview extends Component {
                 <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fCity)}</p>
                 <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fState)}</p>
                 <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fZip)}</p><br/>
-                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fPhone)}</p>
-                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fEmail)}</p><br/>
+                <br/>
                 <p>{JSON.stringify(this.props.reduxState.farmForm.fSize)}</p>
                 <p>{JSON.stringify(this.props.reduxState.farmForm.fType)}</p>
                 <p>{JSON.stringify(this.props.reduxState.farmForm.fBio)}</p>
@@ -43,6 +42,8 @@ export class FarmFormReview extends Component {
                 {this.props.reduxState.fState}  {this.props.reduxState.fZip}</p> */}
                 
                 <h4>Phone Number and Email address: </h4><br/>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fPhone)}</p>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fEmail)}</p>
                 {/* <p>{this.props.reduxState.fPhone}</p><br/>
                 <p>{this.props.reduxState.fEmail}</p>
                 <h4>Farm Size: </h4>
