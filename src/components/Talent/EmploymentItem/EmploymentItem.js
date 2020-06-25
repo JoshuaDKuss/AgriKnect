@@ -14,8 +14,8 @@ export class EmploymentItem extends Component {
     state = {
         company: '',
         title: '',
-        startDate: '',
-        endDate: ''
+        startDate: 0,
+        endDate: 0
     }
 
     addEmployment = (event, property) => {

@@ -73,7 +73,7 @@ const formData = (state = {
             //    return brand !== action.payload
             // })
 
-            return {...state, brands: filteredBrands} 
+            // return {...state, brands: filteredBrands} 
 
         } //end of else 
         return state; 
