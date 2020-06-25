@@ -39,7 +39,11 @@ import { withStyles } from '@material-ui/core/styles';
 export class Size extends Component {
 
     state = {
-        fSize: ""
+        fSize: this.props.fSize
+    }
+
+    componentDidMount = () => {
+        console.log(this.props.fSize);
     }
 
     // export default function SimpleSelects() {
@@ -60,6 +64,9 @@ export class Size extends Component {
     handleSizeSelection = (event) => {
         console.log(event.target.value);
         this.props.dispatch({ type: 'SET_FARM_SIZE', payload: { fSize: event.target.value} })
+        this.setState({
+            fSize: event.target.value
+        })
     } // end hss
 
     render() {
@@ -70,7 +77,7 @@ export class Size extends Component {
                 <ul>
                             <li>
                                 {/* {fSize} */}
-                                <select onChange={this.handleSizeSelection} 
+                                <select value={this.state.fSize} onChange={this.handleSizeSelection} 
                                 //fSize={fSize}
                                 > 
                                     <option> </option>
@@ -109,13 +116,12 @@ export class Size extends Component {
 }
 
 
-// const reduxStateToProps = (reduxState) => {
-//     return {
-//         size: reduxState.farmForm.size
-//     }
-// }
+const reduxStateToProps = (reduxState) => {
+    return {
+        fSize: reduxState.farmForm.fSize
+    }
+}
 
-// export default connect (reduxStateToProps) (Size); 
 
 Size.propTypes = { classes: PropTypes.object.isRequired };
 
