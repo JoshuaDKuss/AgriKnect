@@ -9,9 +9,9 @@ const farmForm = (state = {
         fEmail: "",
     },
     //fAddress: [],
-    fSize: [],
+    fSize: "",
     fType: [],
-    fBio: [],
+    fBio: "",
 }, action) => {
     if (action.type === 'SET_FARM_NAME_LOCATION') {
         // switch (action.type) {
@@ -29,20 +29,12 @@ const farmForm = (state = {
         return state;
 
     } else if (action.type === 'SET_FARM_SIZE') {
-        // switch (action.type) {
-        //     case 'SET_FARM_SIZE':
-        //         return action.payload;
-        state.fSize = action.payload.fSize;
-
-        return state;
+        
+        return {...state, size: action.payload.size};
 
     } else if (action.type === 'SET_FARM_BIO') {
-        // switch (action.type) {
-        //     case 'SET_FARM_BIO':
-        //         return action.payload;
-        state.fBio = action.payload.fBio;
 
-        return state;
+        return {...state, bio: action.payload.bio};
 
     } else if (action.type === 'SET_FARM_TYPE') {
         if (state.fType.indexOf(action.payload) < 0) {

@@ -43,7 +43,7 @@ export class Size extends Component {
     }
 
     componentDidMount = () => {
-        console.log(this.props.fSize);
+        console.log(this.props.size);
     }
 
     // export default function SimpleSelects() {
