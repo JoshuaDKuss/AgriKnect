@@ -52,7 +52,7 @@ const farmForm = (state = {
         else {
             for (let i = 0; i < state.fType.length; i++) {
                 if (state.fType[i] === action.payload) {
-                    state.fType.splice(i, 1, 2)
+                    state.fType.splice(i, 1)
                 } //end of conditional 
             } //end of for loop 
 

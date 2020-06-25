@@ -21,23 +21,21 @@ export class FarmBio extends Component {
         return (
             <div>
                 <Typography> Please tell us about your farm </Typography>
-                <textarea rows="10" cols="70" placeholder="Tell us about your farm" onChange={(event) => this.addFarmBio(event)}></textarea>
+                <textarea rows="10" cols="70" 
+                // value={this.props.farmBio} 
+                placeholder="Tell us about your farm" onChange={(event) => this.addFarmBio(event)}></textarea>
             
             </div>
         )
     }
 }
 
-// const reduxStateToProps = (reduxState) => {
-//     return {
-//         farmBio: reduxState.farmForm.farmBio
-//     }
-// }
-
-// export default connect (reduxStateToProps) (FarmBio); 
-
-//export default FarmBio;
+const reduxStateToProps = (reduxState) => {
+    return {
+        farmBio: reduxState.farmForm.fBio
+    }
+}
 
 FarmBio.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(FarmBio)); 
+export default connect(reduxStateToProps)(withStyles(styles)(FarmBio)); 
