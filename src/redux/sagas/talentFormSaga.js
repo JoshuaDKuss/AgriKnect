@@ -15,8 +15,8 @@ function* sendTalentForm(action) {
 // retrieves proficiencies from database to populate talent form
 function* fetchProficiencies() {
     try {
-        console.log('in fetch talent form data');
-        const response = yield axios.get(`/talent`);
+        console.log('in fetch proficiencies');
+        const response = yield axios.get(`/proficiencies`);
         yield put({
             type: 'SET_PROFICIENCIES',
             payload: response.data
