@@ -10,7 +10,32 @@ router.get('/', (req, res) => {
     SELECT * FROM "proficiencies"
     ;`;
     pool.query(queryText)
-    .then((result) => res.send(result.rows))
+    .then((result) => {
+        const categories = {
+            brands: [],
+            trucking: [],
+            generalAgriculture: [],
+            precisionFarmingTechnology: [],
+            equipment: [],
+            maintenanceAndMechanics: [],
+        }
+        for (let i = 0; i < result.rows.length; i++) {
+            if(result.rows[i].proficiency_category === 'Brand') {
+                categories.brands.push(result.rows[i])
+            } else if(result.rows[i].proficiency_category === 'Trucking') {
+                categories.trucking.push(result.rows[i])
+            } else if(result.rows[i].proficiency_category === 'General Agriculture') {
+                categories.generalAgriculture.push(result.rows[i])
+            } else if(result.rows[i].proficiency_category === 'Precision Farming Technology') {
+                categories.precisionFarmingTechnology.push(result.rows[i])
+            } else if(result.rows[i].proficiency_category === 'Equipment') {
+                categories.equipment.push(result.rows[i])
+            } else if(result.rows[i].proficiency_category === 'Maintenance and Mechanics') {
+                categories.maintenanceAndMechanics.push(result.rows[i])
+            }
+        }
+        res.send(categories)
+    })
     .catch(() => res.sendStatus(500))
 });
 
