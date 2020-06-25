@@ -3,6 +3,7 @@ import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import user from './userReducer';
 import talentForm from './talentFormReducer'; 
+import farmForm from './farmFormReducer'; 
 import talentProfileReducer from './talentProfileReducer'
 import talentProficiencyReducer from './talentProficiencyReducer'
 //import farmForm from './farmFormReducer'; 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
   user, // will have an id and username if someone is logged in
   talentForm, //sets information for farm talent 
+  farmForm,
   talentProfileReducer, //information for talent profile page
   talentProficiencyReducer, //proficiency information talent profile page
   //farmForm,
