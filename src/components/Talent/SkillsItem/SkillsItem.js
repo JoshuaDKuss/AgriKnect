@@ -32,7 +32,7 @@ export class SkillsItem extends Component {
     render() {
         return (
             <div>
-                <Button variant='contained' color={this.state.color} onClick={(event) => this.addOrDeleteSkill(event, this.props.item.proficiency_name )}> {this.props.item.proficiency_name} </Button>
+                <Button variant='contained' color={this.state.color} onClick={(event) => this.addOrDeleteSkill(event, this.props.item)}> {this.props.item.proficiency_name} </Button>
                
             </div>
         )

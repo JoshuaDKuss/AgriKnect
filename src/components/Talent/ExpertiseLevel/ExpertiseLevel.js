@@ -15,7 +15,7 @@ export class ExpertiseLevel extends Component {
                     {this.props.skills.map( skill => {
                         return(
                             <li>
-                                {skill}
+                                {skill.proficiency_name}
                                 <select onChange={this.handleYearSelection} data-skill={skill}  > 
                                     <option> </option>
                                     <option value = "Less than 1 year"> Less than 1 year </option>

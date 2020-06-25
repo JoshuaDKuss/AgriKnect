@@ -95,7 +95,7 @@ CREATE TABLE "education" (
 );
 
 -- user test data
-INSERT INTO "user" ("first_name", "last_name", "email", "password", "type")
+INSERT INTO "user" ("first_name", "last_name", "username", "password", "type")
 VALUES 
 ('Jack', 'Johnson', 'jack@email.com', 'password', 'talent'),
 ('Sarah', 'Fischer', 'sarah@email.com', 'password', 'employer'),
@@ -186,7 +186,11 @@ VALUES
 ('Gravity wagon', 'Equipment'),
 ('PTO-Augers', 'Equipment'),
 ('Straight truck', 'Trucking'),
-('Semi-truck', 'Trucking');
+('Semi-truck', 'Trucking'),
+('Construction', 'Maintenance and Mechanics'),
+('Auto/machinery repairs', 'Maintenance and Mechanics'),
+('Plumbing', 'Maintenance and Mechanics'),
+('Electrical', 'Maintenance and Mechanics');
 
 -- user_proficiencies test data
 INSERT INTO "user_proficiencies" ("proficiency_id", "length_experience", "user_id")

@@ -103,7 +103,7 @@ const formData = (state = {
       certificateToAdd.certificate = action.payload.state.certificate;
       certificateToAdd.issuingCompany = action.payload.state.issuingCompany;
       certificateToAdd.issueDate = action.payload.state.issueDate;
-      certificateToAdd.expirationDate = action.payload.expirationDate; 
+      certificateToAdd.expirationDate = action.payload.state.expirationDate; 
 
         state.certification.push(certificateToAdd); 
         
@@ -139,7 +139,7 @@ const formData = (state = {
         educationToAdd.school = action.payload.state.school;
         educationToAdd.degree = action.payload.state.degree;
         educationToAdd.startDate = action.payload.state.startDate;
-        educationToAdd.endDate = action.payload.endDate;
+        educationToAdd.endDate = action.payload.state.endDate;
 
         state.education.push(educationToAdd);
 
@@ -157,7 +157,7 @@ const formData = (state = {
         employerToAdd.company = action.payload.state.company;
         employerToAdd.title = action.payload.state.title;
         employerToAdd.startDate = action.payload.state.startDate;
-        employerToAdd.endDate = action.payload.endDate;
+        employerToAdd.endDate = action.payload.state.endDate;
 
         state.employment.push(employerToAdd);
 
