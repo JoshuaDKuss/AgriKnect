@@ -6,9 +6,16 @@ import styles from '../../Styles/styles';
 import { TextField, Typography } from '@material-ui/core';
 
 export class EducationItem extends Component {
+    componentWillUnmount() {
+        this.props.dispatch({ type: 'SET_EDUCATION', payload: { state: this.state } })
+    }
+
+    componentDidMount() {
+        console.log('STATE STATE STATE', this.state.school)
+    }
+
     state = {
-        key: this.props.item,
-        numberOfChanges: 0,
+     
         school: '',
         degree: '',
         startDate: '',
@@ -16,20 +23,17 @@ export class EducationItem extends Component {
     }
 
     addEducation = (event, property) => {
-        if (this.state.numberOfChanges < 1) {
             this.setState({
                 ...this.state,
                 [property]: event.target.value,
             })
             console.log(event.target.value);
             console.log('STATE', this.state)
-        } else {
-            // this.props.dispatch({ type: 'EDIT_SCHOOL', payload: { state: this.state, property: property, newValue: event.target.value } })
-        }
+       
     }
 
     sendData = (event) => {
-        this.props.dispatch({ type: 'SET_EDUCATION', payload: { state: this.state, endDate: event.target.value } })
+        this.props.dispatch({ type: 'SET_EDUCATION', payload: { state: this.state } })
         this.setState({
             ...this.state,
             numberOfChanges: this.state.numberOfChanges + 1
@@ -46,7 +50,7 @@ export class EducationItem extends Component {
                   
                    
                     <div ref={node => this.inCertificate = node}>
-                        <TextField id="standard-basic" label="school" onChange={(event) => this.addEducation(event, 'school')} />
+                        <TextField defaultValue={this.state.school} id="standard-basic" label="school" onChange={(event) => this.addEducation(event, 'school')} />
                     </div>
                     
                     <TextField onChange={(event) => this.addEducation(event, 'degree')} id="standard-basic" label="degree" />
@@ -73,7 +77,8 @@ export class EducationItem extends Component {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                            onChange={(event) => this.sendData(event)}
+                            onChange={(event) => this.addEducation(event, 'endDate')}
+ 
                         />
                     </div>
 

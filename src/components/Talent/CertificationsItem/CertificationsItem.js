@@ -7,9 +7,12 @@ import {TextField, Typography } from '@material-ui/core';
 
 export class CertificationsItem extends Component {
 
+    componentWillUnmount() {
+        this.props.dispatch({ type: 'SET_CERTIFICATE', payload: { state: this.state} })
+    }
+
     state = {
-        key: this.props.item, 
-        numberOfChanges: 0,
+       
         certificate: '',
         issuingCompany: '',
         issueDate: '',
@@ -18,15 +21,13 @@ export class CertificationsItem extends Component {
 
 
     addCertificate = (event, property) => {
-        if(this.state.numberOfChanges < 1) {
+      
         this.setState({
             ...this.state,
             [property]: event.target.value,
         })
         console.log(this.state)
-    } else {
-            this.props.dispatch({ type: 'EDIT_CERTIFICATE', payload: { state: this.state, property: property, newValue: event.target.value } })
-    }
+   
     }
 
     sendData = (event) => {
@@ -45,9 +46,9 @@ export class CertificationsItem extends Component {
                    
 
                     <Typography>License or certificate: </Typography>
-                    {/* <CertificateName /> */}
+
                     <div ref={node => this.inCertificate = node}>
-                    <TextField id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
+                        <TextField  id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
                     </div>
                     <Typography>Issuing Company: </Typography>
                     <TextField onChange={(event) => this.addCertificate(event, 'issuingCompany' )} id="standard-basic" label="Standard" />
@@ -72,7 +73,8 @@ export class CertificationsItem extends Component {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                        onChange={(event) => this.sendData(event)}
+                            onChange={(event) => this.addCertificate(event, 'expirationDate')}
+               
                         />
                     </div>
 

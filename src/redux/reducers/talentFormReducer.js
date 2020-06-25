@@ -1,16 +1,13 @@
-// {
-// certificate: '',
-//     issuingCompany: '',
-//         startDate: '',
-//             endDate: ''
-//     }, 
+import { combineReducers } from 'redux';
 
-const talentForm = (state = {
+
+
+const formData = (state = {
     initialSkills: [],
     skillsExpertise: [],
     equipment: [],
     brands: [], 
-    certifications: [], 
+    certification: [], 
     education: [],
     employment: [],
     location: {
@@ -41,24 +38,9 @@ const talentForm = (state = {
         } //end of else 
         return state; 
     } else if (action.type === 'SET_SKILLS_EXPERIENCE'){
-        //if this skill is already is not in the array, add it 
-        // if (state.skillsExpertise.some(object => object.skill === action.payload.skill)) {
-             if (state.skillsExpertise.findIndex( object => object.skill === action.payload.skill) < 0 ) {
-            console.log('need to add');
-            state.skillsExpertise.push(action.payload);
-            // state.skillsExpertise.splice(i, 1)
-            
-                } 
-        else {
-            console.log('need to delete') ;
-                 for (let i = 0; i < state.skillsExpertise.length; i++) {
-                     if (state.skillsExpertise[i].skill === action.payload.skill) {
-                         state.skillsExpertise.splice(i, 1)
-                     } //end of conditional 
-                 } //end of for loop 
-            state.skillsExpertise.push(action.payload);
-        }
-        console.log('skillsExpertise', state.skillsExpertise)
+        
+         state.skillsExpertise.push(action.payload);
+
         return state;
     } else if (action.type === 'SET_EQUIPMENT') {
         if (state.equipment.indexOf(action.payload) < 0) {
@@ -101,20 +83,20 @@ const talentForm = (state = {
       certificateToAdd.certificate = action.payload.state.certificate;
       certificateToAdd.issuingCompany = action.payload.state.issuingCompany;
       certificateToAdd.issueDate = action.payload.state.issueDate;
-      certificateToAdd.expirationDate = action.payload.expirationDate; 
+      certificateToAdd.expirationDate = action.payload.state.expirationDate; 
 
-        state.certifications.push(certificateToAdd); 
+        state.certification.push(certificateToAdd); 
         
         return state;
 
     } else if (action.type === 'EDIT_CERTIFICATE') {
         console.log(action.payload);
         //loop through certifications array to find the certificate to edit based off key 
-        for(let i = 0; i < state.certifications.length; i ++) {
+        for(let i = 0; i < state.certification.length; i ++) {
             //if key (unique ID) matches, then edit it
-            if(state.certifications[i].key === action.payload.state.key){
+            if(state.certification[i].key === action.payload.state.key){
                 console.log('found it');
-                for (let key in state.certifications[i]) {
+                for (let key in state.certification[i]) {
                     if (key === action.payload.property) {
                         console.log('key',key)
                         // state.certifications.key = action.payload.newValue
@@ -137,7 +119,7 @@ const talentForm = (state = {
         educationToAdd.school = action.payload.state.school;
         educationToAdd.degree = action.payload.state.degree;
         educationToAdd.startDate = action.payload.state.startDate;
-        educationToAdd.endDate = action.payload.endDate;
+        educationToAdd.endDate = action.payload.state.endDate;
 
         state.education.push(educationToAdd);
 
@@ -155,7 +137,7 @@ const talentForm = (state = {
         employerToAdd.company = action.payload.state.company;
         employerToAdd.title = action.payload.state.title;
         employerToAdd.startDate = action.payload.state.startDate;
-        employerToAdd.endDate = action.payload.endDate;
+        employerToAdd.endDate = action.payload.state.endDate;
 
         state.employment.push(employerToAdd);
 
@@ -180,5 +162,17 @@ const talentForm = (state = {
     }
 };
 
+const proficiencies = (state = [], action) => {
+    if (action.type === 'SET_PROFICIENCIES') {
+        return action.payload;
+    } else {
+        return state;
+    }
+}
 
-export default talentForm;
+export default combineReducers({
+    formData,
+    proficiencies
+});
+
+// export default talentForm;

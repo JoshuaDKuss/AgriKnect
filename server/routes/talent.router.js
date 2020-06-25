@@ -24,7 +24,7 @@ pool
 });
 //get for talent proficiency
 router.get('/proficiency/:id', (req, res) => {
-  let id = req.params.id
+let id = req.params.id
 console.log('in router get', [id]);
 const sqlText = `SELECT "proficiency_name", "proficiency_category", "length_experience", "first_name" FROM "user"
 JOIN "user_proficiencies" on "user"."id"="user_proficiencies"."user_id"
@@ -49,8 +49,111 @@ pool
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
 
-});
+router.post('/', async (req, res) => {
+  console.log(req.body)
+  const userId = req.user.id;
+  const city = req.body.formData.location.city;
+  const state = req.body.formData.location.state;
+  const zipcode = req.body.formData.location.zipcode;
+  const bio = req.body.formData.bio;
+
+  const createTalentProfile = await pool.connect();
+
+try {
+  await createTalentProfile.query('BEGIN');
+    const talentUserQuery = `
+    INSERT INTO "talent_user" (city, state, zipcode, bio, user_id) 
+    VALUES ($1, $2, $3, $4, $5);
+  `;
+    const result = await createTalentProfile.query(talentUserQuery, [city, state, zipcode, bio, userId]);
+    
+    await Promise.all(req.body.formData.certification.map(item => {
+      let = certificationQuery = `INSERT INTO "certification" (certification_name, issuing_company, issue_date, expiration_date, user_id) 
+      VALUES ($1, $2, $3, $4, $5);
+      `;
+      createTalentProfile.query(certificationQuery, [
+        item.certificate,
+        item.issuingCompany,
+        item.issueDate,
+        item.expirationDate,
+        userId,
+      ]);
+    }))
+
+  await Promise.all(req.body.formData.employment.map(item => {
+    let = employmentQuery = `INSERT INTO "employment" (employer_name, title, start_date, end_date, user_id) 
+      VALUES ($1, $2, $3, $4, $5);
+      `;
+    createTalentProfile.query(employmentQuery, [
+      item.company,
+      item.title,
+      item.startDate,
+      item.endDate,
+      userId,
+    ]);
+  }))
+
+  await Promise.all(
+    req.body.formData.education.map((item) => {
+      let = educationQuery = `INSERT INTO "education" (institution_name, degree, start_date, end_date, user_id) 
+      VALUES ($1, $2, $3, $4, $5);
+      `;   
+      createTalentProfile.query(educationQuery, [
+        item.school,
+        item.degree,
+        item.startDate,
+        item.endDate,
+        userId,
+      ]);
+    })
+  );
+
+  await Promise.all(
+    req.body.formData.equipment.map((item) => {
+      let equipmentQuery = `INSERT INTO "user_proficiencies" ("proficiency_id", "user_id") VALUES ($1, $2); 
+      `;
+      createTalentProfile.query(equipmentQuery, [
+        item.id,
+        userId
+      ]);
+    })
+  );
+
+  await Promise.all(
+    req.body.formData.brands.map((item) => {
+      let brandQuery = `INSERT INTO "user_proficiencies" ("proficiency_id", "user_id") VALUES ($1, $2); 
+      `;
+      createTalentProfile.query(brandQuery, [
+        item.id,
+        userId
+      ]);
+    })
+  );
+
+  await Promise.all(
+    req.body.formData.skillsExpertise.map((item) => {
+      let skillsQuery = `INSERT INTO "user_proficiencies" ("proficiency_id", "length_experience", "user_id") VALUES ($1, $2, $3); 
+      `;
+      createTalentProfile.query(skillsQuery, [
+        item.skillId,
+        item.time,
+        userId
+      ]);
+    })
+  );
+
+  await createTalentProfile.query('COMMIT');
+    res.sendStatus(200);
+  } catch (err) {
+  await createTalentProfile.query('ROLLBACK');
+    throw err;
+  } finally {
+  createTalentProfile.release();
+  }
+})
+
+
+
 
 module.exports = router;

@@ -25,7 +25,7 @@ export class Employment extends Component {
         return (
             <div>
                 <ul>
-                    <h3> Add your education history </h3>
+                    <h3> Add your employment history </h3>
                     {this.state.employmentList.map((item) => {
                         return (
                             <EmploymentItem item={item} key={item} />
