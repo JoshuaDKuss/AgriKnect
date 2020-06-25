@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Button} from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
@@ -13,9 +13,11 @@ import { Typography } from '@material-ui/core';
 export class Type extends Component {
 
     state = {
+        // fType = {
         rowCropColor: '',
         livestockColor: '',
         dairyColor: ''
+        // }
     }
     
     //sends type to redux state 
@@ -49,9 +51,12 @@ export class Type extends Component {
                 <Typography> What type of farming do you do? </Typography>
                 
                 {/* <img src={rowCrop} onClick={(event) => this.addType(event, 'Row Crop')}> Row Crop </img> */}
-                <Button variant='contained' color={this.state.rowCropColor} onClick={(event) => this.addType(event, 'Row Crop', 'rowCropColor')}> Row Crop </Button>
-                <Button variant='contained' color={this.state.livestockColor} onClick={(event) => this.addType(event, 'Livestock', 'livestockColor')}> Livestock </Button>
-                <Button variant='contained' color={this.state.dairyColor} onClick={(event) => this.addType(event, 'Dairy', 'dairyColor')}> Dairy </Button>
+                <Button variant='contained' color={this.state.rowCropColor} 
+                onClick={(event) => this.addType(event, 'Row Crop', 'rowCropColor')}> Row Crop </Button>
+                <Button variant='contained' color={this.state.livestockColor} 
+                onClick={(event) => this.addType(event, 'Livestock', 'livestockColor')}> Livestock </Button>
+                <Button variant='contained' color={this.state.dairyColor} 
+                onClick={(event) => this.addType(event, 'Dairy', 'dairyColor')}> Dairy </Button>
                 <br/><br/>
             </div>
         )
@@ -69,5 +74,3 @@ export default connect()(withStyles(styles)(Type));
 // }
 
 // export default connect (reduxStateToProps) (Type); 
-
-// export default Type;

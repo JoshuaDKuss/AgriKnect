@@ -1,28 +1,76 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 //import {Button} from '@material-ui/core';
-import { Typography } from '@material-ui/core';
+import { Typography, 
+        // Select, MenuItem, FormControl, InputLabel, FormHelperText 
+        } from '@material-ui/core';
+//import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import styles from '../../Styles/styles';
+import { withStyles } from '@material-ui/core/styles';
+
+// const useStyles = {
+//     FormControl: {
+//             // margin: theme.spacing(1),
+//             minWidth: 250,
+//         }
+// }    // needed this for MUI select
+
+
+// const useStyles = makeStyles((theme) => ({
+//     FormControl: {
+//       margin: theme.spacing(1),
+//       minWidth: 250,
+//     },
+//     selectEmpty: {
+//       marginTop: theme.spacing(3),
+//     },
+//   }));
+
+ 
+//const classes = useStyles();
+//const [size, setSize] = React.useState('');
+  
+    // const handleChange = (event) => {
+    //   setAge(event.target.value);
+    // };
+
 
 export class Size extends Component {
 
     state = {
-        fSize: ''
+        fSize: ""
     }
 
-    handleSizeSelection = (event) => {
+    // export default function SimpleSelects() {
+    //const classes = useStyles();
+    //     const [state, setState] = React.useState({
+    //       age: '',
+    //       name: 'hai',
+    //     });
+      
+    //     const handleChange = (event) => {
+    //       const name = event.target.name;
+    //       setState({
+    //         ...state,
+    //         [name]: event.target.value,
+    //       });
+    //     };
 
+    handleSizeSelection = (event) => {
         console.log(event.target.value);
         this.props.dispatch({ type: 'SET_FARM_SIZE', payload: { fSize: event.target.value} })
     } // end hss
 
     render() {
+        const { classes } = this.props; //useStyles(); //need this for Material UI    
         return (
             <div>
                 <Typography>  What is the size of your farm?  (Number of employees) </Typography>
                 <ul>
                             <li>
                                 {/* {fSize} */}
-                                <select onChange={this.handleSizeSelection} 
+                                <select onClick={this.handleSizeSelection} 
                                 //fSize={fSize}
                                 > 
                                     <option> </option>
@@ -33,6 +81,26 @@ export class Size extends Component {
                                     <option value = "75-100 employees"> 75-100 employees</option>
                                     <option value = "100+ employees"> 100+ employees </option>
                                 </select>
+
+                                {/* <FormControl variant="outlined" 
+                                // className={classes.formControl}
+                                >
+                                    <InputLabel id="demo-simple-select-outlined-label">Number of employees</InputLabel>
+                                    <Select  
+                                            labelId="demo-simple-select-outlined-label"
+                                            id="demo-simple-select-outlined"
+                                            // value={fSize}
+                                            // onChange={handleChange}
+                                            // onClick={handleSizeSelection}
+                                            label="Size">
+                                            <MenuItem value="">
+                                              <em>None</em>
+                                            </MenuItem>
+                                            <MenuItem value={"1-10 employees"}>1-10 employees</MenuItem>
+                                            <MenuItem value={20}>Twenty</MenuItem>
+                                            <MenuItem value={30}>Thirty</MenuItem>
+                                    </Select>
+                                </FormControl> */}
                             </li>
                 </ul>
             </div>
@@ -49,4 +117,6 @@ export class Size extends Component {
 
 // export default connect (reduxStateToProps) (Size); 
 
-export default Size;
+Size.propTypes = { classes: PropTypes.object.isRequired };
+
+export default connect()(withStyles(styles)(Size)); 

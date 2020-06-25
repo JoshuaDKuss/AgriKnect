@@ -11,13 +11,14 @@ import { TextField, Typography } from '@material-ui/core';
 export class NameLocation extends Component {
 
     state = {
-        fName: '',
-        fAddress: '',
-        fCity: '',
-        fState: '',
-        fZip: '',
-        fPhone: '',
-        fEmail: ''
+        // nameLocation
+        fName: "",
+        fAddress: "",
+        fCity: "",
+        fState: "",
+        fZip: "",
+        fPhone: "",
+        fEmail: "",
     }
 
     componentWillUnmount(){
