@@ -81,6 +81,7 @@ export class Skills extends Component {
                 <Button variant='contained' color = {this.state.autoColor} onClick={(event) => this.addOrDeleteSkill(event, 'Auto/machinery repairs', 'autoColor')}> Auto/machinery repairs </Button>
                 <Button variant='contained' color = {this.state.plumbingColor} onClick={(event) => this.addOrDeleteSkill(event, 'Plumbing', 'plumbingColor')}> Plumbing </Button>
                 <Button variant='contained' color = {this.state.electricalColor} onClick={(event) => this.addOrDeleteSkill(event, 'Electrical', 'electricalColor')}> Electrical </Button>
+                
                 <p>Trucking </p>
                 <Button variant='contained' color = {this.state.semiColor} onClick={(event) => this.addOrDeleteSkill(event, 'Semi-truck', 'semiColor')}> Semi-truck </Button>
                 <Button variant='contained' color={this.state.straightColor} onClick={(event) => this.addOrDeleteSkill(event, 'Straight truck', 'straightColor')}> Straight truck</Button>

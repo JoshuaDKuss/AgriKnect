@@ -9,11 +9,18 @@ import Employment from '../Employment/Employment';
 import Location from '../Location/Location';
 import Bio from '../Bio/Bio'; 
 import ReviewPage from '../ReviewPage/ReviewPage';
+import { connect } from "react-redux";
 
 export class TalentForm extends Component {
     state = {
         formCounter: 0,
         generalAgricultureSkills: []
+    }
+
+    componentDidMount() {
+        this.props.dispatch({
+            type: 'FETCH_PROFICIENCIES'
+        })
     }
 
     //changes this.state.formCounter so that the correct part of the form is rendered to the page
@@ -69,4 +76,8 @@ export class TalentForm extends Component {
     }
 }
 
-export default TalentForm; 
+const mapStateToProps = state => ({
+    proficiencies: state.talentForm.proficiencies,
+  });
+
+export default connect(mapStateToProps)(TalentForm); 
