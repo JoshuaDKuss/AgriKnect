@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
+import SkillsItem from '../SkillsItem'; 
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
 
 
 
 export class Skills extends Component {
+
+    componentDidMount() {
+        this.props.dispatch({ type: 'GET_SKILLS'})
+    }
 
     state = {
         tillageColor: '',
@@ -61,6 +66,9 @@ export class Skills extends Component {
             <div>
                 <h3> What skills do you have?  </h3>
                 <p>General Agriculture </p>
+
+                <SkillsItem />
+                
                 <Button variant= 'contained' color = {this.state.tillageColor} onClick={(event) => this.addOrDeleteSkill(event, 'Tillage', 'tillageColor')}> Tillage </Button>
                 <Button variant='contained' color={this.state.plantingColor} onClick={(event) => this.addOrDeleteSkill(event, 'Planting', 'plantingColor')}> Planting </Button>
                 <Button variant= 'contained' color = {this.state.harvestingColor} onClick={(event) => this.addOrDeleteSkill(event, 'Harvesting', 'harvestingColor')}> Harvesting </Button>
