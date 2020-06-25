@@ -12,7 +12,7 @@ export class ExpertiseLevel extends Component {
             <div>
                 <h3>  What is your expertise level for each skill? </h3> 
                 <ul>
-                    {this.props.skills. map( skill => {
+                    {this.props.skills.map( skill => {
                         return(
                             <li>
                                 {skill}
@@ -45,7 +45,7 @@ export class ExpertiseLevel extends Component {
 
 const reduxStateToProps = (reduxState) => {
     return {
-        skills: reduxState.talentForm.initialSkills
+        skills: reduxState.talentForm.formData.initialSkills
     }
 }
 

@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 // {
 // certificate: '',
 //     issuingCompany: '',
@@ -5,12 +7,12 @@
 //             endDate: ''
 //     }, 
 
-const talentForm = (state = {
+const formData = (state = {
     initialSkills: [],
     skillsExpertise: [],
     equipment: [],
     brands: [], 
-    certifications: [], 
+    certification: [], 
     education: [],
     employment: [],
     location: {
@@ -103,18 +105,18 @@ const talentForm = (state = {
       certificateToAdd.issueDate = action.payload.state.issueDate;
       certificateToAdd.expirationDate = action.payload.expirationDate; 
 
-        state.certifications.push(certificateToAdd); 
+        state.certification.push(certificateToAdd); 
         
         return state;
 
     } else if (action.type === 'EDIT_CERTIFICATE') {
         console.log(action.payload);
         //loop through certifications array to find the certificate to edit based off key 
-        for(let i = 0; i < state.certifications.length; i ++) {
+        for(let i = 0; i < state.certification.length; i ++) {
             //if key (unique ID) matches, then edit it
-            if(state.certifications[i].key === action.payload.state.key){
+            if(state.certification[i].key === action.payload.state.key){
                 console.log('found it');
-                for (let key in state.certifications[i]) {
+                for (let key in state.certification[i]) {
                     if (key === action.payload.property) {
                         console.log('key',key)
                         // state.certifications.key = action.payload.newValue
@@ -180,5 +182,17 @@ const talentForm = (state = {
     }
 };
 
+const proficiencies = (state = [], action) => {
+    if (action.type === 'SET_PROFICIENCIES') {
+        return action.payload;
+    } else {
+        return state;
+    }
+}
 
-export default talentForm;
+export default combineReducers({
+    formData,
+    proficiencies
+});
+
+// export default talentForm;

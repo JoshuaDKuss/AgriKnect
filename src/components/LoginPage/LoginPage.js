@@ -14,7 +14,7 @@ class LoginPage extends Component {
       this.props.dispatch({
         type: 'LOGIN',
         payload: {
-          username: this.state.username,
+          email: this.state.username,
           password: this.state.password,
         },
       });
@@ -48,7 +48,7 @@ class LoginPage extends Component {
               <input
                 type="text"
                 name="username"
-                value={this.state.username}
+                value={this.state.email}
                 onChange={this.handleInputChangeFor('username')}
               />
             </label>
