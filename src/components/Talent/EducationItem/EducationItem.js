@@ -73,7 +73,7 @@ export class EducationItem extends Component {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                            onChange={(event) => this.addEducation(event, 'startDate')}
+                            onChange={(event) => this.addEducation(event, 'endDate')}
  
                         />
                     </div>
