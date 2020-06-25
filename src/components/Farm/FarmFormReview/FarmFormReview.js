@@ -28,6 +28,16 @@ export class FarmFormReview extends Component {
                 <h3> Review your information </h3>
                 <h4>Farm Name and address: </h4><br/>
                 <p>{JSON.stringify(this.props.reduxState.farmForm)}</p>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fName)}</p>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fAddress)}</p>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fCity)}</p>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fState)}</p>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fZip)}</p><br/>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fPhone)}</p>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.nameLocation.fEmail)}</p><br/>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.fSize)}</p>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.fType)}</p>
+                <p>{JSON.stringify(this.props.reduxState.farmForm.fBio)}</p>
                 {/* <p>{this.props.reduxState.fName}</p><br/>
                 <p>{this.props.reduxState.fAddress}, {this.props.reduxState.fCity}, 
                 {this.props.reduxState.fState}  {this.props.reduxState.fZip}</p> */}

@@ -44,18 +44,18 @@ export class NameLocation extends Component {
             <div>
                 <Typography> What is the name of your farm and where is it located? </Typography>
                 
-                <TextField id="standard-basic" label="Farm Name" onClick={(event) => this.addFarmNameLocation(event, 'fName')} />
-                <TextField id="standard-basic" label="Address" onClick={(event) => this.addFarmNameLocation(event, 'fAddress')} />
+                <TextField id="standard-basic" label="Farm Name" onChange={(event) => this.addFarmNameLocation(event, 'fName')} />
+                <TextField id="standard-basic" label="Address" onChange={(event) => this.addFarmNameLocation(event, 'fAddress')} />
                 
                 <br/>
 
-                <TextField id="standard-basic" label="City" onClick={(event) => this.addFarmNameLocation(event, 'fCity')} />
-                <TextField id="standard-basic" label="State" onClick={(event) => this.addFarmNameLocation(event, 'fState')} /><br/>
-                <TextField id="standard-basic" label="Zip Code" onClick={(event) => this.addFarmNameLocation(event, 'fZip')} />
+                <TextField id="standard-basic" label="City" onChange={(event) => this.addFarmNameLocation(event, 'fCity')} />
+                <TextField id="standard-basic" label="State" onChange={(event) => this.addFarmNameLocation(event, 'fState')} /><br/>
+                <TextField id="standard-basic" label="Zip Code" onChange={(event) => this.addFarmNameLocation(event, 'fZip')} />
 
                 <br/>
-                <TextField id="outlined-basic" label="Phone Number" variant="outlined" onClick={(event) => this.addFarmNameLocation(event, 'fPhone')} /><br/>
-                <TextField id="outlined-basic" label="Email Address" variant="outlined" onClick={(event) => this.addFarmNameLocation(event, 'fEmail')} />
+                <TextField id="outlined-basic" label="Phone Number" variant="outlined" onChange={(event) => this.addFarmNameLocation(event, 'fPhone')} /><br/>
+                <TextField id="outlined-basic" label="Email Address" variant="outlined" onChange={(event) => this.addFarmNameLocation(event, 'fEmail')} />
                 
                 <br/>
             </div>

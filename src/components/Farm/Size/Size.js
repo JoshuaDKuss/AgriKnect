@@ -70,7 +70,7 @@ export class Size extends Component {
                 <ul>
                             <li>
                                 {/* {fSize} */}
-                                <select onClick={this.handleSizeSelection} 
+                                <select onChange={this.handleSizeSelection} 
                                 //fSize={fSize}
                                 > 
                                     <option> </option>
@@ -91,7 +91,7 @@ export class Size extends Component {
                                             id="demo-simple-select-outlined"
                                             // value={fSize}
                                             // onChange={handleChange}
-                                            // onClick={handleSizeSelection}
+                                            // onChange={handleSizeSelection}
                                             label="Size">
                                             <MenuItem value="">
                                               <em>None</em>

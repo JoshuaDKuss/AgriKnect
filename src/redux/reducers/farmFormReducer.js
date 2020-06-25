@@ -11,7 +11,7 @@ const farmForm = (state = {
     //fAddress: [],
     fSize: [],
     fType: [],
-    fBio: "",
+    fBio: '',
 }, action) => {
     if (action.type === 'SET_FARM_NAME_LOCATION') {
         // switch (action.type) {
@@ -45,14 +45,14 @@ const farmForm = (state = {
         return state;
 
     } else if (action.type === 'SET_FARM_TYPE') {
-        if (state.type.indexOf(action.payload) < 0) {
-            state.type.push(action.payload);
+        if (state.fType.indexOf(action.payload) < 0) {
+            state.fType.push(action.payload);
         } //end of if 
         //if state does include value, remove it 
         else {
             for (let i = 0; i < state.fType.length; i++) {
                 if (state.fType[i] === action.payload) {
-                    state.fType.splice(i, 1)
+                    state.fType.splice(i, 1, 2)
                 } //end of conditional 
             } //end of for loop 
 
