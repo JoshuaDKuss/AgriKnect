@@ -14,6 +14,8 @@ const talentRouter = require ('./routes/talent.router');
 const farmRouter = require ('./routes/farm.router'); 
 const jobsRouter = require ('./routes/jobs.router'); 
 const talentTwoRouter = require('./routes/talent.two.router'); 
+const jobsRouter = require ('./routes/jobs.router');
+const proficienciesRouter = require ('./routes/proficiencies.router');  
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,6 +34,7 @@ app.use('/talent', talentRouter);
 app.use('/farm', farmRouter);
 app.use('/jobs', jobsRouter);
 app.use('/talentTwo', talentTwoRouter) 
+app.use('/proficiencies', proficienciesRouter);
 
 // Serve static files
 app.use(express.static('build'));
