@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import styles from '../../Styles/styles';
+import { Select, MenuItem } from '@material-ui/core';
 
 export class ExpertiseLevel extends Component {
     handleYearSelection = (event) => {
-        console.log(event.target.value, event.target.dataset.skill)
-        this.props.dispatch({ type: 'SET_SKILLS_EXPERIENCE', payload: { skillId: event.target.dataset.skill, skillName: event.target.dataset.proficiency_name, time: event.target.value} })
+        console.log(event.target.value)
+        this.props.dispatch({ type: 'SET_SKILLS_EXPERIENCE', payload: {skillID: event.target.value.skill,  time: event.target.value.time} })
+        // skillId: event.target.dataset.skill, skillName: event.target.dataset.proficiency_name,
     }
 
     render() {
@@ -16,24 +21,25 @@ export class ExpertiseLevel extends Component {
                         return(
                             <li>
                                 {skill.proficiency_name}
-                                <select onChange={this.handleYearSelection} data-skill={skill.id}  > 
-                                    <option> </option>
-                                    <option value = "Less than 1 year"> Less than 1 year </option>
-                                    <option value = "2 years"> 2 years </option>
-                                    <option value = "3 years"> 3 years </option>
-                                    <option value = "4 years"> 4 years </option>
-                                    <option value = "5 years"> 5 years</option>
-                                    <option value = "6 years"> 6 years </option>
-                                    <option value = "7 years"> 7 years </option>
-                                    <option value = "8 years"> 8 years </option>
-                                    <option value = "9 years"> 9 years </option>
-                                    <option value = "10 years"> 10 years </option>
-                                    <option value = "11 years"> 11 years </option>
-                                    <option value = "12 years"> 12 years </option>
-                                    <option value = "13 years"> 13 years </option>
-                                    <option value = "14 years"> 14 years </option>
-                                    <option value = "More than 15 years"> More than 15 years </option>
-                                </select>
+                                {/* data-skill={skill.id} */}
+                                <Select onChange={this.handleYearSelection}   > 
+                                    <MenuItem> </MenuItem>
+                                    <MenuItem value = {{time: "less than 1 year", skill: skill.id}} > Less than 1 year </MenuItem>
+                                    <MenuItem value = {{time: "2 years", skill: skill.id}}> 2 years </MenuItem>
+                                    <MenuItem value = {{time: "3 years", skill: skill.id}}> 3 years </MenuItem>
+                                    <MenuItem value = {{time: "4 years", skill: skill.id}}> 4 years </MenuItem>
+                                    <MenuItem value = {{time: "5 years", skill: skill.id}}> 5 years</MenuItem>
+                                    <MenuItem value = {{time: "6 years", skill: skill.id}}> 6 years </MenuItem>
+                                    <MenuItem value = {{time: "7 years", skill: skill.id}}> 7 years </MenuItem>
+                                    <MenuItem value = {{time: "8 years", skill: skill.id}}> 8 years </MenuItem>
+                                    <MenuItem value = {{time: "9 years", skill: skill.id}}> 9 years </MenuItem>
+                                    <MenuItem value = {{time: "10 years", skill: skill.id}}> 10 years </MenuItem>
+                                    <MenuItem value = {{time: "11 years", skill: skill.id}}> 11 years </MenuItem>
+                                    <MenuItem value = {{time: "12 years", skill: skill.id}}> 12 years </MenuItem>
+                                    <MenuItem value = {{time: "13 years", skill: skill.id}}> 13 years </MenuItem>
+                                    <MenuItem value = {{time: "14 years", skill: skill.id}}> 14 years </MenuItem>
+                                    <MenuItem value = {{time: "More than 15 years", skill: skill.id}}> More than 15 years </MenuItem>
+                                </Select>
                             </li>
                         )
                     })}
@@ -43,10 +49,14 @@ export class ExpertiseLevel extends Component {
     }
 }
 
+
+ExpertiseLevel.propTypes = { classes: PropTypes.object.isRequired };
+
 const reduxStateToProps = (reduxState) => {
     return {
         skills: reduxState.talentForm.formData.initialSkills
     }
 }
 
-export default connect (reduxStateToProps) (ExpertiseLevel); 
+export default connect(reduxStateToProps)(withStyles(styles)(ExpertiseLevel)); 
+

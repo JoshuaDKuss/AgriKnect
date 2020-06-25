@@ -1,11 +1,6 @@
 import { combineReducers } from 'redux';
 
-// {
-// certificate: '',
-//     issuingCompany: '',
-//         startDate: '',
-//             endDate: ''
-//     }, 
+
 
 const formData = (state = {
     initialSkills: [],
@@ -43,24 +38,9 @@ const formData = (state = {
         } //end of else 
         return state; 
     } else if (action.type === 'SET_SKILLS_EXPERIENCE'){
-        //if this skill is already is not in the array, add it 
-        // if (state.skillsExpertise.some(object => object.skill === action.payload.skill)) {
-             if (state.skillsExpertise.findIndex( object => object.skill === action.payload.skill) < 0 ) {
-            console.log('need to add');
-            state.skillsExpertise.push(action.payload);
-            // state.skillsExpertise.splice(i, 1)
-            
-                } 
-        else {
-            console.log('need to delete') ;
-                 for (let i = 0; i < state.skillsExpertise.length; i++) {
-                     if (state.skillsExpertise[i].skill === action.payload.skill) {
-                         state.skillsExpertise.splice(i, 1)
-                     } //end of conditional 
-                 } //end of for loop 
-            state.skillsExpertise.push(action.payload);
-        }
-        console.log('skillsExpertise', state.skillsExpertise)
+        
+         state.skillsExpertise.push(action.payload);
+
         return state;
     } else if (action.type === 'SET_EQUIPMENT') {
         if (state.equipment.indexOf(action.payload) < 0) {
