@@ -13,18 +13,18 @@ import { Typography } from '@material-ui/core';
 export class Type extends Component {
 
                
-    // componentDidMount( ) {
-    //     this.props.type.map(type => {
-    //         for (let i = 0; i < this.state.listOfProperties.length; i++){
-    //             if (type === this.state.listOfProperties[i]) {
-    //                 this.setState({
-    //                     ...this.state,
-    //                     [this.state.listOfProperties[i]]: 'primary'
-    //                 }) //end of setState
-    //         } //end of conditional
-    //     }
-    //     })
-    // }
+    componentDidMount( ) {
+        this.props.type.map(type => {
+            for (let i = 0; i < this.state.listOfProperties.length; i++){
+                if (type === this.state.listOfProperties[i]) {
+                    this.setState({
+                        ...this.state,
+                        [this.state.listOfProperties[i]]: 'primary'
+                    }) //end of setState
+            } //end of conditional
+        }
+        })
+    }
 
            
 
