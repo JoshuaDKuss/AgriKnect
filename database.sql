@@ -53,7 +53,7 @@ CREATE TABLE "employment" (
 
 CREATE TABLE "jobs" (
 	"id" SERIAL PRIMARY KEY,
-    "farm_id" INT REFERENCES "farm",
+    "user_id" INT REFERENCES "user",
     "title" VARCHAR (100),
     "description" VARCHAR (100),
     "type" VARCHAR (100),
