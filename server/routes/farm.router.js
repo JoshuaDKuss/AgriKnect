@@ -28,12 +28,12 @@ router.get('/farm/:id', rejectUnauthenticated, (req, res) => {
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('farm router post');
-    const queryText = `INSERT INTO farm ("farm_name", "farm_address", "city", "state", "zipcode", 
-        "phone", "size", "type", "bio") 
-                       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);`; //RETURNING "id"?
-    const values = [req.body.farm_name, req.body.farm_address, req.body.city, req.body.city,
-        req.body.state, req.body.zipcode, req.body.phone, req.body.size, req.body.type, req.body.bio];
-    pool.query(queryText, values)
+    const farmQueryText = `INSERT INTO farm ("farm_name", "street_address", "city", "state", "zipcode", 
+                        "phone", "size", "type", "bio") 
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);`; //RETURNING "id"?
+    const farmValues = [req.body.farm_name, req.body.street_address, req.body.city, req.body.state,
+                        req.body.zipcode, req.body.phone, req.body.size, req.body.type, req.body.bio];
+    pool.query(farmQueryText, farmValues)
     .then((response)=>{
         res.sendStatus(201)
     })
@@ -43,6 +43,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+
+
 router.put('/:id', rejectUnauthenticated, (req, res) => {  // '/:id'
      console.log('pg router put');
     //console.log('router put', req.body);
@@ -50,7 +52,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {  // '/:id'
             SET "farm_name" = $2, "farm_address"= $3, "city" = $4, "state" = $5, "zipcode" = $6,
             "phone" = $7, "size" = $8, "type" = $9, "bio" = $10
             WHERE "id"=$1`;
-    const queryValues = [req.body.id, req.body.pg_name, req.body.description];
+    const queryValues = [req.body.id, req.body.farm_name, req.body.description];
     pool.query(queryText, queryValues)
         .then(() => {
             res.sendStatus(200);
