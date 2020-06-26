@@ -4,13 +4,16 @@ import { connect } from 'react-redux';
 
 export class FarmFormReview extends Component {
 
-    
+    sendToServer = () => {
+        this.props.dispatch({ type: 'SEND_FARM_FORM', payload: this.props.farmForm })
+        //this.props.history.push('/FarmProfile');
+    }
+
     //sends bio to redux state to add or delete 
-    addFarmFormReview = (event, property) => {
-        console.log('add farm form review');
-        // this.
-        
-    } //end of addFarmFormReview  
+    // addFarmFormReview = (event, property) => {
+    //     console.log('add farm form review');
+    //     // t
+    // } //end of addFarmFormReview  
 
     render() {
         return (
@@ -33,19 +36,21 @@ export class FarmFormReview extends Component {
                 
                 <h4>Contact: </h4>
                 <p>{this.props.reduxState.farmForm.phone}</p>
-                
+                <div>
+                <button onClick= {this.sendToServer}> Save Farm Profile </button>
+                </div>
                 
             </div>
         )
     }
 }
 
+const mapStateToProps = (reduxState) => ({ reduxState })
+
+export default connect(mapStateToProps)(FarmFormReview);
+
 // const reduxStateToProps = (reduxState) => {
 //     return {
 //         FarmFormReview: reduxState.farmForm.FarmFormReview
 //     }
 // }
-
-const mapStateToProps = (reduxState) => ({ reduxState })
-
-export default connect(mapStateToProps)(FarmFormReview);
