@@ -3,45 +3,109 @@ const pool = require("../modules/pool");
 const router = express.Router();
 
 
-router.get("/", (req, res) => {});
+// router.get("/", (req, res) => {});
 
 
-router.post("/", (req, res) => {
-  console.log(req.body);
-  const farmId = req.user.id;
-  const title = req.body.title;
-  const description = req.body.description;
-  const type = req.body.type;
-  const startDate = req.body.startDate;
-  const endDate = req.body.endDate;
-  const housing = req.body.housing;
-  const housingDetails = req.body.housingDetails;
-  const relocationStipend = req.body.relocationStipend;
-  const paymentPeriod = req.body.paymentPeriod;
-  const paymentAmount = req.body.paymentAmount;
 
-  const queryText = `
-    INSERT INTO "jobs" 
-    ("farm_id", "title", "description", "type", "start_date", "end_date", "housing", 
-    "housing_details", "relocation_stipend", "payment_period", "payment_amount")
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
-    ;`;
-  pool
-    .query(queryText, [
-      farmId,
-      title,
-      description,
-      type,
-      startDate,
-      endDate,
-      housing,
-      housingDetails,
-      relocationStipend,
-      paymentPeriod,
-      paymentAmount,
-    ])
-    .then(() => res.sendStatus(201))
-    .catch(() => res.sendStatus(500));
-});
+
+
+  router.post('/', async (req, res) => {
+    const farmId = req.user.id;
+    const title = req.body.jobTitle;
+    const description = req.body.jobDescription;
+    const type = req.body.jobType;
+    const startDate = req.body.startDate;
+    const endDate = req.body.endDate;
+    const housing = req.body.housingProvided;
+    const housingDetails = req.body.housingDetails;
+    const relocationStipend = req.body.relocationProvided;
+    const paymentPeriod = req.body.paymentType;
+    const paymentAmount = req.body.paymentAmount;
+    const createJobPosting = await pool.connect();
+
+    try {
+      await createJobPosting.query('BEGIN');
+      let queryText = `
+        INSERT INTO "jobs" 
+        ("farm_id", "title", "description", "type", "start_date", "end_date", "housing", 
+        "housing_details", "relocation_stipend", "payment_period", "payment_amount")
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"
+        ;`;
+      const result = await createJobPosting.query(queryText, [
+        farmId,
+        title,
+        description,
+        type,
+        startDate,
+        endDate,
+        housing,
+        housingDetails,
+        relocationStipend,
+        paymentPeriod,
+        paymentAmount,
+      ]);
+      const jobID = result.rows[0].id;
+      console.log('result rows', result.rows[0]);
+
+      await Promise.all(req.body.skills.map(item => {
+        let = subQuery = `INSERT INTO "job_proficiencies" 
+          ("proficiency_id", "job_id")
+          VALUES ($1, $2);
+         `;
+        createJobPosting.query(subQuery, [ item.id, jobID])
+      }))
+      await createJobPosting.query('COMMIT');
+      res.sendStatus(200);
+    } catch (err) {
+      await createJobPosting.query('ROLLBACK');
+      throw err;
+    } finally {
+      createJobPosting.release();
+    }
+
+  })
+
+//   const queryText = `
+//     INSERT INTO "jobs" 
+//     ("farm_id", "title", "description", "type", "start_date", "end_date", "housing", 
+//     "housing_details", "relocation_stipend", "payment_period", "payment_amount")
+//     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"
+//     ;`;
+//     pool
+//     .query(queryText, [
+//       farmId,
+//       title,
+//       description,
+//       type,
+//       startDate,
+//       endDate,
+//       housing,
+//       housingDetails,
+//       relocationStipend,
+//       paymentPeriod,
+//       paymentAmount,
+//     ])
+//     .then((result) => {
+//       let jobID = result.rows[0].id; 
+//       console.log('jobID',jobID);
+//       res.sendStatus(200);
+//         const queryTextSkills = `INSERT INTO "job_proficiencies" 
+//           ("proficiency_id", "job_id")
+//           VALUES ($1, $2)
+//          `
+//       pool.query(queryTextSkills, [jobID, action.payload.skills.id]) 
+    
+//     })
+//     .catch((error) => {
+//             console.log(error);
+//             res.sendStatus(500);
+//         })
+// });
+
+// const queryTextTwo = `
+//     INSERT INTO "job_proficiencies" 
+//     ("proficiency_id", "job_id")
+//     VALUES ($1, $2)
+//     ;`;
 
 module.exports = router;

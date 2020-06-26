@@ -15,8 +15,8 @@ export class CertificationsItem extends Component {
        
         certificate: '',
         issuingCompany: '',
-        issueDate: '',
-        expirationDate: ''
+        issueDate: 0,
+        expirationDate: 0
     }
 
 

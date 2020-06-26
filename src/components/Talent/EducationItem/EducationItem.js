@@ -18,8 +18,8 @@ export class EducationItem extends Component {
      
         school: '',
         degree: '',
-        startDate: '',
-        endDate: ''
+        startDate: 0,
+        endDate: 0
     }
 
     addEducation = (event, property) => {

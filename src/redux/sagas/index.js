@@ -5,6 +5,7 @@ import userSaga from './userSaga';
 import talentProfileSaga from './talentProfileSaga'
 import talentFormSaga from './talentFormSaga'; 
 import farmFormSaga from './farmFormSaga';
+import jobPostingSaga from './jobPostingSaga';
 import farmProfileSaga from './farmProfileSaga';
 
 // rootSaga is the primary saga.
@@ -22,6 +23,7 @@ export default function* rootSaga() {
     talentProfileSaga(),
     talentFormSaga(), 
     farmFormSaga(),
+    jobPostingSaga(),
     farmProfileSaga(),
   ]);
 }

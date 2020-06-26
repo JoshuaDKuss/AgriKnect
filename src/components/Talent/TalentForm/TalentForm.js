@@ -10,6 +10,10 @@ import Location from '../Location/Location';
 import Bio from '../Bio/Bio'; 
 import ReviewPage from '../ReviewPage/ReviewPage';
 import { connect } from "react-redux";
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import styles from '../../Styles/styles';
+import { Button } from '@material-ui/core';
 
 export class TalentForm extends Component {
     state = {
@@ -64,7 +68,7 @@ export class TalentForm extends Component {
             {formToShow}
 
             <button onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </button> 
-            <button onClick={(event) => this.changeFormCounter(event, 'add')}> Next</button>
+            <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button>
             </div>
         )
     }
@@ -74,4 +78,6 @@ const mapStateToProps = state => ({
     proficiencies: state.talentForm.proficiencies,
   });
 
-export default connect(mapStateToProps)(TalentForm); 
+TalentForm.propTypes = { classes: PropTypes.object.isRequired };
+
+export default connect(mapStateToProps)(withStyles(styles)(TalentForm)); 
