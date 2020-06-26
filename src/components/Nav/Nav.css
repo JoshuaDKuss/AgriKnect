@@ -4,7 +4,11 @@
     display: inline-block;
     color: #419B2A;
     padding-left: 10px;
-    /* background-image: './documentation/images/Agriknect_logo.png'; */
+    background-image: './Agriknect_logo.png';
+}
+#navLogo{
+  max-width: 300px;
+  padding: 12px;
 }
 
 .nav {
@@ -30,6 +34,7 @@
 
 .nav-link:hover {
   background-color: #5da44b;
+  border-radius: 14px 14px 14px 14px;
 }
 
 .nav-right {

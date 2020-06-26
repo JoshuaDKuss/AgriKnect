@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
+import Logo from "./Agriknect_logo.png";
 
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
-      <h2 className="nav-title">AgriKnect</h2>
+      {/* <h2 className="nav-title">AgriKnect</h2> */}
+      <img src={Logo} alt="AgriKnect logo" id="navLogo" />
     </Link>
     <div className="nav-right">
       <Link className="nav-link" to="/home">
