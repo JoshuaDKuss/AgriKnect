@@ -2,7 +2,7 @@ import { all } from 'redux-saga/effects';
 import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
-import talentProfileSaga from './talentProfileSaga'
+import talentProfileSaga from './talentProfileSaga';
 import talentFormSaga from './talentFormSaga'; 
 import farmFormSaga from './farmFormSaga';
 import jobPostingSaga from './jobPostingSaga';
