@@ -9,14 +9,14 @@ const jobPostingReducer = (state = {
     brands: [],
     housingProvided: false,
     housingDetails: '',
-    reloationProvided: '', 
+    relocationProvided: '', 
     paymentType: '',
     paymentAmount: ''
 
 }, action) => {
     if (action.type === 'SET_JOB_TITLE') {
         console.log(action.payload);
-        return {...state, title: action.payload}
+        return { ...state, jobTitle: action.payload}
     } else if (action.type === 'SET_JOB_DESCRIPTION') {
         console.log(action.payload);
         return { ...state, jobDescription: action.payload }

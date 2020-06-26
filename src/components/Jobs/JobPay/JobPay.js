@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Select, MenuItem, FormControl, InputLabel, Input, InputAdornment } from '@material-ui/core';
+import { Select, MenuItem, InputLabel, Input, InputAdornment } from '@material-ui/core';
 
 export class JobPay extends Component {
 
