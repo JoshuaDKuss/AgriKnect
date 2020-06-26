@@ -9,6 +9,7 @@ import JobSkills from '../JobSkills/JobSkills';
 import JobEquipment from '../JobEquipment/JobEquipment';
 import JobRelocation from '../JobRelocation/JobRelocation';
 import JobPay from '../JobPay/JobPay';
+import JobBrands from '../JobBrands/JobBrands';
 
 export class JobPosting extends Component {
     state = {
@@ -41,8 +42,10 @@ export class JobPosting extends Component {
         } else if (this.state.formCounter === 2) {
             formToShow = <JobEquipment />
         } else if (this.state.formCounter === 3) {
+            formToShow = <JobBrands />
+        }else if (this.state.formCounter === 4) {
             formToShow = <JobRelocation />
-        } else if (this.state.formCounter === 4) {
+        } else if (this.state.formCounter === 5) {
             formToShow = <JobPay />
         } 
         return (
