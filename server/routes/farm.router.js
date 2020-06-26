@@ -28,11 +28,11 @@ router.get('/farm/:id', rejectUnauthenticated, (req, res) => {
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('farm router post');
-    const farmQueryText = `INSERT INTO farm ("farm_name", "farm_address", "city", "state", "zipcode", 
-        "phone", "size", "type", "bio") 
-                       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);`; //RETURNING "id"?
-    const farmValues = [req.body.farm_name, req.body.farm_address, req.body.city, req.body.city,
-        req.body.state, req.body.zipcode, req.body.phone, req.body.size, req.body.type, req.body.bio];
+    const farmQueryText = `INSERT INTO farm ("farm_name", "street_address", "city", "state", "zipcode", 
+                        "phone", "size", "type", "bio") 
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);`; //RETURNING "id"?
+    const farmValues = [req.body.farm_name, req.body.street_address, req.body.city, req.body.state,
+                        req.body.zipcode, req.body.phone, req.body.size, req.body.type, req.body.bio];
     pool.query(farmQueryText, farmValues)
     .then((response)=>{
         res.sendStatus(201)
