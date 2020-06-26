@@ -12,11 +12,28 @@ import { Typography } from '@material-ui/core';
 
 export class Type extends Component {
 
+               
+    // componentDidMount( ) {
+    //     this.props.type.map(type => {
+    //         for (let i = 0; i < this.state.listOfProperties.length; i++){
+    //             if (type === this.state.listOfProperties[i]) {
+    //                 this.setState({
+    //                     ...this.state,
+    //                     [this.state.listOfProperties[i]]: 'primary'
+    //                 }) //end of setState
+    //         } //end of conditional
+    //     }
+    //     })
+    // }
+
+           
+
     state = {
-        // fType = {
+        // type = {
         rowCropColor: '',
         livestockColor: '',
-        dairyColor: ''
+        dairyColor: '',
+        listOfProperties: ['Row Crop', 'Livestock', 'Dairy']
         // }
     }
     
@@ -41,8 +58,9 @@ export class Type extends Component {
 
     render() {
         const { classes } = this.props; //need this for Material UI
-
-        let color = ''; 
+          let color = ''; 
+         
+      
         if (this.state.tillageColor === false) {
 
         }
@@ -63,14 +81,12 @@ export class Type extends Component {
     }
 }
 
+const reduxStateToProps = (reduxState) => {
+    return {
+        type: reduxState.farmForm.type
+    }
+}
+
 Type.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(Type)); 
-
-// const reduxStateToProps = (reduxState) => {
-//     return {
-//         type: reduxState.farmForm.type
-//     }
-// }
-
-// export default connect (reduxStateToProps) (Type); 
+export default connect(reduxStateToProps)(withStyles(styles)(Type)); 

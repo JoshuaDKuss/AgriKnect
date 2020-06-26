@@ -7,33 +7,26 @@ import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
 
 export class FarmBio extends Component {
-    state = {
-        fBio: this.props.fBio
-    }
+    // state = {
+    //     bio: this.props.bio
+    // }
 
     componentDidMount = () => {
-        console.log(this.props.fBio);
+        console.log(this.props.bio);
     }
 
     //sends bio to redux state to add or delete 
     addFarmBio = (event, property) => {
         console.log('add farm bio', this.state);
-
-        this.props.dispatch({ type: 'SET_FARM_BIO', payload: { fBio: event.target.value } }) ///payload: property
-        this.setState({
-            fBio: event.target.value
-        })
-
+        this.props.dispatch({ type: 'SET_FARM_BIO', payload: { bio: event.target.value } }) 
     } //end of addFarmBio  
 
     render() {
         return (
             <div>
                 <Typography> Please tell us about your farm </Typography>
-                <textarea rows="10" cols="70" 
-                value={this.state.fBio} 
+                <textarea rows="10" cols="70" value={this.props.bio} 
                 placeholder="Tell us about your farm" onChange={(event) => this.addFarmBio(event)}></textarea>
-            
             </div>
         )
     }
@@ -41,7 +34,7 @@ export class FarmBio extends Component {
 
 const reduxStateToProps = (reduxState) => {
     return {
-        fBio: reduxState.farmForm.fBio
+        bio: reduxState.farmForm.bio
     }
 }
 
