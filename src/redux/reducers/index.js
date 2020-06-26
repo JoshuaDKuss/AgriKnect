@@ -5,7 +5,10 @@ import user from './userReducer';
 import talentForm from './talentFormReducer'; 
 import farmForm from './farmFormReducer'; 
 import talentProfileReducer from './talentProfileReducer'
-import talentProficiencyReducer from './talentProficiencyReducer'
+import talentProficiencyReducer from './talentProficiencyReducer';
+import talentProficiencyCert from './TalentProficiencyCert';
+import talentEducationReducer from './TalentEducationReducer';
+import talentEmploymentReducer from './TalentEmploymentReducer';
 //import farmForm from './farmFormReducer'; 
 
 // rootReducer is the primary reducer for our entire project
@@ -22,6 +25,9 @@ const rootReducer = combineReducers({
   farmForm,
   talentProfileReducer, //information for talent profile page
   talentProficiencyReducer, //proficiency information talent profile page
+  talentProficiencyCert, //for talent certification, profile page. 
+  talentEducationReducer, //for talent education, profile page.
+  talentEmploymentReducer, //talent employment, profile page. 
   //farmForm,
 });
 

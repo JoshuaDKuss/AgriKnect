@@ -4,6 +4,7 @@
     background-color: #E5E5E5;
     width: 70%;
     margin:  auto;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 .talentExperience{
@@ -12,7 +13,57 @@
     justify-content: space-around;
     background-color: #E5E5E5;
     width: 70%;
-    margin: auto
+    margin: auto;
+    margin-bottom: 10px;
+}
+/* .certHeader{
+    background-color: #E5E5E5;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+   
+} */
+.talentCertification{
+    /* display: flex;
+    justify-content: space-between; */
+    background-color: #E5E5E5;
+    width: 70%;
+    margin: auto;
+   
+    
+}
+.talentCert{
+    display: flex;
+    justify-content: space-between;
+}
+.talentEducation{
+    /* display: flex; */
+    background-color: #E5E5E5;
+    margin-bottom: 10px;
+    width: 70%;
+    margin: auto;
+    
+}
+/* .TalentEquipmentItem{
+    margin-left: 20px;
+} */
+.talentEquipment{
+    display: flex;
+    margin-top: 5px;
+    background-color: #E5E5E5;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.talentEmploymentItem span{
+    margin-right: 10px;
 }
 
-
+.talentEmployment{
+    display: flex;
+    margin-top: 5px;
+    background-color: #E5E5E5;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 10px;
+}
