@@ -10,6 +10,8 @@ const jobPostingReducer = (state = {
     housingProvided: false,
     housingDetails: '',
     reloationProvided: '', 
+    paymentType: '',
+    paymentAmount: ''
 
 }, action) => {
     if (action.type === 'SET_JOB_TITLE') {
@@ -78,6 +80,12 @@ const jobPostingReducer = (state = {
         } else {
             return { ...state, relocationProvided: false }
         }
+
+    } else if (action.type === 'SET_PAYMENT_TYPE') {
+        return { ...state, paymentType: action.payload }
+
+    } else if (action.type === 'SET_PAYMENT_AMOUNT') {
+        return { ...state, paymentAmount: action.payload }
 
     }  else {
         return state
