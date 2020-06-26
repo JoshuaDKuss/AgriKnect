@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import {Button} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 
 export class FarmFormReview extends Component {
 
@@ -34,13 +34,16 @@ export class FarmFormReview extends Component {
                 <h4>Contact: </h4>
                 <p>{this.props.reduxState.farmForm.phone}</p>
                 <div>
-                <button onClick={this.sendToServer}> Save Farm Profile </button>
+                <Button variant='contained' onClick={this.sendToServer}> Save Farm Profile </Button>
                 </div>
+                <br/>
                 
             </div>
         )
     }
 }
+
+
 
 const mapStateToProps = (reduxState) => ({ reduxState })
 
