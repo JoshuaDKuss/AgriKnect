@@ -6,6 +6,11 @@ import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
 
 export class SkillsItem extends Component {
+    componentDidMount(){
+        if this.props.item.proficiency_name ===
+    }
+
+
     state = {
         color: ''
     }
