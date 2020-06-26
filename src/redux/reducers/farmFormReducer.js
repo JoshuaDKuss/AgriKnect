@@ -1,29 +1,17 @@
 const farmForm = (state = {
-    nameLocation: {
-        farm_name: "",
-        street_address: "",
-        city: "",
-        state: "",
-        zipcode: "",
-        phone: "",
-    },
+    
+    farm_name: "",
+    street_address: "",
+    city: "",
+    state: "",
+    zipcode: "",
+    phone: "",
     size: "",
     type: [],
     bio: "",
 }, action) => {
-    if (action.type === 'SET_FARM_NAME_LOCATION') {
-         if (event.target.value = props.farm_name)
-        // return {...state, farm_name: action.payload.farm_name
-            // farm_name: action.payload.farm_name,
-            // street_address: action.payload.street_address,
-            // city: action.payload.city,
-            // state: action.payload.state,
-            // zipcode: action.payload.zipcode,
-            // phone: action.payload.phone,
-        return {...state, farm_name: action.payload.farm_name}
-        // };
-
-    } else if (action.type === 'SET_FARM_SIZE') {
+        
+    if (action.type === 'SET_FARM_SIZE') {
         
         return {...state, size: action.payload.size};
 
@@ -33,19 +21,75 @@ const farmForm = (state = {
 
     } else if (action.type === 'SET_FARM_TYPE') {
         if (state.type.indexOf(action.payload) < 0) {
-            state.type.push(action.payload);
+            // state.type.push(action.payload);
+            return { ...state, type: [...state.type, action.payload] }
         } //end of if 
         //if state does include value, remove it 
-        else {
-            for (let i = 0; i < state.type.length; i++) {
-                if (state.type[i] === action.payload) {
-                    state.type.splice(i, 1)
-                } //end of conditional 
-            } //end of for loop 
+         else {
+            // for (let i = 0; i < state.type.length; i++) {
+            //     if (state.type[i] === action.payload) {
+            //         state.type.splice(i, 1)
+            //     } //end of conditional 
+            // } //end of for loop 
+
+            let filteredTypes = state.type.filter(type => {
+               return type !== action.payload
+            })
+           return {
+               ...state,
+               type: filteredTypes
+           }
 
         } //end of else 
-    } // end of else if
-    return state;
-};
+        return state;
+    }else if (action.type === 'SET_FARM_NAME') {
 
+       return {
+           ...state,
+           farm_name: action.payload
+       };
+
+   } else if (action.type === 'SET_FARM_ADDRESS') {
+
+           return {
+               ...state,
+               street_address: action.payload
+           };
+    
+    } else if (action.type === 'SET_FARM_CITY') {
+
+           return {
+               ...state,
+               city: action.payload
+           };
+
+    } else if (action.type === 'SET_FARM_STATE') {
+
+           return {
+               ...state,
+               state: action.payload
+           };
+
+    } else if (action.type === 'SET_FARM_PHONE') {
+
+           return {
+               ...state,
+               phone: action.payload
+           };
+
+    } else if (action.type === 'SET_FARM_ZIP') {
+
+           return {
+               ...state,
+               zipcode: action.payload
+           };
+
+    } else {
+         return state;
+    }
+}
+    
+    
+    
+    
 export default farmForm;
