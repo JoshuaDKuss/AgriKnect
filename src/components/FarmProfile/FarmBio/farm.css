@@ -1,0 +1,52 @@
+/* body{
+    background: #B4C6CE;
+} */
+
+.farmBio{
+    display: flex;
+    margin-top: 5px;
+    background-color: #E5E5E5;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.farmBioSize{
+    width: 60%;
+    margin-left: 10%;
+}
+
+.farmDetails{
+    /* display: flex;
+    justify-content: space-between; */
+    margin-top: 5px;
+    background-color: #E5E5E5;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.farmDetailsHeader{
+   display: contents;
+}
+.farmDetailItem{
+    display: flex;
+    justify-content: start;
+    
+}
+.farmDetailItem div{
+   width: 33%;
+    
+}
+.farmJobsAvailable{
+    margin-top: 5px;
+    background-color: #E5E5E5;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.farmJobItem li{
+list-style-type: none;
+margin-bottom: 10px;
+}
