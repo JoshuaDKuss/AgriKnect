@@ -10,6 +10,7 @@ import JobEquipment from '../JobEquipment/JobEquipment';
 import JobRelocation from '../JobRelocation/JobRelocation';
 import JobPay from '../JobPay/JobPay';
 import JobBrands from '../JobBrands/JobBrands';
+import JobReview from '../JobReview/JobReview'; 
 
 export class JobPosting extends Component {
     state = {
@@ -47,6 +48,8 @@ export class JobPosting extends Component {
             formToShow = <JobRelocation />
         } else if (this.state.formCounter === 5) {
             formToShow = <JobPay />
+        } else if (this.state.formCounter === 6) {
+            formToShow = <JobReview />
         } 
         return (
             <div>

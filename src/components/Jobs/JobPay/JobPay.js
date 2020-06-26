@@ -20,9 +20,9 @@ export class JobPay extends Component {
                 <h3> What type of payments will be provided for this job</h3>
                 <Select onChange={this.handlePaymentSelection}   >
                     <MenuItem> </MenuItem>
-                    <MenuItem value='hourly' > Hourly </MenuItem>
-                    <MenuItem value='monthly'> Monthly </MenuItem>
-                    <MenuItem value='yearly'> Yearly </MenuItem>
+                    <MenuItem value='/hour' > Hourly </MenuItem>
+                    <MenuItem value='/month'> Monthly </MenuItem>
+                    <MenuItem value='/year'> Yearly </MenuItem>
                     <MenuItem value='lump sum'> Lump Sum </MenuItem>
                 </Select>
             <div>

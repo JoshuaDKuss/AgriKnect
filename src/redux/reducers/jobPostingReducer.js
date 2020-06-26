@@ -38,32 +38,35 @@ const jobPostingReducer = (state = {
         }
         
 
-    } else if (action.type === 'SET_JOB_EQUIPMENT') {
-        console.log('HEREHEREHERE')
-        if (state.equipment.indexOf(action.payload) < 0) {
-            console.log('in if')
-            return { ...state, equipment: [...state.equipment, action.payload] }
-        }  else {
-            console.log('in else')
-            let filteredEquipment = state.equipment.filter(skill => {
-                return skill !== action.payload
-            })
-            return { ...state, equipment: filteredEquipment } }
-    } else if (action.type === 'SET_JOB_BRAND') {
-            console.log('HEREHEREHERE')
-        if (state.brands.indexOf(action.payload) < 0) {
-            console.log('in if')
-            return { ...state, brands: [...state.brands, action.payload] }
-        }  else {
-            console.log('in else')
-            let filteredBrands = state.brands.filter(brand => {
-                return brand !== action.payload
-            })
-            return { ...state, brands: filteredBrands }
     } 
+    // else if (action.type === 'SET_JOB_EQUIPMENT') {
+    //     console.log('HEREHEREHERE')
+    //     if (state.equipment.indexOf(action.payload) < 0) {
+    //         console.log('in if')
+    //         return { ...state, equipment: [...state.equipment, action.payload] }
+    //     }  else {
+    //         console.log('in else')
+    //         let filteredEquipment = state.equipment.filter(skill => {
+    //             return skill !== action.payload
+    //         })
+    //         return { ...state, equipment: filteredEquipment } }
+    // } 
+    // else if (action.type === 'SET_JOB_BRAND') {
+    //         console.log('HEREHEREHERE')
+    //     if (state.brands.indexOf(action.payload) < 0) {
+    //         console.log('in if')
+    //         return { ...state, brands: [...state.brands, action.payload] }
+    //     }  else {
+    //         console.log('in else')
+    //         let filteredBrands = state.brands.filter(brand => {
+    //             return brand !== action.payload
+    //         })
+    //         return { ...state, brands: filteredBrands }
+    // } 
 
 
-    } else if (action.type === 'SET_ACCOMODATION') {
+    // } 
+    else if (action.type === 'SET_ACCOMODATION') {
         console.log(action.payload);
         if(action.payload === 'true') {
             return { ...state, housingProvided: true}
