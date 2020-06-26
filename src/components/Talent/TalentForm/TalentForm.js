@@ -67,7 +67,7 @@ export class TalentForm extends Component {
         
             {formToShow}
 
-            {/* <button onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </button>  */}
+            <button onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </button> 
             <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button>
             </div>
         )

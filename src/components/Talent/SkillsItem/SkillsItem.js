@@ -7,9 +7,15 @@ import styles from '../../Styles/styles';
 
 export class SkillsItem extends Component {
     componentDidMount(){
-        if this.props.item.proficiency_name ===
+        this.props.initialSkills.map(skill => {
+            if (skill === this.props.item) {
+                this.setState({
+                ...this.state,
+                color: 'primary'
+            })
+            }
+        })
     }
-
 
     state = {
         color: ''
@@ -48,4 +54,8 @@ export class SkillsItem extends Component {
 
 SkillsItem.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(SkillsItem)); 
+const mapStateToProps = state => ({
+    initialSkills: state.talentForm.formData.initialSkills,
+});
+
+export default connect(mapStateToProps)(withStyles(styles)(SkillsItem)); 
