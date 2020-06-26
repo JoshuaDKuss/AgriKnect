@@ -13,6 +13,7 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
+import Home from '../HomePage/HomePage';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage'; //currently not shown anywhere because was at /home
 import InfoPage from '../InfoPage/InfoPage';
@@ -53,7 +54,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={Home}
             />
             <ProtectedRoute
               exact
