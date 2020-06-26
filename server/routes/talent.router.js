@@ -197,6 +197,7 @@ try {
     res.sendStatus(200);
   } catch (err) {
   await createTalentProfile.query('ROLLBACK');
+    res.sendStatus(500);
     throw err;
   } finally {
   createTalentProfile.release();
