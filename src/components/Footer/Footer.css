@@ -1,6 +1,10 @@
 footer {
     margin-top: 100px;
     color: #419B2A;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.803);
     padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }

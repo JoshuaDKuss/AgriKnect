@@ -186,7 +186,7 @@ try {
       let skillsQuery = `INSERT INTO "user_proficiencies" ("proficiency_id", "length_experience", "user_id") VALUES ($1, $2, $3); 
       `;
       createTalentProfile.query(skillsQuery, [
-        item.skillId,
+        item.skillID,
         item.time,
         userId
       ]);
