@@ -34,22 +34,11 @@ export class FarmFormReview extends Component {
                 <h4>Contact: </h4>
                 <p>{this.props.reduxState.farmForm.phone}</p>
                 
-                {/* <p>{this.props.reduxState.phone}</p><br/>
-                <p>{this.props.reduxState.fEmail}</p>
-                <h4>Farm Size: </h4>
-                <p>{this.props.reduxState.size}</p>
-                <h4>Farm Type: </h4>
-                <p>{this.props.reduxState.type}</p>
-                <h4>Bio: </h4>
-                <p>{this.props.reduxState.bio}</p> */}
+                
             </div>
         )
     }
 }
-
-const mapStateToProps = (reduxState) => ({ reduxState })
-
-export default connect(mapStateToProps)(FarmFormReview);
 
 // const reduxStateToProps = (reduxState) => {
 //     return {
@@ -57,6 +46,6 @@ export default connect(mapStateToProps)(FarmFormReview);
 //     }
 // }
 
-// export default connect (reduxStateToProps) (FarmFormReview); 
+const mapStateToProps = (reduxState) => ({ reduxState })
 
-//export default FarmFormReview;
+export default connect(mapStateToProps)(FarmFormReview);
