@@ -25,6 +25,17 @@ const jobPostingReducer = (state = {
         return { ...state, startDate: action.payload }
     } else if (action.type === 'SET_END_DATE') {
         return { ...state, endDate: action.payload }
+    } else if (action.type === 'SET_JOB_SKILLS') {
+        if (state.skills.indexOf(action.payload) < 0) {
+        return {...state, skills: [...state.skills, action.payload]}
+        } else {
+              let filteredSkills = state.skills.filter(skill => {
+               return skill !== action.payload
+            })
+           return {...state, skills: filteredSkills}
+        }
+        
+
     } else {
         return state
     }
