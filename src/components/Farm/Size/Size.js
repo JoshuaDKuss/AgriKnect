@@ -39,7 +39,7 @@ import { withStyles } from '@material-ui/core/styles';
 export class Size extends Component {
 
     state = {
-        fSize: this.props.fSize
+        size: this.props.size
     }
 
     componentDidMount = () => {
@@ -63,9 +63,9 @@ export class Size extends Component {
 
     handleSizeSelection = (event) => {
         console.log(event.target.value);
-        this.props.dispatch({ type: 'SET_FARM_SIZE', payload: { fSize: event.target.value} })
+        this.props.dispatch({ type: 'SET_FARM_SIZE', payload: { size: event.target.value} })
         this.setState({
-            fSize: event.target.value
+            size: event.target.value
         })
     } // end hss
 
@@ -76,9 +76,9 @@ export class Size extends Component {
                 <Typography>  What is the size of your farm?  (Number of employees) </Typography>
                 <ul>
                             <li>
-                                {/* {fSize} */}
-                                <select value={this.state.fSize} onChange={this.handleSizeSelection} 
-                                //fSize={fSize}
+                                {/* {size} */}
+                                <select value={this.state.size} onChange={this.handleSizeSelection} 
+                                //size={size}
                                 > 
                                     <option> </option>
                                     <option value = "1-10 employees"> 1-10 employees </option>
@@ -96,7 +96,7 @@ export class Size extends Component {
                                     <Select  
                                             labelId="demo-simple-select-outlined-label"
                                             id="demo-simple-select-outlined"
-                                            // value={fSize}
+                                            // value={size}
                                             // onChange={handleChange}
                                             // onChange={handleSizeSelection}
                                             label="Size">
@@ -118,7 +118,7 @@ export class Size extends Component {
 
 const reduxStateToProps = (reduxState) => {
     return {
-        fSize: reduxState.farmForm.fSize
+        size: reduxState.farmForm.size
     }
 }
 

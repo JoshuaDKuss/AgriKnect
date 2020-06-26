@@ -1,32 +1,27 @@
 const farmForm = (state = {
     nameLocation: {
-        fName: "",
-        fAddress: "",
-        fCity: "",
-        fState: "",
-        fZip: "",
-        fPhone: "",
-        fEmail: "",
+        farm_name: "",
+        street_address: "",
+        city: "",
+        state: "",
+        zipcode: "",
+        phone: "",
     },
-    //fAddress: [],
-    fSize: "",
-    fType: [],
-    fBio: "",
+    size: "",
+    type: [],
+    bio: "",
 }, action) => {
     if (action.type === 'SET_FARM_NAME_LOCATION') {
-        // switch (action.type) {
-        //     case 'SET_FARM_NAME_LOCATION':
-        //         return action.payload;
-                // default: return state;
-        state.nameLocation.fName = action.payload.fName;
-        state.nameLocation.fAddress = action.payload.fAddress;
-        state.nameLocation.fCity = action.payload.fCity;
-        state.nameLocation.fState = action.payload.fState;
-        state.nameLocation.fZip = action.payload.fZip;
-        state.nameLocation.fPhone = action.payload.fPhone;
-        state.nameLocation.fEmail = action.payload.fEmail;
-        
-        return state;
+         if (event.target.value = props.farm_name)
+        // return {...state, farm_name: action.payload.farm_name
+            // farm_name: action.payload.farm_name,
+            // street_address: action.payload.street_address,
+            // city: action.payload.city,
+            // state: action.payload.state,
+            // zipcode: action.payload.zipcode,
+            // phone: action.payload.phone,
+        return {...state, farm_name: action.payload.farm_name}
+        // };
 
     } else if (action.type === 'SET_FARM_SIZE') {
         
@@ -37,14 +32,14 @@ const farmForm = (state = {
         return {...state, bio: action.payload.bio};
 
     } else if (action.type === 'SET_FARM_TYPE') {
-        if (state.fType.indexOf(action.payload) < 0) {
-            state.fType.push(action.payload);
+        if (state.type.indexOf(action.payload) < 0) {
+            state.type.push(action.payload);
         } //end of if 
         //if state does include value, remove it 
         else {
-            for (let i = 0; i < state.fType.length; i++) {
-                if (state.fType[i] === action.payload) {
-                    state.fType.splice(i, 1)
+            for (let i = 0; i < state.type.length; i++) {
+                if (state.type[i] === action.payload) {
+                    state.type.splice(i, 1)
                 } //end of conditional 
             } //end of for loop 
 

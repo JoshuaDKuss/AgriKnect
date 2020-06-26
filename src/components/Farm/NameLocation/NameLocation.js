@@ -10,19 +10,19 @@ import { TextField, Typography } from '@material-ui/core';
 
 export class NameLocation extends Component {
 
-    state = {
-        // nameLocation
-        fName: this.props.fName,
-        fAddress: this.props.fAddress,
-        fCity: this.props.fCity,
-        fState: this.props.fState,
-        fZip: this.props.fZip,
-        fPhone: this.props.fPhone,
-        fEmail: this.props.fEmail,
-    }
+    // state = {
+    //     // nameLocation
+    //     farm_name: this.props.farm_name,
+    //     street_address: this.props.street_address,
+    //     city: this.props.city,
+    //     state: this.props.state,
+    //     zipcode: this.props.zipcode,
+    //     phone: this.props.phone,
+    //     //fEmail: this.props.fEmail,
+    // }
 
     componentDidMount = () => {
-        console.log(this.props.nameLocation);
+        console.log(this.props.farm_name);
     }
 
     // componentWillUnmount(){
@@ -30,12 +30,16 @@ export class NameLocation extends Component {
     // }
 
     addFarmNameLocation = (event, property) => {
-        console.log(this.state);
-        this.props.dispatch({ type: 'SET_FARM_NAME_LOCATION', payload: this.state })
-        this.setState({
-                ...this.state,
-                [property]: event.target.value,
+        console.log(this.props);
+        this.props.dispatch({ type: 'SET_FARM_NAME_LOCATION', 
+                payload: {
+                    [property]: event.target.value,
+                } 
             })
+        // this.setState({
+        //         ...this.state,
+        //         [property]: event.target.value,
+        //     })
     }
     
     //sends name and location to redux state to add or delete 
@@ -50,18 +54,19 @@ export class NameLocation extends Component {
             <div>
                 <Typography> What is the name of your farm and where is it located? </Typography>
                 
-                <TextField id="standard-basic" value={this.state.fName} label="Farm Name" onChange={(event) => this.addFarmNameLocation(event, 'fName')} />
-                <TextField id="standard-basic" value={this.state.fAddress} label="Address" onChange={(event) => this.addFarmNameLocation(event, 'fAddress')} />
+                <TextField id="standard-basic" value={this.props.farm_name} label="Farm Name" onChange={(event) => this.addFarmNameLocation(event, 'farm_name')} />
+                <TextField id="standard-basic" value={this.props.street_address} label="Address" onChange={(event) => this.addFarmNameLocation(event, 'street_address')} />  
+                {/* this.props.nameLocation.street_address */}
                 
                 <br/>
 
-                <TextField id="standard-basic" value={this.state.fCity} label="City" onChange={(event) => this.addFarmNameLocation(event, 'fCity')} />
-                <TextField id="standard-basic" value={this.state.fState} label="State" onChange={(event) => this.addFarmNameLocation(event, 'fState')} /><br/>
-                <TextField id="standard-basic" value={this.state.fZip} label="Zip Code" onChange={(event) => this.addFarmNameLocation(event, 'fZip')} />
+                <TextField id="standard-basic" value={this.props.city} label="City" onChange={(event) => this.addFarmNameLocation(event, 'city')} />
+                <TextField id="standard-basic" value={this.props.state} label="State" onChange={(event) => this.addFarmNameLocation(event, 'state')} /><br/>
+                <TextField id="standard-basic" value={this.props.zipcode} label="Zip Code" onChange={(event) => this.addFarmNameLocation(event, 'zipcode')} />
 
-                <br/>
-                <TextField id="outlined-basic" value={this.state.fPhone} label="Phone Number" variant="outlined" onChange={(event) => this.addFarmNameLocation(event, 'fPhone')} /><br/>
-                <TextField id="outlined-basic" value={this.state.fEmail} label="Email Address" variant="outlined" onChange={(event) => this.addFarmNameLocation(event, 'fEmail')} />
+                <br/><br/>
+                <TextField id="outlined-basic" value={this.props.phone} label="Phone Number" variant="outlined" onChange={(event) => this.addFarmNameLocation(event, 'phone')} />
+            
                 
                 <br/>
             </div>
@@ -69,11 +74,16 @@ export class NameLocation extends Component {
     }
 }
 
-const reduxStateToProps = (reduxState) => {
-    return {
-        nameLocation: reduxState.farmForm.nameLocation
-    }
-}
+// const reduxStateToProps = (reduxState) => {
+//     return {
+//         farm_name: reduxState.farmForm.farm_name,
+//         farm_address: reduxState.farmForm.farm_address,
+//         city: reduxState.farmForm.city,
+//         state: reduxState.farmForm.state,
+//         zipcode: reduxState.farmForm.zipcode,
+//         phone: reduxState.farmForm.phone
+//     }
+// }
 
 NameLocation.propTypes = { classes: PropTypes.object.isRequired };
 
