@@ -13,12 +13,12 @@ function* fetchFarmDetails(action) {
   }
 }
 
-function* talentProfileSaga() {
-  yield takeLatest('FETCH_FARM', fetchFarmDetails);
-}
+// function* talentProfileSaga() {
+//   yield takeLatest('FETCH_FARM', fetchFarmDetails);
+// }
 
-export default talentProfileSaga;
-import { put, takeLatest, takeEvery } from 'redux-saga/effects';
+// export default talentProfileSaga;
+// import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
 
 // function* fetchFarm(action) {
@@ -35,23 +35,23 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 //     }
 // }
 
-function* editFarm(action) {
-    // let id = action.payload;
-    console.log('in edit farm', action.payload.id);
-    try {
-      yield axios.put(`/farm/${action.payload.id}`, action.payload);
-      yield put({
-        type: 'GET_FARM'
-      })
-    } catch (error) {
-      console.log('error editing farm in saga', error);
-  }
-}
+// function* editFarm(action) {
+//     // let id = action.payload;
+//     console.log('in edit farm', action.payload.id);
+//     try {
+//       yield axios.put(`/farm/${action.payload.id}`, action.payload);
+//       yield put({
+//         type: 'GET_FARM'
+//       })
+//     } catch (error) {
+//       console.log('error editing farm in saga', error);
+//   }
+// }
 
 
 function* farmProfileSaga() {
-    yield takeLatest('GET_FARM', fetchFarm);
-    yield takeLatest('EDIT_FARM', editFarm);
+    yield takeLatest('FETCH_FARM', fetchFarmDetails);
+    // yield takeLatest('EDIT_FARM', editFarm);
 }
 
 export default farmProfileSaga;
