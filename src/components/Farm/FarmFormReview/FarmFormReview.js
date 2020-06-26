@@ -9,11 +9,6 @@ export class FarmFormReview extends Component {
         //this.props.history.push('/FarmProfile');
     }
 
-    //sends bio to redux state to add or delete 
-    // addFarmFormReview = (event, property) => {
-    //     console.log('add farm form review');
-    // } //end of addFarmFormReview  
-
     render() {
         return (
             <div>
@@ -22,17 +17,17 @@ export class FarmFormReview extends Component {
                 
                 <p>{this.props.reduxState.farmForm.farm_name}</p>
                 <p>{this.props.reduxState.farmForm.street_address}</p>
-                <p>{this.props.reduxState.farmForm.city},
-                {this.props.reduxState.farmForm.state}
+                <p>{this.props.reduxState.farmForm.city},&nbsp;
+                {this.props.reduxState.farmForm.state} &nbsp;
                 {this.props.reduxState.farmForm.zipcode}</p><br/>
 
-                <h4>Farm Size, Type and Description: </h4>
-                <p>{this.props.reduxState.farmForm.size}</p>
-                <p>{this.props.reduxState.farmForm.type}</p>
-                <p>{this.props.reduxState.farmForm.bio}</p>
+                {/* <h4>Farm Size, Type and Description: </h4> */}
+                <p>Size: {this.props.reduxState.farmForm.size}</p>
+                <p>Type: {this.props.reduxState.farmForm.type}&nbsp;</p>
+                <p>Description: {this.props.reduxState.farmForm.bio}</p>
                 
-                <h4>Contact: </h4>
-                <p>{this.props.reduxState.farmForm.phone}</p>
+                {/* <h4>Contact: </h4> */}
+                <p>Contact: {this.props.reduxState.farmForm.phone}</p>
                 <div>
                 <Button variant='contained' onClick={this.sendToServer}> Save Farm Profile </Button>
                 </div>

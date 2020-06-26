@@ -46,19 +46,18 @@ export class NameLocation extends Component {
             <div>
                 <Typography> What is the name of your farm and where is it located? </Typography>
                 
-                <TextField id="standard-basic" value={this.props.farm_name} label="Farm Name" onChange={(event) => this.addFarmName(event, 'farm_name')} />
+                <TextField id="standard-basic" value={this.props.farm_name} label="Farm Name" onChange={(event) => this.addFarmName(event, 'farm_name')} /> &nbsp;
                 <TextField id="standard-basic" value={this.props.street_address} label="Address" onChange={(event) => this.addStreetAddress(event, 'street_address')} />  
                 
                 <br/>
 
-                <TextField id="standard-basic" value={this.props.city} label="City" onChange={(event) => this.addFarmCity(event, 'city')} />
+                <TextField id="standard-basic" value={this.props.city} label="City" onChange={(event) => this.addFarmCity(event, 'city')} /> &nbsp;
                 <TextField id="standard-basic" value={this.props.state} label="State" onChange={(event) => this.addFarmState(event, 'state')} /><br/>
                 <TextField id="standard-basic" value={this.props.zipcode} label="Zip Code" onChange={(event) => this.addFarmZip(event, 'zipcode')} />
 
                 <br/><br/>
-                <TextField id="outlined-basic" value={this.props.phone} label="Phone Number" variant="outlined" onChange={(event) => this.addFarmPhone(event, 'phone')} />
-            
-                
+                <TextField id="outlined-basic" value={this.props.phone} label="Phone Number" variant="outlined" onChange={(event) => this.addFarmPhone(event, 'phone')} /> 
+                <br/>
                 <br/>
             </div>
         )

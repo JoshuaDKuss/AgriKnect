@@ -11,9 +11,9 @@ import { Typography } from '@material-ui/core';
 //import dairy from './documentation/agriknect_icons/dairy.png';
 
 export class Type extends Component {
-
-               
+      
     // componentDidMount( ) {
+
     //     this.props.type.map(type => {
     //         for (let i = 0; i < this.state.listOfProperties.length; i++){
     //             if (type === this.state.listOfProperties[i]) {
@@ -36,60 +36,47 @@ export class Type extends Component {
     // }
     
     //sends type to redux state 
+    
     addType = (property) => {
-        // if (this.state[stateToChange] === '') {
-        //     this.setState({
-        //         ...this.state, 
-        //         [stateToChange]: 'primary'
-        //     })
-        // } else {
-        //     this.setState({
-        //         ...this.state, 
-        //         [stateToChange]: ''
-        //     })
-        // } //end of conditional 
         console.log(this.state);
         this.props.dispatch({ type: 'SET_FARM_TYPE', payload: property })
-        
     } //end of addType function 
 
     render() {
         const { classes } = this.props; //need this for Material UI
-          let rowCropColor = "primary";
+          let rowCropColor = '';
           if (this.props.type.includes("Row Crop")) { 
-            rowCropColor = 'secondary';
+            rowCropColor = 'primary';
           }
           else {
-           rowCropColor = 'primary';
+           rowCropColor = '';
           }
-          let livestockColor = "primary";
+          let livestockColor = '';
           if (this.props.type.includes("Livestock")) { 
-            livestockColor = 'secondary';
-          }
-          else {
             livestockColor = 'primary';
           }
-          let dairyColor = "primary";
-          if (this.props.type.includes("Dairy")) { 
-            dairyColor = 'secondary';
-          }
           else {
+            livestockColor = '';
+          }
+          let dairyColor = '';
+          if (this.props.type.includes("Dairy")) { 
             dairyColor = 'primary';
           }
-          
-
+          else {
+            dairyColor = '';
+          }
         
         return (
             <div>
-                <Typography> What type of farming do you do? </Typography>
+                <Typography> What type of farming do you do? </Typography> <br/>
                 
                 {/* <img src={rowCrop} onClick={(event) => this.addType(event, 'Row Crop')}> Row Crop </img> */}
                 <Button variant='contained' 
                 color={rowCropColor} 
-                onClick={(event) => this.addType( 'Row Crop' )}> Row Crop </Button>
+                onClick={(event) => this.addType( 'Row Crop' )}> Row Crop </Button>&nbsp; 
                 <Button variant='contained' 
                 color={livestockColor} 
-                onClick={(event) => this.addType( 'Livestock' )}> Livestock </Button>
+                onClick={(event) => this.addType( 'Livestock' )}> Livestock </Button>&nbsp; 
                 <Button variant='contained' 
                 color={dairyColor} 
                 onClick={(event) => this.addType( 'Dairy' )}> Dairy </Button>
