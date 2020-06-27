@@ -26,7 +26,7 @@ export class CertificationsItem extends Component {
             ...this.state,
             [property]: event.target.value,
         })
-        console.log(this.state)
+        console.log(this.props.certification[this.props.item], )
    
     }
 
@@ -39,6 +39,12 @@ export class CertificationsItem extends Component {
     }
 
     render() {
+        let certificateValue = ''
+        if (this.props.certification[this.props.item] !== undefined) {
+            certificateValue = this.props.certification[this.props.item].certificate
+        } 
+        // value={certificateValue}
+
         const { classes } = this.props; //need this for Material UI
         return (
             <div>
@@ -48,7 +54,7 @@ export class CertificationsItem extends Component {
                     <Typography>License or certificate: </Typography>
 
                     <div ref={node => this.inCertificate = node}>
-                        <TextField  id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
+                        <TextField   id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
                     </div>
                     <Typography>Issuing Company: </Typography>
                     <TextField onChange={(event) => this.addCertificate(event, 'issuingCompany' )} id="standard-basic" label="Standard" />
@@ -91,4 +97,8 @@ export class CertificationsItem extends Component {
 
 CertificationsItem.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(CertificationsItem)); 
+const mapStateToProps = state => ({
+    certification: state.talentForm.formData.certification,
+});
+
+export default connect(mapStateToProps)(withStyles(styles)(CertificationsItem)); 

@@ -121,11 +121,9 @@ const formData = (state = {
       certificateToAdd.issueDate = action.payload.state.issueDate;
       certificateToAdd.expirationDate = action.payload.state.expirationDate; 
 
-        state.certification.push(certificateToAdd); 
-
-        // return {...state, certification: [...state.certification, certificateToAdd]}
+        return {...state, certification: [...state.certification, certificateToAdd]}
         
-        return state;
+        
 
     } else if (action.type === 'EDIT_CERTIFICATE') {
         console.log(action.payload);

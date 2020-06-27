@@ -20,7 +20,7 @@ export class ReviewPage extends Component {
                  <Typography> Biography: {this.props.talentForm.bio} </Typography>
                  </div>
                  <Typography> 
-                    Location: {this.props.talentForm.location.city} {this.props.talentForm.location.state} {this.props.talentForm.location.zipcode}
+                    Location: {this.props.talentForm.city} {this.props.talentForm.state} {this.props.talentForm.zipcode}
                 </Typography>
                   
 
