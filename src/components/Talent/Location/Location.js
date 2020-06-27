@@ -10,7 +10,7 @@ export class Location extends Component {
     state = {
         city: '',
         state: '',
-        zipcode: ''
+        zipcode: 0
     }
 
     componentWillUnmount(){

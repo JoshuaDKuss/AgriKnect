@@ -11,66 +11,87 @@ import { Typography } from '@material-ui/core';
 //import dairy from './documentation/agriknect_icons/dairy.png';
 
 export class Type extends Component {
+      
+    // componentDidMount( ) {
 
-    state = {
-        // fType = {
-        rowCropColor: '',
-        livestockColor: '',
-        dairyColor: ''
-        // }
-    }
+    //     this.props.type.map(type => {
+    //         for (let i = 0; i < this.state.listOfProperties.length; i++){
+    //             if (type === this.state.listOfProperties[i]) {
+    //                 this.setState({
+    //                     ...this.state,
+    //                     [this.state.listOfProperties[i]]: 'primary'
+    //                 }) //end of setState
+    //         } //end of conditional
+    //     }
+    //     })
+    // }   
+
+    // state = {
+    //     // type = {
+    //     rowCropColor: '',
+    //     livestockColor: '',
+    //     dairyColor: '',
+    //     listOfProperties: ['Row Crop', 'Livestock', 'Dairy']
+    //     // }
+    // }
     
     //sends type to redux state 
-    addType = (event, property, stateToChange) => {
-        if (this.state[stateToChange] === '') {
-          
-            this.setState({
-                ...this.state, 
-                [stateToChange]: 'primary'
-            })
-        } else {
-            this.setState({
-                ...this.state, 
-                [stateToChange]: ''
-            })
-        } //end of conditional 
+    
+    addType = (property) => {
         console.log(this.state);
         this.props.dispatch({ type: 'SET_FARM_TYPE', payload: property })
-        
     } //end of addType function 
 
     render() {
         const { classes } = this.props; //need this for Material UI
-
-        let color = ''; 
-        if (this.state.tillageColor === false) {
-
-        }
+          let rowCropColor = '';
+          if (this.props.type.includes("Row Crop")) { 
+            rowCropColor = 'primary';
+          }
+          else {
+           rowCropColor = '';
+          }
+          let livestockColor = '';
+          if (this.props.type.includes("Livestock")) { 
+            livestockColor = 'primary';
+          }
+          else {
+            livestockColor = '';
+          }
+          let dairyColor = '';
+          if (this.props.type.includes("Dairy")) { 
+            dairyColor = 'primary';
+          }
+          else {
+            dairyColor = '';
+          }
+        
         return (
             <div>
-                <Typography> What type of farming do you do? </Typography>
+                <Typography> What type of farming do you do? </Typography> <br/>
                 
                 {/* <img src={rowCrop} onClick={(event) => this.addType(event, 'Row Crop')}> Row Crop </img> */}
-                <Button variant='contained' color={this.state.rowCropColor} 
-                onClick={(event) => this.addType(event, 'Row Crop', 'rowCropColor')}> Row Crop </Button>
-                <Button variant='contained' color={this.state.livestockColor} 
-                onClick={(event) => this.addType(event, 'Livestock', 'livestockColor')}> Livestock </Button>
-                <Button variant='contained' color={this.state.dairyColor} 
-                onClick={(event) => this.addType(event, 'Dairy', 'dairyColor')}> Dairy </Button>
+                <Button variant='contained' 
+                color={rowCropColor} 
+                onClick={(event) => this.addType( 'Row Crop' )}> Row Crop </Button>&nbsp; 
+                <Button variant='contained' 
+                color={livestockColor} 
+                onClick={(event) => this.addType( 'Livestock' )}> Livestock </Button>&nbsp; 
+                <Button variant='contained' 
+                color={dairyColor} 
+                onClick={(event) => this.addType( 'Dairy' )}> Dairy </Button>
                 <br/><br/>
             </div>
         )
     }
 }
 
+const reduxStateToProps = (reduxState) => {
+    return {
+        type: reduxState.farmForm.type
+    }
+}
+
 Type.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(Type)); 
-
-// const reduxStateToProps = (reduxState) => {
-//     return {
-//         type: reduxState.farmForm.type
-//     }
-// }
-
-// export default connect (reduxStateToProps) (Type); 
+export default connect(reduxStateToProps)(withStyles(styles)(Type)); 
