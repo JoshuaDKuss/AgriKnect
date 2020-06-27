@@ -11,14 +11,15 @@ export class Bio extends Component {
         bio: ''
     }
 
-    componentWillUnmount() {
-        this.props.dispatch({ type: 'SET_BIO', payload: this.state })
-    }
+    // componentWillUnmount() {
+       
+    // }
     addBio = (event) => {
-        this.setState({
-            bio: event.target.value
-        })
-        console.log(event.target.value)
+         this.props.dispatch({ type: 'SET_BIO', payload: event.target.value })
+        // this.setState({
+        //     bio: event.target.value
+        // })
+        // console.log(event.target.value)
     }
     render() {
         const { classes } = this.props; //need this for Material UI
@@ -33,8 +34,9 @@ export class Bio extends Component {
                         label="Bio"
                         multiline
                         rowsMax={4}
+                    value={this.props.talentForm.bio} 
                         
-                        onChange={this.addBio}
+                    onChange={(event) => this.addBio(event)}
                         variant="outlined"
                     />
 
@@ -46,4 +48,11 @@ export class Bio extends Component {
 
 Bio.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(Bio)); 
+const reduxStateToProps = (reduxState) => {
+    return {
+        talentForm: reduxState.talentForm.formData,
+
+    }
+}
+
+export default connect(reduxStateToProps)(withStyles(styles)(Bio)); 

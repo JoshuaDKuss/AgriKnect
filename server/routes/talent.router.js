@@ -103,9 +103,9 @@ pool
 router.post('/', async (req, res) => {
   console.log(req.body)
   const userId = req.user.id;
-  const city = req.body.formData.location.city;
-  const state = req.body.formData.location.state;
-  const zipcode = req.body.formData.location.zipcode;
+  const city = req.body.formData.city;
+  const state = req.body.formData.state;
+  const zipcode = req.body.formData.zipcode;
   const bio = req.body.formData.bio;
 
   const createTalentProfile = await pool.connect();

@@ -10,11 +10,9 @@ const formData = (state = {
     certification: [], 
     education: [],
     employment: [],
-    location: {
-        city: '',
-        state: '',
-        zipcode: ''
-    },
+    city: '',
+    state: '',
+    zipcode: '',
     bio: ''
 }, action) => {
     let certificateObject = {
@@ -183,19 +181,32 @@ const formData = (state = {
 
         return state;
 
-    } else if (action.type === 'SET_LOCATION') {
+    } else if (action.type === 'SET_CITY') {
+
+        return { ...state, city: action.payload}
         
-        state.location.city = action.payload.city;
-        state.location.state = action.payload.state;
-        state.location.zipcode = action.payload.zipcode;
+       
 
-        return state;
+    } else if (action.type === 'SET_STATE') {
 
-    } else if (action.type === 'SET_BIO') {
+        return { ...state, state: action.payload }
 
-        state.bio = action.payload.bio;
+
+
+    } else if (action.type === 'SET_ZIPCODE') {
+
+        return { ...state, zipcode: action.payload }
+
+
+
+    }  else if (action.type === 'SET_BIO') {
+
+        return {
+            ...state,
+            bio: action.payload
+        };
      
-        return state;
+      
 
     }{
         return state; 
