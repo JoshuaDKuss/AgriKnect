@@ -1,10 +1,8 @@
-footer {
-    margin-top: 100px;
+.footer {
     color: #419B2A;
-    background-color: black;
+    background: rgb(7, 31, 0);
     padding: 20px;
-    /* position: fixed; */
-    position: absolute;
     bottom: 0;
-    width: 100%;
+    text-align: center;
 }
+

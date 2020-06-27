@@ -7,13 +7,19 @@ class RegisterPage extends Component {
     lastName: "",
     username: "",
     password: "",
-    userType: "talent",
+    userType: "",
   };
 
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (
+      this.state.username &&
+      this.state.password &&
+      this.state.firstName &&
+      this.state.lastName &&
+      this.state.userType
+    ) {
       this.props.dispatch({
         type: "REGISTER",
         payload: {
@@ -24,6 +30,11 @@ class RegisterPage extends Component {
           userType: this.state.userType,
         },
       });
+      if (this.state.userType === "talent") {
+        this.props.history.push("/talentForm");
+      } else {
+        this.props.history.push("/farmForm");
+      }
     } else {
       this.props.dispatch({ type: "REGISTRATION_INPUT_ERROR" });
     }
@@ -44,7 +55,7 @@ class RegisterPage extends Component {
           </h2>
         )}
         <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
+          <h1>Create Account</h1>
           <div>
             <label htmlFor="firstName">
               First Name:
@@ -91,27 +102,34 @@ class RegisterPage extends Component {
           </div>
           <div>
             <label htmlFor="userType">
-              User Type:
+              User Type: 
               <select
                 name="userType"
                 value={this.state.userType}
                 onChange={this.handleInputChangeFor("userType")}
               >
+                <option></option>
                 <option value="talent">talent</option>
                 <option value="employer">employer</option>
               </select>
             </label>
           </div>
           <div>
-            <input
+            {/* <input
               className="register"
               type="submit"
               name="submit"
-              value="Register"
+              value="Create"
+            /> */}
+               <input
+              className="register"
+              type="submit"
+              name="submit"
+              value="Create"
             />
           </div>
         </form>
-        <center>
+        {/* <center>
           <button
             type="button"
             className="link-button"
@@ -121,7 +139,7 @@ class RegisterPage extends Component {
           >
             Login
           </button>
-        </center>
+        </center> */}
       </div>
     );
   }

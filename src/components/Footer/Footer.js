@@ -7,9 +7,9 @@ import './Footer.css'
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 const Footer = () => (
-  <footer>
+  <div className="footer">
     &copy; AgriKnect 2020
-  </footer>
+  </div>
 );
 
 export default Footer;
