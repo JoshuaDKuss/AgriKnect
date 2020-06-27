@@ -31,7 +31,7 @@ export class Location extends Component {
 
                 <TextField id="standard-basic" label="City" onChange={(event) => this.addLocation(event, 'city')} />
                  <TextField id="standard-basic" label="State" onChange={(event) => this.addLocation(event, 'state')} />
-                <TextField id="standard-basic" label="Zip Code" onChange={(event) => this.addLocation(event, 'zipcode')} />
+                <TextField id="standard-basic" type="number" label="Zip Code" onChange={(event) => this.addLocation(event, 'zipcode')} />
             </div>
         )
     }
