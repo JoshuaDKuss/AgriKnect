@@ -7,7 +7,7 @@ import talentFormSaga from './talentFormSaga';
 import farmFormSaga from './farmFormSaga';
 import jobPostingSaga from './jobPostingSaga';
 import farmProfileSaga from './farmProfileSaga';
-
+//import searchSaga from '/.searchSaga';
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -25,5 +25,6 @@ export default function* rootSaga() {
     farmFormSaga(),
     jobPostingSaga(),
     farmProfileSaga(),
+    //searchSaga(),
   ]);
 }
