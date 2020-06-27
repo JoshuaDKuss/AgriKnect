@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
+import { Typography, TextField } from "@material-ui/core";
+
 
 export class JobReview extends Component {
     sendJobPosting = () => {
@@ -11,8 +13,68 @@ export class JobReview extends Component {
     }
 
     render() {
+       let housingProvided = "Housing not provided"
+        if (this.props.job.housingProvided) {
+            housingProvided = `Housing provided. ${this.props.job.housingDetails}`
+        }
+
+        let relocationProvided = "Relocation stipend not provided"
+        if (this.props.job.relocationProvided) {
+            relocationProvided = `Relocation stipend provided`
+        }
         return (
             <div>
+                <h1> Please review your information </h1>
+
+                <h2> Job Description </h2>
+
+                <div>
+                    <Typography> Job Title {this.props.job.jobTitle} </Typography>
+                </div>
+                <div>
+                <Typography>
+                    Description: {this.props.job.jobDescription} 
+                </Typography>
+                </div>
+                <div>
+                    <Typography>
+                        Job Type: {this.props.job.jobType} {this.props.job.startDate} {this.props.job.endDate}
+                    </Typography>
+                </div>
+                <div>
+                    <Typography>
+                        Housing: {housingProvided}
+                        <div>
+                            Relocation: {relocationProvided}
+                        </div>
+                    </Typography>
+                </div>
+
+
+                <h2> Desired Experiences and Skills </h2>
+                {this.props.job.skills.map((item) => {
+                    return (
+                        <Typography> {item.proficiency_name}  </Typography>
+                    )
+
+                })}
+
+                <h2> Equipment </h2>
+
+                {this.props.job.equipment.map((item) => {
+                    return (
+                        <Typography> {item.proficiency_name} </Typography>
+                    )
+
+                })}
+
+                <h2> Brands </h2>
+                {this.props.job.brands.map((item) => {
+                    return (
+                        <Typography> {item.proficiency_name} </Typography>
+                    )
+
+                })}
                 <button onClick={(event) => this.sendJobPosting(event)}> Send Saga</button> 
             </div>
         )

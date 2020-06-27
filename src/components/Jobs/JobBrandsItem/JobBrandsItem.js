@@ -25,7 +25,7 @@ export class JobBrandsItem extends Component {
             })
         } //end of conditional 
         console.log(this.state)
-        this.props.dispatch({ type: 'SET_JOB_SKILLS', payload: property })
+        this.props.dispatch({ type: 'SET_JOB_BRAND', payload: property })
 
     } //end of addOrDelete function 
 
