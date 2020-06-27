@@ -13,13 +13,15 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
+import LoginPage from '../LoginPage/LoginPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
 import Home from '../HomePage/HomePage';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage'; //currently not shown anywhere because was at /home
 import InfoPage from '../InfoPage/InfoPage';
 import TalentForm from '../Talent/TalentForm/TalentForm'; 
 import FarmForm from '../Farm/FarmForm/FarmForm';
-import talentProfile from '../TalentProfile/TalentProfile'
+import TalentProfile from '../TalentProfile/TalentProfile'
 import './App.css';
 
 class App extends Component {
@@ -51,10 +53,20 @@ class App extends Component {
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
             Even though it seems like they are different pages, the user is always on localhost:3000/home */}
-            <ProtectedRoute
+            <Route
               exact
               path="/home"
               component={Home}
+            />
+             <Route
+              exact
+              path="/register"
+              component={RegisterPage}
+            />
+              <Route
+              exact
+              path="/login"
+              component={LoginPage}
             />
             <ProtectedRoute
               exact
@@ -69,7 +81,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/talentProfile/:id"
-              component={talentProfile}
+              component={TalentProfile}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

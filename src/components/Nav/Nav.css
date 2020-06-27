@@ -6,6 +6,7 @@
     padding-left: 10px;
     background-image: './Agriknect_logo.png';
 }
+
 #navLogo{
   max-width: 300px;
   padding: 12px;
@@ -13,17 +14,18 @@
 
 .nav {
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.803);
+  background: rgb(7, 31, 0);
 }
 
 .nav-link {
   float: left;
   color: #E5E5E5;
-  background-color: rgba(0, 0, 0, 0);
+  background: rgba(7, 31, 0, 0);
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
   font-size: 20px;
+  /* border-radius: 14px 14px 14px 14px; */
 
   /* these last two make the logout button in
   the nav bar look like another link */
@@ -34,8 +36,7 @@
 
 .nav-link:hover {
   background-color: #5da44b;
-  border-radius: 14px 14px 14px 14px;
-  transition: all 0.5s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .nav-right {
