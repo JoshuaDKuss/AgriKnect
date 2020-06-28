@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import ResultItem from '../ResultItem/ResultItem';
 
 class SearchPage extends Component {
     state = {
@@ -32,9 +33,28 @@ class SearchPage extends Component {
                     <input value={this.state.search} onChange={this.handleChange} placeholder="title, keyword, location"></input>
                 </div>
                 <button onClick={this.submitSearch}>Search</button>
+                {this.props.searchResults.map((result) => {
+                    return (
+                        <ResultItem 
+                            city={result.city}
+                            endDate={result.end_date}
+                            farmName={result.farm_name}
+                            paymentAmount={result.payment_amount}
+                            paymentPeriod={result.payment_period}
+                            startDate={result.start_date}
+                            state={result.state}
+                            title={result.title}
+                            type={result.type}
+                        />
+                    ) 
+                })}
             </div>
         )
     }
 }
 
-export default connect()(SearchPage);
+const mapStateToProps = (state) => ({
+    searchResults: state.jobSearch,
+  });
+
+export default connect(mapStateToProps)(SearchPage);

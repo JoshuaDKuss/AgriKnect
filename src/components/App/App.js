@@ -13,7 +13,7 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import SearchPage from '../SearchPage/SearchPage';
+import SearchPage from '../JobSearch/SearchPage/SearchPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Home from '../HomePage/HomePage';
