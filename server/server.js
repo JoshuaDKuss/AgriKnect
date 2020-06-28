@@ -9,6 +9,7 @@ const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
 
 // Route includes
+const searchRouter = require('./routes/search.router');
 const userRouter = require('./routes/user.router');
 const talentRouter = require ('./routes/talent.router'); 
 const farmRouter = require ('./routes/farm.router'); 
@@ -32,6 +33,7 @@ app.use('/talent', talentRouter);
 app.use('/farm', farmRouter);
 app.use('/jobs', jobsRouter);
 app.use('/proficiencies', proficienciesRouter);
+app.use('/search', searchRouter);
 
 // Serve static files
 app.use(express.static('build'));
