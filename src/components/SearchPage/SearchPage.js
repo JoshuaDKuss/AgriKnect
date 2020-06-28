@@ -7,10 +7,13 @@ class SearchPage extends Component {
     }
 
     submitSearch = () => {
-        console.log('cool')
+        console.log('submitted!')
         this.props.dispatch({
             type: 'FETCH_JOB_SEARCH',
             payload: this.state.search
+        })
+        this.setState({
+            search: ''
         })
     }
 
@@ -26,7 +29,7 @@ class SearchPage extends Component {
             <div className="searchBox">
                 <h1>search all jobs</h1>
                 <div>
-                    <input onChange={this.handleChange} placeholder="title, keyword, location"></input>
+                    <input value={this.state.search} onChange={this.handleChange} placeholder="title, keyword, location"></input>
                 </div>
                 <button onClick={this.submitSearch}>Search</button>
             </div>
