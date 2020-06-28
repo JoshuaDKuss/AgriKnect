@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
 
+
 export class TalentProfileEditSkillsItem extends Component {
     componentDidMount() {
         this.props.initialSkills.map(skill => {
@@ -36,7 +37,7 @@ export class TalentProfileEditSkillsItem extends Component {
             })
         } //end of conditional 
         console.log(this.state)
-        this.props.dispatch({ type: 'SET_INITIAL_SKILLS', payload: property })
+        this.props.dispatch({ type: 'SET_EDITED_SKILLS', payload: property })
 
     } //end of addOrDelete function 
 

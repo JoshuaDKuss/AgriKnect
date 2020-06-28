@@ -87,6 +87,11 @@ class App extends Component {
               path="/talentProfile/:id"
               component={talentProfile}
             />
+            <ProtectedRoute
+              exact
+              path="/talentProfile/editSkills/:id"
+              component={TalentProfileEditSkills}
+            />
            
              <ProtectedRoute
               exact

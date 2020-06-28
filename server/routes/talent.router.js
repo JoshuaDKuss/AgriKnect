@@ -204,6 +204,106 @@ try {
   }
 })
 
+router.put('/skills/:id', async (req, res) => {
+  console.log('REQ.PARAMS', req.params.id, 'REQ.BODY', req.body);
+  const skills = req.body;
+  console.log('skills', skills)
+  const userId = req.params.id;
+  const updateTalentProfile = await pool.connect();
+
+
+
+  try {
+    await updateTalentProfile.query('BEGIN');
+    let queryStringSelect = `SELECT "user_proficiencies"."id" FROM "user_proficiencies" JOIN "proficiencies" 
+    ON "proficiencies"."id" = "proficiency_id" WHERE "user_proficiencies"."user_id" = $1 
+    AND("proficiency_category" = 'Precision Farming Technology' OR "proficiency_category" = 'General Agriculture'  
+    OR "proficiency_category" = 'Maintenance and Mechanics' OR "proficiency_category" = 'Trucking');
+    `;
+    const result = await updateTalentProfile.query(queryStringSelect, [userId]);
+    console.log('result', result.rows);
+
+    await Promise.all(result.rows.map(item => {
+      let = deleteQuery = `DELETE from "user_proficiencies" WHERE "id" = $1;`;
+      updateTalentProfile.query(deleteQuery, [
+        item.id
+      ]);
+    }))
+
+    await Promise.all(req.body.map(item => {
+      let = insertQuery = `INSERT INTO "user_proficiencies" (proficiency_id, length_experience, user_id) 
+      VALUES ($1, $2, $3);
+      `;
+      updateTalentProfile.query(insertQuery, [
+        item.skillID,
+        item.time,
+        userId,
+      ]);
+    }))
+
+    // await Promise.all(
+    //   req.body.education.map((item) => {
+    //     let = educationQuery = `INSERT INTO "education" (institution_name, degree, start_date, end_date, user_id) 
+    //   VALUES ($1, $2, $3, $4, $5);
+    //   `;
+    //     createTalentProfile.query(educationQuery, [
+    //       item.school,
+    //       item.degree,
+    //       item.startDate,
+    //       item.endDate,
+    //       userId,
+    //     ]);
+    //   })
+    // );
+
+    // await Promise.all(
+    //   req.body.equipment.map((item) => {
+    //     let equipmentQuery = `INSERT INTO "user_proficiencies" ("proficiency_id", "user_id") VALUES ($1, $2); 
+    //   `;
+    //     createTalentProfile.query(equipmentQuery, [
+    //       item.id,
+    //       userId
+    //     ]);
+    //   })
+    // );
+
+    // await Promise.all(
+    //   req.body.brands.map((item) => {
+    //     let brandQuery = `INSERT INTO "user_proficiencies" ("proficiency_id", "user_id") VALUES ($1, $2); 
+    //   `;
+    //     createTalentProfile.query(brandQuery, [
+    //       item.id,
+    //       userId
+    //     ]);
+    //   })
+    // );
+
+    // await Promise.all(
+    //   req.body.skillsExpertise.map((item) => {
+    //     let skillsQuery = `INSERT INTO "user_proficiencies" ("proficiency_id", "length_experience", "user_id") VALUES ($1, $2, $3); 
+    //   `;
+    //     createTalentProfile.query(skillsQuery, [
+    //       item.skillID,
+    //       item.time,
+    //       userId
+    //     ]);
+    //   })
+    // );
+
+    await updateTalentProfile.query('COMMIT');
+    res.sendStatus(200);
+  } catch (err) {
+    await updateTalentProfile.query('ROLLBACK');
+    res.sendStatus(500);
+    console.log(err)
+    throw err;
+  } finally {
+    updateTalentProfile.release();
+  }
+})
+
+
+
 
 
 

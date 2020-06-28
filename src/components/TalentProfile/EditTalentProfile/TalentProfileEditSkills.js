@@ -1,72 +1,56 @@
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { withStyles } from '@material-ui/core/styles';
-// import PropTypes from 'prop-types';
-// import styles from '../../Styles/styles';
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import styles from '../../Styles/styles';
+import TalentProfileSkillsList from './TalentProfileEditSkillsList'; 
+import TalentProfileEditExpertise from './TalentProfileEditExpertise';
+
+export class TalentProfileEditSkills extends Component {
+    state = {
+        listRendered: true,
+    }
+
+    renderExpertise = () => {
+        this.setState({
+            listRendered: !this.state.listRendered
+        })
+    }
+
+    submitExpertise = () => {
+        this.props.dispatch({ type: 'UPDATE_TALENT_SKILLS', payload: { skills: this.props.skills.editedSkillsExpertise, id: this.props.match.params.id  }})
+    }
 
 
+    render() {
+        let JSXToRender = <span> </span>
+        let buttonToRender = <button></button>
+        if (this.state.listRendered) {
+            JSXToRender = <TalentProfileSkillsList/>;
+              buttonToRender =  <button onClick={this.renderExpertise}> Next </button>;
+        } else {
+            JSXToRender = <TalentProfileEditExpertise/>
+            buttonToRender =  <button onClick={this.submitExpertise}> Submit </button>;
+        }
+        return (
+            <div>
+                {JSXToRender}
+                {buttonToRender}
+           
+            
+            {/* <button onClick={this.renderExpertise}> Next </button> */}
 
-// export class TalentProfileEditSkills extends Component {
+            </div>
+        )
+    }
+}
 
+TalentProfileEditSkills.propTypes = { classes: PropTypes.object.isRequired };
 
-//     render() {
-//         const { classes } = this.props; //need this for Material UI
+const reduxStateToProps = (reduxState) => {
+    return {
+        skills: reduxState.editedTalentSkillsReducer
+    }
+}
 
-
-//         return (
-//             <div>
-//                 <h3> What skills do you have?  </h3>
-//                 <h4> General Agriculture </h4>
-
-//                 <ul>
-//                     {this.props.proficiencies.generalAgriculture.map((item) => {
-//                         return (
-//                             <SkillsItem item={item} key={item.id} />
-//                         )
-
-//                     })}
-
-
-
-//                 </ul>
-
-//                 <h4> Precision Farming Technology  </h4>
-
-//                 {this.props.proficiencies.precisionFarmingTechnology.map((item) => {
-//                     return (
-//                         <SkillsItem item={item} key={item.id} />
-//                     )
-
-//                 })}
-
-//                 <h4> Maintenance and Mechanics  </h4>
-
-//                 {this.props.proficiencies.maintenanceAndMechanics.map((item) => {
-//                     return (
-//                         <SkillsItem item={item} key={item.id} />
-//                     )
-
-//                 })}
-
-//                 <h4>Trucking </h4>
-
-//                 {this.props.proficiencies.trucking.map((item) => {
-//                     return (
-//                         <SkillsItem item={item} key={item.id} />
-//                     )
-
-//                 })}
-
-
-//             </div>
-//         )
-//     }
-// }
-
-// TalentProfileEditSkills.propTypes = { classes: PropTypes.object.isRequired };
-
-// const mapStateToProps = state => ({
-//     proficiencies: state.talentForm.proficiencies,
-// });
-
-// export default connect(mapStateToProps)(withStyles(styles)(TalentProfileEditSkills)); 
+export default connect(reduxStateToProps)(withStyles(styles)(TalentProfileEditSkills)); 
