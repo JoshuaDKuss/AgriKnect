@@ -5,6 +5,7 @@ import TalentEquipment from './TalentEquipment'
 import TalentCertification from './TalentCertification'
 import TalentEducation from './TalentEducation'
 import TalentEmployment from './TalentEmployment'
+import { Link } from 'react-router-dom'; 
 import './talent.css'
 
 export class TalentProfile extends Component {
@@ -15,11 +16,18 @@ export class TalentProfile extends Component {
         editCertifications: false,
         editEducation: false, 
         editEmployment: false,
+        profileRendered: true,
+        editSkillsRendered: false,
+        editEquipmentRendered: false, 
     }
 
     componentDidMount() {
         console.log('this is params.id', this.props.match.params.id);
         this.props.dispatch({ type: "FETCH_TALENT", payload: this.props.match.params.id });
+    }
+
+    editSkills = () => {
+
     }
 
     renderEditButtons = () => {
@@ -35,13 +43,14 @@ export class TalentProfile extends Component {
     }
 
     render() {
+        let JSXRendered = <span> </span>
         // let editAbout = <span> </span>
         // if(this.state.editAbout) {
         //     editAbout = <button> Edit </button>
         // }
         let editSkills = <span> </span>
         if (this.state.editSkills) {
-            editSkills = <button> Edit </button>
+            editSkills = <Link to='/talentProfile/:id/skills'>  <button onClick={this.editSkills}> Edit </button> </Link> 
         }
         let editEquipment = <span> </span>
         if (this.state.editEquipment) {

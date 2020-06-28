@@ -24,6 +24,8 @@ import FarmForm from '../Farm/FarmForm/FarmForm';
 import talentProfile from '../TalentProfile/TalentProfile';
 import farmProfile from '../FarmProfile/FarmBio/FarmBio'
 import JobPosting from '../Jobs/JobPosting/JobPosting'; 
+import TalentProfileEditSkills from '../TalentProfile/EditTalentProfile/TalentProfileEditSkills'; 
+
 import './App.css';
 
 class App extends Component {
@@ -85,6 +87,7 @@ class App extends Component {
               path="/talentProfile/:id"
               component={talentProfile}
             />
+           
              <ProtectedRoute
               exact
               path="/farmProfile/:id"
