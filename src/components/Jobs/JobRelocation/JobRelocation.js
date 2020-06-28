@@ -9,6 +9,7 @@ export class JobRelocation extends Component {
     chooseAccomodation(event) {
         console.log(event.target.value)
         this.props.dispatch({ type: 'SET_ACCOMODATION', payload: event.target.value })
+        
     }
 
     sendDescription(event) {
@@ -24,7 +25,7 @@ export class JobRelocation extends Component {
         
 
         let housingDescription = ''; 
-        if (this.props.housing) {
+        if (this.props.housing.housingProvided == 'true') {
             housingDescription = <div> <TextField
                 id="outlined-multiline-flexible"
                 label="Description"
@@ -41,8 +42,8 @@ export class JobRelocation extends Component {
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Will housing accomodation be provided?</FormLabel>
                     <RadioGroup value={this.props.housing.housingProvided} aria-label="accomodation" name="accomodation" onChange={(event) => this.chooseAccomodation(event)}>
-                        <FormControlLabel value ={true} control={<Radio />} label="Yes" />
-                        <FormControlLabel value={false} control={<Radio />} label="No" />
+                        <FormControlLabel value ="true" control={<Radio />} label="Yes" />
+                        <FormControlLabel value="false" control={<Radio />} label="No" />
                     </RadioGroup>
                 </FormControl>
 
@@ -51,7 +52,7 @@ export class JobRelocation extends Component {
              <div>
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Will a relocation stipend be provided?</FormLabel>
-                    <RadioGroup aria-label="relocation" name="relocation" onChange={(event) => this.chooseRelocation(event)}>
+                        <RadioGroup value={this.props.housing.relocationProvided} aria-label="relocation" name="relocation" onChange={(event) => this.chooseRelocation(event)}>
                         <FormControlLabel value="true" control={<Radio />} label="Yes" />
                         <FormControlLabel value="false" control={<Radio />} label="No" />
                     </RadioGroup>
@@ -65,7 +66,7 @@ export class JobRelocation extends Component {
 JobRelocation.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapStateToProps = state => ({
-    housing: state.jobPostingReducer.housingProvided
+    housing: state.jobPostingReducer
 });
 
 export default connect(mapStateToProps)(withStyles(styles)(JobRelocation)); 

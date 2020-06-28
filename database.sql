@@ -59,9 +59,9 @@ CREATE TABLE "jobs" (
     "type" VARCHAR (100),
     "start_date" DATE,
     "end_date" DATE,
-    "housing" BOOLEAN,
+    "housing" VARCHAR(50),
     "housing_details" VARCHAR (100),
-    "relocation_stipend" BOOLEAN,
+    "relocation_stipend" VARCHAR(50),
     "payment_period" VARCHAR (100),
     "payment_amount" INT
 );

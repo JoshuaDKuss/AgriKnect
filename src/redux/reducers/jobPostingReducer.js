@@ -66,9 +66,9 @@ const jobPostingReducer = (state = {
     else if (action.type === 'SET_ACCOMODATION') {
         console.log(action.payload);
         if(action.payload == 'true') {
-            return { ...state, housingProvided: true}
+            return { ...state, housingProvided: "true"}
         } else{
-            return { ...state, housingProvided: false }
+            return { ...state, housingProvided: "false" }
         }
         
     } else if (action.type === 'SET_ACCOMODATION_DESCRIPTION') {
