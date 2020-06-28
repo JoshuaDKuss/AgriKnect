@@ -21,6 +21,8 @@ export class JobRelocation extends Component {
     }
 
     render() { 
+        
+
         let housingDescription = ''; 
         if (this.props.housing) {
             housingDescription = <div> <TextField
@@ -28,7 +30,7 @@ export class JobRelocation extends Component {
                 label="Description"
                 multiline
                 rowsMax={4}
-
+                value={this.props.housing.housingDetails}
                 onChange={(event) => this.sendDescription(event)}
                 variant="outlined"
             />
@@ -38,9 +40,9 @@ export class JobRelocation extends Component {
             <div>
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Will housing accomodation be provided?</FormLabel>
-                    <RadioGroup aria-label="accomodation" name="accomodation" onChange={(event) => this.chooseAccomodation(event)}>
-                        <FormControlLabel value = "true" control={<Radio />} label="Yes" />
-                        <FormControlLabel value= "false" control={<Radio />} label="No" />
+                    <RadioGroup value={this.props.housing.housingProvided} aria-label="accomodation" name="accomodation" onChange={(event) => this.chooseAccomodation(event)}>
+                        <FormControlLabel value ={true} control={<Radio />} label="Yes" />
+                        <FormControlLabel value={false} control={<Radio />} label="No" />
                     </RadioGroup>
                 </FormControl>
 

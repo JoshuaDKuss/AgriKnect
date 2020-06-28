@@ -7,7 +7,7 @@ const jobPostingReducer = (state = {
     skills: [],
     equipment: [],
     brands: [],
-    housingProvided: false,
+    housingProvided: '',
     housingDetails: '',
     relocationProvided: '', 
     paymentType: '',
@@ -65,7 +65,7 @@ const jobPostingReducer = (state = {
     } 
     else if (action.type === 'SET_ACCOMODATION') {
         console.log(action.payload);
-        if(action.payload === 'true') {
+        if(action.payload == 'true') {
             return { ...state, housingProvided: true}
         } else{
             return { ...state, housingProvided: false }
@@ -76,9 +76,9 @@ const jobPostingReducer = (state = {
 
     } else if (action.type === 'SET_RELOCATION') {
         if (action.payload === 'true') {
-            return { ...state, relocationProvided: true }
+            return { ...state, relocationProvided: 'true' }
         } else {
-            return { ...state, relocationProvided: false }
+            return { ...state, relocationProvided: 'false' }
         }
 
     } else if (action.type === 'SET_PAYMENT_TYPE') {

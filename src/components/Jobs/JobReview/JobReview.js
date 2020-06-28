@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Typography, TextField } from "@material-ui/core";
+import { Typography, TextField, Button } from "@material-ui/core";
 
 
 export class JobReview extends Component {
@@ -49,6 +49,11 @@ export class JobReview extends Component {
                         </div>
                     </Typography>
                 </div>
+                  <div>
+                    <Typography>
+                        Payment: {this.props.job.paymentAmount} {this.props.job.paymentType} 
+                    </Typography>
+                </div>
 
 
                 <h2> Desired Experiences and Skills </h2>
@@ -75,7 +80,7 @@ export class JobReview extends Component {
                     )
 
                 })}
-                <button onClick={(event) => this.sendJobPosting(event)}> Send Saga</button> 
+                <Button onClick={(event) => this.sendJobPosting(event)}> Save Job Posting </Button> 
             </div>
         )
     }
