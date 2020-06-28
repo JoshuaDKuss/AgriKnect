@@ -12,7 +12,7 @@ import talentEducationReducer from './TalentEducationReducer';
 import talentEmploymentReducer from './TalentEmploymentReducer';
 import farmBioReducer from './FarmBioReducer';
 import farmJobsAvailable from './FarmJobsAvailable'
-//import farmForm from './farmFormReducer'; 
+//import jobSearchReducer from './jobSearchReducer'; 
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -34,7 +34,7 @@ const rootReducer = combineReducers({
   talentEmploymentReducer, //talent employment, profile page. 
   farmBioReducer, 
   farmJobsAvailable,
-  //farmForm,
+  //jobSearchReducer,
 });
 
 export default rootReducer;
