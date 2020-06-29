@@ -1,8 +1,8 @@
-const jobSearch = (state = {
-    job_search: ""
-}, action) => {
-    if (action.type === 'SEARCH') { // 'search' is probably a placeholder for now
-        return {...state, search: action.payload.search};
+const jobSearch = (state = [], action) => {
+    if (action.type === 'SET_SEARCH_RESULTS') { 
+        return action.payload;
+    } else {
+        return state;
     }
 }
 

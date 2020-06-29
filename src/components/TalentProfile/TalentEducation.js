@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import {Link} from 'react-router-dom';
+import moment from 'moment';
+
 export class TalentEducation extends Component {
 
     
@@ -10,10 +12,9 @@ export class TalentEducation extends Component {
             <div>
                 <div>
                     <span>{this.props.education.institution_name}</span> 
-                    <span>{this.props.education.start_date}</span>
-                    <span>{this.props.education.end_date}</span> 
+                    <span>{moment(this.props.education.start_date).format(("MMM Do, YYYY"))}</span> 
+                     - <span>{moment(this.props.education.end_date).format(("MMM Do, YYYY"))}</span> 
                     <p>{this.props.education.degree}</p>
-                    
                 </div>
             </div>
         )
