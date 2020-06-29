@@ -6,7 +6,7 @@ import styles from '../../../Styles/styles';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom'; 
 import EditTalentCertificationsItem from './EditTalentCertificationItem';
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
 
 
 export class EditTalentCertifications extends Component {
