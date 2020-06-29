@@ -1,21 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import styles from '../../Styles/styles';
+import styles from '../../../Styles/styles';
 
-export class JobEquipmentItem extends Component {
-    componentDidMount() {
-        this.props.job.equipment.map(equipment => {
-            if (equipment === this.props.item) {
-                this.setState({
-                    ...this.state,
-                    color: 'primary'
-                })
-            }
-        })
-    }
+export class TalentProfileEquipmentItem extends Component {
+    // componentDidMount() {
+    //     this.props.equipment.map(equipment => {
+    //         if (equipment === this.props.item) {
+    //             this.setState({
+    //                 ...this.state,
+    //                 color: 'primary'
+    //             })
+    //         }
+    //     })
+    // }
 
     state = {
         color: ''
@@ -36,7 +36,7 @@ export class JobEquipmentItem extends Component {
             })
         } //end of conditional 
         console.log(this.state)
-        this.props.dispatch({ type: 'SET_JOB_EQUIPMENT', payload: property })
+        this.props.dispatch({ type: 'SET_EDITED_EQUIPMENT', payload: property })
 
     } //end of addOrDelete function 
 
@@ -50,12 +50,12 @@ export class JobEquipmentItem extends Component {
     }
 }
 
-JobEquipmentItem.propTypes = { classes: PropTypes.object.isRequired };
 
-const reduxStateToProps = (reduxState) => {
-    return {
-        job: reduxState.jobPostingReducer
-    }
-}
 
-export default connect(reduxStateToProps)(withStyles(styles)(JobEquipmentItem)); 
+TalentProfileEquipmentItem.propTypes = { classes: PropTypes.object.isRequired };
+
+const mapStateToProps = state => ({
+    equipment: state.talentForm.formData.equipment,
+});
+
+export default connect(mapStateToProps)(withStyles(styles)(TalentProfileEquipmentItem)); 

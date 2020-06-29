@@ -12,14 +12,16 @@ export class Certifications extends Component {
     state = {
         counter: 0,
         certificateList : [0]
+       
     }
 
     //adds a certificate to list 
     addCertificate = () => {
         this.setState(previousState => ({
             counter: this.state.counter +1, 
-            certificateList: [...previousState.certificateList, this.state.counter + 1]
+            certificateList: [...previousState.certificateList, this.state.counter +1]
         }));
+        console.log(this.state)
     }
 
     render() {
@@ -31,7 +33,7 @@ export class Certifications extends Component {
                     <h3> Add any certifications or licenses you have </h3>
                     {this.state.certificateList.map((item) => {
                         return (
-                            <CertificationsItem item={item} key = {item}/>
+                            <CertificationsItem item={item}  />
                         )
 
                     })}
@@ -47,4 +49,8 @@ export class Certifications extends Component {
 
 Certifications.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(Certifications)); 
+const mapStateToProps = state => ({
+    certifications: state.talentForm.formData.certification,
+});
+
+export default connect(mapStateToProps)(withStyles(styles)(Certifications)); 

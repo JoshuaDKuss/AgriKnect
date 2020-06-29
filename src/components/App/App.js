@@ -25,6 +25,10 @@ import FarmForm from '../Farm/FarmForm/FarmForm';
 import talentProfile from '../TalentProfile/TalentProfile';
 import farmProfile from '../FarmProfile/FarmBio/FarmBio'
 import JobPosting from '../Jobs/JobPosting/JobPosting'; 
+import TalentProfileEditSkills from '../TalentProfile/EditTalentProfile/EditTalentSkills/TalentProfileEditSkills';
+import TalentProfileEditedEquipmentBrands from '../TalentProfile/EditTalentProfile/EditTalentEquipmentBrands/TalentProfileEditEquipmentBrands';
+import TalentProfileEditedCertificate from '../TalentProfile/EditTalentProfile/EditTalentCertifications/EditTalentCertification';
+
 import './App.css';
 
 class App extends Component {
@@ -84,6 +88,24 @@ class App extends Component {
               path="/talentProfile/:id"
               component={talentProfile}
             />
+            <ProtectedRoute
+              exact
+              path="/talentProfile/editSkills/:id"
+              component={TalentProfileEditSkills}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/talentProfile/editEquipment/:id"
+              component={TalentProfileEditedEquipmentBrands}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/talentProfile/editCertificate/:id"
+              component={TalentProfileEditedCertificate}
+            />
+           
              <ProtectedRoute
               exact
               path="/farmProfile/:id"

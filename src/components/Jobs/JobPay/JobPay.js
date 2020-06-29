@@ -18,7 +18,7 @@ export class JobPay extends Component {
         return (
             <div>
                 <h3> What type of payments will be provided for this job</h3>
-                <Select onChange={this.handlePaymentSelection}   >
+                <Select value={this.props.payment.paymentType} onChange={this.handlePaymentSelection}   >
                     <MenuItem> </MenuItem>
                     <MenuItem value='/hour' > Hourly </MenuItem>
                     <MenuItem value='/month'> Monthly </MenuItem>
@@ -30,7 +30,7 @@ export class JobPay extends Component {
                     <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
                     <Input
                         id="standard-adornment-amount"
-                        // value={'hello'}
+                        value={this.props.payment.paymentAmount}
                         onChange={this.handlePaymentAmount}
                         startAdornment={<InputAdornment position="start">$</InputAdornment>}
                     />
@@ -43,10 +43,10 @@ export class JobPay extends Component {
 
 JobPay.propTypes = { classes: PropTypes.object.isRequired };
 
-// const reduxStateToProps = (reduxState) => {
-//     return {
-//         skills: reduxState.talentForm.formData.initialSkills
-//     }
-// }
+const reduxStateToProps = (reduxState) => {
+    return {
+        payment: reduxState.jobPostingReducer
+    }
+}
 
-export default connect()(withStyles(styles)(JobPay)); 
+export default connect(reduxStateToProps)(withStyles(styles)(JobPay)); 
