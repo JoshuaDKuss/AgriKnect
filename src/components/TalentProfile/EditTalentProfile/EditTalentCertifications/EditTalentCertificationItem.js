@@ -9,7 +9,7 @@ export class EditTalentCertificationsItem extends Component {
 
     componentWillUnmount() {
         console.log('item component unmounted')
-        // this.props.dispatch({ type: 'UPDATE_CERTIFICATION', payload: { state: this.state } })
+        this.props.dispatch({ type: 'UPDATE_CERTIFICATION', payload: { state: this.state } })
     }
     
 
@@ -66,7 +66,7 @@ export class EditTalentCertificationsItem extends Component {
                             id="date"
                             label="Issue Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -77,16 +77,19 @@ export class EditTalentCertificationsItem extends Component {
                             id="date"
                             label="Expiration Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}
                             onChange={(event) => this.addCertificate(event, 'expirationDate')}
 
                         />
+                        <Button variant="outlined" onClick={this.removeCertificate}> Delete </Button>
+
+
                     </div>
 
-
+                        
                 </div>
             </div>
         )

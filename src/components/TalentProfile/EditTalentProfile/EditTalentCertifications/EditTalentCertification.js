@@ -6,7 +6,8 @@ import styles from '../../../Styles/styles';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom'; 
 import EditTalentCertificationsItem from './EditTalentCertificationItem';
-import swal from 'sweetalert';
+import EditTalentCertificationsItemServer from './EditTalentCertificationItemServer';
+
 
 
 export class EditTalentCertifications extends Component {
@@ -18,7 +19,7 @@ export class EditTalentCertifications extends Component {
 
     state = {
         counter: 0,
-        certificateList: [0]
+        certificateList: []
 
     }
 
@@ -35,6 +36,7 @@ export class EditTalentCertifications extends Component {
         console.log(this.state)
     }
 
+
     render() {
         const { classes } = this.props; //need this for Material UI
 
@@ -42,6 +44,13 @@ export class EditTalentCertifications extends Component {
             <div>
                 <ul>
                     <h3> Add any certifications or licenses you have </h3>
+                    {this.props.certifications.map((item) => {
+                        return (
+                            <EditTalentCertificationsItemServer item={item} />
+                        )
+
+                    })}
+
                     {this.state.certificateList.map((item) => {
                         return (
                             <EditTalentCertificationsItem item={item} />
@@ -62,8 +71,8 @@ export class EditTalentCertifications extends Component {
 
 EditTalentCertifications.propTypes = { classes: PropTypes.object.isRequired };
 
-// const mapStateToProps = state => ({
-//     certifications: state.talentForm.formData.certification,
-// });
+const mapStateToProps = state => ({
+    certifications: state.editedTalentCertification
+});
 
-export default connect()(withStyles(styles)(EditTalentCertifications)); 
+export default connect(mapStateToProps)(withStyles(styles)(EditTalentCertifications)); 

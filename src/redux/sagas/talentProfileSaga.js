@@ -11,6 +11,7 @@ function* fetchTalent(action) {
    yield put({type: 'SET_TALENT', payload: response.data});
    yield put({type: 'SET_TALENT_SKILLS', payload: responseProficiency.data});
    yield put({type: 'SET_TALENT_CERTIFICATION', payload: responseTalentCert.data});
+  yield put({ type: 'SET_INITIAL_CERTIFICATIONS', payload: responseTalentCert.data });
    yield put({type: 'SET_TALENT_EDUCATION', payload: responseTalentEducation.data});
    yield put({type: 'SET_TALENT_EMPLOYMENT', payload: responseTalentEmployment.data});
    console.log('in saga', response.data)

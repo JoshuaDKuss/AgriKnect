@@ -45,7 +45,7 @@ pool
 router.get('/certification/:id', (req, res) => {
   let id = req.user.id
 console.log('in router get', [id]);
-const sqlText = `SELECT "certification_name", "issuing_company", "issue_date", "expiration_date" FROM "user"
+  const sqlText = `SELECT "certification"."id", "certification_name", "issuing_company", "issue_date", "expiration_date" FROM "user"
 JOIN "certification" on "user"."id"="certification"."user_id"
 WHERE "user"."id" = $1;`;
 pool
