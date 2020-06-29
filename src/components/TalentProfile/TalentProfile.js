@@ -50,7 +50,7 @@ export class TalentProfile extends Component {
         // }
         let editSkills = <span> </span>
         if (this.state.editSkills) {
-            editSkills = <Link to='/talentProfile/:id/skills'>  <button onClick={this.editSkills}> Edit </button> </Link> 
+            editSkills = <Link to='/talentProfile/editSkills/:id' >  <button onClick={this.editSkills}> Edit </button> </Link> 
         }
         let editEquipment = <span> </span>
         if (this.state.editEquipment) {

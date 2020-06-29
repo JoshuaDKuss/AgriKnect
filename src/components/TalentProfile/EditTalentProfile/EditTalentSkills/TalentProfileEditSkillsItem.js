@@ -3,20 +3,19 @@ import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import styles from '../../Styles/styles';
-
+import styles from '../../../Styles/styles';
 
 export class TalentProfileEditSkillsItem extends Component {
-    componentDidMount() {
-        this.props.initialSkills.map(skill => {
-            if (skill === this.props.item) {
-                this.setState({
-                    ...this.state,
-                    color: 'primary'
-                })
-            }
-        })
-    }
+    // componentDidMount() {
+    //     this.props.initialSkills.map(skill => {
+    //         if (skill === this.props.item) {
+    //             this.setState({
+    //                 ...this.state,
+    //                 color: 'primary'
+    //             })
+    //         }
+    //     })
+    // }
 
     state = {
         color: ''

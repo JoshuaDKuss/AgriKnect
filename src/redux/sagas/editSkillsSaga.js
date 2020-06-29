@@ -6,6 +6,8 @@ function* editSkillsExpertise(action) {
     try {
         console.log(action.payload)
         const response = yield axios.put(`talent/skills/${action.payload.id}`, action.payload.skills);
+
+        yield put({ type: 'FETCH_TALENT'});
         
   
     } catch (error) {
