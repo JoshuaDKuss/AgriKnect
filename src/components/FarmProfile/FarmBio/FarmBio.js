@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import FarmDetails from '../FarmDetails/FarmDetails'
 import './farm.css'
 import FarmJobsAvailable from '../FarmJobAvailable/FarmJobAvailable';
-import { Button } from '@material-ui/core';
-
+import {Button} from '@material-ui/core';
 
 export class farmBio extends Component {
+
     componentDidMount() {
         console.log('this is params.id', this.props.match.params.id);
         this.props.dispatch({ type: "FETCH_FARM", payload: this.props.match.params.id });
     }
 
-    editFarmBio = (event) =>{
-        console.log('in edit farm bio');
-        //this.props.history.push("/farmForm");
+    editFarmBio = () =>{
+        console.log('editFarmBio clicked');
+        this.props.history.push(`/EditFarm`);
     }
 
     render() {
