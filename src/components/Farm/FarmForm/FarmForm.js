@@ -1,11 +1,14 @@
 import React, { Component } from 'react'; 
-//import {Button} from '@material-ui/core';
 import NameLocation from '../NameLocation/NameLocation'; 
 import Size from '../Size/Size';
 import Type from '../Type/Type'; 
 import FarmBio from '../FarmBio/FarmBio'; 
 import FarmFormReview from '../FarmFormReview/FarmFormReview';
-
+import { connect } from "react-redux";
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import styles from '../../Styles/styles';
+import { Button } from '@material-ui/core';
 
 export class FarmForm extends Component {
     state = {
@@ -49,8 +52,8 @@ export class FarmForm extends Component {
         
             {farmFormToShow}
 
-            <button onClick={(event) => this.changeFarmFormCounter(event, 'subtract')}> Back </button> 
-            <button onClick={(event) => this.changeFarmFormCounter(event, 'add')}> Next </button>
+            <Button variant="outlined" onClick={(event) => this.changeFarmFormCounter(event, 'subtract')}> Back </Button> 
+            <Button variant="outlined" onClick={(event) => this.changeFarmFormCounter(event, 'add')}> Next </Button>
             </div>
         )
     }

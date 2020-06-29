@@ -29,12 +29,13 @@ class RegisterPage extends Component {
           password: this.state.password,
           userType: this.state.userType,
         },
+        history: this.props.history
       });
-      if (this.state.userType === "talent") {
-        this.props.history.push("/talentForm");
-      } else {
-        this.props.history.push("/farmForm");
-      }
+      // if (this.state.userType === "talent") {
+      //   this.props.history.push("/talentForm");
+      // } else {
+      //   this.props.history.push("/farmForm");
+      // }
     } else {
       this.props.dispatch({ type: "REGISTRATION_INPUT_ERROR" });
     }

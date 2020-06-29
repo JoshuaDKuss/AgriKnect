@@ -13,6 +13,7 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
+import SearchPage from '../JobSearch/SearchPage/SearchPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Home from '../HomePage/HomePage';
@@ -37,8 +38,6 @@ class App extends Component {
       type: 'FETCH_PROFICIENCIES'
     })
   }
-
- 
 
   render() {
     return (
@@ -116,6 +115,11 @@ class App extends Component {
               exact
               path="/jobPosting"
               component={JobPosting}
+            />
+              <ProtectedRoute
+              exact
+              path="/SearchPage"
+              component={SearchPage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

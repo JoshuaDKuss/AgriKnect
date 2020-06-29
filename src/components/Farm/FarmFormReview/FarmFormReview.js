@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Button} from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 
 export class FarmFormReview extends Component {
 
     sendToServer = () => {
+        //console.log(id);
         this.props.dispatch({ type: 'SEND_FARM_FORM', payload: this.props.reduxState.farmForm })  //.farmForm
-        //this.props.history.push('/FarmProfile');
+        this.props.history.push(`/farmProfile/${this.props.reduxState.user.id}`);
     }
 
     render() {
@@ -42,7 +44,7 @@ export class FarmFormReview extends Component {
 
 const mapStateToProps = (reduxState) => ({ reduxState })
 
-export default connect(mapStateToProps)(FarmFormReview);
+export default connect(mapStateToProps)(withRouter(FarmFormReview));
 
 // const reduxStateToProps = (reduxState) => {
 //     return {
