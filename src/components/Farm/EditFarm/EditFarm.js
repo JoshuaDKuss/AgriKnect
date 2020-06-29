@@ -3,8 +3,16 @@ import { connect } from 'react-redux';
 import {Button} from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import InlineEdit from 'react-edit-inline';
 
 export class EditFarm extends Component {
+    // constructor(props){
+    //     super(props);
+    //     this.dataChanged = this.dataChanged.bind(this);
+    //     this.state = {
+    //       message: 'ReactInline demo'
+    //     }
+    //   }
 
     componentDidMount(){
         const prevInfo = this.props.match.params.id
@@ -45,10 +53,11 @@ export class EditFarm extends Component {
         console.log('add farm bio', this.props);
         this.props.dispatch({ type: 'UPDATE_FARM_BIO', payload: { bio: event.target.value } }) 
     } //end of updateFarmBio  
-    handleSizeSelection = (event, property) => {
+    handleSizeSelection = (event) => {
         console.log(event.target.value);
         this.props.dispatch({ type: 'UPDATE_FARM_SIZE', payload: { size: event.target.value} })
     } // end hss
+
     cancelEdit = (event) =>{
         console.log('cancel the edit');
         this.props.history.push(`/farmProfile/${this.props.reduxState.user.id}`);
@@ -61,7 +70,9 @@ export class EditFarm extends Component {
                 <p>{JSON.stringify(this.props.reduxState.farmBioReducer)}</p>
                 <h4>Farm Name and address: </h4>
 
-                {this.props.reduxState.farmBioReducer.map((bio) => {
+                <div className={'farmBio'}>
+                    {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
+                    {this.props.reduxState.farmBioReducer.map((bio) => {
                         return (
                             <>
                                 <div key={bio.id}>
@@ -74,48 +85,20 @@ export class EditFarm extends Component {
                                 </div>
                                 <div className={'farmBioSize'}>
                                     <h2>About</h2>
-                                    <p>{bio.bio}</p>
-                                </div>
-                                <div>
-                                    <Button variant="outlined" onClick={(event) => this.cancelEdit(event)}>CANCEL EDIT</Button>
+                                    <p placeholder={bio.bio}></p>
                                 </div>
                             </>
                         )
                     })}
+                    </div>
+                                <div>
+                                    <Button variant="outlined" onClick={(event) => this.cancelEdit(event)}>CANCEL EDIT</Button>
+                                </div>
                 
-                <input placeholder={this.props.reduxState.farmForm.farm_name}></input>
+                <input placeholder={this.props.reduxState.farmBioReducer}></input>
 
-                {/* <TextField id="standard-basic" value={this.props.farm_name} label="Farm Name" onChange={(event) => this.addFarmName(event, 'farm_name')} /> &nbsp;
-                <TextField id="standard-basic" value={this.props.street_address} label="Address" onChange={(event) => this.addStreetAddress(event, 'street_address')} />  
+
                 
-                <br/>
-
-                <TextField id="standard-basic" value={this.props.city} label="City" onChange={(event) => this.addFarmCity(event, 'city')} /> &nbsp;
-                <TextField id="standard-basic" value={this.props.state} label="State" onChange={(event) => this.addFarmState(event, 'state')} /><br/>
-                <TextField id="standard-basic" value={this.props.zipcode} label="Zip Code" onChange={(event) => this.addFarmZip(event, 'zipcode')} />
-
-                <br/><br/>
-                <TextField id="outlined-basic" value={this.props.phone} label="Phone Number" variant="outlined" onChange={(event) => this.addFarmPhone(event, 'phone')} /> 
-                <br/> */}
-
-                <p>{this.props.reduxState.farmForm.street_address}</p>
-                <p>{this.props.reduxState.farmForm.city},&nbsp;
-                {this.props.reduxState.farmForm.state} &nbsp;
-                {this.props.reduxState.farmForm.zipcode}</p><br/>
-
-                {/* <h4>Farm Size, Type and Description: </h4> */}
-                <p>Size: {this.props.reduxState.farmForm.size}</p>
-                <p>Type: {this.props.reduxState.farmForm.type}&nbsp;</p>
-                <p>Description: {this.props.reduxState.farmForm.bio}</p>
-                
-                {/* <h4>Contact: </h4> */}
-                <p>Contact: {this.props.reduxState.farmForm.phone}</p>
-                <div>
-                <Button variant='contained' 
-                onClick={this.sendUpdateToServer}
-                > Update Farm Profile </Button>
-                </div>
-                <br/>
                 
             </div>
         )

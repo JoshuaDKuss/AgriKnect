@@ -15,7 +15,7 @@ export class farmBio extends Component {
 
     editFarmBio = () =>{
         console.log('editFarmBio clicked');
-        this.props.history.push(`/EditFarm`);
+        this.props.history.push(`/EditFarm/${this.props.reduxState.user.id}`);
     }
 
     render() {
@@ -40,7 +40,7 @@ export class farmBio extends Component {
                                     <p>{bio.bio}</p>
                                 </div>
                                 <div>
-                                    <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>EDIT</Button>
+                                    <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>EDIT FARM</Button>
                                 </div>
                             </>
                         )
