@@ -8,14 +8,6 @@ import moment from 'moment';
 
 export class EditTalentCertificationsItemServer extends Component {
 
-    
-
-    // componentWillUnmount() {
-    //     console.log('item component unmounted')
-    //     this.props.dispatch({ type: 'UPDATE_CERTIFICATION', payload: { state: this.state } })
-    // }
-
-    
 
 
     state = {
@@ -59,6 +51,7 @@ export class EditTalentCertificationsItemServer extends Component {
     }
 
     toggleEditModeSave = () => {
+        // this.preventDefault(this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: this.state}))
         this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: this.state})
         this.setState({
             ...this.state,

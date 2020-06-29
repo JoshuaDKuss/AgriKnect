@@ -18,7 +18,7 @@ export class EditTalentCertifications extends Component {
     }
 
     state = {
-        counter: 0,
+        counter: -1,
         certificateList: []
 
     }
@@ -30,8 +30,8 @@ export class EditTalentCertifications extends Component {
     //adds a certificate to list 
     addCertificate = () => {
         this.setState(previousState => ({
-            counter: this.state.counter + 1,
-            certificateList: [...previousState.certificateList, this.state.counter + 1]
+            counter: this.state.counter - 1,
+            certificateList: [...previousState.certificateList, this.state.counter - 1]
         }));
         console.log(this.state)
     }
