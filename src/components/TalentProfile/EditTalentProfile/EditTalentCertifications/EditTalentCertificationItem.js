@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import styles from '../../Styles/styles';
-import {TextField, Typography } from '@material-ui/core';
+import styles from '../../../Styles/styles';
+import { TextField, Typography, Button } from '@material-ui/core';
 
-export class CertificationsItem extends Component {
+export class EditTalentCertificationsItem extends Component {
 
     componentWillUnmount() {
-        this.props.dispatch({ type: 'SET_CERTIFICATE', payload: { state: this.state} })
+        console.log('item component unmounted')
+        // this.props.dispatch({ type: 'UPDATE_CERTIFICATION', payload: { state: this.state } })
     }
+    
 
     state = {
-       
+
         certificate: '',
         issuingCompany: '',
         issueDate: 0,
@@ -21,17 +23,17 @@ export class CertificationsItem extends Component {
 
 
     addCertificate = (event, property) => {
-      
+
         this.setState({
             ...this.state,
             [property]: event.target.value,
         })
-        console.log(this.props.certification[this.props.item], )
-   
+        console.log(this.props.certification[this.props.item],)
+
     }
 
     sendData = (event) => {
-        this.props.dispatch({ type: 'SET_CERTIFICATE', payload: {state: this.state, expirationDate: event.target.value } })
+        this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: { state: this.state, expirationDate: event.target.value } })
         this.setState({
             ...this.state,
             numberOfChanges: this.state.numberOfChanges + 1
@@ -42,22 +44,22 @@ export class CertificationsItem extends Component {
         let certificateValue = ''
         if (this.props.certification[this.props.item] !== undefined) {
             certificateValue = this.props.certification[this.props.item].certificate
-        } 
+        }
         // value={certificateValue}
 
         const { classes } = this.props; //need this for Material UI
         return (
             <div>
                 <div>
-                   
+
 
                     <Typography>License or certificate: </Typography>
 
                     <div ref={node => this.inCertificate = node}>
-                        <TextField   id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
+                        <TextField id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
                     </div>
                     <Typography>Issuing Company: </Typography>
-                    <TextField onChange={(event) => this.addCertificate(event, 'issuingCompany' )} id="standard-basic" label="Standard" />
+                    <TextField onChange={(event) => this.addCertificate(event, 'issuingCompany')} id="standard-basic" label="Standard" />
 
                     <div>
                         <TextField
@@ -68,7 +70,7 @@ export class CertificationsItem extends Component {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                        onChange={(event) => this.addCertificate(event, 'issueDate' )}
+                            onChange={(event) => this.addCertificate(event, 'issueDate')}
 
                         />
                         <TextField
@@ -80,13 +82,9 @@ export class CertificationsItem extends Component {
                                 shrink: true,
                             }}
                             onChange={(event) => this.addCertificate(event, 'expirationDate')}
-               
+
                         />
                     </div>
-
-                   
-
-
 
 
                 </div>
@@ -95,10 +93,10 @@ export class CertificationsItem extends Component {
     }
 }
 
-CertificationsItem.propTypes = { classes: PropTypes.object.isRequired };
+EditTalentCertificationsItem.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapStateToProps = state => ({
     certification: state.talentForm.formData.certification,
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(CertificationsItem)); 
+export default connect(mapStateToProps)(withStyles(styles)(EditTalentCertificationsItem)); 

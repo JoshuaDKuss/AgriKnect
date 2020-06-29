@@ -6,6 +6,17 @@ import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
 
 export class JobBrandsItem extends Component {
+    componentDidMount() {
+        this.props.job.brands.map(brand => {
+            if (brand === this.props.item) {
+                this.setState({
+                    ...this.state,
+                    color: 'primary'
+                })
+            }
+        })
+    }
+
     state = {
         color: ''
     }
@@ -25,7 +36,7 @@ export class JobBrandsItem extends Component {
             })
         } //end of conditional 
         console.log(this.state)
-        this.props.dispatch({ type: 'SET_JOB_SKILLS', payload: property })
+        this.props.dispatch({ type: 'SET_JOB_BRAND', payload: property })
 
     } //end of addOrDelete function 
 
@@ -41,4 +52,10 @@ export class JobBrandsItem extends Component {
 
 JobBrandsItem.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(JobBrandsItem)); 
+const reduxStateToProps = (reduxState) => {
+    return {
+        job: reduxState.jobPostingReducer
+    }
+}
+
+export default connect(reduxStateToProps)(withStyles(styles)(JobBrandsItem)); 

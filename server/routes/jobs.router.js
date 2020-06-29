@@ -54,6 +54,27 @@ const router = express.Router();
          `;
         createJobPosting.query(subQuery, [ item.id, jobID])
       }))
+      await Promise.all(req.body.skills.map(item => {
+        let = subQuery = `INSERT INTO "job_proficiencies" 
+          ("proficiency_id", "job_id")
+          VALUES ($1, $2);
+         `;
+        createJobPosting.query(subQuery, [item.id, jobID])
+      }))
+      await Promise.all(req.body.equipment.map(item => {
+        let = subQuery = `INSERT INTO "job_proficiencies" 
+          ("proficiency_id", "job_id")
+          VALUES ($1, $2);
+         `;
+        createJobPosting.query(subQuery, [item.id, jobID])
+      }))
+       await Promise.all(req.body.brands.map(item => {
+        let = subQuery = `INSERT INTO "job_proficiencies" 
+          ("proficiency_id", "job_id")
+          VALUES ($1, $2);
+         `;
+        createJobPosting.query(subQuery, [item.id, jobID])
+      }))
       await createJobPosting.query('COMMIT');
       res.sendStatus(200);
     } catch (err) {

@@ -19,7 +19,7 @@ const Nav = (props) => (
       {/* {props.user.id ? "Home" : "Login / Register"}
       </Link> */}
       {props.user.type === 'talent' ? 
-          <Link className="nav-link" to="">
+          <Link className="nav-link" to="/SearchPage">
           Search Jobs
         </Link>
         :

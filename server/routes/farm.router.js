@@ -48,10 +48,10 @@ router.get('/:id', (req, res) => {
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('farm router post');
     const farmQueryText = `INSERT INTO farm ("farm_name", "street_address", "city", "state", "zipcode", 
-                        "phone", "size", "type", "bio") 
-                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);`; //RETURNING "id"?
+                        "phone", "size", "type", "bio", "user_id") 
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);`; //RETURNING "id"?
     const farmValues = [req.body.farm_name, req.body.street_address, req.body.city, req.body.state,
-                        req.body.zipcode, req.body.phone, req.body.size, req.body.type, req.body.bio];
+                        req.body.zipcode, req.body.phone, req.body.size, req.body.type, req.body.bio, req.user.id];
     pool.query(farmQueryText, farmValues)
     .then((response)=>{
         res.sendStatus(201)

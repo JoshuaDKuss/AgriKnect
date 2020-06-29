@@ -103,10 +103,10 @@ pool
 router.post('/', async (req, res) => {
   console.log(req.body)
   const userId = req.user.id;
-  const city = req.body.formData.location.city;
-  const state = req.body.formData.location.state;
-  const zipcode = req.body.formData.location.zipcode;
-  const bio = req.body.formData.bio;
+  const city = req.body.city;
+  const state = req.body.state;
+  const zipcode = req.body.zipcode;
+  const bio = req.body.bio;
 
   const createTalentProfile = await pool.connect();
 
@@ -118,7 +118,7 @@ try {
   `;
     const result = await createTalentProfile.query(talentUserQuery, [city, state, zipcode, bio, userId]);
     
-    await Promise.all(req.body.formData.certification.map(item => {
+    await Promise.all(req.body.certification.map(item => {
       let = certificationQuery = `INSERT INTO "certification" (certification_name, issuing_company, issue_date, expiration_date, user_id) 
       VALUES ($1, $2, $3, $4, $5);
       `;
@@ -131,7 +131,7 @@ try {
       ]);
     }))
 
-  await Promise.all(req.body.formData.employment.map(item => {
+  await Promise.all(req.body.employment.map(item => {
     let = employmentQuery = `INSERT INTO "employment" (employer_name, title, start_date, end_date, user_id) 
       VALUES ($1, $2, $3, $4, $5);
       `;
@@ -145,7 +145,7 @@ try {
   }))
 
   await Promise.all(
-    req.body.formData.education.map((item) => {
+    req.body.education.map((item) => {
       let = educationQuery = `INSERT INTO "education" (institution_name, degree, start_date, end_date, user_id) 
       VALUES ($1, $2, $3, $4, $5);
       `;   
@@ -160,7 +160,7 @@ try {
   );
 
   await Promise.all(
-    req.body.formData.equipment.map((item) => {
+    req.body.equipment.map((item) => {
       let equipmentQuery = `INSERT INTO "user_proficiencies" ("proficiency_id", "user_id") VALUES ($1, $2); 
       `;
       createTalentProfile.query(equipmentQuery, [
@@ -171,7 +171,7 @@ try {
   );
 
   await Promise.all(
-    req.body.formData.brands.map((item) => {
+    req.body.brands.map((item) => {
       let brandQuery = `INSERT INTO "user_proficiencies" ("proficiency_id", "user_id") VALUES ($1, $2); 
       `;
       createTalentProfile.query(brandQuery, [
@@ -182,7 +182,7 @@ try {
   );
 
   await Promise.all(
-    req.body.formData.skillsExpertise.map((item) => {
+    req.body.skillsExpertise.map((item) => {
       let skillsQuery = `INSERT INTO "user_proficiencies" ("proficiency_id", "length_experience", "user_id") VALUES ($1, $2, $3); 
       `;
       createTalentProfile.query(skillsQuery, [
@@ -203,6 +203,109 @@ try {
   createTalentProfile.release();
   }
 })
+
+router.put('/skills/:id', async (req, res) => {
+  console.log('REQ.PARAMS', req.params.id, 'REQ.BODY', req.body);
+  const skills = req.body;
+  console.log('skills', skills)
+  const userId = req.params.id;
+  const updateTalentProfile = await pool.connect();
+
+
+
+  try {
+    await updateTalentProfile.query('BEGIN');
+    let queryStringSelect = `SELECT "user_proficiencies"."id" FROM "user_proficiencies" JOIN "proficiencies" 
+    ON "proficiencies"."id" = "proficiency_id" WHERE "user_proficiencies"."user_id" = $1 
+    AND("proficiency_category" = 'Precision Farming Technology' OR "proficiency_category" = 'General Agriculture'  
+    OR "proficiency_category" = 'Maintenance and Mechanics' OR "proficiency_category" = 'Trucking');
+    `;
+    const result = await updateTalentProfile.query(queryStringSelect, [userId]);
+    console.log('result', result.rows);
+
+    await Promise.all(result.rows.map(item => {
+      let = deleteQuery = `DELETE from "user_proficiencies" WHERE "id" = $1;`;
+      updateTalentProfile.query(deleteQuery, [
+        item.id
+      ]);
+    }))
+
+    await Promise.all(req.body.map(item => {
+      let = insertQuery = `INSERT INTO "user_proficiencies" (proficiency_id, length_experience, user_id) 
+      VALUES ($1, $2, $3);
+      `;
+      updateTalentProfile.query(insertQuery, [
+        item.skillID,
+        item.time,
+        userId,
+      ]);
+    }))
+
+    await updateTalentProfile.query('COMMIT');
+    res.sendStatus(200);
+  } catch (err) {
+    await updateTalentProfile.query('ROLLBACK');
+    res.sendStatus(500);
+    console.log(err)
+    throw err;
+  } finally {
+    updateTalentProfile.release();
+  }
+})
+
+router.put('/equipment/:id', async (req, res) => {
+  console.log('REQ.PARAMS', req.params.id, 'REQ.BODY', req.body);
+  const skills = req.body;
+  console.log('skills', skills)
+  const userId = req.params.id;
+  const updateTalentProfile = await pool.connect();
+
+
+
+  try {
+    await updateTalentProfile.query('BEGIN');
+    let queryStringSelect = `SELECT "user_proficiencies"."id" FROM "user_proficiencies" JOIN "proficiencies" 
+    ON "proficiencies"."id" = "proficiency_id" WHERE "user_proficiencies"."user_id" = $1 
+    AND("proficiency_category" = 'Brand' OR "proficiency_category" = 'Equipment');
+    `;
+    const result = await updateTalentProfile.query(queryStringSelect, [userId]);
+    console.log('result', result.rows);
+
+    await Promise.all(result.rows.map(item => {
+      let = deleteQuery = `DELETE from "user_proficiencies" WHERE "id" = $1;`;
+      updateTalentProfile.query(deleteQuery, [
+        item.id
+      ]);
+    }))
+
+    await Promise.all(req.body.map(item => {
+      let = insertQuery = `INSERT INTO "user_proficiencies" (proficiency_id, user_id) 
+      VALUES ($1, $2);
+      `;
+      updateTalentProfile.query(insertQuery, [
+        item.id,
+        userId,
+      ]);
+    }))
+
+    await updateTalentProfile.query('COMMIT');
+    res.sendStatus(200);
+  } catch (err) {
+    await updateTalentProfile.query('ROLLBACK');
+    res.sendStatus(500);
+    console.log(err)
+    throw err;
+  } finally {
+    updateTalentProfile.release();
+  }
+})
+
+
+
+
+
+
+
 
 
 

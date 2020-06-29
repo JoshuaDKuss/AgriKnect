@@ -7,20 +7,16 @@ import { TextField, Typography } from '@material-ui/core';
 
 export class Location extends Component {
 
-    state = {
-        city: '',
-        state: '',
-        zipcode: 0
-    }
-
-    componentWillUnmount(){
-        this.props.dispatch({ type: 'SET_LOCATION', payload: this.state })
-    }
+   
     addLocation = (event, property) => {
-        this.setState({
-                ...this.state,
-                [property]: event.target.value,
-            })
+        if (property === 'city' ) {
+            this.props.dispatch({ type: 'SET_CITY', payload: event.target.value })
+        } else if (property === 'state') {
+             this.props.dispatch({ type: 'SET_STATE', payload: event.target.value })
+        } else {
+             this.props.dispatch({ type: 'SET_ZIPCODE', payload: event.target.value })
+        }
+       
     }
     render() {
         const { classes } = this.props; //need this for Material UI
@@ -29,9 +25,9 @@ export class Location extends Component {
             <div>
                <Typography> Where are you looking for work?  </Typography> 
 
-                <TextField id="standard-basic" label="City" onChange={(event) => this.addLocation(event, 'city')} />
-                 <TextField id="standard-basic" label="State" onChange={(event) => this.addLocation(event, 'state')} />
-                <TextField id="standard-basic" label="Zip Code" onChange={(event) => this.addLocation(event, 'zipcode')} />
+                <TextField value={this.props.talentForm.city}  id="standard-basic" label="City" onChange={(event) => this.addLocation(event, 'city')} />
+                 <TextField value={this.props.talentForm.state}  id="standard-basic" label="State" onChange={(event) => this.addLocation(event, 'state')} />
+                <TextField value={this.props.talentForm.zipcode}  id="standard-basic" label="Zip Code" onChange={(event) => this.addLocation(event, 'zipcode')} />
             </div>
         )
     }
@@ -39,4 +35,11 @@ export class Location extends Component {
 
 Location.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(Location)); 
+const reduxStateToProps = (reduxState) => {
+    return {
+        talentForm: reduxState.talentForm.formData,
+
+    }
+}
+
+export default connect(reduxStateToProps)(withStyles(styles)(Location)); 
