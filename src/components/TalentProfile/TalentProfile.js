@@ -72,6 +72,7 @@ export class TalentProfile extends Component {
         const generalAgriculture = [];
         const precisionFarming = [];
         const Maintenance = [];
+        const Trucking = [];
         const Equipment = [];
         const Brand = [];
         console.log('in render', generalAgriculture, precisionFarming, Maintenance)
@@ -81,12 +82,14 @@ export class TalentProfile extends Component {
                 generalAgriculture.push(talentSkills[i])
             } else if (talentSkills[i].proficiency_category === "Precision Farming Technology") {
                 precisionFarming.push(talentSkills[i])
-            } else if (talentSkills[i].proficiency_category === "Maintenance") {
+            } else if (talentSkills[i].proficiency_category === "Maintenance and Mechanics") {
                 Maintenance.push(talentSkills[i])
             } else if (talentSkills[i].proficiency_category === "Equipment") {
                 Equipment.push(talentSkills[i])
             } else if (talentSkills[i].proficiency_category === "Brand") {
                 Brand.push(talentSkills[i])
+            } else if (talentSkills[i].proficiency_category === "Trucking") {
+                Trucking.push(talentSkills[i])
             }
         }
         return (
@@ -138,6 +141,16 @@ export class TalentProfile extends Component {
                                 <div>
                                     <h3>Maintenance</h3>
                                     {Maintenance.map((skills) => {
+                                        return (
+
+                                            <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                        )
+                                    })}
+
+                                </div>
+                                <div>
+                                    <h3>Trucking</h3>
+                                    {Trucking.map((skills) => {
                                         return (
 
                                             <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
