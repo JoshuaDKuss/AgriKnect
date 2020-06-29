@@ -15,7 +15,7 @@ const talentRouter = require ('./routes/talent.router');
 const farmRouter = require ('./routes/farm.router'); 
 const jobsRouter = require ('./routes/jobs.router'); 
 const proficienciesRouter = require ('./routes/proficiencies.router');  
-const searchRouter = require('./routes/search.router')
+
 
 // Body parser middleware
 app.use(bodyParser.json());
