@@ -30,7 +30,7 @@ import TalentProfileEditSkills from '../TalentProfile/EditTalentProfile/EditTale
 import TalentProfileEditedEquipmentBrands from '../TalentProfile/EditTalentProfile/EditTalentEquipmentBrands/TalentProfileEditEquipmentBrands';
 import TalentProfileEditedCertificate from '../TalentProfile/EditTalentProfile/EditTalentCertifications/EditTalentCertification';
 import TalentProfileEditedEducation from '../TalentProfile/EditTalentProfile/EditTalentEducation/EditTalentEducation';
-// import TalentProfileEditedEmployment from '../TalentProfile/EditTalentProfile/EditTalentEmployment/EditTalentEmployment';
+import TalentProfileEditedEmployment from '../TalentProfile/EditTalentProfile/EditTalentEmployment/EditTalentEmployment';
 
 import './App.css';
 
@@ -114,11 +114,11 @@ class App extends Component {
               component={TalentProfileEditedCertificate}
             />
 
-             {/* <ProtectedRoute
+             <ProtectedRoute
               exact
               path="/talentProfile/editEmployment/:id"
-              component= 
-            /> */}
+              component= {TalentProfileEditedEmployment} 
+            />
 
              <ProtectedRoute
               exact

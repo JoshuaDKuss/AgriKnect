@@ -20,6 +20,7 @@ import editedTalentCertification from './editedTalentCertificate';
 import editFarmProfile from './editFarmProfileReducer';
 import matchData from './matchReducer'; 
 import editedTalentEducation from './editedTalentEducation'; 
+import editedTalentEmployment from './editedTalentEmployment';
 
 
 // rootReducer is the primary reducer for our entire project
@@ -50,7 +51,8 @@ const rootReducer = combineReducers({
   // matchData,
   editedTalentEducation,
   editFarmProfile,
-  matchData
+  matchData,
+  editedTalentEmployment
 });
 
 export default rootReducer;

@@ -27,6 +27,10 @@ function* fetchTalent(action) {
     for (let i = 0; i < responseTalentEducation.data.length; i++) {
       yield put({ type: 'SET_INITIAL_EDUCATION', payload: responseTalentEducation.data[i] });
     } 
+
+    for (let i = 0; i < responseTalentEmployment.data.length; i++) {
+      yield put({ type: 'SET_INITIAL_EMPLOYMENT', payload: responseTalentEmployment.data[i] });
+    } 
    console.log('in saga', response.data)
   } catch(err){
     console.log(err)
