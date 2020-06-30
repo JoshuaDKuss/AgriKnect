@@ -9,7 +9,7 @@ export class FarmDetails extends Component {
         return (
             <div className={'farmDetailItem'}>
                 <div>
-                    <p>Size: {this.props.details.size} employees</p>
+                    <p>Size: {this.props.details.size} </p>
                 </div>
                 <div>
                     <p>Farm Type: {this.props.details.type}</p>
