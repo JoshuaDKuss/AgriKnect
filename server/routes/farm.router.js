@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
     router.get('/jobs/:id', (req, res) => {
         let id = req.user.id
         console.log('in router get', [id]);
-        const sqlText = `SELECT "title", "start_date", "payment_amount", "payment_period" FROM "jobs"
+        const sqlText = `SELECT "title", "start_date", "payment_amount", "payment_period", "user_id", "jobs"."id" FROM "jobs"
         JOIN "user" on "jobs"."user_id"="user"."id"
         WHERE "user"."id" = $1;`;
         pool
@@ -88,5 +88,16 @@ router.put('/:id', (req, res) => {  // '/:id'
         });
 });
 
+//JOB DELETE 
+router.delete('/:id', (req, res) => {
+    let query = `DELETE FROM jobs WHERE id =  $1`
+    let values = [req.params.id]
+    pool.query(query, values).then((result)=>{
+      res.sendStatus(200);
+    }).catch((error) =>{
+        console.log(error)
+        res.sendStatus(500);
+    })
+  });
 
 module.exports = router;

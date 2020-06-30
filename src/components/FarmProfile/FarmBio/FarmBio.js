@@ -62,7 +62,7 @@ export class farmBio extends Component {
                 </div>
 
                 <div className={'farmJobsAvailable'}>
-                    {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
+                    {/* {JSON.stringify(this.props.reduxState.farmJobsAvailable)} */}
                     <h3 className={'farmJobs'}>Available Jobs</h3>
                     <ul>
                         {this.props.reduxState.farmJobsAvailable.map((job) => {

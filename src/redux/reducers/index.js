@@ -17,6 +17,8 @@ import editedTalentEquipmentReducer from './editedTalentEquipmentReducer';
 //import farmForm from './farmFormReducer'; 
 import jobSearch from './jobSearchReducer'; 
 import editFarmProfile from './editFarmProfileReducer';
+import matchData from './matchReducer'; 
+
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -43,6 +45,7 @@ const rootReducer = combineReducers({
   
   jobSearch,
   editFarmProfile,
+  matchData
 });
 
 export default rootReducer;

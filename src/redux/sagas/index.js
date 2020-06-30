@@ -11,6 +11,7 @@ import editSkillsTalentSaga from './editSkillsSaga';
 import editEquipmentTalentSaga from './editEquipmentTalentSaga';
 import searchSaga from './searchSaga';
 import editFarmProfileSaga from './editFarmProfileSaga';
+import deleteJobSaga from './deleteJobSaga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -33,5 +34,6 @@ export default function* rootSaga() {
     editEquipmentTalentSaga(),
     searchSaga(),
     editFarmProfileSaga(),
+    deleteJobSaga(),
   ]);
 }
