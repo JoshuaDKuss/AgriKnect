@@ -3,10 +3,14 @@ import { connect } from "react-redux";
 import {Link} from 'react-router-dom';
 import moment from "moment"; 
 
+
+
 export class TalentEmployment extends Component {
 
     
     render() {
+        // console.log(moment(this.props.employment.end_date).format(("YYYY-MM-DD")))
+        
         // console.log('in profile item', this.props.talent.first_name)
         return (
             <div>
