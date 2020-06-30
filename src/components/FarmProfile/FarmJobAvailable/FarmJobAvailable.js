@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import moment from "moment" 
+import moment from "moment";
+import {Button} from '@material-ui/core';
+
 export class FarmJobsAvailable extends Component {
     deleteJob= () =>{
         console.log('Show me job id',this.props.job.id)
@@ -16,8 +18,8 @@ export class FarmJobsAvailable extends Component {
             <div className={'farmJobItem'}>
                 <li>
                
-                {this.props.job.title} {moment(this.props.job.start_date).format("MM Do YYYY")} ${this.props.job.payment_amount} {this.props.job.payment_period}
-                <button onClick={this.deleteJob}>Delete</button>
+                {this.props.job.title} {moment(this.props.job.start_date).format("MM Do YYYY")} ${this.props.job.payment_amount} {this.props.job.payment_period} &nbsp;
+                <Button variant="outlined" onClick={this.deleteJob}>Delete</Button>
                 </li>
             </div>
         )
