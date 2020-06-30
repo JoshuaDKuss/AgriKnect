@@ -2,54 +2,68 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ResultItem from "../ResultItem/ResultItem";
 import mapboxgl from "mapbox-gl";
-import './SearchPage.css';
-// import 'mapbox-gl/dist/mapbox-gl.css';
+import "./SearchPage.css";
 
-mapboxgl.accessToken =
-  "pk.eyJ1Ijoic2phY2sxOTkyIiwiYSI6ImNrYm1vbDE2dDFqMzkyc2swcmV0dWM5ZHAifQ.Z54W_clJ0v_qZQU026H65w";
 
 class SearchPage extends Component {
   state = {
     search: "",
-    lng: -93,
-    lat: 45,
-    zoom: 9,
+    // title: strong[0],
   };
 
-
-
   componentDidMount() {
- 
-    //   map.on("move", () => {
-    //     this.setState({
-    //       lng: map.getCenter().lng.toFixed(4),
-    //       lat: map.getCenter().lat.toFixed(4),
-    //       zoom: map.getZoom().toFixed(2),
-    //     });
-    //   });
-  
+
+    // const map = new mapboxgl.Map({
+    //   container: this.mapContainer,
+    //   style: "mapbox://styles/mapbox/streets-v11",
+    //   center: [-96, 45],
+    //   zoom: 9,
+    // });
+    // console.log(this.props.searchResults)
+
+    // for (let i = 0; i < this.props.searchResults.length; i++) {
       
+    //   let long = this.props.searchResults[i].longitude
+    //   let lat = this.props.searchResults[i].latitude
+    //   console.log(long, lat);
+    //   new mapboxgl.Marker()
+    //   .setLngLat([long, lat])
+    //   .addTo(map);
+    // }
+     
+
   }
 
   submitSearch = () => {
-    console.log("submitted!");
+    console.log("SUBmitted!");
     this.props.dispatch({
       type: "FETCH_JOB_SEARCH",
       payload: this.state.search,
     });
     this.setState({
-      search: "",
+      search: '',
     });
-    const map = new mapboxgl.Map({
+  
+
+    
+  };
+
+  handleClick = (title, farmName, description, lat, long) => {
+    console.log("clicked!");
+    this.setState({
+      title: title,
+      farmName: farmName,
+      description: description,
+      lat: lat,
+      long: long
+    })
+        const map = new mapboxgl.Map({
         container: this.mapContainer,
         style: "mapbox://styles/mapbox/streets-v11",
-        center: [this.state.lng, this.state.lat],
-        zoom: this.state.zoom,
+        center: [long, lat],
+        zoom: 9,
       });
-      
-    //   console.log(this.props.searchResults[0])
-    //   new mapboxgl.Marker().setLngLat([this.props.searchResults.latitude, this.props.searchResults.longitude]).addTo(map);
-    
+      new mapboxgl.Marker().setLngLat([long, lat]).addTo(map);
   };
 
   handleChange = (event) => {
@@ -106,30 +120,30 @@ class SearchPage extends Component {
       );
     }
     return (
+      <div>
+      <div>
+      <input
+        value={this.state.search}
+        onChange={this.handleChange}
+        placeholder="title, keyword, location"
+      ></input>
+    </div>
       <div className="searchBox">
+        <div>
         {/* <div className="sidebarStyle">
           Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom:{" "}
           {this.state.zoom}
         </div> */}
-        <div>
-          <div
-            ref={(el) => (this.mapContainer = el)}
-            className="mapContainer"
-          />
-        </div>
+   
+      
         <h1>search all jobs</h1>
-        <div>
-          <input
-            value={this.state.search}
-            onChange={this.handleChange}
-            placeholder="title, keyword, location"
-          ></input>
-        </div>
+       
         <button onClick={this.submitSearch}>Search</button>
 
         {strong.map((result) => {
           return (
             <ResultItem
+              click={this.handleClick}
               key={result.id}
               city={result.city}
               endDate={result.end_date}
@@ -143,12 +157,16 @@ class SearchPage extends Component {
               jobProficiencies={result.proficiencies}
               userProficiencies={this.props.userProficiencies}
               match="Strong match"
+              lat={result.latitude}
+              long={result.longitude}
+              description={result.description}
             />
           );
         })}
         {good.map((result) => {
           return (
             <ResultItem
+              click={this.handleClick}
               key={result.id}
               city={result.city}
               endDate={result.end_date}
@@ -162,12 +180,16 @@ class SearchPage extends Component {
               jobProficiencies={result.proficiencies}
               userProficiencies={this.props.userProficiencies}
               match="Good match"
+              lat={result.latitude}
+              long={result.longitude}
+              description={result.description}
             />
           );
         })}
         {weak.map((result) => {
           return (
             <ResultItem
+              click={this.handleClick}
               key={result.id}
               city={result.city}
               endDate={result.end_date}
@@ -181,10 +203,24 @@ class SearchPage extends Component {
               jobProficiencies={result.proficiencies}
               userProficiencies={this.props.userProficiencies}
               match="Weak match"
+              lat={result.latitude}
+              long={result.longitude}
+              description={result.description}
             />
           );
         })}
-        {JSON.stringify(this.props.matchData)}
+        </div>
+        
+        <div className="additionalDetails">
+        <h1>{this.state.title}</h1>
+        <h3>{this.state.farmName}</h3>
+        <p>{this.state.description}</p>
+        <div
+      ref={(el) => (this.mapContainer = el)}
+      className="mapContainer"
+    />
+      </div>
+      </div>
       </div>
     );
   }
