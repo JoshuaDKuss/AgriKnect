@@ -157,9 +157,10 @@ export class EditFarm extends Component {
                                 <div className={'farmBioSize'}><br/>
                                     <a>About:</a>
                                     <textarea rows="6" cols="30" placeholder={bio.bio}
+                                    onChange={(event) => this.updateFarmBio(event, 'bio')}
                                     value={this.props.bio}></textarea>
                                 </div>
-
+                                
                                 {/* <div>
                                 <Button variant='contained' 
                                 color={rowCropColor} 
