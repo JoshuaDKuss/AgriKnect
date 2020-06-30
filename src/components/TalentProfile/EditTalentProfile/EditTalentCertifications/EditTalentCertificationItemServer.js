@@ -6,41 +6,48 @@ import styles from '../../../Styles/styles';
 import { TextField, Typography, Button } from '@material-ui/core';
 import moment from 'moment';
 
-export class EditTalentCertificationsItem extends Component {
+export class EditTalentCertificationsItemServer extends Component {
 
-
-
-    componentDidMount() {
-        console.log(this.props.item)
-    }
-    
+    // componentDidMount(){
+    //     console.log('NEW ONE FROM THE REDUX STATE', this.state.id)
+    // }
 
     state = {
-        id: this.props.item,
-        certificate: '',
-        issuingCompany: '',
-        issueDate: '2020-01-01',
-        expirationDate: '2020-01-01',
-        editMode: true,
+        id: this.props.item.id,
+        certificate: this.props.item.certificate,
+        issuingCompany: this.props.item.issuingCompany,
+        issueDate: this.props.item.issueDate,
+        expirationDate: this.props.item.expirationDate,
+        editMode: false,
+       
     }
 
 
     addCertificate = (event, property) => {
-        console.log(event.target.value)
+
         this.setState({
             ...this.state,
             [property]: event.target.value,
         })
-        console.log(this.state);
+        console.log(this.state)
 
     }
 
+    deleteCertificate = () => {
+        console.log('delete',this.state.certificate)
+        this.props.dispatch({ type: 'DELETE_EDITED_CERTIFICATE', payload: this.state})
+    }
 
-    // removeCertification = () => {
-    //     console.log(this.props.item)
+    // sendData = (event) => {
+    //     this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: { state: this.state, expirationDate: event.target.value } })
+    //     this.setState({
+    //         ...this.state,
+    //         numberOfChanges: this.state.numberOfChanges + 1
+    //     })
     // }
 
     toggleEditMode = () => {
+        console.log(this.state.id)
         this.setState({
             ...this.state,
             editMode: !this.state.editMode
@@ -48,7 +55,8 @@ export class EditTalentCertificationsItem extends Component {
     }
 
     toggleEditModeSave = () => {
-        this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: this.state })
+        // this.preventDefault(this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: this.state}))
+        this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: this.state})
         this.setState({
             ...this.state,
             editMode: !this.state.editMode
@@ -62,7 +70,7 @@ export class EditTalentCertificationsItem extends Component {
             <>
            
                 <div>
-                 <Typography>Certificate: </Typography>
+                
                     <TextField defaultValue={this.state.certificate} id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
                 </div>
                     <Typography>Issuing Company: </Typography>
@@ -71,7 +79,7 @@ export class EditTalentCertificationsItem extends Component {
                     <div>
                         <TextField
                             id="date"
-                            defaultValue={this.state.issueDate}
+                            defaultValue={moment(this.state.issueDate).format(("YYYY-MM-DD"))}
                             label="Issue Date"
                             type="date"
                            
@@ -83,7 +91,7 @@ export class EditTalentCertificationsItem extends Component {
                         />
                         <TextField
                             id="date"
-                            defaultValue={this.state.expirationDate}
+                            defaultValue={moment(this.state.expirationDate).format(("YYYY-MM-DD"))}
                             label="Expiration Date"
                             type="date"
                         
@@ -99,23 +107,23 @@ export class EditTalentCertificationsItem extends Component {
              </>
         } else {
             JSXToRender = 
-                <> </>
-            //    <>
-            //          <div>
+                
+               <>
+                     <div>
 
-            //         <Typography> Certificate Name: {this.state.certificate}  </Typography>
-            //         </div>
-            //     <Typography>Issuing Company: {this.state.issuingCompany}  </Typography>
+                    <Typography> Certificate Name: {this.state.certificate}  </Typography>
+                    </div>
+                <Typography>Issuing Company: {this.state.issuingCompany}  </Typography>
                   
 
-            //         <div>
-            //         <Typography> Issue Date: {moment(this.state.issueDate).format(("YYYY-MM-DD"))}</Typography>
-            //         <Typography> Expiration Date: {moment(this.state.expirationDate).format(("YYYY-MM-DD"))}</Typography>
+                    <div>
+                    <Typography> Issue Date: {moment(this.state.issueDate).format(("YYYY-MM-DD"))}</Typography>
+                    <Typography> Expiration Date: {moment(this.state.expirationDate).format(("YYYY-MM-DD"))}</Typography>
                        
-            //             <Button variant="outlined" onClick={this.toggleEditMode}> Edit </Button>
-            //         <Button variant="outlined" onClick={this.deleteCertificate}> Delete </Button> 
-            //         </div> 
-            //     </>
+                        <Button variant="outlined" onClick={this.toggleEditMode}> Edit </Button>
+                    <Button variant="outlined" onClick={this.deleteCertificate}> Delete </Button> 
+                    </div> 
+                </>
               
         }
 
@@ -125,15 +133,12 @@ export class EditTalentCertificationsItem extends Component {
             <>
             {JSXToRender}
             </>
-
+           
         )
     }
 }
 
-EditTalentCertificationsItem.propTypes = { classes: PropTypes.object.isRequired };
+EditTalentCertificationsItemServer.propTypes = { classes: PropTypes.object.isRequired };
 
-// const mapStateToProps = state => ({
-//     certification: state.talentForm.formData.certification,
-// });
 
-export default connect()(withStyles(styles)(EditTalentCertificationsItem)); 
+export default connect()(withStyles(styles)(EditTalentCertificationsItemServer)); 

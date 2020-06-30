@@ -7,6 +7,8 @@ import TalentProfileSkillsList from './TalentProfileEditSkillsList';
 import TalentProfileEditExpertise from './TalentProfileEditExpertise';
 
 export class TalentProfileEditSkills extends Component {
+    
+
     state = {
         listRendered: true,
     }
@@ -18,7 +20,10 @@ export class TalentProfileEditSkills extends Component {
     }
 
     submitExpertise = () => {
-        this.props.dispatch({ type: 'UPDATE_TALENT_SKILLS', payload: { skills: this.props.skills.editedSkillsExpertise, id: this.props.match.params.id  }})
+        this.props.dispatch({type:'RUN_UPDATE_SKILLS_LOGIC', payload: { skills: this.props.skills.editedSkillsExpertise, id: this.props.user.id }, history: this.props.history })
+        // this.props.dispatch({ type: 'UPDATE_TALENT_SKILLS', payload: { skills: this.props.skills.editedSkillsExpertise, id: this.props.user.id }})
+        // this.props.dispatch({ type: 'DELETE_ALL_SKILLS' })
+        // this.props.history.push(`/talentProfile/${this.props.user.id}`);
     }
 
 
@@ -49,7 +54,8 @@ TalentProfileEditSkills.propTypes = { classes: PropTypes.object.isRequired };
 
 const reduxStateToProps = (reduxState) => {
     return {
-        skills: reduxState.editedTalentSkillsReducer
+        skills: reduxState.editedTalentSkillsReducer,
+        user: reduxState.user
     }
 }
 
