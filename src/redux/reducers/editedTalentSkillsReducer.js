@@ -24,7 +24,7 @@ const editedTalentSkillsReducer = (state = {
        
        return { ...state, editedSkillsExpertise: [...state.editedSkillsExpertise, action.payload] }
 
-    } //end of if 
+    } //end of if hello
     //if state does include value, remove it 
     else {
         console.log('need to delete');
