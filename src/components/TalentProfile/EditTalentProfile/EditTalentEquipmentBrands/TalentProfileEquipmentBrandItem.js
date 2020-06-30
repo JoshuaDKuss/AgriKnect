@@ -8,7 +8,7 @@ import styles from '../../../Styles/styles';
 export class TalentProfileEquipmentItem extends Component {
     componentDidMount() {
         this.props.equipment.map(equipment => {
-            if (equipment === this.props.item) {
+            if (equipment.id === this.props.item.id) {
                 this.setState({
                     ...this.state,
                     color: 'primary'

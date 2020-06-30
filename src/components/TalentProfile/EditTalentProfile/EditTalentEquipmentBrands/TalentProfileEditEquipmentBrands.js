@@ -8,6 +8,7 @@ import TalentProfileEquipmentItem from './TalentProfileEquipmentBrandItem';
 
 export class TalentProfileEquipment extends Component {
 
+
     submitEditedEquipment = () => {
         this.props.dispatch({ type: 'UPDATE_EQUIPMENT_BRANDS', payload: { id: this.props.match.params.id, skills: this.props.equipment} })
     }
