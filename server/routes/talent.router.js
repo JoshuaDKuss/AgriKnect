@@ -300,6 +300,150 @@ router.put('/equipment/:id', async (req, res) => {
   }
 })
 
+router.put('/certifications', async (req, res) => {
+  console.log('USER ID', req.user.id, 'REQ.BODY', req.body);
+  const certifications = req.body;
+  const userId = req.user.id;
+  const updateTalentProfile = await pool.connect();
+
+
+
+  try {
+    await updateTalentProfile.query('BEGIN');
+    let queryStringSelect = `SELECT "certification"."id" FROM "certification" WHERE "certification"."user_id" = $1; 
+    
+    `;
+    const result = await updateTalentProfile.query(queryStringSelect, [userId]);
+    console.log('result', result.rows);
+
+    await Promise.all(result.rows.map(item => {
+      let = deleteQuery = `DELETE from "certification" WHERE "id" = $1;`;
+      updateTalentProfile.query(deleteQuery, [
+        item.id
+      ]);
+    }))
+
+    await Promise.all(req.body.map(item => {
+      let = insertQuery = `INSERT INTO "certification" (certification_name, issuing_company, issue_date, expiration_date, user_id) 
+      VALUES ($1, $2, $3, $4, $5);
+      `;
+      updateTalentProfile.query(insertQuery, [
+        item.certificate,
+        item.issuingCompany,
+        item.issueDate,
+        item.expirationDate,
+        userId,
+      ]);
+    }))
+
+    await updateTalentProfile.query('COMMIT');
+    res.sendStatus(200);
+  } catch (err) {
+    await updateTalentProfile.query('ROLLBACK');
+    res.sendStatus(500);
+    console.log(err)
+    throw err;
+  } finally {
+    updateTalentProfile.release();
+  }
+})
+
+router.put('/education', async (req, res) => {
+  console.log('USER ID', req.user.id, 'REQ.BODY', req.body);
+  const education = req.body;
+  const userId = req.user.id;
+  const updateTalentProfile = await pool.connect();
+
+
+
+  try {
+    await updateTalentProfile.query('BEGIN');
+    let queryStringSelect = `SELECT "education"."id" FROM "education" WHERE "education"."user_id" = $1; 
+    
+    `;
+    const result = await updateTalentProfile.query(queryStringSelect, [userId]);
+    console.log('result', result.rows);
+
+    await Promise.all(result.rows.map(item => {
+      let = deleteQuery = `DELETE from "education" WHERE "id" = $1;`;
+      updateTalentProfile.query(deleteQuery, [
+        item.id
+      ]);
+    }))
+
+    await Promise.all(req.body.map(item => {
+      let = insertQuery = `INSERT INTO "education" (institution_name, degree, start_date, end_date, user_id) 
+      VALUES ($1, $2, $3, $4, $5);
+      `;
+      updateTalentProfile.query(insertQuery, [
+        item.school,
+        item.degree,
+        item.startDate,
+        item.endDate,
+        userId,
+      ]);
+    }))
+
+    await updateTalentProfile.query('COMMIT');
+    res.sendStatus(200);
+  } catch (err) {
+    await updateTalentProfile.query('ROLLBACK');
+    res.sendStatus(500);
+    console.log(err)
+    throw err;
+  } finally {
+    updateTalentProfile.release();
+  }
+})
+
+router.put('/employment', async (req, res) => {
+  console.log('USER ID', req.user.id, 'REQ.BODY', req.body);
+  const employment = req.body;
+  const userId = req.user.id;
+  const updateTalentProfile = await pool.connect();
+
+
+
+  try {
+    await updateTalentProfile.query('BEGIN');
+    let queryStringSelect = `SELECT "employment"."id" FROM "employment" WHERE "employment"."user_id" = $1; 
+    
+    `;
+    const result = await updateTalentProfile.query(queryStringSelect, [userId]);
+    console.log('result', result.rows);
+
+    await Promise.all(result.rows.map(item => {
+      let = deleteQuery = `DELETE from "employment" WHERE "id" = $1;`;
+      updateTalentProfile.query(deleteQuery, [
+        item.id
+      ]);
+    }))
+
+    await Promise.all(req.body.map(item => {
+      let = insertQuery = `INSERT INTO "employment" (employer_name, title, start_date, end_date, user_id) 
+      VALUES ($1, $2, $3, $4, $5);
+      `;
+      updateTalentProfile.query(insertQuery, [
+        item.company,
+        item.title,
+        item.startDate,
+        item.endDate,
+        userId,
+      ]);
+    }))
+
+    await updateTalentProfile.query('COMMIT');
+    res.sendStatus(200);
+  } catch (err) {
+    await updateTalentProfile.query('ROLLBACK');
+    res.sendStatus(500);
+    console.log(err)
+    throw err;
+  } finally {
+    updateTalentProfile.release();
+  }
+})
+
 
 
 

@@ -99,23 +99,23 @@ export class EditTalentCertificationsItem extends Component {
              </>
         } else {
             JSXToRender = 
-                
-               <>
-                     <div>
+                <> </>
+            //    <>
+            //          <div>
 
-                    <Typography> Certificate Name: {this.state.certificate}  </Typography>
-                    </div>
-                <Typography>Issuing Company: {this.state.issuingCompany}  </Typography>
+            //         <Typography> Certificate Name: {this.state.certificate}  </Typography>
+            //         </div>
+            //     <Typography>Issuing Company: {this.state.issuingCompany}  </Typography>
                   
 
-                    <div>
-                    <Typography> Issue Date: {moment(this.state.issueDate).format(("YYYY-MM-DD"))}</Typography>
-                    <Typography> Expiration Date: {moment(this.state.expirationDate).format(("YYYY-MM-DD"))}</Typography>
+            //         <div>
+            //         <Typography> Issue Date: {moment(this.state.issueDate).format(("YYYY-MM-DD"))}</Typography>
+            //         <Typography> Expiration Date: {moment(this.state.expirationDate).format(("YYYY-MM-DD"))}</Typography>
                        
-                        <Button variant="outlined" onClick={this.toggleEditMode}> Edit </Button>
-                    <Button variant="outlined" onClick={this.deleteCertificate}> Delete </Button> 
-                    </div> 
-                </>
+            //             <Button variant="outlined" onClick={this.toggleEditMode}> Edit </Button>
+            //         <Button variant="outlined" onClick={this.deleteCertificate}> Delete </Button> 
+            //         </div> 
+            //     </>
               
         }
 

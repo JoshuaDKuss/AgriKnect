@@ -14,7 +14,6 @@ export class EditTalentCertifications extends Component {
 
     componentWillUnmount() {
         console.log('big component unmounted')
-        // this.props.dispatch({ type: 'UPDATE_CERTIFICATION', payload: { state: this.state } })
     }
 
     state = {
@@ -23,8 +22,8 @@ export class EditTalentCertifications extends Component {
 
     }
 
-    handleClick = () => {
-        console.log('button clicked')
+    submitEditedCertificates = () => {
+        this.props.dispatch({ type: 'UPDATE_CERTIFICATIONS', payload: this.props.certifications })
     }
 
     //adds a certificate to list 
@@ -60,7 +59,7 @@ export class EditTalentCertifications extends Component {
                 </ul>
 
                 <Button onClick={this.addCertificate} variant='outlined'> Add another license/certificate</Button>
-                 <Button onClick={this.handleClick} variant="outlined"> Save </Button> 
+                 <Button onClick={this.submitEditedCertificates} variant="outlined"> Submit </Button> 
 
 
             </div>

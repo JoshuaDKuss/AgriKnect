@@ -8,14 +8,16 @@ import moment from 'moment';
 
 export class EditTalentCertificationsItemServer extends Component {
 
-
+    componentDidMount(){
+        console.log('NEW ONE FROM THE REDUX STATE', this.state.id)
+    }
 
     state = {
         id: this.props.item.id,
-        certificate: this.props.item.certification_name,
-        issuingCompany: this.props.item.issuing_company,
-        issueDate: this.props.item.issue_date,
-        expirationDate: this.props.item.expiration_date,
+        certificate: this.props.item.certificate,
+        issuingCompany: this.props.item.issuingCompany,
+        issueDate: this.props.item.issueDate,
+        expirationDate: this.props.item.expirationDate,
         editMode: false,
        
     }
@@ -32,6 +34,7 @@ export class EditTalentCertificationsItemServer extends Component {
     }
 
     deleteCertificate = () => {
+        console.log('delete',this.state.certificate)
         this.props.dispatch({ type: 'DELETE_EDITED_CERTIFICATE', payload: this.state})
     }
 

@@ -4,11 +4,11 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* sendCertifications(action) {
     try {
-        console.log('!!!!!!!!!!!!!',action.payload)
-        // const response = yield axios.put(`talent/equipment/${action.payload.id}`, action.payload.skills);
-        yield console.log('TRY TWO')
+        console.log('in saga')
+        const response = yield axios.put(`talent/certifications`, action.payload);
+        
 
-        // yield put({ type: 'FETCH_TALENT' });
+        yield put({ type: 'FETCH_TALENT' });
 
 
     }  catch (error) {
@@ -17,7 +17,7 @@ function* sendCertifications(action) {
 }
 
 function* editCertificationSaga() {
-    yield takeLatest('UPDATE_CERTIFICATION', sendCertifications);
+    yield takeLatest('UPDATE_CERTIFICATIONS', sendCertifications);
 }
 
 export default editCertificationSaga;

@@ -1,6 +1,21 @@
 const editedTalentCertification = (state = [], action) => {
     if (action.type === 'SET_INITIAL_CERTIFICATIONS') {
-        return action.payload; 
+        for(let i = 0; i < action.payload.length; i++ ) {
+         let certificateToAdd = {
+                id: '',
+                certificate: '',
+                issuingCompany: '',
+                issueDate: '',
+                expirationDate: ''
+            } //end of certificate to add 
+            certificateToAdd.id = action.payload[i].id;
+            certificateToAdd.certificate = action.payload[i].certification_name;
+            certificateToAdd.issuingCompany = action.payload[i].issuing_company;
+        certificateToAdd.issueDate = action.payload[i].issue_date;
+            certificateToAdd.expirationDate = action.payload[i].expiration_date;
+            console.log('need to add')
+            return [...state, certificateToAdd] 
+        }
     } else if (action.type === 'SET_EDITED_CERTIFICATION') {
         const index = state.findIndex(item => item.id == action.payload.id)
         if (index < 0) {
