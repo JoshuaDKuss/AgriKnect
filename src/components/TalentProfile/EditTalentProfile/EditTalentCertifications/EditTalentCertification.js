@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../../Styles/styles';
 import { Button } from '@material-ui/core';
-import { Link } from 'react-router-dom'; 
 import EditTalentCertificationsItem from './EditTalentCertificationItem';
 import EditTalentCertificationsItemServer from './EditTalentCertificationItemServer';
 
@@ -46,14 +45,14 @@ export class EditTalentCertifications extends Component {
                     <h3> Add any certifications or licenses you have </h3>
                     {this.props.certifications.map((item) => {
                         return (
-                            <EditTalentCertificationsItemServer item={item} />
+                            <EditTalentCertificationsItemServer item={item} key={item.id} />
                         )
 
                     })}
 
                     {this.state.certificateList.map((item) => {
                         return (
-                            <EditTalentCertificationsItem item={item} />
+                            <EditTalentCertificationsItem item={item} key={item.counter} />
                         )
 
                     })}

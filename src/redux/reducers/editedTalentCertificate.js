@@ -65,7 +65,7 @@ const editedTalentCertification = (state = [], action) => {
             let filteredCertificates = state.filter(certificate => {
                 return certificate.id !== action.payload.id
             }) //end of filter
-
+            console.log('!!!!!!!!!!!!',filteredCertificates)
         return filteredCertificates; 
      } else if (action.type === 'DELETE_ALL_CERTIFICATIONS'){
          return []

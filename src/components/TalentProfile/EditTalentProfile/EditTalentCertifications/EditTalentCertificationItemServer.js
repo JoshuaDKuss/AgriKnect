@@ -47,6 +47,7 @@ export class EditTalentCertificationsItemServer extends Component {
     }
 
     toggleEditMode = () => {
+        console.log(this.state.id)
         this.setState({
             ...this.state,
             editMode: !this.state.editMode
