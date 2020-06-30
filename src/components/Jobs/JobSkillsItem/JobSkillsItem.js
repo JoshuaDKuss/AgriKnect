@@ -6,6 +6,17 @@ import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
 
 export class JobSkillsItem extends Component {
+    componentDidMount() {
+        this.props.job.skills.map(skill => {
+            if (skill === this.props.item) {
+                this.setState({
+                    ...this.state,
+                    color: 'primary'
+                })
+            }
+        })
+    }
+
     state = {
         color: ''
     }
@@ -43,4 +54,10 @@ export class JobSkillsItem extends Component {
 
 JobSkillsItem.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(JobSkillsItem)); 
+const reduxStateToProps = (reduxState) => {
+    return {
+        job: reduxState.jobPostingReducer
+    }
+}
+
+export default connect(reduxStateToProps)(withStyles(styles)(JobSkillsItem)); 

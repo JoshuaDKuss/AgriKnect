@@ -5,19 +5,74 @@ import TalentEquipment from './TalentEquipment'
 import TalentCertification from './TalentCertification'
 import TalentEducation from './TalentEducation'
 import TalentEmployment from './TalentEmployment'
+import { Link } from 'react-router-dom'; 
 import './talent.css'
 
 export class TalentProfile extends Component {
+    state = {
+        editAbout: false,
+        editSkills: false,
+        editEquipment: false, 
+        editCertifications: false,
+        editEducation: false, 
+        editEmployment: false,
+        profileRendered: true,
+        editSkillsRendered: false,
+        editEquipmentRendered: false, 
+    }
+
     componentDidMount() {
         console.log('this is params.id', this.props.match.params.id);
         this.props.dispatch({ type: "FETCH_TALENT", payload: this.props.match.params.id });
     }
 
+    editSkills = () => {
+
+    }
+
+    renderEditButtons = () => {
+        this.setState({
+            editAbout: !this.state.editAbout,
+            editSkills: !this.state.editSkills,
+            editEquipment: !this.state.editEquipment,
+            editCertifications: !this.state.editCertifications,
+            editEducation: !this.state.editEducation,
+            editEmployment: !this.state.editEducation,
+        })
+        console.log(this.state)
+    }
+
     render() {
+        let JSXRendered = <span> </span>
+        // let editAbout = <span> </span>
+        // if(this.state.editAbout) {
+        //     editAbout = <button> Edit </button>
+        // }
+        let editSkills = <span> </span>
+        if (this.state.editSkills) {
+            editSkills = <Link to='/talentProfile/editSkills/:id' >  <button onClick={this.editSkills}> Edit </button> </Link> 
+        }
+        let editEquipment = <span> </span>
+        if (this.state.editEquipment) {
+            editEquipment = <button> Edit </button>
+        }
+        let editCertifications = <span> </span>
+        if (this.state.editCertifications) {
+            editCertifications = <button> Edit </button>
+        }
+        let editEducation = <span> </span>
+        if (this.state.editEducation) {
+            editEducation = <button> Edit </button>
+        }
+        let editEmployment = <span> </span>
+        if (this.state.editEmployment) {
+            editEmployment = <button> Edit </button>
+        }
         const talentSkills = this.props.reduxState.talentProficiencyReducer
         const generalAgriculture = [];
         const precisionFarming = [];
         const Maintenance = [];
+        const Trucking = [];
         const Equipment = [];
         const Brand = [];
         console.log('in render', generalAgriculture, precisionFarming, Maintenance)
@@ -27,12 +82,14 @@ export class TalentProfile extends Component {
                 generalAgriculture.push(talentSkills[i])
             } else if (talentSkills[i].proficiency_category === "Precision Farming Technology") {
                 precisionFarming.push(talentSkills[i])
-            } else if (talentSkills[i].proficiency_category === "Maintenance") {
+            } else if (talentSkills[i].proficiency_category === "Maintenance and Mechanics") {
                 Maintenance.push(talentSkills[i])
             } else if (talentSkills[i].proficiency_category === "Equipment") {
                 Equipment.push(talentSkills[i])
             } else if (talentSkills[i].proficiency_category === "Brand") {
                 Brand.push(talentSkills[i])
+            } else if (talentSkills[i].proficiency_category === "Trucking") {
+                Trucking.push(talentSkills[i])
             }
         }
         return (
@@ -56,6 +113,7 @@ export class TalentProfile extends Component {
                                     <span>About</span>
                                     <p>{talent.bio}</p>
                                 </div>
+                                <button onClick={this.renderEditButtons}> Edit </button>
                             </div>
 
                             <div className={'talentExperience'}>
@@ -90,6 +148,18 @@ export class TalentProfile extends Component {
                                     })}
 
                                 </div>
+                                <div>
+                                    <h3>Trucking</h3>
+                                    {Trucking.map((skills) => {
+                                        return (
+
+                                            <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                        )
+                                    })}
+
+                                </div>
+
+                                {editSkills}
 
                             </div>
                             <div className={'talentEquipment'}>
@@ -111,6 +181,7 @@ export class TalentProfile extends Component {
                                         )
                                     })}
                                 </div>
+                                {editEquipment}
                             </div>
                             <div className={'talentCertification'}>
                                 <div>
@@ -123,6 +194,7 @@ export class TalentProfile extends Component {
                                         )
                                     })}
                                 </div>
+                                {editCertifications}
                             </div>
                             <div className={'talentEducation'}>
                                 <div>
@@ -133,7 +205,7 @@ export class TalentProfile extends Component {
                                         )
                                     })}
                                 </div>
-
+                                {editEducation}
                             </div>
                             <div className={'talentEmployment'}>
                                 <div>
@@ -144,6 +216,7 @@ export class TalentProfile extends Component {
                                         )
                                     })}
                                 </div>
+                                {editEmployment}
                             </div>
                     
                         </>

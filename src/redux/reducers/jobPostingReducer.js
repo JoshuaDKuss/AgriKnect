@@ -7,7 +7,7 @@ const jobPostingReducer = (state = {
     skills: [],
     equipment: [],
     brands: [],
-    housingProvided: false,
+    housingProvided: '',
     housingDetails: '',
     relocationProvided: '', 
     paymentType: '',
@@ -39,39 +39,36 @@ const jobPostingReducer = (state = {
         
 
     } 
-    // else if (action.type === 'SET_JOB_EQUIPMENT') {
-    //     console.log('HEREHEREHERE')
-    //     if (state.equipment.indexOf(action.payload) < 0) {
-    //         console.log('in if')
-    //         return { ...state, equipment: [...state.equipment, action.payload] }
-    //     }  else {
-    //         console.log('in else')
-    //         let filteredEquipment = state.equipment.filter(skill => {
-    //             return skill !== action.payload
-    //         })
-    //         return { ...state, equipment: filteredEquipment } }
-    // } 
-    // else if (action.type === 'SET_JOB_BRAND') {
-    //         console.log('HEREHEREHERE')
-    //     if (state.brands.indexOf(action.payload) < 0) {
-    //         console.log('in if')
-    //         return { ...state, brands: [...state.brands, action.payload] }
-    //     }  else {
-    //         console.log('in else')
-    //         let filteredBrands = state.brands.filter(brand => {
-    //             return brand !== action.payload
-    //         })
-    //         return { ...state, brands: filteredBrands }
-    // } 
+    else if (action.type === 'SET_JOB_EQUIPMENT') {
+        if (state.equipment.indexOf(action.payload) < 0) {
+            return { ...state, equipment: [...state.equipment, action.payload] }
+        } else {
+            let filteredEquipment = state.equipment.filter(equipment => {
+                return equipment !== action.payload
+            })
+            return { ...state, equipment: filteredEquipment }
+        }
 
 
-    // } 
+    } 
+    else if (action.type === 'SET_JOB_BRAND') {
+        if (state.brands.indexOf(action.payload) < 0) {
+        return {...state, brands: [...state.brands, action.payload]}
+        } else {
+              let filteredBrands = state.brands.filter(brand => {
+               return brand !== action.payload
+            })
+           return {...state, brands: filteredBrands}
+        }
+        
+
+    } 
     else if (action.type === 'SET_ACCOMODATION') {
         console.log(action.payload);
-        if(action.payload === 'true') {
-            return { ...state, housingProvided: true}
+        if(action.payload == 'true') {
+            return { ...state, housingProvided: "true"}
         } else{
-            return { ...state, housingProvided: false }
+            return { ...state, housingProvided: "false" }
         }
         
     } else if (action.type === 'SET_ACCOMODATION_DESCRIPTION') {
@@ -79,9 +76,9 @@ const jobPostingReducer = (state = {
 
     } else if (action.type === 'SET_RELOCATION') {
         if (action.payload === 'true') {
-            return { ...state, relocationProvided: true }
+            return { ...state, relocationProvided: 'true' }
         } else {
-            return { ...state, relocationProvided: false }
+            return { ...state, relocationProvided: 'false' }
         }
 
     } else if (action.type === 'SET_PAYMENT_TYPE') {

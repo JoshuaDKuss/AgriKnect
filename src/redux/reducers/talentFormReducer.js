@@ -10,11 +10,9 @@ const formData = (state = {
     certification: [], 
     education: [],
     employment: [],
-    location: {
-        city: '',
-        state: '',
-        zipcode: ''
-    },
+    city: '',
+    state: '',
+    zipcode: '',
     bio: ''
 }, action) => {
     let certificateObject = {
@@ -25,55 +23,87 @@ const formData = (state = {
     if(action.type === 'SET_INITIAL_SKILLS'){
         
         if (state.initialSkills.indexOf(action.payload) < 0) {
-            state.initialSkills.push(action.payload);
+            return { ...state, initialSkills: [...state.initialSkills, action.payload]}
+            
         } //end of if 
         //if state does include value, remove it 
         else {
-            for (let i = 0; i < state.initialSkills.length; i++) {
-                if (state.initialSkills[i] === action.payload) {
-                    state.initialSkills.splice(i, 1)
-                } //end of conditional 
-            } //end of for loop 
+            let filteredSkills = state.initialSkills.filter(skill => {
+               return skill !== action.payload
+            })
+
+            return { ...state, initialSkills: filteredSkills} 
 
         } //end of else 
         return state; 
     } else if (action.type === 'SET_SKILLS_EXPERIENCE'){
-        
-         state.skillsExpertise.push(action.payload);
+        // state.skillsExpertise.indexOf(action.payload) < 0
+        const index = state.skillsExpertise.findIndex (item => item.skillID == action.payload.skillID)
+        if (index < 0 ) {
+            console.log('need to add')
+            return { ...state, skillsExpertise: [...state.skillsExpertise, action.payload] }
 
-        return state;
-    } else if (action.type === 'SET_EQUIPMENT') {
-        if (state.equipment.indexOf(action.payload) < 0) {
-            state.equipment.push(action.payload);
         } //end of if 
         //if state does include value, remove it 
         else {
-            for (let i = 0; i < state.equipment.length; i++) {
-                if (state.equipment[i] === action.payload) {
-                    state.equipment.splice(i, 1)
-                } //end of conditional 
-            } //end of for loop 
+            console.log('need to delete');
+            let filteredSkills = state.skillsExpertise.filter(skill => {
+                return skill.skillID != action.payload.skillID
+            })
+            // let filteredSkills = state.skillsExpertise.filter(skill => {
+            //     return skill !== action.payload
+            // })
+
+            filteredSkills.push(action.payload); 
+
+            return { ...state, skillsExpertise: filteredSkills }
+
+        } //end of else 
+        
+        //  state.skillsExpertise.push(action.payload);
+        // return { ...state, skillsExpertise: [...state.skillsExpertise, action.payload] }
+
+        // return state;
+    } else if (action.type === 'SET_EQUIPMENT') {
+        if (state.equipment.indexOf(action.payload) < 0) {
+            // state.equipment.push(action.payload);
+            return { ...state, equipment: [...state.equipment, action.payload] }
+        } //end of if 
+        //if state does include value, remove it 
+        else {
+            // for (let i = 0; i < state.equipment.length; i++) {
+            //     if (state.equipment[i] === action.payload) {
+            //         state.equipment.splice(i, 1)
+            //     } //end of conditional 
+            // } //end of for loop 
+
+            let filteredEquipment= state.equipment.filter(equipment => {
+                return equipment !== action.payload
+            })
+
+            return { ...state, equipment: filteredEquipment } 
 
         } //end of else 
         return state; 
 
     } else if (action.type === 'SET_BRANDS') {
         if (state.brands.indexOf(action.payload) < 0) {
-            state.brands.push(action.payload);
+            // state.brands.push(action.payload);
+            return { ...state, brands: [...state.brands, action.payload] }
         } //end of if 
         //if state does include value, remove it 
         else {
-            for (let i = 0; i < state.brands.length; i++) {
-                if (state.brands[i] === action.payload) {
-                    state.brands.splice(i, 1)
-                } //end of conditional 
-            } //end of for loop 
+            // for (let i = 0; i < state.brands.length; i++) {
+            //     if (state.brands[i] === action.payload) {
+            //         state.brands.splice(i, 1)
+            //     } //end of conditional 
+            // } //end of for loop 
 
-            // let filteredBrands = state.brands.filter(brand => {
-            //    return brand !== action.payload
-            // })
+            let filteredBrands = state.brands.filter(brand => {
+               return brand !== action.payload
+            })
 
-            // return {...state, brands: filteredBrands} 
+            return {...state, brands: filteredBrands} 
 
         } //end of else 
         return state; 
@@ -91,11 +121,9 @@ const formData = (state = {
       certificateToAdd.issueDate = action.payload.state.issueDate;
       certificateToAdd.expirationDate = action.payload.state.expirationDate; 
 
-        state.certification.push(certificateToAdd); 
-
-        // return {...state, certification: [...state.certification, certificateToAdd]}
+        return {...state, certification: [...state.certification, certificateToAdd]}
         
-        return state;
+        
 
     } else if (action.type === 'EDIT_CERTIFICATE') {
         console.log(action.payload);
@@ -151,19 +179,32 @@ const formData = (state = {
 
         return state;
 
-    } else if (action.type === 'SET_LOCATION') {
+    } else if (action.type === 'SET_CITY') {
+
+        return { ...state, city: action.payload}
         
-        state.location.city = action.payload.city;
-        state.location.state = action.payload.state;
-        state.location.zipcode = action.payload.zipcode;
+       
 
-        return state;
+    } else if (action.type === 'SET_STATE') {
 
-    } else if (action.type === 'SET_BIO') {
+        return { ...state, state: action.payload }
 
-        state.bio = action.payload.bio;
+
+
+    } else if (action.type === 'SET_ZIPCODE') {
+
+        return { ...state, zipcode: action.payload }
+
+
+
+    }  else if (action.type === 'SET_BIO') {
+
+        return {
+            ...state,
+            bio: action.payload
+        };
      
-        return state;
+      
 
     }{
         return state; 

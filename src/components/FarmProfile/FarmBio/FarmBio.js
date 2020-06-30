@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import FarmDetails from '../FarmDetails/FarmDetails'
 import './farm.css'
 import FarmJobsAvailable from '../FarmJobAvailable/FarmJobAvailable';
+import { Button } from '@material-ui/core';
+
+
 export class farmBio extends Component {
     componentDidMount() {
         console.log('this is params.id', this.props.match.params.id);
         this.props.dispatch({ type: "FETCH_FARM", payload: this.props.match.params.id });
+    }
+
+    editFarmBio = (event) =>{
+        console.log('in edit farm bio');
+        //this.props.history.push("/farmForm");
     }
 
     render() {
@@ -31,6 +39,9 @@ export class farmBio extends Component {
                                     <h2>About</h2>
                                     <p>{bio.bio}</p>
                                 </div>
+                                <div>
+                                    <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>EDIT</Button>
+                                </div>
                             </>
                         )
                     })}
@@ -48,7 +59,7 @@ export class farmBio extends Component {
 
                 </div>
                 <div className={'farmJobsAvailable'}>
-                    {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
+                    {/* {JSON.stringify(this.props.reduxState.farmJobsAvailable)} */}
                     <h3 className={'farmJobs'}>Available Jobs</h3>
                     <ul>
                         {this.props.reduxState.farmJobsAvailable.map((job) => {

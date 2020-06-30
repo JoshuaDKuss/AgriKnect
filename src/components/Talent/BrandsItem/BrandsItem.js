@@ -6,6 +6,18 @@ import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
 
 export class BrandsItem extends Component {
+
+    componentDidMount() {
+        this.props.brands.map(brand => {
+            if (brand === this.props.item) {
+                this.setState({
+                    ...this.state,
+                    color: 'primary'
+                })
+            }
+        })
+    }
+
     state = {
         color: ''
     }
@@ -43,4 +55,8 @@ export class BrandsItem extends Component {
 
 BrandsItem.propTypes = { classes: PropTypes.object.isRequired };
 
-export default connect()(withStyles(styles)(BrandsItem)); 
+const mapStateToProps = state => ({
+    brands: state.talentForm.formData.brands,
+});
+
+export default connect(mapStateToProps)(withStyles(styles)(BrandsItem)); 
