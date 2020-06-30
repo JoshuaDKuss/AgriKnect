@@ -8,9 +8,9 @@ import moment from 'moment';
 
 export class EditTalentCertificationsItemServer extends Component {
 
-    componentDidMount(){
-        console.log('NEW ONE FROM THE REDUX STATE', this.state.id)
-    }
+    // componentDidMount(){
+    //     console.log('NEW ONE FROM THE REDUX STATE', this.state.id)
+    // }
 
     state = {
         id: this.props.item.id,
@@ -140,8 +140,6 @@ export class EditTalentCertificationsItemServer extends Component {
 
 EditTalentCertificationsItemServer.propTypes = { classes: PropTypes.object.isRequired };
 
-const mapStateToProps = state => ({
-    certification: state.talentForm.formData.certification,
-});
 
-export default connect(mapStateToProps)(withStyles(styles)(EditTalentCertificationsItemServer)); 
+
+export default connect()(withStyles(styles)(EditTalentCertificationsItemServer)); 

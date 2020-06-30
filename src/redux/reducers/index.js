@@ -18,6 +18,7 @@ import editedTalentEquipmentReducer from './editedTalentEquipmentReducer';
 import jobSearch from './jobSearchReducer'; 
 import editedTalentCertification from './editedTalentCertificate';
 import matchData from './matchReducer'; 
+import editedTalentEducation from './editedTalentEducation'; 
 
 
 // rootReducer is the primary reducer for our entire project
@@ -45,7 +46,8 @@ const rootReducer = combineReducers({
   //farmForm,
   jobSearch,
   editedTalentCertification, //stores edited certifications
-  matchData
+  matchData,
+  editedTalentEducation
 });
 
 export default rootReducer;

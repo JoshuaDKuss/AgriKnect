@@ -11,27 +11,24 @@ import EditTalentEducationItemServer from './EditTalentEducationItemServer';
 
 export class EditTalentCertifications extends Component {
 
-    componentWillUnmount() {
-        console.log('big component unmounted')
-    }
 
     state = {
         counter: -1,
-        certificateList: []
+        educationList: []
 
     }
 
-    submitEditedCertificates = () => {
+    submitEditedEducation = () => {
         this.props.dispatch({ type: 'UPDATE_EDUCATION', payload: this.props.certifications })
         this.props.dispatch({ type: 'DELETE_ALL_EDUCATION' })
         this.props.history.push(`/talentProfile/${this.props.reduxState.user.id}`);
     }
 
-    //adds a certificate to list 
-    addCertificate = () => {
+    //adds education to list 
+    addEducation = () => {
         this.setState(previousState => ({
             counter: this.state.counter - 1,
-            certificateList: [...previousState.certificateList, this.state.counter - 1]
+            educationList: [...previousState.educationList, this.state.counter - 1]
         }));
         console.log(this.state)
     }
@@ -44,14 +41,14 @@ export class EditTalentCertifications extends Component {
             <div>
                 <ul>
                     <h3> Add any certifications or licenses you have </h3>
-                    {this.props.certifications.map((item) => {
+                    {this.props.education.map((item) => {
                         return (
                             <EditTalentEducationItemServer item={item} key={item.id} />
                         )
 
                     })}
 
-                    {this.state.certificateList.map((item) => {
+                    {this.state.educationList.map((item) => {
                         return (
                             <EditTalentEducationItem item={item} key={item.counter} />
                         )
@@ -59,8 +56,8 @@ export class EditTalentCertifications extends Component {
                     })}
                 </ul>
 
-                <Button onClick={this.addCertificate} variant='outlined'> Add another license/certificate</Button>
-                <Button onClick={this.submitEditedCertificates} variant="outlined"> Submit </Button>
+                <Button onClick={this.addEducation} variant='outlined'> Add another license/certificate</Button>
+                <Button onClick={this.submitEditedEducation} variant="outlined"> Submit </Button>
 
 
             </div>
@@ -72,7 +69,7 @@ export class EditTalentCertifications extends Component {
 EditTalentCertifications.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapStateToProps = state => ({
-    certifications: state.editedTalentCertification
+    education: state.editedTalentEducation
 });
 
 export default connect(mapStateToProps)(withStyles(styles)(EditTalentCertifications)); 

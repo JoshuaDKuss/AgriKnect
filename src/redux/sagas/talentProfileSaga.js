@@ -23,6 +23,10 @@ function* fetchTalent(action) {
       yield put({ type: 'SET_INITIAL_SKILLS', payload: responseProficiency.data[i] });
       yield put({ type: 'SET_INITIAL_EQUIPMENT', payload: responseProficiency.data[i] })
     } 
+
+    for (let i = 0; i < responseTalentEducation.data.length; i++) {
+      yield put({ type: 'SET_INITIAL_EDUCATION', payload: responseTalentEducation.data[i] });
+    } 
    console.log('in saga', response.data)
   } catch(err){
     console.log(err)

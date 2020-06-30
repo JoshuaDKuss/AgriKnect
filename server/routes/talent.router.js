@@ -63,7 +63,7 @@ pool
 router.get('/education/:id', (req, res) => {
   let id = req.user.id
 console.log('in router get', [id]);
-const sqlText = `SELECT "institution_name", "degree", "start_date", "end_date" FROM "user"
+const sqlText = `SELECT "education"."id", "institution_name", "degree", "start_date", "end_date" FROM "user"
 JOIN "education" on "user"."id"="education"."user_id"
 WHERE "user"."id" = $1;`;
 pool
@@ -82,7 +82,7 @@ pool
 router.get('/employment/:id', (req, res) => {
   let id = req.user.id
 console.log('in router get', [id]);
-const sqlText = `SELECT "employer_name", "title", "start_date", "end_date" FROM "user"
+const sqlText = `SELECT "employment"."id", "employer_name", "title", "start_date", "end_date" FROM "user"
 JOIN "employment" on "user"."id"="employment"."user_id"
 WHERE "user"."id" = $1;;`;
 pool
