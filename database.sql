@@ -203,7 +203,7 @@ VALUES
 
 
 -- jobs test data
-INSERT INTO "jobs" ("farm_id", "title", "description", "type", "start_date", "end_date", "housing", "housing_details", "relocation_stipend", "payment_period", "payment_amount")
+INSERT INTO "jobs" ("user_id", "title", "description", "type", "start_date", "end_date", "housing", "housing_details", "relocation_stipend", "payment_period", "payment_amount")
 VALUES 
 ('1', 'general laborer', 'heavy lifting required', 'row crop', '02/21/21', '02/21/22', 'true', 'guest house', 'true', 'hourly', '24'),
 ('2', 'truck driver', 'must have clean record', 'row crop', '02/21/21', '06/30/22', 'false', 'none', 'false', 'monthly', '4000');

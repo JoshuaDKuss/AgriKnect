@@ -14,6 +14,7 @@ import editCertificationSaga from './editedCertificateTalentSaga';
 import editEducationSaga from './editedEducationTalentSaga';
 import editEmploymentSaga from './editedEmploymentSaga';
 
+import deleteJobSaga from './deleteJobSaga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -35,8 +36,12 @@ export default function* rootSaga() {
     editSkillsTalentSaga(),
     editEquipmentTalentSaga(),
     searchSaga(),
+<<<<<<< HEAD
     editCertificationSaga(),
     editEducationSaga(),
     editEmploymentSaga(),
+=======
+    deleteJobSaga(),
+>>>>>>> master
   ]);
 }
