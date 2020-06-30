@@ -32,7 +32,7 @@ export class farmBio extends Component {
                                     <span>{bio.street_address}</span><br/>
                                     <span>{bio.city}</span>, <span>{bio.state}</span>&nbsp;<span>{bio.zipcode}</span>
                                     <p>Email: {bio.username}</p>
-                                    <span>Owner: {bio.first_name}, </span>
+                                    <span>Owner: {bio.first_name} </span>
                                     <span>{bio.last_name}</span>
                                     <p>Phone: {bio.phone}</p>
                                 </div>
