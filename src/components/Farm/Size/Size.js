@@ -53,7 +53,6 @@ export class Size extends Component {
                                     <MenuItem value = "75-100 employees"> 75-100 employees </MenuItem>
                                     <MenuItem value = "100+ employees"> 100+ employees </MenuItem>
                                 </Select> <br/>
-
                             </li>
                 </ul>
             </div>

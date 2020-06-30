@@ -22,6 +22,7 @@ import UserPage from '../UserPage/UserPage'; //currently not shown anywhere beca
 import InfoPage from '../InfoPage/InfoPage';
 import TalentForm from '../Talent/TalentForm/TalentForm'; 
 import FarmForm from '../Farm/FarmForm/FarmForm';
+import EditFarm from '../Farm/EditFarm/EditFarm';
 import talentProfile from '../TalentProfile/TalentProfile';
 import farmProfile from '../FarmProfile/FarmBio/FarmBio'
 import JobPosting from '../Jobs/JobPosting/JobPosting'; 
@@ -84,6 +85,11 @@ class App extends Component {
               exact
               path="/farmForm"
               component={FarmForm}
+            />
+            <ProtectedRoute
+              exact
+              path="/EditFarm/:id"
+              component={EditFarm}
             />
             <ProtectedRoute
               exact

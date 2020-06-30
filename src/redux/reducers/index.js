@@ -17,6 +17,7 @@ import editedTalentEquipmentReducer from './editedTalentEquipmentReducer';
 //import farmForm from './farmFormReducer'; 
 import jobSearch from './jobSearchReducer'; 
 import editedTalentCertification from './editedTalentCertificate';
+import editFarmProfile from './editFarmProfileReducer';
 import matchData from './matchReducer'; 
 import editedTalentEducation from './editedTalentEducation'; 
 
@@ -43,11 +44,13 @@ const rootReducer = combineReducers({
   farmJobsAvailable,
   editedTalentSkillsReducer,  //stores edited skills for talent
   editedTalentEquipmentReducer, //stores edited equipment and brands for talent 
-  //farmForm,
+  
   jobSearch,
   editedTalentCertification, //stores edited certifications
-  matchData,
+  // matchData,
   editedTalentEducation
+  editFarmProfile,
+  matchData
 });
 
 export default rootReducer;

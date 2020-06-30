@@ -15,6 +15,7 @@ import editEmploymentSaga from './editedEmploymentSaga';
 import updateSkillsProfileSaga from './updateSkillsProfileSaga'; 
 import updateBrandsSaga from './updateBrandsProfileSaga';
 
+import editFarmProfileSaga from './editFarmProfileSaga';
 import deleteJobSaga from './deleteJobSaga'
 
 // rootSaga is the primary saga
@@ -39,6 +40,7 @@ export default function* rootSaga() {
     editCertificationSaga(),
     editEducationSaga(),
     editEmploymentSaga(),
+    editFarmProfileSaga(),
     deleteJobSaga(),
     updateSkillsProfileSaga(),
     updateBrandsSaga(),
