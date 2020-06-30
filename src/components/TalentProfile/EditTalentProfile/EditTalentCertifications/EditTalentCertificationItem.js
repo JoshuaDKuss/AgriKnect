@@ -36,9 +36,9 @@ export class EditTalentCertificationsItem extends Component {
     }
 
 
-    removeCertification = () => {
-        console.log(this.props.item)
-    }
+    // removeCertification = () => {
+    //     console.log(this.props.item)
+    // }
 
     toggleEditMode = () => {
         this.setState({

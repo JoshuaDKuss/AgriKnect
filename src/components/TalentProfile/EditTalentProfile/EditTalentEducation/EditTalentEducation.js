@@ -19,9 +19,9 @@ export class EditTalentCertifications extends Component {
     }
 
     submitEditedEducation = () => {
-        this.props.dispatch({ type: 'UPDATE_EDUCATION', payload: this.props.certifications })
-        this.props.dispatch({ type: 'DELETE_ALL_EDUCATION' })
-        this.props.history.push(`/talentProfile/${this.props.reduxState.user.id}`);
+        this.props.dispatch({ type: 'UPDATE_EDUCATION', payload: {education: this.props.education, id: this.props.user.id}, history: this.props.history })
+        // this.props.dispatch({ type: 'DELETE_ALL_EDUCATION' })
+        // this.props.history.push(`/talentProfile/${this.props.reduxState.user.id}`);
     }
 
     //adds education to list 
@@ -69,7 +69,8 @@ export class EditTalentCertifications extends Component {
 EditTalentCertifications.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapStateToProps = state => ({
-    education: state.editedTalentEducation
+    education: state.editedTalentEducation,
+    user: state.user
 });
 
 export default connect(mapStateToProps)(withStyles(styles)(EditTalentCertifications)); 

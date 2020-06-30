@@ -48,7 +48,7 @@ const rootReducer = combineReducers({
   jobSearch,
   editedTalentCertification, //stores edited certifications
   // matchData,
-  editedTalentEducation
+  editedTalentEducation,
   editFarmProfile,
   matchData
 });

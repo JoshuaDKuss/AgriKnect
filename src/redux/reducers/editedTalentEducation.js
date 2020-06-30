@@ -9,12 +9,7 @@ const editedTalentEducation = (state = [], action) => {
                 degree: '',
                 startDate: '',
                 endDate: ''
-            }//end of certificate to add 
-            // certificateToAdd.id = action.payload.id;
-            // certificateToAdd.certificate = action.payload.certification_name;
-            // certificateToAdd.issuingCompany = action.payload.issuing_company;
-            // certificateToAdd.issueDate = action.payload.issue_date;
-            // certificateToAdd.expirationDate = action.payload.expiration_date;
+            }
             console.log('need to add')
             educationToAdd.id = action.payload.id
             educationToAdd.school = action.payload.institution_name;
@@ -22,60 +17,59 @@ const editedTalentEducation = (state = [], action) => {
             educationToAdd.startDate = action.payload.start_date;
             educationToAdd.endDate = action.payload.end_date;
 
-            // state.education.push(educationToAdd);
 
             return [...state, educationToAdd]
         } else {
             return state
         }
         // }
-    } else if (action.type === 'SET_EDITED_CERTIFICATION') {
+    } else if (action.type === 'SET_EDITED_EDUCATION') {
         const index = state.findIndex(item => item.id == action.payload.id)
         if (index < 0) {
-            let certificateToAdd = {
+            let educationToAdd = {
                 id: '',
-                certificate: '',
-                issuingCompany: '',
-                issueDate: '',
-                expirationDate: ''
-            } //end of certificate to add 
-            certificateToAdd.id = action.payload.id;
-            certificateToAdd.certificate = action.payload.certificate;
-            certificateToAdd.issuingCompany = action.payload.issuingCompany;
-            certificateToAdd.issueDate = action.payload.issueDate;
-            certificateToAdd.expirationDate = action.payload.expirationDate;
+                school: '',
+                degree: '',
+                startDate: '',
+                endDate: ''
+            }//end of certificate to add 
+          educationToAdd.id = action.payload.id
+            educationToAdd.school = action.payload.school
+            educationToAdd.degree = action.payload.degree;
+            educationToAdd.startDate = action.payload.startDate;
+            educationToAdd.endDate = action.payload.endDate;
             console.log('need to add')
-            return [...state, certificateToAdd]
+            return [...state, educationToAdd]
 
         } else {
 
-            let certificateToAdd = {
+            let educationToAdd = {
                 id: '',
-                certificate: '',
-                issuingCompany: '',
-                issueDate: '',
-                expirationDate: ''
-            } //end of certificate to add 
-            certificateToAdd.id = action.payload.id;
-            certificateToAdd.certificate = action.payload.certificate;
-            certificateToAdd.issuingCompany = action.payload.issuingCompany;
-            certificateToAdd.issueDate = action.payload.issueDate;
-            certificateToAdd.expirationDate = action.payload.expirationDate;
+                school: '',
+                degree: '',
+                startDate: '',
+                endDate: ''
+            }//end of certificate to add 
+          educationToAdd.id = action.payload.id
+            educationToAdd.school = action.payload.institution_name;
+            educationToAdd.degree = action.payload.degree;
+            educationToAdd.startDate = action.payload.start_date;
+            educationToAdd.endDate = action.payload.end_date;
             console.log('need to delete');
-            let filteredCertificates = state.filter(certificate => {
-                return certificate.id !== action.payload.id
+            let filteredEducation = state.filter(education => {
+                return education.id !== action.payload.id
             }) //end of filter
 
-            filteredCertificates.push(certificateToAdd)
-            return filteredCertificates;
+            filteredEducation.push(educationToAdd)
+            return filteredEducation;
         } //end of else
-    } else if (action.type === 'DELETE_EDITED_CERTIFICATE') {
-        let filteredCertificates = state.filter(certificate => {
-            return certificate.id !== action.payload.id
+    } else if (action.type === 'DELETE_EDITED_EDUCATION') {
+        let filteredEducation = state.filter(education => {
+            return education.id !== action.payload.id
         }) //end of filter
-        console.log('!!!!!!!!!!!!', filteredCertificates)
-        return filteredCertificates;
-    } else if (action.type === 'DELETE_ALL_CERTIFICATIONS') {
+        console.log('!!!!!!!!!!!!', filteredEducation)
+        return filteredEducation;
+    } else if (action.type === 'DELETE_ALL_EDUCATION') {
         return []
     } else {
         return state;

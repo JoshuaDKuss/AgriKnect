@@ -22,7 +22,7 @@ export class EditTalentCertifications extends Component {
     }
 
     submitEditedCertificates = () => {
-        this.props.dispatch({ type: 'UPDATE_CERTIFICATIONS', payload: this.props.certifications, history: this.props.history })
+        this.props.dispatch({ type: 'UPDATE_CERTIFICATIONS', payload:{certification: this.props.certifications, id: this.props.user.id}, history: this.props.history })
         // this.props.dispatch({type:'DELETE_ALL_CERTIFICATIONS'})
     }
 
@@ -71,7 +71,8 @@ export class EditTalentCertifications extends Component {
 EditTalentCertifications.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapStateToProps = state => ({
-    certifications: state.editedTalentCertification
+    certifications: state.editedTalentCertification,
+    user: state.user
 });
 
 export default connect(mapStateToProps)(withStyles(styles)(EditTalentCertifications)); 

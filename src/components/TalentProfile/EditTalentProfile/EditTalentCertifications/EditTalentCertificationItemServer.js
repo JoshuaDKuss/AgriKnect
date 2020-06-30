@@ -38,13 +38,13 @@ export class EditTalentCertificationsItemServer extends Component {
         this.props.dispatch({ type: 'DELETE_EDITED_CERTIFICATE', payload: this.state})
     }
 
-    sendData = (event) => {
-        this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: { state: this.state, expirationDate: event.target.value } })
-        this.setState({
-            ...this.state,
-            numberOfChanges: this.state.numberOfChanges + 1
-        })
-    }
+    // sendData = (event) => {
+    //     this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: { state: this.state, expirationDate: event.target.value } })
+    //     this.setState({
+    //         ...this.state,
+    //         numberOfChanges: this.state.numberOfChanges + 1
+    //     })
+    // }
 
     toggleEditMode = () => {
         console.log(this.state.id)
@@ -139,7 +139,6 @@ export class EditTalentCertificationsItemServer extends Component {
 }
 
 EditTalentCertificationsItemServer.propTypes = { classes: PropTypes.object.isRequired };
-
 
 
 export default connect()(withStyles(styles)(EditTalentCertificationsItemServer)); 
