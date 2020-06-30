@@ -8,7 +8,6 @@ import farmFormSaga from './farmFormSaga';
 import jobPostingSaga from './jobPostingSaga';
 import farmProfileSaga from './farmProfileSaga';
 import editSkillsTalentSaga from './editSkillsSaga'; 
-import editEquipmentTalentSaga from './editEquipmentTalentSaga';
 import searchSaga from './searchSaga';
 import editCertificationSaga from './editedCertificateTalentSaga';
 import editEducationSaga from './editedEducationTalentSaga';
@@ -36,7 +35,6 @@ export default function* rootSaga() {
     jobPostingSaga(),
     farmProfileSaga(),
     editSkillsTalentSaga(),
-    // editEquipmentTalentSaga(),
     searchSaga(),
     editCertificationSaga(),
     editEducationSaga(),

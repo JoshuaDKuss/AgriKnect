@@ -22,8 +22,8 @@ export class EditTalentCertifications extends Component {
     }
 
     submitEditedCertificates = () => {
-        this.props.dispatch({ type: 'UPDATE_CERTIFICATIONS', payload: this.props.certifications })
-        this.props.dispatch({type:'DELETE_ALL_CERTIFICATIONS'})
+        this.props.dispatch({ type: 'UPDATE_CERTIFICATIONS', payload: this.props.certifications, history: this.props.history })
+        // this.props.dispatch({type:'DELETE_ALL_CERTIFICATIONS'})
     }
 
     //adds a certificate to list 
