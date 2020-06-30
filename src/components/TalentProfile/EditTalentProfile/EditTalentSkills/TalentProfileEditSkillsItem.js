@@ -6,16 +6,17 @@ import PropTypes from 'prop-types';
 import styles from '../../../Styles/styles';
 
 export class TalentProfileEditSkillsItem extends Component {
-    // componentDidMount() {
-    //     this.props.initialSkills.map(skill => {
-    //         if (skill === this.props.item) {
-    //             this.setState({
-    //                 ...this.state,
-    //                 color: 'primary'
-    //             })
-    //         }
-    //     })
-    // }
+    componentDidMount() {
+        this.props.initialSkills.map(skill => {
+            if (skill.id === this.props.item.id) {
+                console.log('PRIMARY', this.props.item.id, skill.id)
+                this.setState({
+                    ...this.state,
+                    color: 'primary'
+                })
+            }
+        })
+    }
 
     state = {
         color: ''
@@ -55,7 +56,7 @@ export class TalentProfileEditSkillsItem extends Component {
 TalentProfileEditSkillsItem.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapStateToProps = state => ({
-    initialSkills: state.talentForm.formData.initialSkills,
+    initialSkills: state.editedTalentSkillsReducer.editedSkills,
 });
 
 export default connect(mapStateToProps)(withStyles(styles)(TalentProfileEditSkillsItem)); 

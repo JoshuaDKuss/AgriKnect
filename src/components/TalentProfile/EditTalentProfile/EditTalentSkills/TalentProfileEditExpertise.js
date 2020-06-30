@@ -22,7 +22,7 @@ export class TalentProfileEditExpertise extends Component {
                             <li>
                                 {skill.proficiency_name}
                                 {/* data-skill={skill.id} */}
-                                <Select onChange={this.handleYearSelection}   >
+                                <Select onChange={this.handleYearSelection} key={skill.id}   >
                                     <MenuItem> </MenuItem>
                                     <MenuItem value={{ time: "less than 1 year", skill: skill.id }} > Less than 1 year </MenuItem>
                                     <MenuItem value={{ time: "2 years", skill: skill.id, name: skill.proficiency_name }}> 2 years </MenuItem>

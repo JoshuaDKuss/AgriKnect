@@ -8,12 +8,17 @@ import farmFormSaga from './farmFormSaga';
 import jobPostingSaga from './jobPostingSaga';
 import farmProfileSaga from './farmProfileSaga';
 import editSkillsTalentSaga from './editSkillsSaga'; 
-import editEquipmentTalentSaga from './editEquipmentTalentSaga';
 import searchSaga from './searchSaga';
+import editCertificationSaga from './editedCertificateTalentSaga';
+import editEducationSaga from './editedEducationTalentSaga';
+import editEmploymentSaga from './editedEmploymentSaga';
+import updateSkillsProfileSaga from './updateSkillsProfileSaga'; 
+import updateBrandsSaga from './updateBrandsProfileSaga';
+
 import editFarmProfileSaga from './editFarmProfileSaga';
 import deleteJobSaga from './deleteJobSaga'
 
-// rootSaga is the primary saga.
+// rootSaga is the primary saga
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
 
@@ -31,9 +36,13 @@ export default function* rootSaga() {
     jobPostingSaga(),
     farmProfileSaga(),
     editSkillsTalentSaga(),
-    editEquipmentTalentSaga(),
     searchSaga(),
+    editCertificationSaga(),
+    editEducationSaga(),
+    editEmploymentSaga(),
     editFarmProfileSaga(),
     deleteJobSaga(),
+    updateSkillsProfileSaga(),
+    updateBrandsSaga(),
   ]);
 }

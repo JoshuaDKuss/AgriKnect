@@ -4,35 +4,36 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../../Styles/styles';
 import { Button } from '@material-ui/core';
-import { Link } from 'react-router-dom'; 
 import EditTalentCertificationsItem from './EditTalentCertificationItem';
+import EditTalentCertificationsItemServer from './EditTalentCertificationItemServer';
+
 
 
 export class EditTalentCertifications extends Component {
 
     componentWillUnmount() {
         console.log('big component unmounted')
-        // this.props.dispatch({ type: 'UPDATE_CERTIFICATION', payload: { state: this.state } })
     }
 
     state = {
-        counter: 0,
-        certificateList: [0]
+        counter: -1,
+        certificateList: []
 
     }
 
-    handleClick = () => {
-        console.log('button clicked')
+    submitEditedCertificates = () => {
+        this.props.dispatch({ type: 'UPDATE_CERTIFICATIONS', payload:{certification: this.props.certifications, id: this.props.user.id}, history: this.props.history })
     }
 
     //adds a certificate to list 
     addCertificate = () => {
         this.setState(previousState => ({
-            counter: this.state.counter + 1,
-            certificateList: [...previousState.certificateList, this.state.counter + 1]
+            counter: this.state.counter - 1,
+            certificateList: [...previousState.certificateList, this.state.counter - 1]
         }));
         console.log(this.state)
     }
+
 
     render() {
         const { classes } = this.props; //need this for Material UI
@@ -41,16 +42,23 @@ export class EditTalentCertifications extends Component {
             <div>
                 <ul>
                     <h3> Add any certifications or licenses you have </h3>
+                    {this.props.certifications.map((item) => {
+                        return (
+                            <EditTalentCertificationsItemServer item={item} key={item.id} />
+                        )
+
+                    })}
+
                     {this.state.certificateList.map((item) => {
                         return (
-                            <EditTalentCertificationsItem item={item} />
+                            <EditTalentCertificationsItem item={item} key={item.counter} />
                         )
 
                     })}
                 </ul>
 
                 <Button onClick={this.addCertificate} variant='outlined'> Add another license/certificate</Button>
-                 <Button onClick={this.handleClick} variant="outlined"> Save </Button> 
+                 <Button onClick={this.submitEditedCertificates} variant="outlined"> Submit </Button> 
 
 
             </div>
@@ -61,8 +69,9 @@ export class EditTalentCertifications extends Component {
 
 EditTalentCertifications.propTypes = { classes: PropTypes.object.isRequired };
 
-// const mapStateToProps = state => ({
-//     certifications: state.talentForm.formData.certification,
-// });
+const mapStateToProps = state => ({
+    certifications: state.editedTalentCertification,
+    user: state.user
+});
 
-export default connect()(withStyles(styles)(EditTalentCertifications)); 
+export default connect(mapStateToProps)(withStyles(styles)(EditTalentCertifications)); 
