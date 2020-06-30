@@ -10,7 +10,9 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/:id', (req, res) => {
     let id = req.user.id
     console.log('in router get', [id]);
-    const sqlText = ` SELECT "farm_name", "street_address", "city", "zipcode", "state", "phone", "bio", "first_name", "last_name", "username", "farm"."size", "farm"."type" FROM "user" 
+    const sqlText = ` SELECT "farm"."id", "farm_name", "street_address", "city", "zipcode", "state", "phone", 
+    "bio", "first_name", "last_name", "username", "farm"."size", "farm"."type" 
+    FROM "user" 
     JOIN "farm" on "user"."id"="farm"."user_id"
     WHERE "user"."id" = $1;`;
     pool
@@ -64,16 +66,17 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 
 
-router.put('/farm/:id', rejectUnauthenticated, (req, res) => {  // '/:id'
-     console.log('pg router put');
-    //console.log('router put', req.body);
+router.put('/:id', (req, res) => {  // '/:id'
+     console.log('farm router put', req.body.farm_name, req.body.street_address, req.body.city,
+                        req.body.state, req.body.zipcode, req.body.phone, req.body.size, 
+                        req.body.bio);
     const queryText = `UPDATE farm
             SET "farm_name" = $2, "street_address"= $3, "city" = $4, "state" = $5, "zipcode" = $6,
-            "phone" = $7, "size" = $8, "type" = $9, "bio" = $10
-            WHERE "id"=$1`;
-    const queryValues = [req.body.id, req.body.farm_name, req.body.street_address, req.body.city,
+            "phone" = $7, "size" = $8, "bio" = $9
+            WHERE "id"=$1;`;
+    const queryValues = [req.params.id, req.body.farm_name, req.body.street_address, req.body.city,
                         req.body.state, req.body.zipcode, req.body.phone, req.body.size, 
-                        req.body.type, req.body.bio];
+                        req.body.bio];
     pool.query(queryText, queryValues)
         .then(() => {
             res.sendStatus(200);

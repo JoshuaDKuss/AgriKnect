@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 export class EditFarm extends Component {
     state = {
+        id: this.props.reduxState.farmBioReducer[0].id,
         farm_name: this.props.reduxState.farmBioReducer[0].farm_name,
         street_address: this.props.reduxState.farmBioReducer[0].street_address,
         city: this.props.reduxState.farmBioReducer[0].city,
@@ -26,8 +27,8 @@ export class EditFarm extends Component {
 
     sendUpdateToServer = () => {
         console.log(this.state);
-        this.props.dispatch({ type: 'SET_EDIT_FARM_PROFILE', payload: this.state });  //.reduxState.editFarmProfile  //match.params.id
-        this.props.history.push(`/farmProfile/${this.props.reduxState.user.id}`);
+        this.props.dispatch({ type: 'SET_EDIT_FARM_PROFILE', payload: this.state, history: this.props.history });  //.reduxState.editFarmProfile  //match.params.id
+        //this.props.history.push(`/farmProfile/${this.props.reduxState.user.id}`);
     }
 
     updateFarmName = (event) => {

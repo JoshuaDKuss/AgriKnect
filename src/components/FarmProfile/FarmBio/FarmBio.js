@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import FarmDetails from '../FarmDetails/FarmDetails'
 import './farm.css'
 import FarmJobsAvailable from '../FarmJobAvailable/FarmJobAvailable';
-import {Button} from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 
 export class farmBio extends Component {
 
@@ -15,7 +15,7 @@ export class farmBio extends Component {
 
     editFarmBio = () =>{
         console.log('editFarmBio clicked');
-        this.props.history.push(`/EditFarm/${this.props.reduxState.user.id}`);
+        this.props.history.push(`/EditFarm/${this.props.match.params.id}`);
     }
 
     render() {
@@ -48,6 +48,7 @@ export class farmBio extends Component {
                     })}
 
                 </div>
+
                 <div className={'farmDetails'}>
                     {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
                     <h3 className={'farmDetailsHeader'}>Farm Details</h3>
@@ -59,6 +60,7 @@ export class farmBio extends Component {
                     })}
 
                 </div>
+
                 <div className={'farmJobsAvailable'}>
                     {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
                     <h3 className={'farmJobs'}>Available Jobs</h3>
