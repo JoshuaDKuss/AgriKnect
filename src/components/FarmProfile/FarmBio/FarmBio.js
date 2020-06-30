@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import FarmDetails from '../FarmDetails/FarmDetails'
 import './farm.css'
 import FarmJobsAvailable from '../FarmJobAvailable/FarmJobAvailable';
-import { Button } from '@material-ui/core';
-
+import { Button, Grid } from '@material-ui/core';
 
 export class farmBio extends Component {
+
     componentDidMount() {
         console.log('this is params.id', this.props.match.params.id);
         this.props.dispatch({ type: "FETCH_FARM", payload: this.props.match.params.id });
     }
 
-    editFarmBio = (event) =>{
-        console.log('in edit farm bio');
-        //this.props.history.push("/farmForm");
+    editFarmBio = () =>{
+        console.log('editFarmBio clicked');
+        this.props.history.push(`/EditFarm/${this.props.match.params.id}`);
     }
 
     render() {
@@ -29,7 +29,8 @@ export class farmBio extends Component {
                             <>
                                 <div key={bio.id}>
                                     <h2>{bio.farm_name}</h2>
-                                    <span>{bio.city}</span>, <span>{bio.state}</span>
+                                    <span>{bio.street_address}</span><br/>
+                                    <span>{bio.city}</span>, <span>{bio.state}</span>&nbsp;<span>{bio.zipcode}</span>
                                     <p>Email: {bio.username}</p>
                                     <span>Owner: {bio.first_name}, </span>
                                     <span>{bio.last_name}</span>
@@ -40,13 +41,14 @@ export class farmBio extends Component {
                                     <p>{bio.bio}</p>
                                 </div>
                                 <div>
-                                    <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>EDIT</Button>
+                                    <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
                                 </div>
                             </>
                         )
                     })}
 
                 </div>
+
                 <div className={'farmDetails'}>
                     {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
                     <h3 className={'farmDetailsHeader'}>Farm Details</h3>
@@ -58,6 +60,7 @@ export class farmBio extends Component {
                     })}
 
                 </div>
+
                 <div className={'farmJobsAvailable'}>
                     {/* {JSON.stringify(this.props.reduxState.farmJobsAvailable)} */}
                     <h3 className={'farmJobs'}>Available Jobs</h3>
