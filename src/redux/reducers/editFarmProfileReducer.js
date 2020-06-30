@@ -11,38 +11,15 @@ const editFarmProfile = (state = {
     bio: "",
 }, action) => {
         
-    if (action.type === 'UPDATE_FARM_SIZE') {
+    if (action.type === 'UPDATE_FARM_BIO') {
         
-        return {...state, size: action.payload.size};
+        return {...state, size: action.payload.bio};
 
-    } else if (action.type === 'UPDATE_FARM_BIO') {
+    } else if (action.type === 'UPDATE_FARM_SIZE') {
 
-        return {...state, bio: action.payload.bio};
+        return {...state, bio: action.payload.size};
 
-    } else if (action.type === 'UPDATE_FARM_TYPE') {
-        if (state.type.indexOf(action.payload) < 0) {
-            // state.type.push(action.payload);
-            return { ...state, type: [...state.type, action.payload] }
-        } //end of if 
-        //if state does include value, remove it 
-         else {
-            // for (let i = 0; i < state.type.length; i++) {
-            //     if (state.type[i] === action.payload) {
-            //         state.type.splice(i, 1)
-            //     } //end of conditional 
-            // } //end of for loop 
-
-            let filteredTypes = state.type.filter(type => {
-               return type !== action.payload
-            })
-           return {
-               ...state,
-               type: filteredTypes
-           }
-
-        } //end of else 
-        return state;
-    }else if (action.type === 'UPDATE_FARM_NAME') {
+    } else if (action.type === 'UPDATE_FARM_NAME') {
 
        return {
            ...state,
@@ -84,6 +61,29 @@ const editFarmProfile = (state = {
                zipcode: action.payload
            };
 
+    } else if (action.type === 'UPDATE_FARM_TYPE') {
+        if (state.type.indexOf(action.payload) < 0) {
+            // state.type.push(action.payload);
+            return { ...state, type: [...state.type, action.payload] }
+        } //end of if 
+        //if state does include value, remove it 
+         else {
+            // for (let i = 0; i < state.type.length; i++) {
+            //     if (state.type[i] === action.payload) {
+            //         state.type.splice(i, 1)
+            //     } //end of conditional 
+            // } //end of for loop 
+
+            let filteredTypes = state.type.filter(type => {
+               return type !== action.payload
+            })
+           return {
+               ...state,
+               type: filteredTypes
+           }
+
+        } //end of else 
+        //return state;
     } else {
          return state;
     }

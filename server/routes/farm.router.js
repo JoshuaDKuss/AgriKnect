@@ -10,7 +10,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/:id', (req, res) => {
     let id = req.user.id
     console.log('in router get', [id]);
-    const sqlText = ` SELECT "farm_name", "city", "state", "phone", "bio", "first_name", "last_name", "username", "farm"."size", "farm"."type" FROM "user" 
+    const sqlText = ` SELECT "farm_name", "street_address", "city", "zipcode", "state", "phone", "bio", "first_name", "last_name", "username", "farm"."size", "farm"."type" FROM "user" 
     JOIN "farm" on "user"."id"="farm"."user_id"
     WHERE "user"."id" = $1;`;
     pool

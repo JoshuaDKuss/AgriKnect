@@ -29,7 +29,8 @@ export class farmBio extends Component {
                             <>
                                 <div key={bio.id}>
                                     <h2>{bio.farm_name}</h2>
-                                    <span>{bio.city}</span>, <span>{bio.state}</span>
+                                    <span>{bio.street_address}</span><br/>
+                                    <span>{bio.city}</span>, <span>{bio.state}</span>&nbsp;<span>{bio.zipcode}</span>
                                     <p>Email: {bio.username}</p>
                                     <span>Owner: {bio.first_name}, </span>
                                     <span>{bio.last_name}</span>
@@ -40,7 +41,7 @@ export class farmBio extends Component {
                                     <p>{bio.bio}</p>
                                 </div>
                                 <div>
-                                    <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>EDIT FARM</Button>
+                                    <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
                                 </div>
                             </>
                         )
