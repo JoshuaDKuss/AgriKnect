@@ -16,7 +16,7 @@ function* sendFarmProfile(action) {
 }
 
 function* editFarmProfileSaga() {
-    yield takeLatest('UPDATE_FARM_PROFILE', sendFarmProfile);
+    yield takeLatest('SET_EDIT_FARM_PROFILE', sendFarmProfile);
 }
 
 export default editFarmProfileSaga;

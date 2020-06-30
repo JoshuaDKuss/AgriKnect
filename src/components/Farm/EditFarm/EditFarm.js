@@ -8,7 +8,16 @@ import styles from '../../Styles/styles';
 import { withStyles } from '@material-ui/core/styles';
 
 export class EditFarm extends Component {
-    
+    state = {
+        farm_name: this.props.reduxState.farmBioReducer[0].farm_name,
+        street_address: this.props.reduxState.farmBioReducer[0].street_address,
+        city: this.props.reduxState.farmBioReducer[0].city,
+        state: this.props.reduxState.farmBioReducer[0].state,
+        zipcode: this.props.reduxState.farmBioReducer[0].zipcode,
+        phone: this.props.reduxState.farmBioReducer[0].phone,
+        bio: this.props.reduxState.farmBioReducer[0].bio,
+        size: this.props.reduxState.farmBioReducer[0].size,
+    }
 
     componentDidMount(){
         const prevInfo = this.props.match.params.id
@@ -16,46 +25,54 @@ export class EditFarm extends Component {
     }
 
     sendUpdateToServer = () => {
-        //console.log(id);
-        this.props.dispatch({ type: 'UPDATE_FARM_PROFILE', payload: { ...this.state, id: this.props.reduxState.farm.id } });  //.reduxState.editFarmProfile  //match.params.id
+        console.log(this.state);
+        this.props.dispatch({ type: 'SET_EDIT_FARM_PROFILE', payload: this.state });  //.reduxState.editFarmProfile  //match.params.id
         this.props.history.push(`/farmProfile/${this.props.reduxState.user.id}`);
     }
 
     updateFarmName = (event) => {
-        console.log(this.props);
-        this.props.dispatch({ type: 'UPDATE_FARM_NAME', payload: event.target.value})
+        //console.log(this.props);
+        //this.setState({ type: 'SET_EDIT_FARM_NAME', payload: event.target.value})
+        this.setState({ farm_name: event.target.value })
     }
     updateStreetAddress = (event) => {
         console.log(this.props);
-        this.props.dispatch({ type: 'UPDATE_FARM_ADDRESS', payload: event.target.value})
+        //this.props.dispatch({ type: 'SET_EDIT_FARM_ADDRESS', payload: event.target.value})
+        this.setState({ street_address: event.target.value })
     }
     updateFarmCity = (event) => {
         console.log(this.props);
-        this.props.dispatch({ type: 'UPDATE_FARM_CITY', payload: event.target.value})
+        //this.props.dispatch({ type: 'SET_EDIT_FARM_CITY', payload: event.target.value})
+        this.setState({ city: event.target.value })
     }
     updateFarmState = (event) => {
         console.log(this.props);
-        this.props.dispatch({ type: 'UPDATE_FARM_STATE', payload: event.target.value})
+        //this.props.dispatch({ type: 'SET_EDIT_FARM_STATE', payload: event.target.value})
+        this.setState({ state: event.target.value })
     }
     updateFarmZip = (event) => {
         console.log(this.props);
-        this.props.dispatch({ type: 'UPDATE_FARM_ZIP', payload: event.target.value})
+        // this.props.dispatch({ type: 'SET_EDIT_FARM_ZIP', payload: event.target.value})
+        this.setState({ zipcode: event.target.value })
     }
     updateFarmPhone = (event) => {
         console.log(this.props);
-        this.props.dispatch({ type: 'UPDATE_FARM_PHONE', payload: event.target.value})
+        // this.props.dispatch({ type: 'SET_EDIT_FARM_PHONE', payload: event.target.value})
+        this.setState({ phone: event.target.value })
     }
     updateFarmBio = (event) => {
         console.log('add farm bio', this.props);
-        this.props.dispatch({ type: 'UPDATE_FARM_BIO', payload: { bio: event.target.value } }) 
+        // this.props.dispatch({ type: 'SET_EDIT_FARM_BIO', payload: event.target.value }) //{ bio: event.target.value }
+        this.setState({ bio: event.target.value })
     } //end of updateFarmBio  
     updateSizeSelection = (event) => {
         console.log(event.target.value);
-        this.props.dispatch({ type: 'UPDATE_FARM_SIZE', payload: { size: event.target.value} })
+        // this.props.dispatch({ type: 'SET_EDIT_FARM_SIZE', payload: event.target.value }) // { size: event.target.value}
+        this.setState({ size: event.target.value })
     } // end hss
     // updateType = (property) => {
     //     console.log(this.state);
-    //     this.props.dispatch({ type: 'UPDATE_FARM_TYPE', payload: property })
+    //     this.props.dispatch({ type: 'SET_EDIT_FARM_TYPE', payload: property })
     // } //end of addType function 
 
     cancelEdit = (event) =>{
