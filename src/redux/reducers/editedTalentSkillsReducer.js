@@ -2,7 +2,22 @@ const editedTalentSkillsReducer = (state = {
     editedSkills: [],
     editedSkillsExpertise: []
 }, action) => {
-    if (action.type === 'SET_EDITED_SKILLS') {
+   if (action.type === 'SET_INITIAL_SKILLS') {
+       const index = state.editedSkills.findIndex(item => item.skillID == action.payload.id)
+       if (action.payload.proficiency_category == 'Precision Farming Technology' || 
+       action.payload.proficiency_category == 'General Agriculture' || 
+       action.payload.proficiency_category == 'Maintenance and Mechanics' || 
+       action.payload.proficiency_category == 'Trucking' ) {
+            if(index < 0) {
+                return { ...state, editedSkills: [...state.editedSkills, action.payload] }
+            } else {
+                return state
+            }
+       } else {
+           return state
+       }
+    }
+    else if (action.type === 'SET_EDITED_SKILLS') {
         if (state.editedSkills.indexOf(action.payload) < 0) {
             return { ...state, editedSkills: [...state.editedSkills, action.payload] }
 

@@ -26,7 +26,7 @@ pool
 router.get('/proficiency/:id', (req, res) => {
 let id = req.user.id
 console.log('in router get', [id]);
-const sqlText = `SELECT "proficiency_name", "proficiency_category", "length_experience", "first_name" FROM "user"
+const sqlText = `SELECT "proficiencies"."id", "proficiency_name", "proficiency_category", "length_experience", "first_name" FROM "user"
 JOIN "user_proficiencies" on "user"."id"="user_proficiencies"."user_id"
 JOIN "proficiencies" on "user_proficiencies"."proficiency_id"="proficiencies"."id"
 WHERE "user"."id" = $1;`;
