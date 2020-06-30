@@ -36,12 +36,9 @@ export default function* rootSaga() {
     editSkillsTalentSaga(),
     editEquipmentTalentSaga(),
     searchSaga(),
-<<<<<<< HEAD
     editCertificationSaga(),
     editEducationSaga(),
     editEmploymentSaga(),
-=======
     deleteJobSaga(),
->>>>>>> master
   ]);
 }
