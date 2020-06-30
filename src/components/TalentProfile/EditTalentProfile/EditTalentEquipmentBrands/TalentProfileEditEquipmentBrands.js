@@ -10,7 +10,8 @@ export class TalentProfileEquipment extends Component {
 
 
     submitEditedEquipment = () => {
-        this.props.dispatch({ type: 'UPDATE_EQUIPMENT_BRANDS', payload: { id: this.props.match.params.id, skills: this.props.equipment} })
+        this.props.dispatch({ type: 'RUN_UPDATE_BRANDS_LOGIC', payload: { id: this.props.match.params.id, skills: this.props.equipment }, history: this.props.history })
+        // this.props.dispatch({ type: 'UPDATE_EQUIPMENT_BRANDS', payload: { id: this.props.match.params.id, skills: this.props.equipment} })
     }
 
 

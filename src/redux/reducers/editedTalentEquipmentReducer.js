@@ -5,8 +5,8 @@ const editedTalentEquipmentReducer = (state = [], action) => {
   if (action.type === 'SET_INITIAL_EQUIPMENT') {
      const index = state.findIndex(item => item.id == action.payload.id)
        if (action.payload.proficiency_category == 'Equipment' || 
-       action.payload.proficiency_category == 'Brands') {
-            if(state.indexOf(action.payload) < 0) {
+       action.payload.proficiency_category == 'Brand') {
+            if(index < 0) {
                 return [...state, action.payload]
             } else {
                 return state
@@ -32,6 +32,8 @@ const editedTalentEquipmentReducer = (state = [], action) => {
             return filteredEquipment
 
         } //end of else
+    } else if(action.type == 'DELETE_ALL_EQUIPMENT') {
+        return []
     } else {
         return state
     }

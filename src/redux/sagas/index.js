@@ -13,10 +13,12 @@ import searchSaga from './searchSaga';
 import editCertificationSaga from './editedCertificateTalentSaga';
 import editEducationSaga from './editedEducationTalentSaga';
 import editEmploymentSaga from './editedEmploymentSaga';
+import updateSkillsProfileSaga from './updateSkillsProfileSaga'; 
+import updateBrandsSaga from './updateBrandsProfileSaga';
 
 import deleteJobSaga from './deleteJobSaga'
 
-// rootSaga is the primary saga.
+// rootSaga is the primary saga
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
 
@@ -34,11 +36,13 @@ export default function* rootSaga() {
     jobPostingSaga(),
     farmProfileSaga(),
     editSkillsTalentSaga(),
-    editEquipmentTalentSaga(),
+    // editEquipmentTalentSaga(),
     searchSaga(),
     editCertificationSaga(),
     editEducationSaga(),
     editEmploymentSaga(),
     deleteJobSaga(),
+    updateSkillsProfileSaga(),
+    updateBrandsSaga(),
   ]);
 }

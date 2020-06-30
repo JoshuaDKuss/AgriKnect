@@ -3,7 +3,7 @@ const editedTalentSkillsReducer = (state = {
     editedSkillsExpertise: []
 }, action) => {
    if (action.type === 'SET_INITIAL_SKILLS') {
-       const index = state.editedSkills.findIndex(item => item.skillID == action.payload.id)
+       const index = state.editedSkills.findIndex(item => item.id == action.payload.id)
        if (action.payload.proficiency_category == 'Precision Farming Technology' || 
        action.payload.proficiency_category == 'General Agriculture' || 
        action.payload.proficiency_category == 'Maintenance and Mechanics' || 
@@ -18,14 +18,16 @@ const editedTalentSkillsReducer = (state = {
        }
     }
     else if (action.type === 'SET_EDITED_SKILLS') {
-        if (state.editedSkills.indexOf(action.payload) < 0) {
+        const index = state.editedSkills.findIndex(item => item.id == action.payload.id)
+        // if (state.editedSkills.indexOf(action.payload) < 0) {
+            if(index < 0) {
             return { ...state, editedSkills: [...state.editedSkills, action.payload] }
 
         } //end of if 
         //if state does include value, remove it 
         else {
             let filteredSkills = state.editedSkills.filter(skill => {
-                return skill !== action.payload
+                return skill.id !== action.payload.id
             })
 
             return { ...state, editedSkills: filteredSkills }
@@ -54,6 +56,11 @@ const editedTalentSkillsReducer = (state = {
 
     } //end of else 
 
+    } else if(action.type == 'DELETE_ALL_SKILLS') {
+        return {
+    editedSkills: [],
+    editedSkillsExpertise: []
+}
     } else {
         return state
     }
