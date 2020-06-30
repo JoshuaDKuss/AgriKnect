@@ -105,6 +105,18 @@ class App extends Component {
               path="/talentProfile/editCertificate/:id"
               component={TalentProfileEditedCertificate}
             />
+
+             {/* <ProtectedRoute
+              exact
+              path="/talentProfile/editEmployment/:id"
+              component=
+            />
+
+             <ProtectedRoute
+              exact
+              path="/talentProfile/editEducation/:id"
+              component=
+            /> */}
            
              <ProtectedRoute
               exact

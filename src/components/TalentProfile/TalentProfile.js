@@ -27,7 +27,31 @@ export class TalentProfile extends Component {
     }
 
     editSkills = () => {
+        this.props.history.push(`/talentProfile/editSkills/${this.props.reduxState.user.id}`);
+        console.log(this.props.reduxState.user.id)
+       
+    }
 
+    editEquipment = () => {
+        this.props.history.push( `/talentProfile/editEquipment/${this.props.reduxState.user.id}`);
+    }
+
+    editCertifications = () => {
+        this.props.history.push(`/talentProfile/editCertificate/${this.props.reduxState.user.id}`);
+        console.log(this.props.reduxState.user.id)
+       
+    }
+
+    editEducation = () => {
+        this.props.history.push(`/talentProfile/editEducation/${this.props.reduxState.user.id}`);
+        console.log(this.props.reduxState.user.id)
+       
+    }
+
+    editEmployment = () => {
+        this.props.history.push(`/talentProfile/editEmployment/${this.props.reduxState.user.id}`);
+        console.log(this.props.reduxState.user.id)
+       
     }
 
     renderEditButtons = () => {
@@ -50,25 +74,25 @@ export class TalentProfile extends Component {
         // }
         let editSkills = <span> </span>
         if (this.state.editSkills) {
-            editSkills = (<Link to='/talentProfile/editSkills/{this.props.match.params.id}' >  
+            editSkills = ( 
                             <button onClick={this.editSkills}> Edit </button> 
-                            </Link>)
+                            )
         }
         let editEquipment = <span> </span>
         if (this.state.editEquipment) {
-            editEquipment = <button> Edit </button>
+            editEquipment = <button onClick={this.editEquipment}> Edit </button>
         }
         let editCertifications = <span> </span>
         if (this.state.editCertifications) {
-            editCertifications = <button> Edit </button>
+            editCertifications = <button onClick={this.editCertifications}> Edit </button>
         }
         let editEducation = <span> </span>
         if (this.state.editEducation) {
-            editEducation = <button> Edit </button>
+            editEducation = <button onClick={this.editEducation}> Edit </button>
         }
         let editEmployment = <span> </span>
         if (this.state.editEmployment) {
-            editEmployment = <button> Edit </button>
+            editEmployment = <button onClick={this.editEmployment}> Edit </button>
         }
         const talentSkills = this.props.reduxState.talentProficiencyReducer
         const generalAgriculture = [];

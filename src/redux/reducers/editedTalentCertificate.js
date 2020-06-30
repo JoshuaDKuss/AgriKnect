@@ -1,6 +1,8 @@
 const editedTalentCertification = (state = [], action) => {
     if (action.type === 'SET_INITIAL_CERTIFICATIONS') {
-        for(let i = 0; i < action.payload.length; i++ ) {
+        // for(let i = 0; i < action.payload.length; i++ ) {
+        const index = state.findIndex(item => item.id == action.payload.id)
+        if (index < 0) {
          let certificateToAdd = {
                 id: '',
                 certificate: '',
@@ -8,14 +10,17 @@ const editedTalentCertification = (state = [], action) => {
                 issueDate: '',
                 expirationDate: ''
             } //end of certificate to add 
-            certificateToAdd.id = action.payload[i].id;
-            certificateToAdd.certificate = action.payload[i].certification_name;
-            certificateToAdd.issuingCompany = action.payload[i].issuing_company;
-        certificateToAdd.issueDate = action.payload[i].issue_date;
-            certificateToAdd.expirationDate = action.payload[i].expiration_date;
+            certificateToAdd.id = action.payload.id;
+            certificateToAdd.certificate = action.payload.certification_name;
+            certificateToAdd.issuingCompany = action.payload.issuing_company;
+        certificateToAdd.issueDate = action.payload.issue_date;
+            certificateToAdd.expirationDate = action.payload.expiration_date;
             console.log('need to add')
             return [...state, certificateToAdd] 
+        } else {
+            return state
         }
+        // }
     } else if (action.type === 'SET_EDITED_CERTIFICATION') {
         const index = state.findIndex(item => item.id == action.payload.id)
         if (index < 0) {
@@ -62,7 +67,9 @@ const editedTalentCertification = (state = [], action) => {
             }) //end of filter
 
         return filteredCertificates; 
-     } else {
+     } else if (action.type === 'DELETE_ALL_CERTIFICATIONS'){
+         return []
+     }else {
         return state; 
     }
 }

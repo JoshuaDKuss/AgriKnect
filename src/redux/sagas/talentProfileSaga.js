@@ -3,6 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchTalent(action) {
   try{
+    
    const response = yield axios.get(`/talent/${action.payload}`);
    const responseProficiency = yield axios.get(`/talent/proficiency/${action.payload}`);
    const responseTalentCert = yield axios.get(`/talent/certification/${action.payload}`);
@@ -11,9 +12,13 @@ function* fetchTalent(action) {
    yield put({type: 'SET_TALENT', payload: response.data});
    yield put({type: 'SET_TALENT_SKILLS', payload: responseProficiency.data});
    yield put({type: 'SET_TALENT_CERTIFICATION', payload: responseTalentCert.data});
-  yield put({ type: 'SET_INITIAL_CERTIFICATIONS', payload: responseTalentCert.data });
+   console.log('response',responseTalentCert.data)
+  // yield put({ type: 'SET_INITIAL_CERTIFICATIONS', payload: responseTalentCert.data });
    yield put({type: 'SET_TALENT_EDUCATION', payload: responseTalentEducation.data});
    yield put({type: 'SET_TALENT_EMPLOYMENT', payload: responseTalentEmployment.data});
+   for(let i = 0; i < responseTalentCert.data.length; i++) {
+       yield put({ type: 'SET_INITIAL_CERTIFICATIONS', payload: responseTalentCert.data[i] });
+   }
    console.log('in saga', response.data)
   } catch(err){
     console.log(err)
