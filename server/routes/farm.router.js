@@ -8,7 +8,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  */
 //get for farm profile
 router.get('/:id', (req, res) => {
-    let id = req.user.id
+    let id = req.params.id
     console.log('in router get', [id]);
     const sqlText = ` SELECT "farm"."id", "farm_name", "street_address", "city", "zipcode", "state", "phone", 
     "bio", "first_name", "last_name", "username", "farm"."size", "farm"."type" 
@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
     });
     //get for farmer profile available jobs
     router.get('/jobs/:id', (req, res) => {
-        let id = req.user.id
+        let id = req.params.id
         console.log('in router get', [id]);
         const sqlText = `SELECT "title", "start_date", "payment_amount", "payment_period", "user_id", "jobs"."id" FROM "jobs"
         JOIN "user" on "jobs"."user_id"="user"."id"
