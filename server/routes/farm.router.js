@@ -30,8 +30,11 @@ router.get('/:id', (req, res) => {
     router.get('/jobs/:id', (req, res) => {
         let id = req.params.id
         console.log('in router get', [id]);
-        const sqlText = `SELECT "title", "start_date", "payment_amount", "payment_period", "user_id", "jobs"."id" FROM "jobs"
+        const sqlText = `
+        SELECT "title", "start_date", "payment_amount", "payment_period", "jobs"."user_id", "jobs"."id", "farm_name", "description", "jobs"."type", "user"."username", "city", "state" 
+        FROM "jobs"
         JOIN "user" on "jobs"."user_id"="user"."id"
+        JOIN "farm" on "jobs"."user_id"="farm"."user_id"
         WHERE "user"."id" = $1;`;
         pool
         .query(sqlText, [id])
