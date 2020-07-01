@@ -62,4 +62,16 @@
 .farmJobItem li{
 list-style-type: none;
 margin-bottom: 10px;
+
+}
+
+.jobModal{
+    width: 700px;
+    height: 70%;
+    margin: auto;
+    background: white;
+    /* text-align: center; */
+}
+.modalStartDate span{
+margin-left: 20px;
 }

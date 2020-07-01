@@ -71,10 +71,10 @@ export class EditTalentCertificationsItemServer extends Component {
            
                 <div>
                 
-                    <TextField defaultValue={this.state.certificate} id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
+                    <TextField defaultValue={this.state.certificate} id="standard-basic" label="Certificate Name" onChange={(event) => this.addCertificate(event, 'certificate')} />
                 </div>
-                    <Typography>Issuing Company: </Typography>
-                    <TextField defaultValue={this.state.issuingCompany} onChange={(event) => this.addCertificate(event, 'issuingCompany')} id="standard-basic" label="Standard" />
+                   
+                    <TextField defaultValue={this.state.issuingCompany} onChange={(event) => this.addCertificate(event, 'issuingCompany')} id="standard-basic" label="Issuing Company" />
 
                     <div>
                         <TextField

@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/:id', (req, res) => {
-    let id = req.user.id
+    let id = req.params.id
   console.log('in router get', [id]);
   const sqlText = `SELECT "user"."first_name", "user"."last_name", "bio", "city", "state" FROM "user"
   JOIN "talent_user" on "user"."id"="talent_user"."user_id"
@@ -24,7 +24,7 @@ pool
 });
 //get for talent proficiency
 router.get('/proficiency/:id', (req, res) => {
-let id = req.user.id
+  let id = req.params.id
 console.log('in router get', [id]);
 const sqlText = `SELECT "proficiencies"."id", "proficiency_name", "proficiency_category", "length_experience", "first_name" FROM "user"
 JOIN "user_proficiencies" on "user"."id"="user_proficiencies"."user_id"
@@ -43,7 +43,7 @@ pool
 });
 //get for talent certification for profile page
 router.get('/certification/:id', (req, res) => {
-  let id = req.user.id
+  let id = req.params.id
 console.log('in router get', [id]);
   const sqlText = `SELECT "certification"."id", "certification_name", "issuing_company", "issue_date", "expiration_date" FROM "user"
 JOIN "certification" on "user"."id"="certification"."user_id"
@@ -61,7 +61,7 @@ pool
 });
 
 router.get('/education/:id', (req, res) => {
-  let id = req.user.id
+  let id = req.params.id
 console.log('in router get', [id]);
 const sqlText = `SELECT "education"."id", "institution_name", "degree", "start_date", "end_date" FROM "user"
 JOIN "education" on "user"."id"="education"."user_id"
@@ -80,7 +80,7 @@ pool
 
 //get for talent employment
 router.get('/employment/:id', (req, res) => {
-  let id = req.user.id
+  let id = req.params.id
 console.log('in router get', [id]);
 const sqlText = `SELECT "employment"."id", "employer_name", "title", "start_date", "end_date" FROM "user"
 JOIN "employment" on "user"."id"="employment"."user_id"
