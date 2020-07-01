@@ -47,11 +47,11 @@ export class EditTalentEducationItem extends Component {
             <>
            
                 <div>
-                 <Typography>Degree: </Typography>
-                    <TextField defaultValue={this.state.degree} id="standard-basic" label="Standard" onChange={(event) => this.addEducation(event, 'degree')} />
+                
+                    <TextField defaultValue={this.state.degree} id="standard-basic" label="Degree" onChange={(event) => this.addEducation(event, 'degree')} />
                 </div>
-                    <Typography>School: </Typography>
-                    <TextField defaultValue={this.state.school} onChange={(event) => this.addEducation(event, 'school')} id="standard-basic" label="Standard" />
+                   
+                    <TextField defaultValue={this.state.school} onChange={(event) => this.addEducation(event, 'school')} id="standard-basic" label="School" />
 
                     <div>
                         <TextField
@@ -79,7 +79,7 @@ export class EditTalentEducationItem extends Component {
 
                         />
                         <Button variant="outlined" onClick={this.toggleEditModeSave}> Save </Button> 
-                    <Button variant="outlined" onClick={this.deleteEducation}> Delete </Button> 
+                    {/* <Button variant="outlined" onClick={this.deleteEducation}> Delete </Button>  */}
                     </div> 
              </>
         } else {
