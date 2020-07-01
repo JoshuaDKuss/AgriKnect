@@ -47,6 +47,12 @@ export class farmBio extends Component {
         // console.log('in profile farm', this.props.reduxState.farmBioReducer)
         // const classes = useStyles();
         // const bull = <span className={classes.bullet}>•</span>;
+        let editButtonControl = <span> </span>
+        if (this.props.reduxState.user.id == this.props.match.params.id) {
+            editButtonControl = <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
+
+
+        }
         return (
             <>
 
@@ -92,7 +98,8 @@ export class farmBio extends Component {
                                     <p>{bio.bio}</p>
                                 </div>
                                 <div>
-                                    <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
+                                   {editButtonControl} 
+                                    {/* <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button> */}
                                 </div>
                             </>
                         )
