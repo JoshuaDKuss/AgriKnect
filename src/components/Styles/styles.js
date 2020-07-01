@@ -10,6 +10,10 @@ const styles = {
         flexGrow: 1,
         padding: 10,
     },
+    card: {
+        textAlign: 'center',
+        maxWidth: 400,
+    },
     paper: {
         textAlign: 'center',
     },

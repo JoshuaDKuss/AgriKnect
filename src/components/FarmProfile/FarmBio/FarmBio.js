@@ -33,8 +33,6 @@ export class farmBio extends Component {
     //     },
     //   });
 
-    
-    
 
     componentDidMount() {
         console.log('this is params.id', this.props.match.params.id);
@@ -139,11 +137,13 @@ export class farmBio extends Component {
                 <Grid container direction="row" 
                     //className={classes.gridRoot} 
                     alignItems="top" 
-                    spacing = {3}>
+                    spacing = {2}>
          
                 <Grid item xs={9} >
                     {/* <Link to="/theBar">  */}
-                    <Card>
+                    <Card variant="outlined"
+                    alignItems="center" 
+                    spacing = {2}>
                         <CardContent>
                             <Typography>
 
@@ -242,9 +242,9 @@ export class farmBio extends Component {
                 
             </div>
                 
-
-                <div className={'farmBio'}>
-                    {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
+                                
+                {/* <div className={'farmBio'}>
+                    
                     {this.props.reduxState.farmBioReducer.map((bio) => {
                         return (
                             <>
@@ -267,20 +267,19 @@ export class farmBio extends Component {
                             </>
                         )
                     })}
-                </div>
+                </div> */}
 
-                <div className={'farmDetails'}>
-                    {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
+                {/* <div className={'farmDetails'}>
                     <h3 className={'farmDetailsHeader'}>Farm Details</h3>
                     {this.props.reduxState.farmBioReducer.map((details) => {
                         return (
                             <FarmDetails details={details} key={details.id} history={this.props.history} />
                         )
                     })}
-                </div>
+                </div> */}
 
-                <div className={'farmJobsAvailable'}>
-                    {/* {JSON.stringify(this.props.reduxState.farmJobsAvailable)} */}
+                {/* <div className={'farmJobsAvailable'}>
+                    
                     <h3 className={'farmJobs'}>Available Jobs</h3>
                     <ul>
                         {this.props.reduxState.farmJobsAvailable.map((job) => {
@@ -290,7 +289,7 @@ export class farmBio extends Component {
                             )
                         })}
                     </ul>
-                </div>
+                </div> */}
             </>
         )
     }

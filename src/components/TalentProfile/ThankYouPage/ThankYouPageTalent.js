@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Button} from '@material-ui/core';
+
 import { withRouter } from 'react-router-dom';
+import { Button, Grid } from '@material-ui/core';
+import styles from '../../Styles/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 export class ThankYouPageTalent extends Component {
 

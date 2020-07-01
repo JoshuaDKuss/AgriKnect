@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Button} from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import { Button, Grid } from '@material-ui/core';
+import styles from '../../Styles/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 export class FarmFormReview extends Component {
 
@@ -14,7 +19,20 @@ export class FarmFormReview extends Component {
 
     render() {
         return (
+            <>
             <div>
+                <Grid container direction="row" 
+                    //className={classes.gridRoot} 
+                    alignItems="top" 
+                    spacing = {2}>
+         
+                <Grid item xs={9} >
+                    {/* <Link to="/theBar">  */}
+                    <Card variant="outlined"
+                    alignItems="center" 
+                    spacing = {2}>
+                        <CardContent>
+                            <Typography>
                 <h3> Review your information </h3>
                 <h4>Farm Name and address: </h4>
                 
@@ -23,20 +41,33 @@ export class FarmFormReview extends Component {
                 <p>{this.props.reduxState.farmForm.city},&nbsp;
                 {this.props.reduxState.farmForm.state} &nbsp;
                 {this.props.reduxState.farmForm.zipcode}</p><br/>
+               
+                
 
                 {/* <h4>Farm Size, Type and Description: </h4> */}
-                <p>Size: {this.props.reduxState.farmForm.size}</p>
-                <p>Type: {this.props.reduxState.farmForm.type}&nbsp;</p>
+                <p>Size: {this.props.reduxState.farmForm.size}&nbsp;
+                Type: {this.props.reduxState.farmForm.type}&nbsp;</p>
                 <p>Description: {this.props.reduxState.farmForm.bio}</p>
                 
                 {/* <h4>Contact: </h4> */}
                 <p>Contact: {this.props.reduxState.farmForm.phone}</p>
+
                 <div>
                 <Button variant='contained' onClick={this.sendToServer}> Save Farm Profile </Button>
                 </div>
-                <br/>
+
+                </Typography>
+                    </CardContent>
+                    </Card>
+                    {/* </Link> */}
+                </Grid>
                 
+                <br/>
+
+
+                </Grid>
             </div>
+            </>
         )
     }
 }
