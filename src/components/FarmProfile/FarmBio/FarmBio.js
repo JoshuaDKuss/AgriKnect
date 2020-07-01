@@ -270,11 +270,11 @@ export class farmBio extends Component {
                                 <div>
                                    {editButtonControl} 
                                     {/* <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button> */}
-                                </div>
+                                {/* </div>
                             </>
                         )
                     })}
-                </div> */}
+                </div> */} */}
 
                 {/* <div className={'farmDetails'}>
                     <h3 className={'farmDetailsHeader'}>Farm Details</h3>

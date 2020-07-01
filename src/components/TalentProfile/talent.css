@@ -25,30 +25,19 @@
     /* background-color: #E5E5E5; */
 }
 
-/* .certHeader{
-    background-color: #E5E5E5;
-    width: 70%;
-    margin: auto;
-    text-align: center;
-   
-} */
 .talentCertificationSection{
     background-color: #E5E5E5;
     width: 70%;
     margin: auto;
 }
-.talentCertification{
-    /* display: flex;
-    justify-content: space-between; */
-    /* background-color: #E5E5E5;
-    width: 70%;
-    margin: auto; */
-   
-    
-}
 .talentCert{
+    padding-bottom: 0;;
+    margin-right: 15%;
+}
+.talentCertification{
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    
 }
 .talentEducation{
     /* display: flex; */

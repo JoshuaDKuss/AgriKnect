@@ -234,8 +234,8 @@ export class TalentProfile extends Component {
                             </div>
                             <div className={"talentCertificationSection"}>
                                 <h3>Certifications</h3>
-                            <div className={'talentCertification'}>
-                                <div>
+                            <div>
+                                <div className={'talentCertification'}>
                                     {this.props.reduxState.talentProficiencyCert.map((cert) => {
                                         return (
 
