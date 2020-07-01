@@ -8,7 +8,8 @@ export class FarmFormReview extends Component {
     sendToServer = () => {
         //console.log(id);
         this.props.dispatch({ type: 'SEND_FARM_FORM', payload: this.props.reduxState.farmForm })  //.farmForm
-        this.props.history.push(`/farmProfile/${this.props.reduxState.user.id}`);
+        //this.props.history.push(`/farmProfile/${this.props.reduxState.user.id}`);
+        this.props.history.push('/ThankYouPageFarm');
     }
 
     render() {

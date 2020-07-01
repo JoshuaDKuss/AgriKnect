@@ -11,6 +11,11 @@
     margin-bottom: 10px;
 }
 
+.farmBio:hover{
+    transition: ease-out .3s;
+    background-color: #fafafae8;
+}
+
 .farmBioSize{
     width: 60%;
     margin-left: 10%;
@@ -24,6 +29,10 @@
     width: 70%;
     margin: auto;
     margin-bottom: 10px;
+}
+.farmDetails:hover{
+    transition: ease-out .3s;
+    background-color: #fafafae8;
 }
 .farmDetailsHeader{
    display: contents;
@@ -44,6 +53,10 @@
     margin: auto;
     margin-bottom: 10px;
     text-align: left;
+}
+.farmJobsAvailable:hover{
+    transition: ease-out .3s;
+    background-color: #fafafae8;
 }
 
 .farmJobItem li{
