@@ -59,11 +59,9 @@
     background-color: #fafafae8;
 }
 
-.farmJobItem li{
+.farmJobItem {
 list-style-type: none;
 margin-bottom: 10px;
-<<<<<<< HEAD
-=======
 }
 
 .jobModal{
@@ -73,7 +71,6 @@ margin-bottom: 10px;
     background: white;
     /* text-align: center; */
 }
-.modalStartDate span{
+.modalStartDate {
 margin-left: 20px;
->>>>>>> 082b1a6b0f92fb43377887b192f0c63c191c78f4
 }
