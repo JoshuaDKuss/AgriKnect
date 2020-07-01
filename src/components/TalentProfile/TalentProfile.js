@@ -81,24 +81,29 @@ export class TalentProfile extends Component {
         let editSkills = <span> </span>
         if (this.state.editSkills) {
             editSkills = ( 
-                            <Button variant="outlined" onClick={this.editSkills}> Edit </Button> 
+                <EditIcon onClick={this.editSkills} /> 
+                //   <Button variant="outlined" onClick={this.editSkills}> Edit </Button> 
                             )
         }
         let editEquipment = <span> </span>
         if (this.state.editEquipment) {
-            editEquipment = <Button variant="outlined" onClick={this.editEquipment}> Edit </Button>
+            editEquipment = <EditIcon onClick={this.editEquipment} /> 
+            // editEquipment = <Button variant="outlined" onClick={this.editEquipment}> Edit </Button>
         }
         let editCertifications = <span> </span>
         if (this.state.editCertifications) {
-            editCertifications = <Button variant="outlined" onClick={this.editCertifications}> Edit </Button>
+           editCertifications = <EditIcon onClick={this.editCertifications} /> 
+            // editCertifications = <Button variant="outlined" onClick={this.editCertifications}> Edit </Button>
         }
         let editEducation = <span> </span>
         if (this.state.editEducation) {
-            editEducation = <Button variant="outlined" onClick={this.editEducation}> Edit </Button>
+           editEducation = <EditIcon onClick={this.editEducation} /> 
+            // editEducation = <Button variant="outlined" onClick={this.editEducation}> Edit </Button>
         }
         let editEmployment = <span> </span>
         if (this.state.editEmployment) {
-            editEmployment = <Button variant="outlined" onClick={this.editEmployment}> Edit </Button>
+            editEmployment = <EditIcon onClick={this.editEmployment} /> 
+            // editEmployment = <Button variant="outlined" onClick={this.editEmployment}> Edit </Button>
         }
         const talentSkills = this.props.reduxState.talentProficiencyReducer
         const generalAgriculture = [];
@@ -146,7 +151,8 @@ export class TalentProfile extends Component {
                                     <p>{talent.bio}</p>
                                 </div>
                                 <div>
-                                <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit </Button>
+                                
+                                <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button>
                                 </div>
                             </div>
 
