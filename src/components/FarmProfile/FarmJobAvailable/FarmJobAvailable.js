@@ -12,7 +12,7 @@ export class FarmJobsAvailable extends Component {
         console.log('Show me job id',this.props.job.id)
         if(this.props.reduxState.user.id === this.props.job.user_id) {
             console.log('in farmJobAvailable', this.props.job.user_id)
-            this.props.dispatch({type: 'DELETE_JOB', payload: this.props.job.id})
+            this.props.dispatch({type: 'DELETE_JOB', payload: {job: this.props.job.id, userID: this.props.reduxState.user.id}})
         }
     }
     state = {
