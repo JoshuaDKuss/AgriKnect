@@ -3,12 +3,6 @@ const pool = require("../modules/pool");
 const router = express.Router();
 
 
-// router.get("/", (req, res) => {});
-
-
-
-
-
   router.post('/', async (req, res) => {
     const farmId = req.user.id;
     const title = req.body.jobTitle;
@@ -27,7 +21,7 @@ const router = express.Router();
       await createJobPosting.query('BEGIN');
       let queryText = `
         INSERT INTO "jobs" 
-        ("farm_id", "title", "description", "type", "start_date", "end_date", "housing", 
+        ("user_id", "title", "description", "type", "start_date", "end_date", "housing", 
         "housing_details", "relocation_stipend", "payment_period", "payment_amount")
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"
         ;`;

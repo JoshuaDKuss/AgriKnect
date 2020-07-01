@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import styles from '../../Styles/styles';
-import { Typography, TextField } from "@material-ui/core";
+import { Typography, TextField, Button} from "@material-ui/core";
 
 export class ReviewPage extends Component {
     sendToServer = () => {
@@ -88,7 +88,7 @@ export class ReviewPage extends Component {
                     )
 
                 })}
-                <button onClick= {this.sendToServer}> Send SAGA </button>
+                <Button variant="outlined" onClick= {this.sendToServer}> Save Profile </Button>
             </div>
         ) 
     }
