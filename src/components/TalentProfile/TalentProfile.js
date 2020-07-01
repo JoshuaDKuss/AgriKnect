@@ -27,7 +27,7 @@ export class TalentProfile extends Component {
     }
 
     componentDidMount() {
-        console.log('this is params.id', this.props.match.params.id);
+        console.log('this is params.id', this.props.match.params.id, this.props.reduxState.user.id);
         this.props.dispatch({ type: "FETCH_TALENT", payload: this.props.match.params.id });
     }
 
@@ -72,6 +72,11 @@ export class TalentProfile extends Component {
     }
 
     render() {
+        let editButtonControl = <span> </span>
+        if (this.props.reduxState.user.id == this.props.match.params.id ){
+            editButtonControl = <Button size="small"  variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button>
+
+        }
         const { classes } = this.props;
         let JSXRendered = <span> </span>
         // let editAbout = <span> </span>
@@ -151,8 +156,8 @@ export class TalentProfile extends Component {
                                     <p>{talent.bio}</p>
                                 </div>
                                 <div>
-                                
-                                <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button>
+                                {editButtonControl}
+                                {/* <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button> */}
                                 </div>
                             </div>
 
