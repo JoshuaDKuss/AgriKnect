@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import {Button} from '@material-ui/core';
 import Modal from 'react-modal';
-import FarmJobsAvailableItem from '../FarmJobAvailableItem/FarmJobAvailableItem'
+// import FarmJobsAvailableItem from '../FarmJobAvailableItem/FarmJobAvailableItem'
 
 // Modal.setAppElement('#root')
 

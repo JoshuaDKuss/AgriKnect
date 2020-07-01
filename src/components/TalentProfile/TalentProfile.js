@@ -155,10 +155,10 @@ export class TalentProfile extends Component {
                                 <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button>
                                 </div>
                             </div>
-
+                            <div className={"talentExperienceSection"}>
+                            <h3 className={"experienceHeader"}>Industry Experience & Skills</h3>
                             <div className={'talentExperience'}>
-
-                                <div>
+                                 <div>
                                     <h3>General Agriculture</h3>
                                     {generalAgriculture.map((skills) => {
                                         return (
@@ -202,6 +202,9 @@ export class TalentProfile extends Component {
                                 {editSkills}
 
                             </div>
+                            </div>
+                            <div className={"talentEquipmentSection"}>
+                                <h3>Equipment & Brand Knowledge</h3>
                             <div className={'talentEquipment'}>
                                 <div>
                                     <h3>Equipment</h3>
@@ -223,9 +226,11 @@ export class TalentProfile extends Component {
                                 </div>
                                 {editEquipment}
                             </div>
+                            </div>
+                            <div className={"talentCertificationSection"}>
+                                <h3>Certifications</h3>
                             <div className={'talentCertification'}>
                                 <div>
-                                    <h3>Certifications</h3>
                                     {this.props.reduxState.talentProficiencyCert.map((cert) => {
                                         return (
 
@@ -235,6 +240,7 @@ export class TalentProfile extends Component {
                                     })}
                                 </div>
                                 {editCertifications}
+                            </div>
                             </div>
                             <div className={'talentEducation'}>
                                 <div>
