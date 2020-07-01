@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
+import { withRouter } from "react-router";
 import { Typography, TextField, Button } from "@material-ui/core";
 
 
 export class JobReview extends Component {
     sendJobPosting = () => {
         console.log('in jobPosting')
-        this.props.dispatch({ type: 'SET_JOB_POSTING', payload: this.props.job })
+        this.props.dispatch({ type: 'SET_JOB_POSTING', payload: { job: this.props.job, id: this.props.user.id }, history: this.props.history })
     }
 
     render() {
@@ -90,8 +91,9 @@ JobReview.propTypes = { classes: PropTypes.object.isRequired };
 
 const reduxStateToProps = (reduxState) => {
     return {
-        job: reduxState.jobPostingReducer
+        job: reduxState.jobPostingReducer,
+        user: reduxState.user
     }
 }
 
-export default connect(reduxStateToProps)(withStyles(styles)(JobReview)); 
+export default connect(reduxStateToProps)(withRouter(withStyles(styles)(JobReview))); 
