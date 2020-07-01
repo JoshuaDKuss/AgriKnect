@@ -51,6 +51,20 @@ export class JobPosting extends Component {
         } else if (this.state.formCounter === 6) {
             formToShow = <JobReview />
         } 
+
+        let backButton = <span></span>
+        if (this.state.formCounter === 0) {
+            backButton = <span> </span>
+        } else {
+            backButton= <Button outline="variant" onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button> 
+        }
+
+        let nextButton = <span></span>
+        if (this.state.formCounter === 6) {
+            nextButton = <span></span>
+        } else {
+            nextButton = <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button>
+        }
         return (
             <div>
 
@@ -58,8 +72,11 @@ export class JobPosting extends Component {
 
                 {formToShow}
 
-                <Button outline="variant" onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button> 
-                <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button>
+                {backButton}
+                {nextButton}
+
+                {/* <Button outline="variant" onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button> 
+                <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button> */}
                 
             </div>
         )
