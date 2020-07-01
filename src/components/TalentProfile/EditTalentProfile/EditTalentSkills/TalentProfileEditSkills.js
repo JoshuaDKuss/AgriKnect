@@ -33,7 +33,7 @@ export class TalentProfileEditSkills extends Component {
         let buttonToRender = <button></button>
         if (this.state.listRendered) {
             JSXToRender = <TalentProfileSkillsList/>;
-              buttonToRender =  <Button variatn= 'outlined' onClick={this.renderExpertise}> Next </Button>;
+              buttonToRender =  <Button variant= 'outlined' onClick={this.renderExpertise}> Next </Button>;
         } else {
             JSXToRender = <TalentProfileEditExpertise/>
             buttonToRender =  <Button onClick={this.submitExpertise}> Submit </Button>;
@@ -44,7 +44,6 @@ export class TalentProfileEditSkills extends Component {
                 {buttonToRender}
            
             
-            {/* <button onClick={this.renderExpertise}> Next </button> */}
 
             </div>
         )
