@@ -1,6 +1,10 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
+    /* background: rgb(190,190,190); */
+    /* background: linear-gradient(180deg, rgba(190,190,190,1) 0%, rgba(242,242,242,1) 100%); */
+    background: rgb(173,173,173);
+    background: linear-gradient(0deg, rgba(173,173,173,1) 0%, rgba(242,242,242,1) 100%);
 }
 
 .alert {
