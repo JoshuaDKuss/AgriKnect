@@ -9,7 +9,7 @@ function* sendEmployment(action) {
     yield put({ type: 'DELETE_ALL_EMPLOYMENT'});
         action.history.push(`/talentProfile/${action.payload.id}`);
 
-        yield put({ type: 'FETCH_TALENT' });
+        // yield put({ type: 'FETCH_TALENT' });
 
 
     } catch (error) {

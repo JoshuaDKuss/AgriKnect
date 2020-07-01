@@ -47,11 +47,11 @@ export class EditTalentEmploymentItem extends Component {
             <>
            
                 <div>
-                 <Typography>Title</Typography>
-                    <TextField defaultValue={this.state.title} id="standard-basic" label="Standard" onChange={(event) => this.addEmployment(event, 'title')} />
+                 
+                    <TextField defaultValue={this.state.title} id="standard-basic" label="Title" onChange={(event) => this.addEmployment(event, 'title')} />
                 </div>
-                    <Typography>Company: </Typography>
-                    <TextField defaultValue={this.state.company} onChange={(event) => this.addEmployment(event, 'company')} id="standard-basic" label="Standard" />
+                  
+                    <TextField defaultValue={this.state.company} onChange={(event) => this.addEmployment(event, 'company')} id="standard-basic" label="Company" />
 
                     <div>
                         <TextField
@@ -79,7 +79,6 @@ export class EditTalentEmploymentItem extends Component {
 
                         />
                         <Button variant="outlined" onClick={this.toggleEditModeSave}> Save </Button> 
-                    <Button variant="outlined" onClick={this.deleteEmployment}> Delete </Button> 
                     </div> 
              </>
         } else {

@@ -13,13 +13,22 @@ import { connect } from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Button } from '@material-ui/core';
+import { Button} from '@material-ui/core';
+//import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot} from '@material-ui/lab';
 
 export class TalentForm extends Component {
     state = {
         formCounter: 0,
-       
+        colorOne: '',
+        colorTwo: '',
+        colorThree: '',
+        colorFour: '',
+        colorFive: '',
+        colorOne: '',
+        
     }
+
+    
 
     //changes this.state.formCounter so that the correct part of the form is rendered to the page
     changeFormCounter = (event, property) => {
@@ -61,15 +70,77 @@ export class TalentForm extends Component {
         } else if (this.state.formCounter ===9) {
             formToShow = <ReviewPage />
         }
+
+        let backButton = <span></span>
+        if (this.state.formCounter === 0) {
+            backButton = <span> </span>
+        } else {
+            backButton =  <Button onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button> 
+        }
+
+        let nextButton = <span></span>
+        if (this.state.formCounter === 9) {
+            backButton = <span></span>
+        } else {
+            nextButton = <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button>        }
         return (
+            <>
+            {/* <Timeline align="right">
+                    <TimelineItem>
+                        <TimelineSeparator>
+                            <TimelineDot color={this.state.colorOne} />
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>Education and <div>Employment History</div></TimelineContent>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <TimelineSeparator>
+                            <TimelineDot color={this.state.colorTwo} />
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>Certifications</TimelineContent>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <TimelineSeparator>
+                            <TimelineDot color={this.state.colorThree} />
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>Skills</TimelineContent>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <TimelineSeparator>
+                            <TimelineDot color={this.state.colorFour} />
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>Equipment and <div> Brand Experience </div></TimelineContent>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <TimelineSeparator>
+                            <TimelineDot color={this.state.colorFive} />
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>Bio</TimelineContent>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <TimelineSeparator>
+                            <TimelineDot color={this.state.colorSix} />
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>Review</TimelineContent>
+                    </TimelineItem>
+            </Timeline> */}
             <div>
-               <h1> Talent Form </h1> 
+               {/* <h1> Talent Form </h1>  */}
         
             {formToShow}
 
-            <button onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </button> 
-            <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button>
+            {backButton}
+
+            {nextButton}
+            {/* <Button onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button>  */}
+            {/* <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button> */}
             </div>
+            </>
         )
     }
 }

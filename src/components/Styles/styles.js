@@ -9,7 +9,10 @@ const styles = {
     gridRoot: {
         flexGrow: 1,
         padding: 10,
-
+    },
+    card: {
+        textAlign: 'center',
+        maxWidth: 400,
     },
     paper: {
         textAlign: 'center',
@@ -57,6 +60,7 @@ const styles = {
         marginLeft: 20
     }
 }
+
 
 // const blush = "#F5C7B8";
 // const cantalope =  "#FFA177"; 

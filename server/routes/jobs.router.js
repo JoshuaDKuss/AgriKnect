@@ -3,12 +3,6 @@ const pool = require("../modules/pool");
 const router = express.Router();
 
 
-// router.get("/", (req, res) => {});
-
-
-
-
-
   router.post('/', async (req, res) => {
     const farmId = req.user.id;
     console.log(farmId)

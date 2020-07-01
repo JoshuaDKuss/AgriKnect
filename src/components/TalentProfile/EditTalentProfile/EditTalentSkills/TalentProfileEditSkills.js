@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import styles from '../../../Styles/styles';
 import TalentProfileSkillsList from './TalentProfileEditSkillsList'; 
 import TalentProfileEditExpertise from './TalentProfileEditExpertise';
+import {Button} from '@material-ui/core'
 
 export class TalentProfileEditSkills extends Component {
     
@@ -32,10 +33,10 @@ export class TalentProfileEditSkills extends Component {
         let buttonToRender = <button></button>
         if (this.state.listRendered) {
             JSXToRender = <TalentProfileSkillsList/>;
-              buttonToRender =  <button onClick={this.renderExpertise}> Next </button>;
+              buttonToRender =  <Button variant= 'outlined' onClick={this.renderExpertise}> Next </Button>;
         } else {
             JSXToRender = <TalentProfileEditExpertise/>
-            buttonToRender =  <button onClick={this.submitExpertise}> Submit </button>;
+            buttonToRender =  <Button onClick={this.submitExpertise}> Submit </Button>;
         }
         return (
             <div>
@@ -43,7 +44,6 @@ export class TalentProfileEditSkills extends Component {
                 {buttonToRender}
            
             
-            {/* <button onClick={this.renderExpertise}> Next </button> */}
 
             </div>
         )
