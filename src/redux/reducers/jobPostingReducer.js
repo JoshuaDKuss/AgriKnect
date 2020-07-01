@@ -87,7 +87,24 @@ const jobPostingReducer = (state = {
     } else if (action.type === 'SET_PAYMENT_AMOUNT') {
         return { ...state, paymentAmount: action.payload }
 
-    }  else {
+    } else if (action.type === 'DELETE_POSTING'){
+        return {
+            jobTitle: '',
+            jobDescription: '',
+            jobType: '',
+            startDate: '2020-01-01',
+            endDate: '2020-01-01',
+            skills: [],
+            equipment: [],
+            brands: [],
+            housingProvided: '',
+            housingDetails: '',
+            relocationProvided: '',
+            paymentType: '',
+            paymentAmount: 0
+
+        }
+    } else {
         return state
     }
 
