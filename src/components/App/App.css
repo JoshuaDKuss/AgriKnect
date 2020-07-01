@@ -8,6 +8,10 @@ body {
     margin: 50px;
 }
 
+#thankYou{
+    text-align: center;
+}
+
 form {
     background: rgba(7, 31, 0, 0.796);
     display: flex;

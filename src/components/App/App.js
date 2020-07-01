@@ -31,6 +31,8 @@ import TalentProfileEditedEquipmentBrands from '../TalentProfile/EditTalentProfi
 import TalentProfileEditedCertificate from '../TalentProfile/EditTalentProfile/EditTalentCertifications/EditTalentCertification';
 import TalentProfileEditedEducation from '../TalentProfile/EditTalentProfile/EditTalentEducation/EditTalentEducation';
 import TalentProfileEditedEmployment from '../TalentProfile/EditTalentProfile/EditTalentEmployment/EditTalentEmployment';
+import ThankYouPageFarm from '../FarmProfile/ThankYouPage/ThankYouPageFarm';
+import ThankYouPageTalent from '../TalentProfile/ThankYouPage/ThankYouPageTalent';
 
 import './App.css';
 
@@ -90,6 +92,16 @@ class App extends Component {
               exact
               path="/EditFarm/:id"
               component={EditFarm}
+            />
+            <ProtectedRoute
+              exact
+              path="/ThankYouPageFarm"
+              component={ThankYouPageFarm}
+            />
+            <ProtectedRoute
+              exact
+              path="/ThankYouPageTalent"
+              component={ThankYouPageTalent}
             />
             <ProtectedRoute
               exact

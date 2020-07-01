@@ -40,7 +40,7 @@ export class EditTalentEmployment extends Component {
         return (
             <div>
                 <ul>
-                    <h3> Add any certifications or licenses you have </h3>
+                    <h3> Add your employment experience </h3>
                     {this.props.employment.map((item) => {
                         return (
                             <EditTalentEmploymentItemServer item={item} key={item.id} />

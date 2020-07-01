@@ -58,10 +58,10 @@ export class EditTalentEducationItemServer extends Component {
            
                 <div>
                 
-                    <TextField defaultValue={this.state.degree} id="standard-basic" label="Standard" onChange={(event) => this.addEducation(event, 'degree')} />
+                    <TextField defaultValue={this.state.degree} id="standard-basic" label="Degree" onChange={(event) => this.addEducation(event, 'degree')} />
                 </div>
-                    <Typography>Issuing Company: </Typography>
-                    <TextField defaultValue={this.state.school} onChange={(event) => this.addEducation(event, 'school')} id="standard-basic" label="Standard" />
+                   
+                    <TextField defaultValue={this.state.school} onChange={(event) => this.addEducation(event, 'school')} id="standard-basic" label="School" />
 
                     <div>
                         <TextField

@@ -62,11 +62,11 @@ export class EditTalentCertificationsItem extends Component {
             <>
            
                 <div>
-                 <Typography>Certificate: </Typography>
-                    <TextField defaultValue={this.state.certificate} id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
+                 
+                    <TextField defaultValue={this.state.certificate} id="standard-basic" label="Certificate Name" onChange={(event) => this.addCertificate(event, 'certificate')} />
                 </div>
-                    <Typography>Issuing Company: </Typography>
-                    <TextField defaultValue={this.state.issuingCompany} onChange={(event) => this.addCertificate(event, 'issuingCompany')} id="standard-basic" label="Standard" />
+                    
+                    <TextField defaultValue={this.state.issuingCompany} onChange={(event) => this.addCertificate(event, 'issuingCompany')} id="standard-basic" label="Issuing Company" />
 
                     <div>
                         <TextField
@@ -94,7 +94,7 @@ export class EditTalentCertificationsItem extends Component {
 
                         />
                         <Button variant="outlined" onClick={this.toggleEditModeSave}> Save </Button> 
-                    <Button variant="outlined" onClick={this.deleteCertificate}> Delete </Button> 
+                    {/* <Button variant="outlined" onClick={this.deleteCertificate}> Delete </Button>  */}
                     </div> 
              </>
         } else {
