@@ -15,8 +15,8 @@ export class CertificationsItem extends Component {
        
         certificate: '',
         issuingCompany: '',
-        issueDate: 0,
-        expirationDate: 0
+        issueDate: '2020-01-01',
+        expirationDate: '2020-01-01'
     }
 
 
@@ -51,13 +51,13 @@ export class CertificationsItem extends Component {
                 <div>
                    
 
-                    <Typography>License or certificate: </Typography>
+                 
 
                     <div ref={node => this.inCertificate = node}>
-                        <TextField   id="standard-basic" label="Standard" onChange={(event) => this.addCertificate(event, 'certificate')} />
+                        <TextField id="standard-basic" label="License or certificate" onChange={(event) => this.addCertificate(event, 'certificate')} />
                     </div>
-                    <Typography>Issuing Company: </Typography>
-                    <TextField onChange={(event) => this.addCertificate(event, 'issuingCompany' )} id="standard-basic" label="Standard" />
+  
+                    <TextField onChange={(event) => this.addCertificate(event, 'issuingCompany')} id="standard-basic" label="Issuing Company" />
 
                     <div>
                         <TextField

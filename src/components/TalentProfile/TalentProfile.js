@@ -6,6 +6,11 @@ import TalentCertification from './TalentCertification'
 import TalentEducation from './TalentEducation'
 import TalentEmployment from './TalentEmployment'
 import { Link } from 'react-router-dom'; 
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import styles from '../Styles/styles';
+import { Button } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
 import './talent.css'
 
 export class TalentProfile extends Component {
@@ -22,7 +27,7 @@ export class TalentProfile extends Component {
     }
 
     componentDidMount() {
-        console.log('this is params.id', this.props.match.params.id);
+        console.log('this is params.id', this.props.match.params.id, this.props.reduxState.user.id);
         this.props.dispatch({ type: "FETCH_TALENT", payload: this.props.match.params.id });
     }
 
@@ -67,6 +72,12 @@ export class TalentProfile extends Component {
     }
 
     render() {
+        let editButtonControl = <span> </span>
+        if (this.props.reduxState.user.id == this.props.match.params.id ){
+            editButtonControl = <Button size="small"  variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button>
+
+        }
+        const { classes } = this.props;
         let JSXRendered = <span> </span>
         // let editAbout = <span> </span>
         // if(this.state.editAbout) {
@@ -75,24 +86,29 @@ export class TalentProfile extends Component {
         let editSkills = <span> </span>
         if (this.state.editSkills) {
             editSkills = ( 
-                            <button onClick={this.editSkills}> Edit </button> 
+                <EditIcon onClick={this.editSkills} /> 
+                //   <Button variant="outlined" onClick={this.editSkills}> Edit </Button> 
                             )
         }
         let editEquipment = <span> </span>
         if (this.state.editEquipment) {
-            editEquipment = <button onClick={this.editEquipment}> Edit </button>
+            editEquipment = <EditIcon onClick={this.editEquipment} /> 
+            // editEquipment = <Button variant="outlined" onClick={this.editEquipment}> Edit </Button>
         }
         let editCertifications = <span> </span>
         if (this.state.editCertifications) {
-            editCertifications = <button onClick={this.editCertifications}> Edit </button>
+           editCertifications = <EditIcon onClick={this.editCertifications} /> 
+            // editCertifications = <Button variant="outlined" onClick={this.editCertifications}> Edit </Button>
         }
         let editEducation = <span> </span>
         if (this.state.editEducation) {
-            editEducation = <button onClick={this.editEducation}> Edit </button>
+           editEducation = <EditIcon onClick={this.editEducation} /> 
+            // editEducation = <Button variant="outlined" onClick={this.editEducation}> Edit </Button>
         }
         let editEmployment = <span> </span>
         if (this.state.editEmployment) {
-            editEmployment = <button onClick={this.editEmployment}> Edit </button>
+            editEmployment = <EditIcon onClick={this.editEmployment} /> 
+            // editEmployment = <Button variant="outlined" onClick={this.editEmployment}> Edit </Button>
         }
         const talentSkills = this.props.reduxState.talentProficiencyReducer
         const generalAgriculture = [];
@@ -139,7 +155,10 @@ export class TalentProfile extends Component {
                                     <span>About</span>
                                     <p>{talent.bio}</p>
                                 </div>
-                                <button onClick={this.renderEditButtons}> Edit </button>
+                                <div>
+                                {editButtonControl}
+                                {/* <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button> */}
+                                </div>
                             </div>
 
                             <div className={'talentExperience'}>
@@ -255,6 +274,8 @@ export class TalentProfile extends Component {
     }
 }
 
+TalentProfile.propTypes = { classes: PropTypes.object.isRequired };
+
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
-export default connect(reduxStateToProps)(TalentProfile);
+export default connect(reduxStateToProps)(withStyles(styles)(TalentProfile));

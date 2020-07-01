@@ -12,7 +12,7 @@ const formData = (state = {
     employment: [],
     city: '',
     state: '',
-    zipcode: '',
+    zipcode: 0,
     bio: ''
 }, action) => {
     let certificateObject = {
@@ -119,7 +119,7 @@ const formData = (state = {
       certificateToAdd.certificate = action.payload.state.certificate;
       certificateToAdd.issuingCompany = action.payload.state.issuingCompany;
       certificateToAdd.issueDate = action.payload.state.issueDate;
-      certificateToAdd.expirationDate = action.payload.state.expirationDate; 
+        certificateToAdd.expirationDate = action.payload.state.expirationDate; 
 
         return {...state, certification: [...state.certification, certificateToAdd]}
         
