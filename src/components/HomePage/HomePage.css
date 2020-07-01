@@ -56,3 +56,8 @@
     filter: grayscale(20%);
     background-position: 0px -70px;   
 }
+
+.homePageButton{
+    float: right;
+    margin: 10px;
+}
