@@ -5,6 +5,7 @@ const router = express.Router();
 
   router.post('/', async (req, res) => {
     const farmId = req.user.id;
+    console.log(farmId)
     const title = req.body.jobTitle;
     const description = req.body.jobDescription;
     const type = req.body.jobType;
