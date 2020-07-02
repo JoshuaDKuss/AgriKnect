@@ -17,9 +17,10 @@ export class Skills extends Component {
         return (
             <div>
                 <h3> What skills do you have?  </h3>
+               
                <h4> General Agriculture </h4>
-              
-                <ul>
+                {/* <div> */}
+               
                     {this.props.proficiencies.generalAgriculture.map((item) => {
                         return (
                             <SkillsItem item={item}  key={item.id} />
@@ -29,10 +30,10 @@ export class Skills extends Component {
 
                   
 
-                </ul>
-
+           
+                {/* </div> */}
                 <h4> Precision Farming Technology  </h4>
-
+                {/* <div> */}
                 {this.props.proficiencies.precisionFarmingTechnology.map((item) => {
                     return (
                         <SkillsItem item={item} key={item.id} />
@@ -40,15 +41,18 @@ export class Skills extends Component {
 
                 })}
 
-                <h4> Maintenance and Mechanics  </h4>
+                {/* </div> */}
+               
 
+                <h4> Maintenance and Mechanics  </h4>
+                {/* <div> */}
                 {this.props.proficiencies.maintenanceAndMechanics.map((item) => {
                     return (
                         <SkillsItem item={item} key={item.id} />
                     )
 
                 })}
-
+                {/* </div> */}
                 <h4>Trucking </h4>
 
                 {this.props.proficiencies.trucking.map((item) => {
@@ -58,7 +62,7 @@ export class Skills extends Component {
 
                 })}
                 
-               
+                {/* </div> */}
             </div>
         )
     }

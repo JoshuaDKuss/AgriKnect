@@ -17,7 +17,7 @@ function* sendFarmProfile(action) {
             type: 'FETCH_FARM'
         });
         //action.history.push(`/farmProfile/${action.payload.id}`);
-        action.history.push(`/ThankYouPageFarm`);
+        action.history.push(`/ThankYouEditFarm`);
     } catch (error) {
         console.log('farm profile edit request failed in saga', error);
     }

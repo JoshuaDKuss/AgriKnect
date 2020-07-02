@@ -95,6 +95,7 @@ router.put('/:id', (req, res) => {  // '/:id'
 router.delete('/:id', (req, res) => {
     let query = `DELETE FROM jobs WHERE id =  $1`
     let values = [req.params.id]
+    console.log('params id is', values)
     pool.query(query, values).then((result)=>{
       res.sendStatus(200);
     }).catch((error) =>{

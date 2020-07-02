@@ -16,11 +16,11 @@ function* registerUser(action) {
     // set to 'login' mode so they see the login screen
     // after registration or after they log out
     yield put({ type: "SET_TO_LOGIN_MODE" });
-    if (action.payload.userType === "talent") {
-      action.history.push("/talentForm");
-    } else {
-      action.history.push("/farmForm");
-    }
+    // if (action.payload.userType === "talent") {
+      action.history.push("/home");
+    // } else {
+    //   action.history.push("/farmForm");
+    // }
   } catch (error) {
     console.log("Error with user registration:", error);
     yield put({ type: "REGISTRATION_FAILED" });
