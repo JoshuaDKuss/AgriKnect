@@ -31,11 +31,15 @@ img {
 
 .farmBio:hover{
     transition: ease-out .3s;
-    background-color: #fafafae8;
+    /* background-color: #fafafae8; */
 }
 #bioSmall{
     font-size: small;
 }
+/* .bioWidth{ */
+    /* float: center; */
+    /* width: fit-content; */
+/* } */
 
 /* .farmBioSize{
     
@@ -45,14 +49,14 @@ img {
     /* display: flex;  */
     /* justify-content: space-between;  */
     margin-top: 5px;
-    background-color: #E5E5E5;
+    /* background-color: #E5E5E5; */
     width: 90%;
     margin: auto;
     /* margin-bottom: 5px; */
 }
 .farmDetails:hover{
     transition: ease-out .3s;
-    background-color: #fafafae8;
+    /* background-color: #fafafae8; */
 }
 .farmDetailsHeader{
    display: contents;
@@ -68,7 +72,7 @@ img {
 }
 .farmJobsAvailable{
     /* margin-top: 5px; */
-    background-color: #E5E5E5;
+    /* background-color: #E5E5E5; */
     width: 90%;
     margin: auto;
     /* margin-bottom: 5px; */
@@ -76,7 +80,7 @@ img {
 }
 .farmJobsAvailable:hover{
     transition: ease-out .3s;
-    background-color: #fafafae8;
+    /* background-color: #fafafae8; */
 }
 
 .farmJobItem {

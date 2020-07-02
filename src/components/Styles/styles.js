@@ -15,14 +15,15 @@ const styles = {
     },
     bioCard: {
         // textAlign: 'center',
-        //maxWidth: auto,
-        // flexGrow: 1,
+        //width: 1500,
+        flexGrow: 1,
         padding: 5,
         //Width: 85%,
+        // width: 100%,
     },
     card: {
         textAlign: 'center',
-        maxWidth: 400,
+        //maxWidth: 400,
     },
     paper: {
         textAlign: 'center',

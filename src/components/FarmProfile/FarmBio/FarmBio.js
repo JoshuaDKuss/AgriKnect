@@ -13,9 +13,12 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types'; 
 import CardMedia from '@material-ui/core/CardMedia';
-import RowCrop from './row-crop-field.jpg';
+import RowCropBio from './row-crop-field.jpg';
 import Icon from './farm-icon.png';
-import { sizing } from '@material-ui/system';
+// import { sizing } from '@material-ui/system';
+// import rowCrop from './rowCrop.png';
+// import dairy from './dairy.png';
+// import livestock from './livestock.png';
 
 
 export class farmBio extends Component {
@@ -30,64 +33,8 @@ export class farmBio extends Component {
     }
 
     render() {
-        // const styles = {
-        //     root: {
-        //         maxWidth: 345,
-        //     },
-        //     media: {
-        //         height: 140,
-        //     },
-        //     gridRoot: {
-        //         flexGrow: 1,
-        //         padding: 10,
-        
-        //     },
-        //     paper: {
-        //         textAlign: 'center',
-        //     },
-        //     marginOne: {
-        //         marginLeft: 50
-        //     },
-        //     marginTwo: {
-        //         marginLeft: 60
-        //     },
-        //     recipe: {
-        //         marginLeft: 60,
-        //     },
-        //     directions: {
-        //         marginTop: 40,
-        //         maxWidth: 300,
-        //     },
-        //     backButton: {
-        //         marginTop: 40,
-        //     },
-        //     image: {
-        //         height: "70 %",
-        //         width: " 60 %",
-        //     },
-        //     marginLeft: {
-        //         marginLeft: 70,
-        //     },
-        //     searchBar: {
-        //         marginTop: 30
-        //     },
-        //     video: {
-        //         marginLeft: 120
-        //     },
-        //     button: {
-        //         marginLeft: 20
-        //     },
-        //     buttonTwo: {
-        //         marginLeft: 40
-        //     },
-        //     userPage: {
-        //         display: 'inline',
-        //         marginLeft: 20
-        //     },
-        //     textField: {
-        //         marginLeft: 20
-        //     }
-        // }
+
+
         const {classes} = this.props;
         // console.log('in profile farm', this.props.reduxState.farmBioReducer)
         // const classes = useStyles();
@@ -95,9 +42,20 @@ export class farmBio extends Component {
         let editButtonControl = <span> </span>
         if (this.props.reduxState.user.id == this.props.match.params.id) {
             editButtonControl = <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
-
-
         }
+        
+        // let iconToRender = <span> </span>
+        //  if(this.props.details.type === 'Row Crop'){
+        //      iconToRender = <img src={rowCrop} alt="rowCrop" className={'bioIconType'}></img>
+        // }
+        //     if(this.props.details.type === 'Dairy'){
+        //     iconToRender = <img src={dairy} alt="dairy" className={'bioIconType'}></img>
+        // }
+        //     if(this.props.details.type === 'Row Crop'){
+        //     iconToRender = <img src={livestock} alt="livestock" className={'bioIconType'}></img>
+        // }
+    
+        
         return (
             <>
 
@@ -124,7 +82,7 @@ export class farmBio extends Component {
                 </Card> */}
 
                 
-            <div>
+            <div className={"bioWidth"}>
                 <Grid container direction="row" 
                     //className={classes.gridRoot} 
                     className={classes.bioCard} 
@@ -132,6 +90,7 @@ export class farmBio extends Component {
                     direction="column"
                     alignItems="center"
                     justify="center"
+                    width="100%"
                     //setWidth="500"
                     spacing = {2}>
          
@@ -139,7 +98,9 @@ export class farmBio extends Component {
                     
                     <Card variant="outlined"
                     alignItems="center" 
-                    spacing = {2}>
+                    spacing = {2}
+                    
+                    >
                         <CardContent>
                             <Typography>
 
@@ -177,7 +138,7 @@ export class farmBio extends Component {
                             )
                             })}
                             </div> 
-                            <img src={RowCrop} alt="bioImage" className={'bioImage'}></img>
+                            <img src={RowCropBio} alt="bioImage" className={'bioImage'}></img>
 
                             </Typography>
                         </CardContent>
@@ -186,11 +147,13 @@ export class farmBio extends Component {
                 </Grid>
 
             
-                <Grid item xs={9} >
-                    {/* <Link to="/apartmentHunt"> */}
+                <Grid item lg={10} >
+                    
                         <Card 
                         //className={classes.root}
-                        >
+                        variant="outlined"
+                        alignItems="center" 
+                        spacing = {2}>
                             {/* <CardMedia
                                 component="img"
                                 className={classes.media}
@@ -211,14 +174,17 @@ export class farmBio extends Component {
                                 </Typography>
                             </CardContent>
                         </Card>
-                    {/* </Link> */}
+                    
                 </Grid>
                 
 
-             <Grid item xs={9} >    
-                <Card 
-                //className={classes.root}
-                >
+             <Grid item xl={20} >    
+                <Card variant="outlined"
+                    alignItems="center" 
+
+                    spacing = {2}>
+                    {/* className={classes.root} */}
+                
                     {/* <CardMedia
                         component="img"
                         className={classes.media}
