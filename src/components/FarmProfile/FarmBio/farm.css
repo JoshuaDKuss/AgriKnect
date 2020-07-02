@@ -5,21 +5,41 @@
 .farmBio{
     display: flex;
     margin-top: 5px;
-    background-color: #E5E5E5;
-    width: 90%;
+    /* background-color: #E5E5E5; */
+    width: 100%;
     margin: auto;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
+    /* background: url(./row-crop-field.jpg); */
+    /* background-size: contain; */
+}
+.bioIcon{
+    max-height: 130px;
+}
+.bioImage{
+    /* display: inline; */
+    /* max-height: 400px; */
+    /* width: 100%; */
+    display: block;
+    margin: auto;
+    width: 700px;
+    padding: 10px;
+}
+
+img {
+    max-width: 700px;
 }
 
 .farmBio:hover{
     transition: ease-out .3s;
     background-color: #fafafae8;
 }
-
-.farmBioSize{
-    width: 90%;
-    margin-left: 10%;
+#bioSmall{
+    font-size: small;
 }
+
+/* .farmBioSize{
+    
+} */
 
 .farmDetails{
     /* display: flex;  */

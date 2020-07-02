@@ -1,17 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import FarmDetails from '../FarmDetails/FarmDetails'
-import './farm.css'
+import './farm.css';
 import FarmJobsAvailable from '../FarmJobAvailable/FarmJobAvailable';
 import { Button, Grid } from '@material-ui/core';
 import styles from '../../Styles/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types'; 
 import CardMedia from '@material-ui/core/CardMedia';
+import RowCrop from './row-crop-field.jpg';
+import Icon from './farm-icon.png';
+import { sizing } from '@material-ui/system';
 
 
 export class farmBio extends Component {
@@ -45,64 +49,64 @@ export class farmBio extends Component {
     }
 
     render() {
-        const styles = {
-            root: {
-                maxWidth: 345,
-            },
-            media: {
-                height: 140,
-            },
-            gridRoot: {
-                flexGrow: 1,
-                padding: 10,
+        // const styles = {
+        //     root: {
+        //         maxWidth: 345,
+        //     },
+        //     media: {
+        //         height: 140,
+        //     },
+        //     gridRoot: {
+        //         flexGrow: 1,
+        //         padding: 10,
         
-            },
-            paper: {
-                textAlign: 'center',
-            },
-            marginOne: {
-                marginLeft: 50
-            },
-            marginTwo: {
-                marginLeft: 60
-            },
-            recipe: {
-                marginLeft: 60,
-            },
-            directions: {
-                marginTop: 40,
-                maxWidth: 300,
-            },
-            backButton: {
-                marginTop: 40,
-            },
-            image: {
-                height: "70 %",
-                width: " 60 %",
-            },
-            marginLeft: {
-                marginLeft: 70,
-            },
-            searchBar: {
-                marginTop: 30
-            },
-            video: {
-                marginLeft: 120
-            },
-            button: {
-                marginLeft: 20
-            },
-            buttonTwo: {
-                marginLeft: 40
-            },
-            userPage: {
-                display: 'inline',
-                marginLeft: 20
-            },
-            textField: {
-                marginLeft: 20
-            }
-        }
+        //     },
+        //     paper: {
+        //         textAlign: 'center',
+        //     },
+        //     marginOne: {
+        //         marginLeft: 50
+        //     },
+        //     marginTwo: {
+        //         marginLeft: 60
+        //     },
+        //     recipe: {
+        //         marginLeft: 60,
+        //     },
+        //     directions: {
+        //         marginTop: 40,
+        //         maxWidth: 300,
+        //     },
+        //     backButton: {
+        //         marginTop: 40,
+        //     },
+        //     image: {
+        //         height: "70 %",
+        //         width: " 60 %",
+        //     },
+        //     marginLeft: {
+        //         marginLeft: 70,
+        //     },
+        //     searchBar: {
+        //         marginTop: 30
+        //     },
+        //     video: {
+        //         marginLeft: 120
+        //     },
+        //     button: {
+        //         marginLeft: 20
+        //     },
+        //     buttonTwo: {
+        //         marginLeft: 40
+        //     },
+        //     userPage: {
+        //         display: 'inline',
+        //         marginLeft: 20
+        //     },
+        //     textField: {
+        //         marginLeft: 20
+        //     }
+        // }
         const {classes} = this.props;
         // console.log('in profile farm', this.props.reduxState.farmBioReducer)
         // const classes = useStyles();
@@ -142,11 +146,16 @@ export class farmBio extends Component {
             <div>
                 <Grid container direction="row" 
                     //className={classes.gridRoot} 
+                    className={classes.bioCard} 
                     alignItems="top" 
+                    direction="column"
+                    alignItems="center"
+                    justify="center"
+                    //setWidth="500"
                     spacing = {2}>
          
-                <Grid item xs={9} >
-                    {/* <Link to="/theBar">  */}
+                <Grid item lg={10} >
+                    
                     <Card variant="outlined"
                     alignItems="center" 
                     spacing = {2}>
@@ -157,31 +166,42 @@ export class farmBio extends Component {
                             {this.props.reduxState.farmBioReducer.map((bio) => {
                             return (
                             <>
+                            <img src={Icon} alt="Icon" className={'bioIcon'}></img>
+                            
                                 <div key={bio.id}>
                                     <h2>{bio.farm_name}</h2>
-                                    <span>{bio.street_address}</span><br/>
-                                    <span>{bio.city}</span>, <span>{bio.state}</span>&nbsp;<span>{bio.zipcode}</span>
+                                    <a id="bioSmall">{bio.street_address}</a><br/>
+                                    <a id="bioSmall">{bio.city}</a>, <a id="bioSmall">{bio.state}</a>&nbsp;<a id="bioSmall">{bio.zipcode}</a>
                                     <p>Email: {bio.username}</p>
-                                    <span>Owner: {bio.first_name} </span>
-                                    <span>{bio.last_name}</span>
+                                    <a>Owner: {bio.first_name} </a>&nbsp;
+                                    <a>{bio.last_name}</a>&nbsp;
                                     <p>Phone: {bio.phone}</p>
                                 </div>
+
                                 <div className={'farmBioSize'}>
                                     <h2>About</h2>
                                     <p>{bio.bio}</p>
                                 </div>
+
                                 <div>
                                     <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
                                 </div>
+
+                                
+                                {/* <img src={RowCrop} alt="" className={'bioImage'}></img> */}
+                                
+
                             </>
+                            
                             )
                             })}
                             </div> 
+                            <img src={RowCrop} alt="bioImage" className={'bioImage'}></img>
 
                             </Typography>
                         </CardContent>
                     </Card>
-                    {/* </Link> */}
+                    
                 </Grid>
 
             
@@ -302,6 +322,8 @@ export class farmBio extends Component {
     }
 }
 
+farmBio.propTypes = { classes: PropTypes.object.isRequired };
+
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
-export default connect(reduxStateToProps)(farmBio);
+export default connect(reduxStateToProps)(withStyles(styles)(farmBio));

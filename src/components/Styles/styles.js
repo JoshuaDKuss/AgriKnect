@@ -10,6 +10,13 @@ const styles = {
         flexGrow: 1,
         padding: 10,
     },
+    bioCard: {
+        // textAlign: 'center',
+        //maxWidth: auto,
+        // flexGrow: 1,
+        padding: 5,
+        //Width: 85%,
+    },
     card: {
         textAlign: 'center',
         maxWidth: 400,
