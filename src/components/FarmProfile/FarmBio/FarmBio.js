@@ -19,25 +19,6 @@ import { sizing } from '@material-ui/system';
 
 
 export class farmBio extends Component {
-
-    // const useStyles = styles({
-    //     root: {
-    //       minWidth: 275,
-    //     },
-    //     bullet: {
-    //       display: 'inline-block',
-    //       margin: '0 2px',
-    //       transform: 'scale(0.8)',
-    //     },
-    //     title: {
-    //       fontSize: 14,
-    //     },
-    //     pos: {
-    //       marginBottom: 12,
-    //     },
-    //   });
-
-
     componentDidMount() {
         console.log('this is params.id', this.props.match.params.id);
         this.props.dispatch({ type: "FETCH_FARM", payload: this.props.match.params.id });

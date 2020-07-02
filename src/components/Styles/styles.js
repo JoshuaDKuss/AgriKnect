@@ -3,6 +3,9 @@ const styles = {
     root: {
         maxWidth: 345,
     },
+    // header: {
+    //     background: #B4C6CE,
+    // },
     media: {
         height: 140,
     },
@@ -69,22 +72,6 @@ const styles = {
 }
 
 
-// const blush = "#F5C7B8";
-// const cantalope =  "#FFA177"; 
 
-// export default createMuiTheme({
-//     palette: {
-//         common: {
-//             pink: `${blush}`,
-//             orange: `${cantalope}`
-//         }
-//     }, 
-//     primary: {
-//         main:  `${blush}`,
-//     },
-//     secondary: {
-//         main: `${cantalope}`
-//     }
-// })
 
 export default styles; 
