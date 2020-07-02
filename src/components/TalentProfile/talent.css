@@ -1,11 +1,20 @@
 .talentAbout{
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
     background-color: #E5E5E5;
     width: 70%;
     margin:  auto;
     margin-top: 15px;
     margin-bottom: 10px;
+}
+.talentAbout div{
+    width: 50%;
+}
+.aboutEdit{
+    display: flex;
+    justify-content: flex-end;
+    height: 20px;
+    
 }
 .experienceHeader{
     display: block;
@@ -18,26 +27,43 @@
     width: 70%;
     margin: auto;
     margin-bottom: 10px;
+    margin-top: 10px;
+}
+.talentExpHeader{
+    display: flex;
+    justify-content: space-between;
+    
 }
 .talentExperience{
     display: flex;
     justify-content: space-between;
     /* background-color: #E5E5E5; */
 }
-
+.certsHeader{
+    display: flex;
+    justify-content: space-between;
+}
 .talentCertificationSection{
     background-color: #E5E5E5;
     width: 70%;
     margin: auto;
+    margin-bottom: 10px;
+}
+.talentCertificationSection h3{
+    margin-bottom: 0px;
 }
 .talentCert{
-    padding-bottom: 0;;
+   
     margin-right: 15%;
 }
 .talentCertification{
     display: flex;
     justify-content: start;
     
+}
+.educationHeader{
+    display: flex;
+    justify-content: space-between;
 }
 .talentEducation{
     /* display: flex; */
@@ -54,7 +80,7 @@
     background-color: #E5E5E5;
     /* margin-top: 5px; */
     width: 70%;
-    /* margin-bottom: 0; */
+    margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -66,15 +92,26 @@
 .talentEquipment h3{
     margin: 0;
 }
-.talentEmploymentItem span{
-    margin-right: 10px;
-}
-
-.talentEmployment{
+.equipmentHeader{
     display: flex;
-    margin-top: 5px;
+    justify-content: space-between;
+}
+.talentEmploymentItem div{
+   display: flex;
+   justify-content: space-evenly;
+}
+.employmentHeader{
+    display: flex;
+    justify-content: space-between;
+}
+.employmentSection{
     background-color: #E5E5E5;
     width: 70%;
     margin: auto;
     margin-bottom: 10px;
+}
+.talentEmployment{
+    display: flex;
+    /* margin-top: 5px; */
+    
 }

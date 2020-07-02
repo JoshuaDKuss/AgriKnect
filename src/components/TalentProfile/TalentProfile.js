@@ -155,13 +155,16 @@ export class TalentProfile extends Component {
                                     <span>About</span>
                                     <p>{talent.bio}</p>
                                 </div>
-                                <div>
+                                <div className={"aboutEdit"}>
                                 {editButtonControl}
                                 {/* <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button> */}
                                 </div>
                             </div>
                             <div className={"talentExperienceSection"}>
-                            <h3 className={"experienceHeader"}>Industry Experience & Skills</h3>
+                            <div className={"talentExpHeader"}>
+                            <h3>Industry Experience & Skills</h3>
+                            <span>{editSkills}</span>
+                            </div>
                             <div className={'talentExperience'}>
                                  <div>
                                     <h3>General Agriculture</h3>
@@ -204,12 +207,14 @@ export class TalentProfile extends Component {
 
                                 </div>
 
-                                {editSkills}
 
                             </div>
                             </div>
                             <div className={"talentEquipmentSection"}>
+                                <div className={"equipmentHeader"}>
                                 <h3>Equipment & Brand Knowledge</h3>
+                                <span>{editEquipment}</span>
+                                </div>
                             <div className={'talentEquipment'}>
                                 <div>
                                     <h3>Equipment</h3>
@@ -229,11 +234,14 @@ export class TalentProfile extends Component {
                                         )
                                     })}
                                 </div>
-                                {editEquipment}
+                        
                             </div>
                             </div>
                             <div className={"talentCertificationSection"}>
+                                <div className={"certsHeader"}>
                                 <h3>Certifications</h3>
+                                <span>{editCertifications}</span>
+                                </div>
                             <div>
                                 <div className={'talentCertification'}>
                                     {this.props.reduxState.talentProficiencyCert.map((cert) => {
@@ -244,32 +252,40 @@ export class TalentProfile extends Component {
                                         )
                                     })}
                                 </div>
-                                {editCertifications}
+                               
                             </div>
                             </div>
                             <div className={'talentEducation'}>
                                 <div>
+                                    <div className={"educationHeader"}>
                                     <h3>Education</h3>
+                                    <span>{editEducation}</span>
+                                    </div>
                                     {this.props.reduxState.talentEducationReducer.map((education) => {
                                         return (
                                             <TalentEducation education={education} key={education.id} history={this.props.history} />
                                         )
                                     })}
                                 </div>
-                                {editEducation}
+                               
                             </div>
+                            <div className={"employmentSection"}>
+                            <div className={"employmentHeader"}>
+                                    <h3>Employment</h3>
+                                    <span>{editEmployment}</span>
+                                    </div>
                             <div className={'talentEmployment'}>
                                 <div>
-                                    <h3>Employment</h3>
+                                   
                                 {this.props.reduxState.talentEmploymentReducer.map((employment) => {
                                         return (
                                             <TalentEmployment employment={employment} key={employment.id} history={this.props.history} />
                                         )
                                     })}
                                 </div>
-                                {editEmployment}
+                               
                             </div>
-                    
+                    </div>
                         </>
                     )
                 })}
