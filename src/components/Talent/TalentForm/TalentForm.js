@@ -13,7 +13,7 @@ import { connect } from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Button} from '@material-ui/core';
+import { Button, Grid} from '@material-ui/core';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot} from '@material-ui/lab';
 
 export class TalentForm extends Component {
@@ -78,68 +78,122 @@ export class TalentForm extends Component {
             backButton =  <Button onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button> 
         }
 
+
         let nextButton = <span></span>
         if (this.state.formCounter === 9) {
             backButton = <span></span>
         } else {
             nextButton = <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button>        }
+
+        let colorOne = ''
+        if (this.state.formCounter === 0 || this.state.formCounter === 1 ) {
+            colorOne = 'primary'
+        } else {
+            colorOne = ''
+        }
+
+        let colorTwo = ''
+        if (this.state.formCounter === 2) {
+            colorTwo = 'primary'
+        } else {
+            colorTwo = ''
+        }
+
+        let colorThree= ''
+        if (this.state.formCounter === 3 || this.state.formCounter === 4) {
+            colorThree = 'primary'
+        } else {
+            colorThree = ''
+        }
+
+        let colorFour = ''
+        if (this.state.formCounter === 5 || this.state.formCounter === 6) {
+            colorFour = 'primary'
+        } else {
+            colorFour = ''
+        }
+
+        let colorFive = ''
+        if (this.state.formCounter === 7 || this.state.formCounter === 8) {
+            colorFive = 'primary'
+        } else {
+            colorFive = ''
+        }
+        let colorSix = ''
+        if (this.state.formCounter === 9)  {
+            colorSix = 'primary'
+        } else {
+            colorSix = ''
+        }
         return (
             <>
-            {/* <Timeline align="right">
+                <Grid container direction="row"  alignItems="top" spacing={2}>
+                    <Grid item xs={4} >
+
+            <Timeline align="right">
                     <TimelineItem>
                         <TimelineSeparator>
-                            <TimelineDot color={this.state.colorOne} />
+                            <TimelineDot color={colorOne} />
                             <TimelineConnector />
                         </TimelineSeparator>
                         <TimelineContent>Education and <div>Employment History</div></TimelineContent>
                     </TimelineItem>
                     <TimelineItem>
                         <TimelineSeparator>
-                            <TimelineDot color={this.state.colorTwo} />
+                            <TimelineDot color={colorTwo} />
                             <TimelineConnector />
                         </TimelineSeparator>
                         <TimelineContent>Certifications</TimelineContent>
                     </TimelineItem>
                     <TimelineItem>
                         <TimelineSeparator>
-                            <TimelineDot color={this.state.colorThree} />
+                            <TimelineDot color={colorThree} />
                             <TimelineConnector />
                         </TimelineSeparator>
                         <TimelineContent>Skills</TimelineContent>
                     </TimelineItem>
                     <TimelineItem>
                         <TimelineSeparator>
-                            <TimelineDot color={this.state.colorFour} />
+                            <TimelineDot color={colorFour} />
                             <TimelineConnector />
                         </TimelineSeparator>
                         <TimelineContent>Equipment and <div> Brand Experience </div></TimelineContent>
                     </TimelineItem>
                     <TimelineItem>
                         <TimelineSeparator>
-                            <TimelineDot color={this.state.colorFive} />
+                            <TimelineDot color={colorFive} />
                             <TimelineConnector />
                         </TimelineSeparator>
                         <TimelineContent>Bio</TimelineContent>
                     </TimelineItem>
                     <TimelineItem>
                         <TimelineSeparator>
-                            <TimelineDot color={this.state.colorSix} />
+                            <TimelineDot color={colorSix} />
                             <TimelineConnector />
                         </TimelineSeparator>
                         <TimelineContent>Review</TimelineContent>
                     </TimelineItem>
-            </Timeline> */}
-            <div>
+            </Timeline>
+                </Grid>
+                    {/* <Grid item xs={1} /> */}
+                    <Grid item xs={5} >
+            {/* <div> */}
                {/* <h1> Talent Form </h1>  */}
         
             {formToShow}
+            </Grid>
+            <Grid item xs={12}/>
+            <Grid item xs={1} />
+            <Grid item xs={2} >
 
             {backButton}
 
             {nextButton}
+            </Grid>
             {/* <Button onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button>  */}
             {/* <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button> */}
-            </div>
+            {/* </div> */}
+            </Grid>
             </>
         )
     }
