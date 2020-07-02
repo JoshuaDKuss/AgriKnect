@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { TextField, Typography } from '@material-ui/core';
+import { TextField, Typography, Card, CardContent, CardActions } from '@material-ui/core';
 
 export class EducationItem extends Component {
     componentWillUnmount() {
@@ -44,10 +44,11 @@ export class EducationItem extends Component {
         const { classes } = this.props; //need this for Material UI
         return (
             <div>
-                <div>
+                {/* <div> */}
 
 
-                  
+                  {/* <Card>
+                      <CardActions> */}
                    
                     <div ref={node => this.inCertificate = node}>
                         <TextField defaultValue={this.state.school} id="standard-basic" label="school" onChange={(event) => this.addEducation(event, 'school')} />
@@ -81,13 +82,13 @@ export class EducationItem extends Component {
  
                         />
                     </div>
+                    {/* </CardActions>
 
 
+                    </Card>           */}
 
 
-
-
-                </div>
+                {/* </div> */}
                 
             </div>
         )
