@@ -6,7 +6,8 @@ function* runUpdateLogic(action) {
         // yield put({ type: 'UPDATE_EQUIPMENT_BRANDS', payload: { id: action.payload.id, skills: action.payload.skills } });
         const response = yield axios.put(`talent/equipment/${action.payload.id}`, action.payload.skills);
         yield put ({ type: 'DELETE_ALL_EQUIPMENT' }) 
-        action.history.push(`/talentProfile/${action.payload.id}`);
+        //action.history.push(`/talentProfile/${action.payload.id}`);
+        action.history.push(`/ThankYouEditTalent`);
     } catch (error) {
         console.log(error); 
 

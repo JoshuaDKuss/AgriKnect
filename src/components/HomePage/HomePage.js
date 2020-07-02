@@ -14,9 +14,18 @@ class HomePage extends Component {
   render() {
     let profileToRender = <span> </span>
     if(this.props.user.type === 'talent'){
-      profileToRender = <Link 
-      className="getStartedBtn" to={`/talentProfile/${this.props.user.id}`}
-      >Profile</Link>
+      if(this.props.user.form_complete) {
+        profileToRender = <Link
+          className="getStartedBtn" to={`/talentProfile/${this.props.user.id}`}
+        >Profile</Link>
+      } else {
+        profileToRender = <Link
+          className="getStartedBtn" to={`/talentForm`}
+        >Create Profile </Link>
+      }
+      // profileToRender = <Link 
+      // className="getStartedBtn" to={`/talentProfile/${this.props.user.id}`}
+      // >Profile</Link>
     } else {
       profileToRender = <Link 
       className="getStartedBtn" to={`/farmProfile/${this.props.user.id}`}

@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
 import styles from '../../Styles/styles';
 import { Typography, TextField, Button} from "@material-ui/core";
 
 export class ReviewPage extends Component {
     sendToServer = () => {
         this.props.dispatch({ type: 'SEND_TALENT_FORM', payload: this.props.talentForm })
+        this.props.history.push(`/ThankYouPageTalent`);
+
+       
     }
 
     render() {
@@ -101,6 +105,6 @@ const reduxStateToProps = (reduxState) => {
     }
 }
 
-export default connect(reduxStateToProps)(withStyles(styles)(ReviewPage));
+export default connect(reduxStateToProps)(withRouter(withStyles(styles)(ReviewPage)));
 
 
