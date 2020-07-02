@@ -15,6 +15,12 @@ class SearchPage extends Component {
     showDetails: false,
   };
 
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'FETCH_INITIAL_JOBS'
+    })
+  }
+
   submitSearch = () => {
     this.props.dispatch({
       type: "FETCH_JOB_SEARCH",
@@ -126,18 +132,17 @@ class SearchPage extends Component {
     return (
       <div>
         <div>
+          <h1>search all jobs</h1>
           <input
             value={this.state.search}
             onChange={this.handleChange}
             placeholder="title, keyword, location"
           ></input>
+
+          <button onClick={this.submitSearch}>Search</button>
         </div>
         <div className="searchBox">
           <div>
-            <h1>search all jobs</h1>
-
-            <button onClick={this.submitSearch}>Search</button>
-
             {strong.map((result) => {
               return (
                 <ResultItem
@@ -178,7 +183,7 @@ class SearchPage extends Component {
                   type={result.type}
                   jobProficiencies={result.proficiencies}
                   userProficiencies={this.props.userProficiencies}
-                  match="Good match"
+                  match="Moderate match"
                   lat={result.latitude}
                   long={result.longitude}
                   description={result.description}
@@ -202,7 +207,7 @@ class SearchPage extends Component {
                   type={result.type}
                   jobProficiencies={result.proficiencies}
                   userProficiencies={this.props.userProficiencies}
-                  match="Weak match"
+                  // match="Weak match"
                   lat={result.latitude}
                   long={result.longitude}
                   description={result.description}
@@ -233,8 +238,6 @@ class SearchPage extends Component {
                 <Link to={`/farmProfile/${this.state.userId}`}>
                   Farm profile
                 </Link>
-           
-                <p>{this.state.userId}</p>
               </div>
             )}
             <div

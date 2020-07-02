@@ -8,31 +8,6 @@ function* getSearchResults(action) {
     const searchResponse = yield axios.get(`/search/${searchItem}`);
     const userProficienciesResponse = yield axios.get(`/proficiencies/user`);
     
-
-
-
-    // let proficiencyCount = 0;
-
-    // for (let i = 0; i < jobProficiencies.length; i++) {
-    //   let jobProficiency = jobProficiencies[i];
-    //   for (let j = 0; j < userProficiencies.length; j++) {
-    //     let userProficiency = userProficiencies[j];
-    //     if (jobProficiency === userProficiency) {
-    //       proficiencyCount += 1;
-    //     }
-    //   }
-    // }
-    // console.log(jobProficiencies.length);
-    // let result = proficiencyCount / jobProficiencies.length;
-    // console.log(result);
-    // let match;
-    // if (result > 0.8) {
-    //     match = 'Strong Match';
-    // } else if (result > 0.5 && result < 0.8) {
-    //     match = 'Good Match';
-    // } else {
-    //     match = 'Weak Match';
-    // }
     yield put({
       type: "SET_SEARCH_RESULTS",
       payload: searchResponse.data,
@@ -46,8 +21,23 @@ function* getSearchResults(action) {
   }
 }
 
+function* fetchJobs() {
+  try {
+    console.log("in fetchJobs");
+    const response = yield axios.get('/jobs');
+    
+    yield put({
+      type: "SET_INITIAL_JOBS",
+      payload: response.data
+    });
+  } catch (error) {
+    console.log("error in fetchJobs saga", error);
+  }
+}
+
 function* searchSaga() {
   yield takeLatest("FETCH_JOB_SEARCH", getSearchResults);
+  yield takeLatest("FETCH_INITIAL_JOBS", fetchJobs);
 }
 
 export default searchSaga;
