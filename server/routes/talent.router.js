@@ -107,6 +107,7 @@ router.post('/', async (req, res) => {
   const state = req.body.state;
   const zipcode = req.body.zipcode;
   const bio = req.body.bio;
+  const userForm = true;
 
   const createTalentProfile = await pool.connect();
 
@@ -192,6 +193,10 @@ try {
       ]);
     })
   );
+
+  let userFormQuery = `UPDATE "user" SET "form_complete" = $1 WHERE "id" = $2;`;
+
+  await createTalentProfile.query(userFormQuery, [userForm, userId]);
 
   await createTalentProfile.query('COMMIT');
     res.sendStatus(200);
