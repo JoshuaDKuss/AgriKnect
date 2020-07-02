@@ -7,8 +7,8 @@ function* sendEmployment(action) {
         console.log('in saga')
         const response = yield axios.put(`talent/employment`, action.payload.employment);
     yield put({ type: 'DELETE_ALL_EMPLOYMENT'});
-        action.history.push(`/talentProfile/${action.payload.id}`);
-
+        //action.history.push(`/talentProfile/${action.payload.id}`);
+        action.history.push(`/ThankYouEditTalent`);
         // yield put({ type: 'FETCH_TALENT' });
 
 
