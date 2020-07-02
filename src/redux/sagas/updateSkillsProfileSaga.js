@@ -6,7 +6,8 @@ function* runUpdateLogic(action) {
  
         yield put ({ type: 'UPDATE_TALENT_SKILLS', payload: { skills: action.payload.skills, id: action.payload.id } })
         yield put ({ type: 'DELETE_ALL_SKILLS' }) 
-        action.history.push(`/talentProfile/${action.payload.id}`);
+        //action.history.push(`/talentProfile/${action.payload.id}`);
+        action.history.push(`/ThankYouEditTalent`);
     } catch (error) {
         console.log(error); 
 
