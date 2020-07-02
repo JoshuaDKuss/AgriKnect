@@ -29,6 +29,12 @@
     margin-bottom: 10px;
     margin-top: 10px;
 }
+.talentExperienceSection hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
 .talentExpHeader{
     display: flex;
     justify-content: space-between;
@@ -48,6 +54,18 @@
     width: 70%;
     margin: auto;
     margin-bottom: 10px;
+}
+.talentExperienceSection hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+.talentEquipmentSection hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 .talentCertificationSection h3{
     margin-bottom: 0px;
@@ -72,6 +90,12 @@
     width: 70%;
     margin: auto;
     
+}
+.talentEducation hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 /* .TalentEquipmentItem{
     margin-left: 20px;
@@ -109,6 +133,12 @@
     width: 70%;
     margin: auto;
     margin-bottom: 10px;
+}
+.employmentSection hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 .talentEmployment{
     display: flex;

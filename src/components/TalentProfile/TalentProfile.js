@@ -5,7 +5,7 @@ import TalentEquipment from './TalentEquipment'
 import TalentCertification from './TalentCertification'
 import TalentEducation from './TalentEducation'
 import TalentEmployment from './TalentEmployment'
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../Styles/styles';
@@ -17,13 +17,13 @@ export class TalentProfile extends Component {
     state = {
         editAbout: false,
         editSkills: false,
-        editEquipment: false, 
+        editEquipment: false,
         editCertifications: false,
-        editEducation: false, 
+        editEducation: false,
         editEmployment: false,
         profileRendered: true,
         editSkillsRendered: false,
-        editEquipmentRendered: false, 
+        editEquipmentRendered: false,
     }
 
     componentDidMount() {
@@ -34,29 +34,29 @@ export class TalentProfile extends Component {
     editSkills = () => {
         this.props.history.push(`/talentProfile/editSkills/${this.props.reduxState.user.id}`);
         console.log(this.props.reduxState.user.id)
-       
+
     }
 
     editEquipment = () => {
-        this.props.history.push( `/talentProfile/editEquipment/${this.props.reduxState.user.id}`);
+        this.props.history.push(`/talentProfile/editEquipment/${this.props.reduxState.user.id}`);
     }
 
     editCertifications = () => {
         this.props.history.push(`/talentProfile/editCertificate/${this.props.reduxState.user.id}`);
         console.log(this.props.reduxState.user.id)
-       
+
     }
 
     editEducation = () => {
         this.props.history.push(`/talentProfile/editEducation/${this.props.reduxState.user.id}`);
         console.log(this.props.reduxState.user.id)
-       
+
     }
 
     editEmployment = () => {
         this.props.history.push(`/talentProfile/editEmployment/${this.props.reduxState.user.id}`);
         console.log(this.props.reduxState.user.id)
-       
+
     }
 
     renderEditButtons = () => {
@@ -73,8 +73,8 @@ export class TalentProfile extends Component {
 
     render() {
         let editButtonControl = <span> </span>
-        if (this.props.reduxState.user.id == this.props.match.params.id ){
-            editButtonControl = <Button size="small"  variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button>
+        if (this.props.reduxState.user.id == this.props.match.params.id) {
+            editButtonControl = <Button size="small" variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button>
 
         }
         const { classes } = this.props;
@@ -85,29 +85,29 @@ export class TalentProfile extends Component {
         // }
         let editSkills = <span> </span>
         if (this.state.editSkills) {
-            editSkills = ( 
-                <EditIcon onClick={this.editSkills} /> 
+            editSkills = (
+                <EditIcon onClick={this.editSkills} />
                 //   <Button variant="outlined" onClick={this.editSkills}> Edit </Button> 
-                            )
+            )
         }
         let editEquipment = <span> </span>
         if (this.state.editEquipment) {
-            editEquipment = <EditIcon onClick={this.editEquipment} /> 
+            editEquipment = <EditIcon onClick={this.editEquipment} />
             // editEquipment = <Button variant="outlined" onClick={this.editEquipment}> Edit </Button>
         }
         let editCertifications = <span> </span>
         if (this.state.editCertifications) {
-           editCertifications = <EditIcon onClick={this.editCertifications} /> 
+            editCertifications = <EditIcon onClick={this.editCertifications} />
             // editCertifications = <Button variant="outlined" onClick={this.editCertifications}> Edit </Button>
         }
         let editEducation = <span> </span>
         if (this.state.editEducation) {
-           editEducation = <EditIcon onClick={this.editEducation} /> 
+            editEducation = <EditIcon onClick={this.editEducation} />
             // editEducation = <Button variant="outlined" onClick={this.editEducation}> Edit </Button>
         }
         let editEmployment = <span> </span>
         if (this.state.editEmployment) {
-            editEmployment = <EditIcon onClick={this.editEmployment} /> 
+            editEmployment = <EditIcon onClick={this.editEmployment} />
             // editEmployment = <Button variant="outlined" onClick={this.editEmployment}> Edit </Button>
         }
         const talentSkills = this.props.reduxState.talentProficiencyReducer
@@ -156,136 +156,141 @@ export class TalentProfile extends Component {
                                     <p>{talent.bio}</p>
                                 </div>
                                 <div className={"aboutEdit"}>
-                                {editButtonControl}
-                                {/* <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button> */}
+                                    {editButtonControl}
+                                    {/* <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button> */}
                                 </div>
                             </div>
                             <div className={"talentExperienceSection"}>
-                            <div className={"talentExpHeader"}>
-                            <h3>Industry Experience & Skills</h3>
-                            <span>{editSkills}</span>
-                            </div>
-                            <div className={'talentExperience'}>
-                                 <div>
-                                    <h3>General Agriculture</h3>
-                                    {generalAgriculture.map((skills) => {
-                                        return (
+                                <div className={"talentExpHeader"}>
+                                    <h3>Industry Experience & Skills</h3>
+                                    <span>{editSkills}</span>
+                                </div>
+                                <hr></hr>
+                                <div className={'talentExperience'}>
+                                    <div>
+                                        <h3>General Agriculture</h3>
+                                        {generalAgriculture.map((skills) => {
+                                            return (
 
-                                            <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                        )
-                                    })}
+                                                <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                            )
+                                        })}
+
+                                    </div>
+                                    <div>
+                                        <h3>Precision Farming Technology</h3>
+                                        {precisionFarming.map((skills) => {
+                                            return (
+
+                                                <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                            )
+                                        })}
+
+                                    </div>
+                                    <div>
+                                        <h3>Maintenance</h3>
+                                        {Maintenance.map((skills) => {
+                                            return (
+
+                                                <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                            )
+                                        })}
+
+                                    </div>
+                                    <div>
+                                        <h3>Trucking</h3>
+                                        {Trucking.map((skills) => {
+                                            return (
+
+                                                <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                            )
+                                        })}
+
+                                    </div>
+
 
                                 </div>
-                                <div>
-                                    <h3>Precision Farming Technology</h3>
-                                    {precisionFarming.map((skills) => {
-                                        return (
-
-                                            <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                        )
-                                    })}
-
-                                </div>
-                                <div>
-                                    <h3>Maintenance</h3>
-                                    {Maintenance.map((skills) => {
-                                        return (
-
-                                            <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                        )
-                                    })}
-
-                                </div>
-                                <div>
-                                    <h3>Trucking</h3>
-                                    {Trucking.map((skills) => {
-                                        return (
-
-                                            <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                        )
-                                    })}
-
-                                </div>
-
-
-                            </div>
                             </div>
                             <div className={"talentEquipmentSection"}>
                                 <div className={"equipmentHeader"}>
-                                <h3>Equipment & Brand Knowledge</h3>
-                                <span>{editEquipment}</span>
+                                    <h3>Equipment & Brand Knowledge</h3>
+                                    <span>{editEquipment}</span>
                                 </div>
-                            <div className={'talentEquipment'}>
-                                <div>
-                                    <h3>Equipment</h3>
-                                    {Equipment.map((skills) => {
-                                        return (
+                                <hr></hr>
+                                <div className={'talentEquipment'}>
+                                    <div>
+                                        <h3>Equipment</h3>
+                                        {Equipment.map((skills) => {
+                                            return (
 
-                                            <TalentEquipment skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                        )
-                                    })}
-                                </div>
-                                <div>
-                                    <h3>Brands</h3>
-                                    {Brand.map((skills) => {
-                                        return (
+                                                <TalentEquipment skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                            )
+                                        })}
+                                    </div>
+                                    <div>
+                                        <h3>Brands</h3>
+                                        {Brand.map((skills) => {
+                                            return (
 
-                                            <TalentEquipment skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                        )
-                                    })}
+                                                <TalentEquipment skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                            )
+                                        })}
+                                    </div>
+
                                 </div>
-                        
-                            </div>
                             </div>
                             <div className={"talentCertificationSection"}>
                                 <div className={"certsHeader"}>
-                                <h3>Certifications</h3>
-                                <span>{editCertifications}</span>
+                                    <h3>Certifications</h3>
+                                    <span>{editCertifications}</span>
                                 </div>
-                            <div>
-                                <div className={'talentCertification'}>
-                                    {this.props.reduxState.talentProficiencyCert.map((cert) => {
-                                        return (
+                                <div>
+                                    <hr></hr>
+                                    <div className={'talentCertification'}>
+                                        {this.props.reduxState.talentProficiencyCert.map((cert) => {
+                                            return (
 
-                                            <TalentCertification cert={cert} key={cert.id} history={this.props.history} />
+                                                <TalentCertification cert={cert} key={cert.id} history={this.props.history} />
 
-                                        )
-                                    })}
+                                            )
+                                        })}
+                                    </div>
+
                                 </div>
-                               
-                            </div>
                             </div>
                             <div className={'talentEducation'}>
                                 <div>
                                     <div className={"educationHeader"}>
-                                    <h3>Education</h3>
-                                    <span>{editEducation}</span>
+                                        <h3>Education</h3>
+                                        <span>{editEducation}</span>
                                     </div>
+                                    <hr></hr>
                                     {this.props.reduxState.talentEducationReducer.map((education) => {
                                         return (
                                             <TalentEducation education={education} key={education.id} history={this.props.history} />
                                         )
                                     })}
                                 </div>
-                               
+
                             </div>
                             <div className={"employmentSection"}>
-                            <div className={"employmentHeader"}>
+                                <div className={"employmentHeader"}>
                                     <h3>Employment</h3>
                                     <span>{editEmployment}</span>
-                                    </div>
-                            <div className={'talentEmployment'}>
-                                <div>
-                                   
-                                {this.props.reduxState.talentEmploymentReducer.map((employment) => {
-                                        return (
-                                            <TalentEmployment employment={employment} key={employment.id} history={this.props.history} />
-                                        )
-                                    })}
                                 </div>
-                               
+                                <hr></hr>
+                                <div className={'talentEmployment'}>
+                                    <div>
+
+                                        {this.props.reduxState.talentEmploymentReducer.map((employment) => {
+                                            return (
+                                                <TalentEmployment employment={employment} key={employment.id} history={this.props.history} />
+                                            )
+                                        })}
+                                    </div>
+
+                                </div>
                             </div>
-                    </div>
                         </>
                     )
                 })}
