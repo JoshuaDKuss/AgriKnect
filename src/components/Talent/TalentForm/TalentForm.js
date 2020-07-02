@@ -176,7 +176,7 @@ export class TalentForm extends Component {
             </Timeline>
                 </Grid>
                     {/* <Grid item xs={1} /> */}
-                    <Grid item xs={4} >
+                    <Grid item xs={5} >
             {/* <div> */}
                {/* <h1> Talent Form </h1>  */}
         
