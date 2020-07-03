@@ -1,17 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import FarmDetails from '../FarmDetails/FarmDetails'
-import './farm.css'
+import './farm.css';
 import FarmJobsAvailable from '../FarmJobAvailable/FarmJobAvailable';
 import { Button, Grid } from '@material-ui/core';
 import styles from '../../Styles/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types'; 
 import CardMedia from '@material-ui/core/CardMedia';
+import RowCropBio from './row-crop-field2.png';
+import Icon from './farm-icon.png';
+// import { sizing } from '@material-ui/system';
+// import rowCrop from './rowCrop.png';
+// import dairy from './dairy.png';
+// import livestock from './livestock.png';
 
 
 export class farmBio extends Component {
@@ -26,64 +33,8 @@ export class farmBio extends Component {
     }
 
     render() {
-        const styles = {
-            root: {
-                maxWidth: 345,
-            },
-            media: {
-                height: 140,
-            },
-            gridRoot: {
-                flexGrow: 1,
-                padding: 10,
-        
-            },
-            paper: {
-                textAlign: 'center',
-            },
-            marginOne: {
-                marginLeft: 50
-            },
-            marginTwo: {
-                marginLeft: 60
-            },
-            recipe: {
-                marginLeft: 60,
-            },
-            directions: {
-                marginTop: 40,
-                maxWidth: 300,
-            },
-            backButton: {
-                marginTop: 40,
-            },
-            image: {
-                height: "70 %",
-                width: " 60 %",
-            },
-            marginLeft: {
-                marginLeft: 70,
-            },
-            searchBar: {
-                marginTop: 30
-            },
-            video: {
-                marginLeft: 120
-            },
-            button: {
-                marginLeft: 20
-            },
-            buttonTwo: {
-                marginLeft: 40
-            },
-            userPage: {
-                display: 'inline',
-                marginLeft: 20
-            },
-            textField: {
-                marginLeft: 20
-            }
-        }
+
+
         const {classes} = this.props;
         // console.log('in profile farm', this.props.reduxState.farmBioReducer)
         // const classes = useStyles();
@@ -91,9 +42,20 @@ export class farmBio extends Component {
         let editButtonControl = <span> </span>
         if (this.props.reduxState.user.id == this.props.match.params.id) {
             editButtonControl = <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
-
-
         }
+        
+        // let iconToRender = <span> </span>
+        //  if(this.props.details.type === 'Row Crop'){
+        //      iconToRender = <img src={rowCrop} alt="rowCrop" className={'bioIconType'}></img>
+        // }
+        //     if(this.props.details.type === 'Dairy'){
+        //     iconToRender = <img src={dairy} alt="dairy" className={'bioIconType'}></img>
+        // }
+        //     if(this.props.details.type === 'Row Crop'){
+        //     iconToRender = <img src={livestock} alt="livestock" className={'bioIconType'}></img>
+        // }
+    
+        
         return (
             <>
 
@@ -120,17 +82,25 @@ export class farmBio extends Component {
                 </Card> */}
 
                 
-            <div>
+            <div className={"bioWidth"}>
                 <Grid container direction="row" 
                     //className={classes.gridRoot} 
+                    className={classes.bioCard} 
                     alignItems="top" 
+                    direction="column"
+                    alignItems="center"
+                    justify="center"
+                    width="100%"
+                    //setWidth="500"
                     spacing = {2}>
          
-                <Grid item xs={9} >
-                    {/* <Link to="/theBar">  */}
+                <Grid item lg={10} >
+                    
                     <Card variant="outlined"
                     alignItems="center" 
-                    spacing = {2}>
+                    spacing = {2}
+                    
+                    >
                         <CardContent>
                             <Typography>
 
@@ -138,39 +108,57 @@ export class farmBio extends Component {
                             {this.props.reduxState.farmBioReducer.map((bio) => {
                             return (
                             <>
+                            <img src={Icon} alt="Icon" className={'bioIcon'}></img>
+                            
                                 <div key={bio.id}>
                                     <h2>{bio.farm_name}</h2>
-                                    <span>{bio.street_address}</span><br/>
-                                    <span>{bio.city}</span>, <span>{bio.state}</span>&nbsp;<span>{bio.zipcode}</span>
-                                    <p>Email: {bio.username}</p>
-                                    <span>Owner: {bio.first_name} </span>
-                                    <span>{bio.last_name}</span>
-                                    <p>Phone: {bio.phone}</p>
+                                    <a id="bioSmall">{bio.street_address}</a><br/>
+                                    <a id="bioSmall">{bio.city}</a>, <a id="bioSmall">{bio.state}</a>&nbsp;<a id="bioSmall">{bio.zipcode}</a>
+                                    <p>Farm Size: {bio.size} </p>
+                                    <p>Email: {bio.username}<br/>
+                                    Owner: {bio.first_name} &nbsp;
+                                    {bio.last_name} <br/>
+                                    Phone: {bio.phone}</p>
                                 </div>
-                                <div className={'farmBioSize'}>
+                                <div> * </div>
+
+                                {/* <div className={'farmBioSize'}>
                                     <h2>About</h2>
                                     <p>{bio.bio}</p>
-                                </div>
+                                </div> */}
+
                                 <div>
-                                    <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
+                                    <Button variant="outlined" 
+                                    onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
                                 </div>
+
+                                
+                                {/* <img src={RowCrop} alt="" className={'bioImage'}></img> */}
+                                
+
                             </>
+                            
                             )
                             })}
+                            
                             </div> 
+                            
+                            <img src={RowCropBio} alt="bioImage" className={'bioImage'}></img>
 
                             </Typography>
                         </CardContent>
                     </Card>
-                    {/* </Link> */}
+                    
                 </Grid>
 
             
-                <Grid item xs={9} >
-                    {/* <Link to="/apartmentHunt"> */}
+                <Grid item lg={10} >
+                    
                         <Card 
                         //className={classes.root}
-                        >
+                        variant="outlined"
+                        alignItems="center" 
+                        spacing = {2}>
                             {/* <CardMedia
                                 component="img"
                                 className={classes.media}
@@ -191,14 +179,17 @@ export class farmBio extends Component {
                                 </Typography>
                             </CardContent>
                         </Card>
-                    {/* </Link> */}
+                    
                 </Grid>
                 
 
-             <Grid item xs={9} >    
-                <Card 
-                //className={classes.root}
-                >
+             <Grid item xl={20} >    
+                <Card variant="outlined"
+                    alignItems="center" 
+
+                    spacing = {2}>
+                    {/* className={classes.root} */}
+                
                     {/* <CardMedia
                         component="img"
                         className={classes.media}
@@ -209,7 +200,7 @@ export class farmBio extends Component {
                         <Typography>
                         <div className={'farmJobsAvailable'}>
                             {/* {JSON.stringify(this.props.reduxState.farmJobsAvailable)} */}
-                            <h3 className={'farmJobs'}>Available Jobs</h3>
+                            <h3 className={'farmJobs'}>Available Jobs            -----------------------------------------------------------</h3>
                             <ul>
                                 {this.props.reduxState.farmJobsAvailable.map((job) => {
                                     return (
@@ -283,6 +274,8 @@ export class farmBio extends Component {
     }
 }
 
+farmBio.propTypes = { classes: PropTypes.object.isRequired };
+
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
-export default connect(reduxStateToProps)(farmBio);
+export default connect(reduxStateToProps)(withStyles(styles)(farmBio));
