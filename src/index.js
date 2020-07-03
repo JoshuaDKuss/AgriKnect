@@ -11,6 +11,7 @@ import rootSaga from './redux/sagas'; // imports ./redux/sagas/index.js
 import App from './components/App/App';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 const theme = createMuiTheme({
+  spacing: 4,
   palette: {
     primary: {main: '#419B2A', dark: '#6B818c'},
     secondary: {main: '#B4C6CE', dark: '#172815'},
