@@ -35,10 +35,20 @@ export class FarmDetails extends Component {
                 <div>
                     <p>Size: {this.props.details.size} </p>
                 </div>
+                <div className={'farmBioSize'}>
+                                    <h4>About:</h4>
+                                    <p>{this.props.details.bio}</p>
+                                </div>
                 <div>
                 <p>Farm Type: {iconToRender}{this.props.details.type}</p>
                 </div>
+                <p>Email: {this.props.details.username}<br/>
+                                    Owner: {this.props.details.first_name} &nbsp;
+                                    {this.props.details.last_name} <br/>
+                                    Phone: {this.props.details.phone}</p>
+                {/* <p>----------------------------------------------------------------------</p> */}
             </div>
+            <p>-------------------------------------------------------------------------------------------------------</p>
             </>
         )
     }

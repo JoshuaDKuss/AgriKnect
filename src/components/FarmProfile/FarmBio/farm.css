@@ -15,6 +15,9 @@
 .bioIcon{
     max-height: 130px;
 }
+.centerButton{
+    align-content: center;
+}
 .bioImage{
     /* display: inline; */
     /* max-height: 400px; */
@@ -34,7 +37,7 @@ img {
     /* background-color: #fafafae8; */
 }
 #bioSmall{
-    font-size: small;
+    font-size: smaller;
 }
 /* .bioWidth{ */
     /* float: center; */

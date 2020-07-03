@@ -13,7 +13,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types'; 
 import CardMedia from '@material-ui/core/CardMedia';
-import RowCropBio from './row-crop-field.jpg';
+import RowCropBio from './row-crop-field2.png';
 import Icon from './farm-icon.png';
 // import { sizing } from '@material-ui/system';
 // import rowCrop from './rowCrop.png';
@@ -114,19 +114,22 @@ export class farmBio extends Component {
                                     <h2>{bio.farm_name}</h2>
                                     <a id="bioSmall">{bio.street_address}</a><br/>
                                     <a id="bioSmall">{bio.city}</a>, <a id="bioSmall">{bio.state}</a>&nbsp;<a id="bioSmall">{bio.zipcode}</a>
-                                    <p>Email: {bio.username}</p>
-                                    <a>Owner: {bio.first_name} </a>&nbsp;
-                                    <a>{bio.last_name}</a>&nbsp;
-                                    <p>Phone: {bio.phone}</p>
+                                    <p>Farm Size: {bio.size} </p>
+                                    <p>Email: {bio.username}<br/>
+                                    Owner: {bio.first_name} &nbsp;
+                                    {bio.last_name} <br/>
+                                    Phone: {bio.phone}</p>
                                 </div>
+                                <div> * </div>
 
-                                <div className={'farmBioSize'}>
+                                {/* <div className={'farmBioSize'}>
                                     <h2>About</h2>
                                     <p>{bio.bio}</p>
-                                </div>
+                                </div> */}
 
                                 <div>
-                                    <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
+                                    <Button variant="outlined" 
+                                    onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
                                 </div>
 
                                 
@@ -137,7 +140,9 @@ export class farmBio extends Component {
                             
                             )
                             })}
+                            
                             </div> 
+                            
                             <img src={RowCropBio} alt="bioImage" className={'bioImage'}></img>
 
                             </Typography>
@@ -195,7 +200,7 @@ export class farmBio extends Component {
                         <Typography>
                         <div className={'farmJobsAvailable'}>
                             {/* {JSON.stringify(this.props.reduxState.farmJobsAvailable)} */}
-                            <h3 className={'farmJobs'}>Available Jobs</h3>
+                            <h3 className={'farmJobs'}>Available Jobs            -----------------------------------------------------------</h3>
                             <ul>
                                 {this.props.reduxState.farmJobsAvailable.map((job) => {
                                     return (

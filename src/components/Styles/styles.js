@@ -17,7 +17,7 @@ const styles = {
         // textAlign: 'center',
         //width: 1500,
         flexGrow: 1,
-        padding: 5,
+        // padding: 5,
         //Width: 85%,
         // width: 100%,
     },
