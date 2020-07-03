@@ -82,7 +82,7 @@ export class farmBio extends Component {
                 </Card> */}
 
                 
-            <div className={"bioWidth"}>
+            <div >
                 <Grid container direction="row" 
                     //className={classes.gridRoot} 
                     className={classes.bioCard} 
@@ -99,7 +99,7 @@ export class farmBio extends Component {
                     <Card variant="outlined"
                     alignItems="center" 
                     spacing = {2}
-                    
+                    style={{width: 1000}}
                     >
                         <CardContent>
                             <Typography>
@@ -108,28 +108,32 @@ export class farmBio extends Component {
                             {this.props.reduxState.farmBioReducer.map((bio) => {
                             return (
                             <>
+                            <div>
                             <img src={Icon} alt="Icon" className={'bioIcon'}></img>
-                            
-                                <div key={bio.id}>
+                            </div>
+                                <div className={'bioName'} key={bio.id}>
                                     <h2>{bio.farm_name}</h2>
-                                    <a id="bioSmall">{bio.street_address}</a><br/>
-                                    <a id="bioSmall">{bio.city}</a>, <a id="bioSmall">{bio.state}</a>&nbsp;<a id="bioSmall">{bio.zipcode}</a>
-                                    <p>Farm Size: {bio.size} </p>
-                                    <p>Email: {bio.username}<br/>
+                                    <p>{bio.street_address}<br/>
+                                    {bio.city}, {bio.state}
+                                    &nbsp;{bio.zipcode}</p>
+                                    
+                                    {/* <p>Email: {bio.username}<br/>
                                     Owner: {bio.first_name} &nbsp;
                                     {bio.last_name} <br/>
-                                    Phone: {bio.phone}</p>
+                                    Phone: {bio.phone}</p> */}
                                 </div>
-                                <div> * </div>
+                                
 
                                 {/* <div className={'farmBioSize'}>
                                     <h2>About</h2>
                                     <p>{bio.bio}</p>
                                 </div> */}
 
-                                <div>
+                                <div className={'bioButton'}>
                                     <Button variant="outlined" 
                                     onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
+                                    <h4>Farm Size </h4>&nbsp;
+                                    <a>{bio.size} </a>
                                 </div>
 
                                 
@@ -158,7 +162,8 @@ export class farmBio extends Component {
                         //className={classes.root}
                         variant="outlined"
                         alignItems="center" 
-                        spacing = {2}>
+                        spacing = {2}
+                        style={{width: 1000}}>
                             {/* <CardMedia
                                 component="img"
                                 className={classes.media}
@@ -176,8 +181,8 @@ export class farmBio extends Component {
                                 )
                             })}
                         </div>
-                                </Typography>
-                            </CardContent>
+                        </Typography>
+                        </CardContent>
                         </Card>
                     
                 </Grid>
@@ -186,7 +191,7 @@ export class farmBio extends Component {
              <Grid item xl={20} >    
                 <Card variant="outlined"
                     alignItems="center" 
-
+                    style={{width: 1000}}
                     spacing = {2}>
                     {/* className={classes.root} */}
                 
@@ -200,7 +205,7 @@ export class farmBio extends Component {
                         <Typography>
                         <div className={'farmJobsAvailable'}>
                             {/* {JSON.stringify(this.props.reduxState.farmJobsAvailable)} */}
-                            <h3 className={'farmJobs'}>Available Jobs            -----------------------------------------------------------</h3>
+                            <h3 className={'farmJobs'}>Available Jobs </h3>
                             <ul>
                                 {this.props.reduxState.farmJobsAvailable.map((job) => {
                                     return (

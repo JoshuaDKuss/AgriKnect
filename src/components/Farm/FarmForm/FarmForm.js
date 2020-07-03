@@ -47,7 +47,7 @@ export class FarmForm extends Component {
             farmFormToShow = <FarmFormReview />
         }
         return (
-            <div>
+            <div className={"centerIt"}>
                <h1> Farm Form </h1> 
         
             {farmFormToShow}

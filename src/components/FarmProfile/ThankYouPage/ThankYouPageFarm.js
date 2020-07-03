@@ -21,9 +21,13 @@ export class ThankYouPageFarm extends Component {
             <div>
                 <h2 id="thankYou">Thank you for creating your profile!</h2>
                 <br/>
-                <Button variant='contained' onClick={this.goToFarmProfile}>Go To Profile</Button>
-                {/* /onClick={(event) => this.editFarmBio(event)} */}
+                <div className={"centerIt"}>
+                <Button variant='contained' 
+                color="primary"
+                onClick={this.goToFarmProfile}>Go To Profile</Button>
+            
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                </div>
             </div>
         )
     }

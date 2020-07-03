@@ -43,12 +43,12 @@ export class FarmDetails extends Component {
                 <p>Farm Type: {iconToRender}{this.props.details.type}</p>
                 </div>
                 <p>Email: {this.props.details.username}<br/>
-                                    Owner: {this.props.details.first_name} &nbsp;
-                                    {this.props.details.last_name} <br/>
-                                    Phone: {this.props.details.phone}</p>
-                {/* <p>----------------------------------------------------------------------</p> */}
+                        Owner: {this.props.details.first_name} &nbsp;
+                                {this.props.details.last_name} <br/>
+                        Phone: {this.props.details.phone}</p>
+                
             </div>
-            <p>-------------------------------------------------------------------------------------------------------</p>
+            
             </>
         )
     }

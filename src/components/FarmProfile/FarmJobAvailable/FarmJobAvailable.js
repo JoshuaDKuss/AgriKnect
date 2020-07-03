@@ -36,7 +36,7 @@ export class FarmJobsAvailable extends Component {
             <div className={'farmJobItem'}>
                 <li>
                
-                {this.props.job.title}&nbsp; {moment(this.props.job.start_date).format("MM Do YYYY")}&nbsp; ${this.props.job.payment_amount} &nbsp;{this.props.job.payment_period} &nbsp;
+                {this.props.job.title}&nbsp; {moment(this.props.job.start_date).format("MM DD, YYYY")}&nbsp; ${this.props.job.payment_amount} &nbsp;{this.props.job.payment_period} &nbsp;
                 <Button variant="outlined" onClick={this.showModal}>View</Button>
                 <Button variant="outlined" onClick={this.deleteJob}>Delete</Button>
                 </li>

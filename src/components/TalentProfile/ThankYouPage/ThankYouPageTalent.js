@@ -21,9 +21,13 @@ export class ThankYouPageTalent extends Component {
             <div>
                 <h2 id="thankYou">Thank you for creating your profile!</h2>
                 <br/>
-                <Button variant='contained' onClick={this.goToTalentProfile}>Go To Profile</Button>
+                <div className={"centerIt"}>
+                <Button variant='contained' 
+                color="primary"
+                onClick={this.goToTalentProfile}>Go To Profile</Button>
                 {/* /onClick={(event) => this.editTalentBio(event)} */}
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                </div>
             </div>
         )
     }
