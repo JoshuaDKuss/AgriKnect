@@ -21,12 +21,42 @@ export class ThankYouEditFarm extends Component {
         
         return (
             <div>
+                <Grid container direction="row" 
+                    //className={classes.gridRoot} 
+                    //className={classes.bioCard} 
+                    alignItems="top" 
+                    direction="column"
+                    alignItems="center"
+                    justify="center"
+                    width="100%"
+                    //setWidth="500"
+                    spacing = {2}>
+         
+                <Grid item lg={10} >
+                    
+                    <Card variant="outlined"
+                    alignItems="center" 
+                    spacing = {2}
+                    style={{width: 1000}}
+                    >
+                        <CardContent>
+                            <Typography>
                 <h2 id="thankYou">Your edits have been saved</h2>
                 <br/>
+                <div className={"centerIt"}>
                 <Button color="primary" variant="contained" 
-                className="centerButton" onClick={this.goToFarmProfile}>Go To Profile</Button>
+                alignItems="center"
+                justify="center"
+                className={"centerButton"} 
+                onClick={this.goToFarmProfile}>Go To Profile</Button>
                 {/* /onClick={(event) => this.editFarmBio(event)} */}
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                </div>
+                </Typography>
+                </CardContent>
+                </Card>
+                </Grid>
+                </Grid>
             </div>
         )
     }

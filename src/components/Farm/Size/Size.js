@@ -40,11 +40,15 @@ export class Size extends Component {
     render() {
         const { classes } = this.props; //need this for Material UI    
         return (
-            <div>
+            <div className={"centerIt"}>
                 <Typography>  What is the size of your farm? </Typography> <br/>
                 <ul>
                             <li>
-                                <Select variant="outlined" onChange={this.handleSizeSelection} value={this.props.size}>
+                                <Select 
+                                variant="outlined" 
+                                onChange={this.handleSizeSelection} 
+                                value={this.props.size}
+                                style={{width: 200}}>
                                     <MenuItem> Number of employees </MenuItem>
                                     <MenuItem value = "1-10 employees"> 1-10 employees </MenuItem>
                                     <MenuItem value = "10-25 employees"> 10-25 employees </MenuItem>

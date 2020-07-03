@@ -112,11 +112,13 @@ export class EditFarm extends Component {
         //     dairyColor = '';
         //   }
         return (
-            <div>
+            <div className={"centerIt"}>
                 {/* <p>{JSON.stringify(this.props.reduxState.farmBioReducer)}</p> */}
                 
 
-                <div className={'farmBio'}>
+                <div 
+                // className={'farmBio'}
+                >
                     {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
                     {this.props.reduxState.farmBioReducer.map((bio) => {
                         return (
@@ -145,11 +147,13 @@ export class EditFarm extends Component {
                             <Typography>
 
                                 <div key={bio.id}><br/>
-                                    <a>Farm Name: </a><input placeholder={bio.farm_name} 
+                                    <a>Farm Name: </a><br/>
+                                    <input placeholder={bio.farm_name} 
                                     value={this.props.farm_name} 
                                     onChange={(event) => this.updateFarmName(event, 'farm_name')}></input><br/>
 
-                                    <a>Address: </a><input placeholder={bio.street_address} 
+                                    <a>Address: </a><br/>
+                                    <input placeholder={bio.street_address} 
                                     value={this.props.street_address}
                                     onChange={(event) => this.updateStreetAddress(event, 'street_address')}></input>&nbsp;
                                     
@@ -165,6 +169,7 @@ export class EditFarm extends Component {
                                     value={this.props.zipcode}
                                     onChange={(event) => this.updateFarmZip(event, 'zipcode')}></input><br/>
 
+                                    <a>Phone: </a><br/>
                                     <input placeholder={bio.phone} 
                                     value={this.props.phone}
                                     onChange={(event) => this.updateFarmPhone(event, 'phone')}></input>
