@@ -188,7 +188,6 @@ export class TalentForm extends Component {
             {formToShow}
             </Grid>
             <Grid item container xs={12}>
-            {/* <Grid item xs={1}/> */}
             <Grid item xs={2}>
                 {backButton}
             </Grid>
@@ -206,11 +205,11 @@ export class TalentForm extends Component {
                
                 
             </Grid>
-                {/* {backButton}
+           
 
 
 
-                {nextButton} */}
+            
             </>
         )
     }

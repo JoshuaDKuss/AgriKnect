@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Button, Grid } from '@material-ui/core';
+import { Button, Grid, Box } from '@material-ui/core';
 import JobDescription from '../JobDescription/JobDescription';
 import JobSkills from '../JobSkills/JobSkills';
 import JobEquipment from '../JobEquipment/JobEquipment';
@@ -98,14 +98,14 @@ export class JobPosting extends Component {
         if (this.state.formCounter === 0) {
             backButton = <span> </span>
         } else {
-            backButton= <Button outline="variant" onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button> 
+            backButton = <Box display='inline' ml={25} ><Button outline="variant" onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button> </Box> 
         }
 
         let nextButton = <span></span>
         if (this.state.formCounter === 6) {
             nextButton = <span></span>
         } else {
-            nextButton = <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button>
+            nextButton = <Box display='inline' ml={115} > <Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'add')}> Next</Button> </Box>
         }
         return (
             <Grid container direction="row" alignItems="top" spacing={2}>
@@ -163,12 +163,14 @@ export class JobPosting extends Component {
 
                 {formToShow}
                 </Grid>
-                  <Grid item container xs={12}></Grid>
+                  <Grid item container xs={12}>
                  <Grid item xs={2}>
                 {backButton}
                 </Grid>
+                <Grid item xs={4} />
                 <Grid item xs={3}>
                 {nextButton}
+                </Grid>   
                 </Grid>    
                 </Grid >
                 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { TextField, Typography, RadioGroup, FormControlLabel, FormLabel, FormControl, Radio } from '@material-ui/core';
+import { TextField, Typography, RadioGroup, FormControlLabel, FormLabel, FormControl, Radio, CardContent, Card, CardHeader } from '@material-ui/core';
 
 export class JobDescription extends Component {
 
@@ -28,23 +28,32 @@ export class JobDescription extends Component {
     }
 
     render() {
+        const { classes } = this.props; //need this for Material UI
         return (
-            <div>
-                <Typography> What type of job are you looking to fill </Typography>
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="What type of job are you filling?" />
+
+                <CardContent style={{ textAlign: 'center' }}  >
+               
 
                 <TextField value={this.props.job.jobTitle} id="standard-basic" label="Job Title" onChange={(event) => this.sendTitle(event)} />
-                <div> 
+                </CardContent>
+                
+                
+                <CardContent style={{ textAlign: 'center' }}  >
+                    <div> 
                  <TextField
                         id="outlined-multiline-flexible"
                         label="Description"
                         multiline
-                        rowsMax={4}
+                        rows={6}
                         value={this.props.job.jobDescription}
                         onChange={(event) => this.sendDescription(event)}
                         variant="outlined"
                     />
                 </div>
-
+                </CardContent>
+                <CardContent style={{ textAlign: 'center' }}  >
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Type of Work</FormLabel>
                     <RadioGroup aria-label="gender" name="gender1" value={this.props.job.jobType} onChange={(event) => this.sendType(event)}>
@@ -52,7 +61,8 @@ export class JobDescription extends Component {
                         <FormControlLabel value="Seasonal" control={<Radio />} label="Seasonal" />
                     </RadioGroup>
                 </FormControl>
-
+                </CardContent>
+                <CardContent style={{textAlign: 'center'}}>
                 <div>
                     <TextField
                         id="date"
@@ -79,8 +89,10 @@ export class JobDescription extends Component {
 
                     />
                 </div>
+                </CardContent>
                 
-            </div>
+                
+                </Card>
         )
     }
 }

@@ -46,7 +46,7 @@ export class SkillsItem extends Component {
         return (
             <Box classes={classes.buttonSkill}  display='inline' >
                     
-                <Button className='skillButton' size="small"  variant='contained' color={this.state.color} onClick={(event) => this.addOrDeleteSkill(event, this.props.item)}> {this.props.item.proficiency_name} </Button>
+                <Button  size="small"  variant='contained' color={this.state.color} onClick={(event) => this.addOrDeleteSkill(event, this.props.item)}> {this.props.item.proficiency_name} </Button>
             </Box>
            
         )
