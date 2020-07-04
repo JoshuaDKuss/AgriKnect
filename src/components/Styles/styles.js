@@ -3,6 +3,9 @@ const styles = {
     root: {
         maxWidth: 345,
     },
+    // header: {
+    //     background: #B4C6CE,
+    // },
     media: {
         height: 140,
     },
@@ -10,10 +13,27 @@ const styles = {
         flexGrow: 1,
         padding: 10,
     },
-    card: {
-        textAlign: 'center',
-        maxWidth: 400,
+    bioCard: {
+        // textAlign: 'center',
+        //width: 1500,
+        flexGrow: 1,
+        // padding: 5,
+        //Width: 85%,
+        // width: 100%,
     },
+    // card: {
+    //     textAlign: 'center',
+    //     //maxWidth: 400,
+    // },
+    card: {
+        maxWidth: 1000,
+        margin: "auto",
+        transition: "0.3s",
+        boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+        "&:hover": {
+          boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
+    }
+},
     paper: {
         textAlign: 'center',
     },
@@ -62,22 +82,6 @@ const styles = {
 }
 
 
-// const blush = "#F5C7B8";
-// const cantalope =  "#FFA177"; 
 
-// export default createMuiTheme({
-//     palette: {
-//         common: {
-//             pink: `${blush}`,
-//             orange: `${cantalope}`
-//         }
-//     }, 
-//     primary: {
-//         main:  `${blush}`,
-//     },
-//     secondary: {
-//         main: `${cantalope}`
-//     }
-// })
 
 export default styles; 

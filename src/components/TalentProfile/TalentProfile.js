@@ -11,7 +11,22 @@ import PropTypes from 'prop-types';
 import styles from '../Styles/styles';
 import { Button } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
+import Card from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import faker from 'faker';
 import './talent.css'
+
+// const styles = muiBaseTheme => ({
+//     card: {
+//       maxWidth: 700,
+//       margin: "auto",
+//       transition: "0.3s",
+//       boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+//       "&:hover": {
+//         boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
+//       }
+//     }
+//     });
 
 export class TalentProfile extends Component {
     state = {
@@ -146,23 +161,38 @@ export class TalentProfile extends Component {
 
                         <>
                             <div className={'talentAbout'}>
+                                <Card className={classes.card}>
                                 <div>
-                                    <span>{talent.first_name}</span> <span>{talent.last_name}</span>
-                                    <p>{talent.city}</p>
-                                    <p>{talent.state}</p>
+                                    <img alt="avatar" className={"avatarImg"} src={faker.image.avatar()} />
                                 </div>
                                 <div>
-                                    <span>About</span>
+                                    <Typography className={"MuiTypography--heading"} variant={"h5"}>
+                                   <p><span>{talent.first_name}</span> <span>{talent.last_name}</span></p> 
+                                    </Typography>
+                                    <Typography className={"MuiTypography--subheading"}>
+                                    <p>{talent.city}, {talent.state}</p>
+                                    </Typography>
+                                   
+                                    
+                                </div>
+                                <div>
+                                    <Typography className={"MuiTypography--heading"} variant={"h5"}>
+                                    About
+                                    </Typography>
+                                    <Typography className={"MuiTypography--subheading"}>
                                     <p>{talent.bio}</p>
+                                    </Typography>
                                 </div>
                                 <div className={"aboutEdit"}>
                                     {editButtonControl}
                                     {/* <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button> */}
                                 </div>
+                                </Card>
                             </div>
                             <div className={"talentExperienceSection"}>
+                                <Card className={classes.card}> 
                                 <div className={"talentExpHeader"}>
-                                    <h3>Industry Experience & Skills</h3>
+                                    <h3 className={"headerColor"}>Industry Experience & Skills</h3>
                                     <span>{editSkills}</span>
                                 </div>
                                 <hr></hr>
@@ -210,10 +240,12 @@ export class TalentProfile extends Component {
 
 
                                 </div>
+                                </Card>
                             </div>
                             <div className={"talentEquipmentSection"}>
+                                <Card className={classes.card}>
                                 <div className={"equipmentHeader"}>
-                                    <h3>Equipment & Brand Knowledge</h3>
+                                    <h3 className={"headerColor"}>Equipment & Brand Knowledge</h3>
                                     <span>{editEquipment}</span>
                                 </div>
                                 <hr></hr>
@@ -238,10 +270,12 @@ export class TalentProfile extends Component {
                                     </div>
 
                                 </div>
+                                </Card>
                             </div>
                             <div className={"talentCertificationSection"}>
+                                <Card className={classes.card}>
                                 <div className={"certsHeader"}>
-                                    <h3>Certifications</h3>
+                                    <h3 className={"headerColor"}>Certifications</h3>
                                     <span>{editCertifications}</span>
                                 </div>
                                 <div>
@@ -257,11 +291,13 @@ export class TalentProfile extends Component {
                                     </div>
 
                                 </div>
+                                </Card>
                             </div>
                             <div className={'talentEducation'}>
+                                <Card className={classes.card}>
                                 <div>
                                     <div className={"educationHeader"}>
-                                        <h3>Education</h3>
+                                        <h3 className={"headerColor"}>Education</h3>
                                         <span>{editEducation}</span>
                                     </div>
                                     <hr></hr>
@@ -271,11 +307,12 @@ export class TalentProfile extends Component {
                                         )
                                     })}
                                 </div>
-
+                                </Card>
                             </div>
                             <div className={"employmentSection"}>
+                                <Card className={classes.card}>
                                 <div className={"employmentHeader"}>
-                                    <h3>Employment</h3>
+                                    <h3 className={"headerColor"}>Employment</h3>
                                     <span>{editEmployment}</span>
                                 </div>
                                 <hr></hr>
@@ -290,6 +327,7 @@ export class TalentProfile extends Component {
                                     </div>
 
                                 </div>
+                                </Card>
                             </div>
                         </>
                     )

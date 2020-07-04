@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Typography, Select, MenuItem, Button } from '@material-ui/core';
+import { Select, MenuItem, Button, Grid } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 //import InlineEdit from 'react-edit-inline';
 import styles from '../../Styles/styles';
-import { withStyles } from '@material-ui/core/styles';
+//import { withStyles } from '@material-ui/core/styles';
+//import '.../FarmProfile/FarmBio/farm.css';
+
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 export class EditFarm extends Component {
     state = {
@@ -82,7 +88,8 @@ export class EditFarm extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        //const { classes } = this.props;
+
         // let rowCropColor = '';
         // if (this.props.type.includes("Row Crop")) { 
         //     rowCropColor = 'primary';
@@ -105,27 +112,54 @@ export class EditFarm extends Component {
         //     dairyColor = '';
         //   }
         return (
-            <div>
+            <div className={"centerIt"}>
                 {/* <p>{JSON.stringify(this.props.reduxState.farmBioReducer)}</p> */}
                 
 
-                <div className={'farmBio'}>
+                <div 
+                // className={'farmBio'}
+                >
                     {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
                     {this.props.reduxState.farmBioReducer.map((bio) => {
                         return (
                             <>
+
+                <div className={"bioWidth"}>
+                <Grid container direction="row" 
+                    //className={classes.gridRoot} 
+                    //className={classes.bioCard} 
+                    alignItems="top" 
+                    direction="column"
+                    alignItems="center"
+                    justify="center"
+                    width="100%"
+                    //setWidth="500"
+                    spacing = {2}>
+         
+                <Grid item lg={10} >
+                    
+                    <Card variant="outlined"
+                    alignItems="center" 
+                    spacing = {2}
+                    
+                    >
+                        <CardContent>
+                            <Typography>
+
                                 <div key={bio.id}><br/>
-                                    <a>Farm Name: </a><input placeholder={bio.farm_name} 
+                                    <a>Farm Name: </a><br/>
+                                    <input placeholder={bio.farm_name} 
                                     value={this.props.farm_name} 
                                     onChange={(event) => this.updateFarmName(event, 'farm_name')}></input><br/>
 
-                                    <a>Address: </a><input placeholder={bio.street_address} 
+                                    <a>Address: </a><br/>
+                                    <input placeholder={bio.street_address} 
                                     value={this.props.street_address}
                                     onChange={(event) => this.updateStreetAddress(event, 'street_address')}></input>&nbsp;
                                     
                                     <input placeholder={bio.city} 
                                     value={this.props.city}
-                                    onChange={(event) => this.updateFarmCity(event, 'city')}></input>
+                                    onChange={(event) => this.updateFarmCity(event, 'city')}></input><br/>
 
                                     <input placeholder={bio.state} 
                                     value={this.props.state}
@@ -133,8 +167,9 @@ export class EditFarm extends Component {
 
                                     <input placeholder={bio.zipcode} 
                                     value={this.props.zipcode}
-                                    onChange={(event) => this.updateFarmZip(event, 'zipcode')}></input>
+                                    onChange={(event) => this.updateFarmZip(event, 'zipcode')}></input><br/>
 
+                                    <a>Phone: </a><br/>
                                     <input placeholder={bio.phone} 
                                     value={this.props.phone}
                                     onChange={(event) => this.updateFarmPhone(event, 'phone')}></input>
@@ -172,6 +207,15 @@ export class EditFarm extends Component {
                                 color={dairyColor} 
                                 onClick={(event) => this.addType( 'Dairy' )}> Dairy </Button>
                                 </div> */}
+
+</Typography>
+                        </CardContent>
+                    </Card>
+                    
+                </Grid>
+                </Grid>
+                </div>
+
                             </>
                         )
                     })}
@@ -190,11 +234,10 @@ export class EditFarm extends Component {
     }
 }
 
-
+//EditFarm.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapStateToProps = (reduxState) => ({ reduxState })
 
-// EditFarm.propTypes = { classes: PropTypes.object.isRequired };
 
 export default connect(mapStateToProps)(withRouter(EditFarm));
 

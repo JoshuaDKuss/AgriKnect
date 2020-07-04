@@ -20,10 +20,14 @@ export class FarmFormReview extends Component {
     render() {
         return (
             <>
-            <div>
+            <div className={"centerIt"}>
                 <Grid container direction="row" 
                     //className={classes.gridRoot} 
                     alignItems="top" 
+                    direction="column"
+                    alignItems="center"
+                    justify="center"
+                    width="100%"
                     spacing = {2}>
          
                 <Grid item xs={9} >

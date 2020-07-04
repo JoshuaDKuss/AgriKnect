@@ -4,35 +4,72 @@
 
 .farmBio{
     display: flex;
-    margin-top: 5px;
-    background-color: #E5E5E5;
-    width: 90%;
+    /* margin-top: 15px; */
+    /* background-color: #E5E5E5; */
+    width: 100%;
     margin: auto;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
+    /* background: url(./row-crop-field.jpg); */
+    /* background-size: contain; */
+}
+.bioIcon{
+    max-height: 150px;
+    margin-left: 100px;
+    /* margin-right: 10px; */
+}
+.bioName{
+    margin-top: 5px;
+    margin-right: 60px;
+}
+.bioButton{
+    margin: 30px;
+    margin-left: 40px;
+}
+.centerButton{
+    text-align: center;
+}
+.bioImage{
+    /* display: inline; */
+    /* max-height: 400px; */
+    /* width: 100%; */
+    display: block;
+    margin: auto;
+    /* width: 1000px; */
+    padding: 6px;
+}
+
+img {
+    max-width: 700px;
 }
 
 .farmBio:hover{
     transition: ease-out .3s;
-    background-color: #fafafae8;
+    /* background-color: #fafafae8; */
 }
+#bioSmall{
+    font-size: smaller;
+}
+/* .bioWidth{ */
+    /* float: center; */
+    /* width: fit-content; */
+/* } */
 
-.farmBioSize{
-    width: 90%;
-    margin-left: 10%;
-}
+/* .farmBioSize{
+    
+} */
 
 .farmDetails{
     /* display: flex;  */
     /* justify-content: space-between;  */
     margin-top: 5px;
-    background-color: #E5E5E5;
+    /* background-color: #E5E5E5; */
     width: 90%;
     margin: auto;
     /* margin-bottom: 5px; */
 }
 .farmDetails:hover{
     transition: ease-out .3s;
-    background-color: #fafafae8;
+    /* background-color: #fafafae8; */
 }
 .farmDetailsHeader{
    display: contents;
@@ -48,15 +85,16 @@
 }
 .farmJobsAvailable{
     /* margin-top: 5px; */
-    background-color: #E5E5E5;
+    /* background-color: #E5E5E5; */
     width: 90%;
     margin: auto;
     /* margin-bottom: 5px; */
-    text-align: left;
+    /* text-align: left; */
+    text-align: center;
 }
 .farmJobsAvailable:hover{
     transition: ease-out .3s;
-    background-color: #fafafae8;
+    /* background-color: #fafafae8; */
 }
 
 .farmJobItem {
