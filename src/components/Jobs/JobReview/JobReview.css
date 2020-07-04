@@ -1,0 +1,9 @@
+.label {
+    display: inline;
+    margin-right: 1px; 
+}
+
+.content {
+     display: inline;
+     font-style: italic
+}

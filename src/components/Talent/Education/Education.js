@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Button , Card, CardContent, Typography} from '@material-ui/core';
+import { Button , Card, CardContent, Typography, CardHeader, CardActions} from '@material-ui/core';
 import EducationItem from '../EducationItem/EducationItem'; 
 import './Education.css'; 
 
@@ -22,12 +22,15 @@ export class Education extends Component {
         }));
     }
 
+    // style={{ backgroundColor: "#B4C6CE" }}
+
     render() {
         const { classes } = this.props; //need this for Material UI
         return (
-            <Card>
-                <CardContent>
-                <Typography className="header"> Add your education here </Typography>
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes = {{title: classes.title}} title= "Add Your Education Here" />
+                    
+                <CardContent  >
                 <ul>
                     {this.state.educationList.map((item) => {
                         return (
@@ -37,7 +40,9 @@ export class Education extends Component {
                     })}
                 </ul>
                 </CardContent>
-                <Button onClick={this.addEducation} variant='outlined'> Add another education</Button>
+                <CardActions style={{justifyContent: 'center'}}>
+                    <Button color="primary" onClick={this.addEducation} variant='outlined'  > Add more education</Button>
+                </CardActions> 
             </Card>
         )
     }
