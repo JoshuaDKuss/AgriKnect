@@ -177,7 +177,6 @@ export class farmBio extends Component {
                             )
                             })}
                             </div> 
-
                             </Typography>
                         </CardContent>
                     </Card>
