@@ -7,7 +7,7 @@ const styles = {
         color: 'white' ,
     // header: {
     //     background: #B4C6CE,
-    // },
+    },
     media: {
         height: 140,
     },
