@@ -7,7 +7,7 @@ export class TalentEquipment extends Component {
     render() {
 
         return (
-            <div className={'TalentEquipmentItem'}>
+            <div className={'talentEquipmentItem'}>
                 <div>
                     <p>{this.props.skills}</p> 
                 </div>

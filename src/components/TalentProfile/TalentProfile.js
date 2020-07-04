@@ -162,171 +162,183 @@ export class TalentProfile extends Component {
                         <>
                             <div className={'talentAbout'}>
                                 <Card className={classes.card}>
-                                <div>
-                                    <img alt="avatar" className={"avatarImg"} src={faker.image.avatar()} />
-                                </div>
-                                <div>
-                                    <Typography className={"MuiTypography--heading"} variant={"h5"}>
-                                   <p><span>{talent.first_name}</span> <span>{talent.last_name}</span></p> 
+                                    <div>
+                                        <img alt="avatar" className={"avatarImg"} src={faker.image.avatar()} />
+                                    </div>
+                                    <div>
+                                        <Typography className={"MuiTypography--heading"} variant={"h5"}>
+                                            <p><span>{talent.first_name}</span> <span>{talent.last_name}</span></p>
+                                        </Typography>
+                                        <Typography className={"MuiTypography--subheading"}>
+                                            <p>{talent.city}, {talent.state}</p>
+                                        </Typography>
+
+
+                                    </div>
+                                    <div>
+                                        <Typography className={"MuiTypography--heading"} variant={"h5"}>
+                                            About
                                     </Typography>
-                                    <Typography className={"MuiTypography--subheading"}>
-                                    <p>{talent.city}, {talent.state}</p>
-                                    </Typography>
-                                   
-                                    
-                                </div>
-                                <div>
-                                    <Typography className={"MuiTypography--heading"} variant={"h5"}>
-                                    About
-                                    </Typography>
-                                    <Typography className={"MuiTypography--subheading"}>
-                                    <p>{talent.bio}</p>
-                                    </Typography>
-                                </div>
-                                <div className={"aboutEdit"}>
-                                    {editButtonControl}
-                                    {/* <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button> */}
-                                </div>
+                                        <Typography className={"MuiTypography--subheading"}>
+                                            <p>{talent.bio}</p>
+                                        </Typography>
+                                    </div>
+                                    <div className={"aboutEdit"}>
+                                        {editButtonControl}
+                                        {/* <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button> */}
+                                    </div>
                                 </Card>
                             </div>
                             <div className={"talentExperienceSection"}>
-                                <Card className={classes.card}> 
-                                <div className={"talentExpHeader"}>
-                                    <h3 className={"headerColor"}>Industry Experience & Skills</h3>
-                                    <span>{editSkills}</span>
-                                </div>
-                                <hr></hr>
-                                <div className={'talentExperience'}>
-                                    <div>
-                                        <h3>General Agriculture</h3>
-                                        {generalAgriculture.map((skills) => {
-                                            return (
+                                <Card className={classes.card}>
+                                    <div className={"talentExpHeader"}>
+                                        <h3 className={"headerColor"}>Industry Experience & Skills</h3>
+                                        <span>{editSkills}</span>
+                                    </div>
+                                    <hr></hr>
+                                    <div className={'talentExperience'}>
+                                        <div>
+                                        <Typography className={"MuiTypography--subheading"} variant={'h6'}>
+                                            General Agriculture
+                                            </Typography>
+                                            {generalAgriculture.map((skills) => {
+                                                return (
 
-                                                <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                            )
-                                        })}
+                                                    <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                                )
+                                            })}
+
+                                        </div>
+                                        <div>
+                                        <Typography className={"MuiTypography--subheading"} variant={'h6'}>
+                                            Precision Farming Technology
+                                            </Typography>
+                                            {precisionFarming.map((skills) => {
+                                                return (
+
+                                                    <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                                )
+                                            })}
+
+                                        </div>
+                                        <div>
+                                            <Typography className={"MuiTypography--subheading"} variant={'h6'}>
+                                            Maintenance
+                                            </Typography>
+                                            {Maintenance.map((skills) => {
+                                                return (
+
+                                                    <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                                )
+                                            })}
+
+                                        </div>
+                                        <div>
+                                            <Typography className={"MuiTypography--subheading"} variant={'h6'}>
+                                            Trucking
+                                            </Typography>
+                                            {Trucking.map((skills) => {
+                                                return (
+
+                                                    <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                                )
+                                            })}
+
+                                        </div>
+
 
                                     </div>
-                                    <div>
-                                        <h3>Precision Farming Technology</h3>
-                                        {precisionFarming.map((skills) => {
-                                            return (
-
-                                                <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                            )
-                                        })}
-
-                                    </div>
-                                    <div>
-                                        <h3>Maintenance</h3>
-                                        {Maintenance.map((skills) => {
-                                            return (
-
-                                                <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                            )
-                                        })}
-
-                                    </div>
-                                    <div>
-                                        <h3>Trucking</h3>
-                                        {Trucking.map((skills) => {
-                                            return (
-
-                                                <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                            )
-                                        })}
-
-                                    </div>
-
-
-                                </div>
                                 </Card>
                             </div>
                             <div className={"talentEquipmentSection"}>
                                 <Card className={classes.card}>
-                                <div className={"equipmentHeader"}>
-                                    <h3 className={"headerColor"}>Equipment & Brand Knowledge</h3>
-                                    <span>{editEquipment}</span>
-                                </div>
-                                <hr></hr>
-                                <div className={'talentEquipment'}>
-                                    <div>
-                                        <h3>Equipment</h3>
-                                        {Equipment.map((skills) => {
-                                            return (
-
-                                                <TalentEquipment skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                            )
-                                        })}
+                                    <div className={"equipmentHeader"}>
+                                        <h3 className={"headerColor"}>Equipment & Brand Knowledge</h3>
+                                        <span>{editEquipment}</span>
                                     </div>
-                                    <div>
-                                        <h3>Brands</h3>
-                                        {Brand.map((skills) => {
-                                            return (
+                                    <hr></hr>
+                                    <div className={'talentEquipment'}>
+                                        <div>
+                                        <Typography className={"MuiTypography--subheading"} variant={'h6'}>
+                                            Equipment
+                                            </Typography>
+                                            {Equipment.map((skills) => {
+                                                return (
 
-                                                <TalentEquipment skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
-                                            )
-                                        })}
+                                                    <TalentEquipment skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                                )
+                                            })}
+                                        </div>
+                                        <div>
+                                        <Typography className={"MuiTypography--subheading"} variant={'h6'}>
+                                            Brands
+                                            </Typography>
+                                            {Brand.map((skills) => {
+                                                return (
+
+                                                    <TalentEquipment skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
+                                                )
+                                            })}
+                                        </div>
+
                                     </div>
-
-                                </div>
                                 </Card>
                             </div>
                             <div className={"talentCertificationSection"}>
                                 <Card className={classes.card}>
-                                <div className={"certsHeader"}>
-                                    <h3 className={"headerColor"}>Certifications</h3>
-                                    <span>{editCertifications}</span>
-                                </div>
-                                <div>
-                                    <hr></hr>
-                                    <div className={'talentCertification'}>
-                                        {this.props.reduxState.talentProficiencyCert.map((cert) => {
-                                            return (
-
-                                                <TalentCertification cert={cert} key={cert.id} history={this.props.history} />
-
-                                            )
-                                        })}
+                                    <div className={"certsHeader"}>
+                                        <h3 className={"headerColor"}>Certifications</h3>
+                                        <span>{editCertifications}</span>
                                     </div>
+                                    <div>
+                                        <hr></hr>
+                                        <div className={'talentCertification'}>
+                                            {this.props.reduxState.talentProficiencyCert.map((cert) => {
+                                                return (
 
-                                </div>
+                                                    <TalentCertification cert={cert} key={cert.id} history={this.props.history} />
+
+                                                )
+                                            })}
+                                        </div>
+
+                                    </div>
                                 </Card>
                             </div>
                             <div className={'talentEducation'}>
                                 <Card className={classes.card}>
-                                <div>
-                                    <div className={"educationHeader"}>
-                                        <h3 className={"headerColor"}>Education</h3>
-                                        <span>{editEducation}</span>
+                                    <div>
+                                        <div className={"educationHeader"}>
+                                            <h3 className={"headerColor"}>Education</h3>
+                                            <span>{editEducation}</span>
+                                        </div>
+                                        <hr></hr>
+                                        {this.props.reduxState.talentEducationReducer.map((education) => {
+                                            return (
+                                                <TalentEducation education={education} key={education.id} history={this.props.history} />
+                                            )
+                                        })}
                                     </div>
-                                    <hr></hr>
-                                    {this.props.reduxState.talentEducationReducer.map((education) => {
-                                        return (
-                                            <TalentEducation education={education} key={education.id} history={this.props.history} />
-                                        )
-                                    })}
-                                </div>
                                 </Card>
                             </div>
                             <div className={"employmentSection"}>
                                 <Card className={classes.card}>
-                                <div className={"employmentHeader"}>
-                                    <h3 className={"headerColor"}>Employment</h3>
-                                    <span>{editEmployment}</span>
-                                </div>
-                                <hr></hr>
-                                <div className={'talentEmployment'}>
-                                    <div>
-
-                                        {this.props.reduxState.talentEmploymentReducer.map((employment) => {
-                                            return (
-                                                <TalentEmployment employment={employment} key={employment.id} history={this.props.history} />
-                                            )
-                                        })}
+                                    <div className={"employmentHeader"}>
+                                        <h3 className={"headerColor"}>Employment</h3>
+                                        <span>{editEmployment}</span>
                                     </div>
+                                    <hr></hr>
+                                    <div className={'talentEmployment'}>
+                                        <div>
 
-                                </div>
+                                            {this.props.reduxState.talentEmploymentReducer.map((employment) => {
+                                                return (
+                                                    <TalentEmployment employment={employment} key={employment.id} history={this.props.history} />
+                                                )
+                                            })}
+                                        </div>
+
+                                    </div>
                                 </Card>
                             </div>
                         </>
