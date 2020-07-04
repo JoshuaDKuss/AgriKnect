@@ -5,6 +5,29 @@ const styles = {
     },
     title: {
         color: 'white' ,
+    // header: {
+    //     background: #B4C6CE,
+    // },
+    media: {
+        height: 140,
+    },
+    gridRoot: {
+        flexGrow: 1,
+        padding: 10,
+    },
+    bioCard: {
+        // textAlign: 'center',
+        //width: 1500,
+        flexGrow: 1,
+        // padding: 5,
+        //Width: 85%,
+        // width: 100%,
+    },
+    card: {
+        textAlign: 'center',
+        //maxWidth: 400,
+    },
+    paper: {
         textAlign: 'center',
     },
     header:{
