@@ -26,7 +26,7 @@ const styles = {
     //     //maxWidth: 400,
     // },
     card: {
-        maxWidth: 1000,
+        maxWidth: 1100,
         margin: "auto",
         transition: "0.3s",
         boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",

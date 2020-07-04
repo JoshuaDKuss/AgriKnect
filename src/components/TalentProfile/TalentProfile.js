@@ -13,6 +13,9 @@ import { Button } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import Card from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper'
+// import spacing from '@material-ui/core/s'
 import faker from 'faker';
 import './talent.css'
 
@@ -162,31 +165,48 @@ export class TalentProfile extends Component {
                         <>
                             <div className={'talentAbout'}>
                                 <Card className={classes.card}>
+                                    <Grid spacing={1}>
+                                        <Grid>
                                     <div>
                                         <img alt="avatar" className={"avatarImg"} src={faker.image.avatar()} />
                                     </div>
-                                    <div>
+                                    </Grid>
+                                    
+                                        <Grid item xs={2}>
+                                        <div>
                                         <Typography className={"MuiTypography--heading"} variant={"h5"}>
-                                            <p><span>{talent.first_name}</span> <span>{talent.last_name}</span></p>
+                                            <p className={"talentAboutName"}><span>{talent.first_name}</span> <span>{talent.last_name}</span></p>
+                                            <Typography className={"MuiTypography--subheading"}>{talent.city}, {talent.state}</Typography>
                                         </Typography>
-                                        <Typography className={"MuiTypography--subheading"}>
+                                        {/* <Typography className={"MuiTypography--subheading"}>
                                             <p>{talent.city}, {talent.state}</p>
-                                        </Typography>
+                                        </Typography> */}
+                                        </div>
+                                        </Grid>
 
 
-                                    </div>
+                                   
+                                    </Grid>
+                                    <Grid item xs ={8}>
                                     <div>
+                                        
                                         <Typography className={"MuiTypography--heading"} variant={"h5"}>
                                             About
-                                    </Typography>
-                                        <Typography className={"MuiTypography--subheading"}>
+                                            <Typography className={"MuiTypography--subheading"}>
                                             <p>{talent.bio}</p>
                                         </Typography>
+                                    </Typography>
+                                       
+                                       
                                     </div>
-                                    <div className={"aboutEdit"}>
+                                    </Grid>
+                                    
+                                    <Grid item xs={2}>
+                                    <Button className={"aboutEdit"} variant="contained">
                                         {editButtonControl}
                                         {/* <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button> */}
-                                    </div>
+                                    </Button>
+                                    </Grid>
                                 </Card>
                             </div>
                             <div className={"talentExperienceSection"}>

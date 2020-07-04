@@ -1,23 +1,40 @@
 .talentAbout{
-    display: flex;
-    justify-content: start;
+     /* display: flex;
+    justify-content: space-between;  */
+    /* justify-content: start;  */
     /* background-color: #E5E5E5; */
     /* width: 80%; */
     margin:  auto;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 15px; 
+   
+    
 }
+
 .talentAbout div{
     /* width: 50%;  */
-    /* margin-right: 5%; */
-    padding-top: 10px;
-   display: flex; 
+    padding-right: 20px;
+    /* margin-top: 0px;
+    line-height: 20px; */
+    /* padding-top: 5px; */
+    display: flex;
+    line-height: 0em;
+  
+    /* justify-content: space-between; */
     /* justify-content: space-between;   */
+    /* text-align: justify; */
+
+} 
+.talentAboutName{
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .aboutEdit{
-    display: flex;
-    justify-content: flex-end;
-    height: 20px;
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    height: 25px;
+    width: 20px;
+    
     
 }
 .avatarImg{
@@ -153,7 +170,7 @@
 }
 .talentEmploymentItem p{
     margin-top: 0;
-    
+
 }
 .employmentHeader{
     display: flex;
