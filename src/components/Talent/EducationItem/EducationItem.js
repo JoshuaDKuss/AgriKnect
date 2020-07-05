@@ -11,7 +11,7 @@ export class EducationItem extends Component {
     }
 
     componentDidMount() {
-        console.log('STATE STATE STATE', this.state.school)
+        console.log('STATE STATE STATE', this.props.item)
     }
 
     state = {

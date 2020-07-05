@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import styles from '../../../Styles/styles';
 import { TextField, Typography, Button } from '@material-ui/core';
 import moment from 'moment';
+import './EditTalentCertification.css'; 
 
 export class EditTalentCertificationsItemServer extends Component {
 
@@ -109,17 +110,24 @@ export class EditTalentCertificationsItemServer extends Component {
             JSXToRender = 
                 
                <>
-                     <div>
+                <div className='buttons'>
 
-                    <Typography> Certificate Name: {this.state.certificate}  </Typography>
+                    <h4 className='label'> Certificate Name: </h4> 
+                <p className='content'>{this.state.certificate}  </p> 
                     </div>
-                <Typography>Issuing Company: {this.state.issuingCompany}  </Typography>
+                <h4 className='label'>Issuing Company: </h4>
+                <p className='content'>{this.state.issuingCompany}  </p> 
                   
 
                     <div>
-                    <Typography> Issue Date: {moment(this.state.issueDate).format(("YYYY-MM-DD"))}</Typography>
-                    <Typography> Expiration Date: {moment(this.state.expirationDate).format(("YYYY-MM-DD"))}</Typography>
-                       
+                    <h4 className='label'>Issue Date: </h4>
+                    <p className='content'>{moment(this.state.issueDate).format(('MMMM Do YYYY'))} </p> 
+                    </div>
+                    <div>
+                    <h4 className='label'>Expiration Date:</h4>
+                    <p className='content'>{moment(this.state.expirationDate).format(('MMMM Do YYYY'))} </p> 
+                    </div>
+                    <div  >
                         <Button variant="outlined" onClick={this.toggleEditMode}> Edit </Button>
                     <Button variant="outlined" onClick={this.deleteCertificate}> Delete </Button> 
                     </div> 

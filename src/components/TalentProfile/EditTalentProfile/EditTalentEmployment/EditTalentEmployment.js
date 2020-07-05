@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../../Styles/styles';
-import { Button } from '@material-ui/core';
+import { Button, Grid, Card, CardContent, CardHeader, CardActions } from '@material-ui/core';
 import EditTalentEmploymentItem from './EditTalentEmploymentItem';
 import EditTalentEmploymentItemServer from './EditTalentEmploymentItemServer'; 
 
@@ -38,9 +38,15 @@ export class EditTalentEmployment extends Component {
         const { classes } = this.props; //need this for Material UI
 
         return (
-            <div>
+            <Grid container direction="row" alignItems="top" spacing={2}>
+                <Grid item xs={4} />
+                <Grid item xs={4}>
+                    <Card >
+                        <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="Add Your Employment Experiences" />
+
+                        <CardContent  >
                 <ul>
-                    <h3> Add your employment experience </h3>
+                 
                     {this.props.employment.map((item) => {
                         return (
                             <EditTalentEmploymentItemServer item={item} key={item.id} />
@@ -55,12 +61,16 @@ export class EditTalentEmployment extends Component {
 
                     })}
                 </ul>
+                 </CardContent  >
+                    <CardActions style={{ justifyContent: 'center' }}>
 
                 <Button onClick={this.addEmployment} variant='outlined'> Add another license/certificate</Button>
                 <Button onClick={this.submitEditedEmployment} variant="outlined"> Submit </Button>
+                    </CardActions>
+                    </Card>
+                    </Grid>
+                    </Grid>
 
-
-            </div>
 
         )
     }
