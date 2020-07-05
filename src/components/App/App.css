@@ -1,7 +1,9 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
-    /* background: rgb(190,190,190); */
+    padding: 0;
+    height: auto;
+    
     /* background: linear-gradient(180deg, rgba(190,190,190,1) 0%, rgba(242,242,242,1) 100%); */
     background: rgb(173,173,173);
     background: linear-gradient(0deg, rgba(173,173,173,1) 0%, rgba(242,242,242,1) 100%);
@@ -35,7 +37,7 @@ input {
     margin-bottom: 10px;
 }
 
-.log-in, .log-out, .register {
+.log-in, .log-out, .register, .search {
   background-color: #419B2A;
   border-radius: 5px;
   color: #E5E5E5;
@@ -48,7 +50,7 @@ input {
   text-decoration: none;
 }
 
-.log-in:hover, .log-out:hover, .register:hover {
+.log-in:hover, .log-out:hover, .register:hover, .search:hover {
   background-color: #E5E5E5;
   color: #419B2A;
   transition: ease-out .3s;
