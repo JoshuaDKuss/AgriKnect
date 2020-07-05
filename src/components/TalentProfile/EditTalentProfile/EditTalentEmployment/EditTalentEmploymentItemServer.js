@@ -98,15 +98,23 @@ export class EditTalentEmploymentItemServer extends Component {
                <>
                      <div>
 
-                    <Typography> Title: {this.state.title}  </Typography>
+                    <h4 className='label'>Title: </h4>
+                    <p className='content'> {this.state.title}  </p>
                     </div>
-                <Typography>Company: {this.state.company}  </Typography>
-                  
+                    <div>
+                     <h4 className='label'>Company: </h4>
+                     <p className='content'>{this.state.company}  </p>
+                     </div>
 
                     <div>
-                    <Typography> Start Date: {moment(this.state.startDate).format(("YYYY-MM-DD"))}</Typography>
-                    <Typography> End Date: {moment(this.state.endDate).format(("YYYY-MM-DD"))}</Typography>
-                       
+                    <h4 className='label'>Start Date: </h4>
+                    <p className='content'> {moment(this.state.startDate).format(('MMMM Do YYYY'))}</p>
+                     </div>
+                     <div>
+                    <h4 className='label'>End Date: </h4>
+                    <p className='content'>  {moment(this.state.endDate).format(('MMMM Do YYYY'))} </p>
+                     </div>
+                    <div> 
                         <Button variant="outlined" onClick={this.toggleEditMode}> Edit </Button>
                     <Button variant="outlined" onClick={this.deleteEmployment}> Delete </Button> 
                     </div> 

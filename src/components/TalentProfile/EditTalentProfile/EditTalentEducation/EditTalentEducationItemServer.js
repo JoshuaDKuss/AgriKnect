@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import styles from '../../../Styles/styles';
 import { TextField, Typography, Button } from '@material-ui/core';
 import moment from 'moment';
+import './EditTalentEducation.css';
 
 export class EditTalentEducationItemServer extends Component {
      state = {
@@ -98,15 +99,23 @@ export class EditTalentEducationItemServer extends Component {
                <>
                      <div>
 
-                    <Typography> Degree: {this.state.degree}  </Typography>
+                    <h4 className='label'>Degree: </h4>
+                    <p className='content'> {this.state.degree} </p> 
                     </div>
-                <Typography>School: {this.state.school}  </Typography>
-                  
+                      <div>
+                    <h4 className='label'>School: </h4> 
+                    <p className='content'> {this.state.school}  </p>
+                </div>
 
                     <div>
-                    <Typography> Start Date: {moment(this.state.startDate).format(("YYYY-MM-DD"))}</Typography>
-                    <Typography> End Date: {moment(this.state.endDate).format(("YYYY-MM-DD"))}</Typography>
-                       
+                        <h4 className='label'>Start Date: </h4>
+                    <p className='content'>{moment(this.state.startDate).format(('MMMM Do YYYY'))}</p>
+                    </div> 
+                     <div>
+                        <h4 className='label'>End Date: </h4>
+                        <p className='content'> {moment(this.state.endDate).format(('MMMM Do YYYY'))} </p>
+                    </div>
+                       <div>
                         <Button variant="outlined" onClick={this.toggleEditMode}> Edit </Button>
                     <Button variant="outlined" onClick={this.deleteEducation}> Delete </Button> 
                     </div> 
