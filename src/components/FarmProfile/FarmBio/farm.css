@@ -14,8 +14,8 @@
 }
 .bioIcon{
     max-height: 150px;
-    margin-left: 100px;
-    /* margin-right: 10px; */
+    margin-left: 80px;
+    margin-right: 30px;
 }
 .bioName{
     margin-top: 5px;
@@ -30,7 +30,7 @@
 }
 .bioImage{
     /* display: inline; */
-    /* max-height: 400px; */
+    max-height: 400px;
     /* width: 100%; */
     display: block;
     margin: auto;
@@ -39,7 +39,7 @@
 }
 
 img {
-    max-width: 700px;
+    max-width: 1000px;
 }
 
 .farmBio:hover{
