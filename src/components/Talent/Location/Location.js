@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { TextField, Typography } from '@material-ui/core';
+import { TextField, Card, CardContent, CardHeader } from '@material-ui/core';
 
 export class Location extends Component {
 
@@ -22,13 +22,19 @@ export class Location extends Component {
         const { classes } = this.props; //need this for Material UI
 
         return (
-            <div>
-               <Typography> Where are you looking for work?  </Typography> 
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="Where are you looking for work?" />
 
-                <TextField value={this.props.talentForm.city}  id="standard-basic" label="City" onChange={(event) => this.addLocation(event, 'city')} />
-                 <TextField value={this.props.talentForm.state}  id="standard-basic" label="State" onChange={(event) => this.addLocation(event, 'state')} />
-                <TextField value={this.props.talentForm.zipcode}  id="standard-basic" label="Zip Code" onChange={(event) => this.addLocation(event, 'zipcode')} />
-            </div>
+                <CardContent>
+               
+
+                <TextField className={classes.textField} value={this.props.talentForm.city}  id="standard-basic" label="City" onChange={(event) => this.addLocation(event, 'city')} />
+                    <TextField className={classes.textField} value={this.props.talentForm.state}  id="standard-basic" label="State" onChange={(event) => this.addLocation(event, 'state')} />
+                    <TextField className={classes.textField}value={this.props.talentForm.zipcode}  id="standard-basic" label="Zip Code" onChange={(event) => this.addLocation(event, 'zipcode')} />
+
+             </CardContent>
+            </Card >
+           
         )
     }
 }

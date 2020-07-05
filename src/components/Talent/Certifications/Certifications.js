@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
-import { Button} from '@material-ui/core';
+import { Button, Card, CardHeader, CardContent, CardActions} from '@material-ui/core';
 import CertificationsItem from '../CertificationsItem/CertificationsItem'; 
 
 
@@ -28,9 +28,11 @@ export class Certifications extends Component {
         const { classes } = this.props; //need this for Material UI
 
         return (
-            <div>
+          <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes = {{title: classes.title}} title= "Add Your Certifications Here" />
+                    
+                <CardContent  >
                 <ul>
-                    <h3> Add any certifications or licenses you have </h3>
                     {this.state.certificateList.map((item) => {
                         return (
                             <CertificationsItem item={item}  />
@@ -38,10 +40,13 @@ export class Certifications extends Component {
 
                     })}
                 </ul>
-
+                </CardContent>
+            <CardActions style={{ justifyContent: 'center' }}>
             <Button onClick={this.addCertificate} variant='outlined'> Add another license/certificate</Button>
+            </CardActions>
 
-            </div>
+            </Card>
+            
 
         )
     }

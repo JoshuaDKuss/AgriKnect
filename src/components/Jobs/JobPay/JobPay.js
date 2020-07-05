@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Select, MenuItem, InputLabel, Input, InputAdornment } from '@material-ui/core';
+import { Select, MenuItem, InputLabel, Input, InputAdornment, Card, CardContent, CardHeader } from '@material-ui/core';
 
 export class JobPay extends Component {
 
@@ -15,9 +15,14 @@ export class JobPay extends Component {
          this.props.dispatch({ type: 'SET_PAYMENT_AMOUNT', payload: event.target.value })
      }
     render() {
+        const { classes } = this.props; //need this for Material UI
+
         return (
-            <div>
-                <h3> What type of payments will be provided for this job</h3>
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title= "What type of payments will be provided for this job?" />
+
+                <CardContent style={{ textAlign: 'center' }}  >
+                    <InputLabel htmlFor="standard-adornment-amount">Payment Period</InputLabel>
                 <Select value={this.props.payment.paymentType} onChange={this.handlePaymentSelection}   >
                     <MenuItem> </MenuItem>
                     <MenuItem value='/hour' > Hourly </MenuItem>
@@ -25,7 +30,8 @@ export class JobPay extends Component {
                     <MenuItem value='/year'> Yearly </MenuItem>
                     <MenuItem value='lump sum'> Lump Sum </MenuItem>
                 </Select>
-            <div>
+                    </CardContent>
+                    <CardContent style={{ textAlign: 'center' }}  >
                 
                     <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
                     <Input
@@ -35,8 +41,8 @@ export class JobPay extends Component {
                         startAdornment={<InputAdornment position="start">$</InputAdornment>}
                     />
              
-            </div>
-            </div>
+                </CardContent>
+            </Card>
         )
     }
 }

@@ -3,6 +3,11 @@ const styles = {
     root: {
         maxWidth: 345,
     },
+    title: {
+        color: 'white' ,
+    // header: {
+    //     background: #B4C6CE,
+    },
     media: {
         height: 140,
     },
@@ -10,74 +15,95 @@ const styles = {
         flexGrow: 1,
         padding: 10,
     },
+    bioCard: {
+        // textAlign: 'center',
+        //width: 1500,
+        flexGrow: 1,
+        // padding: 5,
+        //Width: 85%,
+        // width: 100%,
+    },
     card: {
         textAlign: 'center',
-        maxWidth: 400,
+        //maxWidth: 400,
     },
     paper: {
         textAlign: 'center',
     },
-    marginOne: {
-        marginLeft: 50
+    header:{
+        backgroundColor: 'primary'
     },
-    marginTwo: {
-        marginLeft: 60
+    media: {
+        height: 140,
     },
-    recipe: {
-        marginLeft: 60,
+    addButton: {
+        justifyContent: 'center',
     },
-    directions: {
-        marginTop: 40,
-        maxWidth: 300,
+    button:{
+        margin: '2 auto'
     },
-    backButton: {
-        marginTop: 40,
+    textField:{
+        marginLeft: 10
     },
-    image: {
-        height: "70 %",
-        width: " 60 %",
-    },
-    marginLeft: {
-        marginLeft: 70,
-    },
-    searchBar: {
-        marginTop: 30
-    },
-    video: {
-        marginLeft: 120
-    },
-    button: {
-        marginLeft: 20
-    },
-    buttonTwo: {
-        marginLeft: 40
-    },
-    userPage: {
-        display: 'inline',
-        marginLeft: 20
-    },
-    textField: {
-        marginLeft: 20
+    buttonSkill: {
+        margin: 4
     }
+    // gridRoot: {
+    //     flexGrow: 1,
+    //     padding: 10,
+    // },
+    // card: {
+    //     textAlign: 'center',
+    //     maxWidth: 400,
+    // },
+    // paper: {
+    //     textAlign: 'center',
+    // },
+    // marginOne: {
+    //     marginLeft: 50
+    // },
+    // marginTwo: {
+    //     marginLeft: 60
+    // },
+    // recipe: {
+    //     marginLeft: 60,
+    // },
+    // directions: {
+    //     marginTop: 40,
+    //     maxWidth: 300,
+    // },
+    // backButton: {
+    //     marginTop: 40,
+    // },
+    // image: {
+    //     height: "70 %",
+    //     width: " 60 %",
+    // },
+    // marginLeft: {
+    //     marginLeft: 70,
+    // },
+    // searchBar: {
+    //     marginTop: 30
+    // },
+    // video: {
+    //     marginLeft: 120
+    // },
+    // button: {
+    //     marginLeft: 20
+    // },
+    // buttonTwo: {
+    //     marginLeft: 40
+    // },
+    // userPage: {
+    //     display: 'inline',
+    //     marginLeft: 20
+    // },
+    // textField: {
+    //     marginLeft: 20
+    // }
 }
 
 
-// const blush = "#F5C7B8";
-// const cantalope =  "#FFA177"; 
 
-// export default createMuiTheme({
-//     palette: {
-//         common: {
-//             pink: `${blush}`,
-//             orange: `${cantalope}`
-//         }
-//     }, 
-//     primary: {
-//         main:  `${blush}`,
-//     },
-//     secondary: {
-//         main: `${cantalope}`
-//     }
-// })
 
 export default styles; 

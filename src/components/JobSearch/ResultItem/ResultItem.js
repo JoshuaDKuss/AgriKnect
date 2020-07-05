@@ -75,13 +75,14 @@ class ResultItem extends Component {
         </div>
         <div className="jobSearchInfo">
           <div className="jobSearchDetail">
-            {this.props.type === "Row Crop" ? (
-              <img src={marker} style={{ width: 26 }}/>
+          <img src={marker} style={{ width: 26 }}/>
+            {/* {this.props.type === "Row Crop" ? (
+              <img src={rowCrop} style={{ width: 45 }}/>
             ) : this.props.type === "Livestock" ? (
               <img src={livestock} style={{ width: 45 }} />
             ) : (
               <img src={dairy} style={{ width: 45 }} />
-            )}
+            )} */}
 
             {/* <p style={{ marginTop: 10 }}>{this.props.type}</p> */}
             <p style={{ marginTop: 10 }}>{this.props.city}, {this.props.state}</p>

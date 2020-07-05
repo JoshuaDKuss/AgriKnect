@@ -25,6 +25,7 @@ class SearchPage extends Component {
   state = {
     search: "",
     showDetails: false,
+    opacity: 0
   };
 
   componentDidMount() {
@@ -94,7 +95,8 @@ class SearchPage extends Component {
       showDetails: true,
       housingDetails: housingDetails,
       housing: housing,
-      relocation: relocation
+      relocation: relocation,
+      opacity: 100
     });
     console.log("clicked!", this.state.relocation, this.state.housingDetails);
   };
@@ -272,7 +274,7 @@ class SearchPage extends Component {
               })}
           </div>
 
-          <div className="additionalDetails">
+          <div className="additionalDetails" style={{opacity: this.state.opacity}}>
             {this.state.showDetails && (
               <div>
                 <div className="jobSearchHeader">
@@ -320,7 +322,7 @@ class SearchPage extends Component {
                 <h3>Description:</h3>
                 <p>{this.state.description}</p>
                 {this.state.relocation && (
-                  <p>- Relocation expenses covered</p>
+                  <p>- Relocation assistance</p>
                 )}
                 {this.state.housing && (
                   <p>- Housing included ({this.state.housingDetails})</p>

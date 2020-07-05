@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { TextField, Typography } from '@material-ui/core';
+import { TextField, Typography, Card, CardContent, CardActions } from '@material-ui/core';
 
 export class EducationItem extends Component {
     componentWillUnmount() {
@@ -40,22 +40,39 @@ export class EducationItem extends Component {
         })
     }
 
+    fillForm = () => {
+        this.setState({
+            school: 'Mankato East Senior High School',
+            degree: 'High School Diploma',
+            startDate: '2005-08-15',
+            endDate: '2009-06-15'
+        })
+    }
+
     render() {
         const { classes } = this.props; //need this for Material UI
         return (
             <div>
-                <div>
+                <button onClick={this.fillForm}>Fill</button>
+                {/* <div> */}
 
 
-                  
+                  {/* <Card>
+                      <CardActions> */}
+
+                <CardContent style={{ paddingLeft: 150}}>
                    
                     <div ref={node => this.inCertificate = node}>
-                        <TextField defaultValue={this.state.school} id="standard-basic" label="school" onChange={(event) => this.addEducation(event, 'school')} />
+                        <TextField defaultValue={this.state.school} value={this.state.school} id="standard-basic" label="school" onChange={(event) => this.addEducation(event, 'school')} />
                     </div>
-                    
-                    <TextField onChange={(event) => this.addEducation(event, 'degree')} id="standard-basic" label="degree" />
 
-                   
+              
+                    
+                    <TextField value={this.state.degree} onChange={(event) => this.addEducation(event, 'degree')} id="standard-basic" label="degree" />
+
+                </CardContent>
+
+                <CardContent style={{textAlign: 'center'}}>
 
                     <div>
                         <TextField
@@ -81,13 +98,7 @@ export class EducationItem extends Component {
  
                         />
                     </div>
-
-
-
-
-
-
-                </div>
+                </CardContent>
                 
             </div>
         )

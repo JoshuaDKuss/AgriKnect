@@ -3,9 +3,9 @@
     height: 100% !important;
 } */
 .map {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mapContainer {
@@ -35,10 +35,14 @@
 
 .searchList {
   overflow: scroll;
-  height: 725px;
+  border: 2px solid rgb(213, 213, 213);
+  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15); */
+  height: 650px;
 }
 
 .additionalDetails {
+  border-top: 1px solid rgb(228, 228, 228);
   background-color: rgba(240, 240, 240, 0.536);
   padding: 2rem;
   height: 100%;

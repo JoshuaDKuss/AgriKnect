@@ -9,6 +9,21 @@ import rootReducer from './redux/reducers'; // imports ./redux/reducers/index.js
 import rootSaga from './redux/sagas'; // imports ./redux/sagas/index.js
 
 import App from './components/App/App';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+const theme = createMuiTheme({
+  spacing: 4,
+  palette: {
+    primary: {main: '#419B2A', dark: '#6B818c'},
+    secondary: {main: '#B4C6CE', dark: '#172815'},
+    error: { main: '##E5E5E5', dark: '#C4C4C4'}
+  }
+});
+// const palette = {
+//   primary: { main: '#419B2A' },
+//   secondary: { main: '#B4C6CE' }
+// };
+// const themeName = 'Forest Green Heather Gundi';
+// export default createMuiTheme({ palette, themeName });
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -32,8 +47,14 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
+  <> 
+  <MuiThemeProvider theme={theme}>
   <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>
+  </MuiThemeProvider >
+  </>,
+ 
   document.getElementById('react-root'),
+   
 );
