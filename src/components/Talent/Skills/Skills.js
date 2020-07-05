@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import SkillsItem from '../SkillsItem/SkillsItem'; 
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
+import {Card, CardContent, Typography, CardHeader, CardActions } from '@material-ui/core';
 
 
 
@@ -15,8 +16,11 @@ export class Skills extends Component {
         
 
         return (
-            <div>
-                <h3> What skills do you have?  </h3>
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="What skills do you have?" />
+
+                <CardContent  >
+                
                
                <h4> General Agriculture </h4>
                 {/* <div> */}
@@ -31,9 +35,9 @@ export class Skills extends Component {
                   
 
            
-                {/* </div> */}
+              
                 <h4> Precision Farming Technology  </h4>
-                {/* <div> */}
+              
                 {this.props.proficiencies.precisionFarmingTechnology.map((item) => {
                     return (
                         <SkillsItem item={item} key={item.id} />
@@ -61,9 +65,10 @@ export class Skills extends Component {
                     )
 
                 })}
+                 </CardContent>
+                </Card>
                 
-                {/* </div> */}
-            </div>
+            
         )
     }
 }

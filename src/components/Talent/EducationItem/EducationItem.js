@@ -49,14 +49,20 @@ export class EducationItem extends Component {
 
                   {/* <Card>
                       <CardActions> */}
+
+                <CardContent style={{ paddingLeft: 150}}>
                    
                     <div ref={node => this.inCertificate = node}>
                         <TextField defaultValue={this.state.school} id="standard-basic" label="school" onChange={(event) => this.addEducation(event, 'school')} />
                     </div>
+
+              
                     
                     <TextField onChange={(event) => this.addEducation(event, 'degree')} id="standard-basic" label="degree" />
 
-                   
+                </CardContent>
+
+                <CardContent style={{textAlign: 'center'}}>
 
                     <div>
                         <TextField
@@ -82,13 +88,7 @@ export class EducationItem extends Component {
  
                         />
                     </div>
-                    {/* </CardActions>
-
-
-                    </Card>           */}
-
-
-                {/* </div> */}
+                </CardContent>
                 
             </div>
         )

@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 import styles from '../../Styles/styles';
-import { Typography, TextField, Button} from "@material-ui/core";
+import moment from "moment";
+import { Grid, Button, Card, CardContent, CardHeader} from "@material-ui/core";
+import './ReviewPage.css';
 
 export class ReviewPage extends Component {
     sendToServer = () => {
@@ -14,28 +16,38 @@ export class ReviewPage extends Component {
     }
 
     render() {
+        const { classes } = this.props; //need this for cards 
+
         return (
-            <div>
-                <h1> Please review your information </h1> 
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="Please review your information" />
+
+                <CardContent  >
 
                  <h2> About me </h2> 
                  
                 <div>
-                 <Typography> Biography: {this.props.talentForm.bio} </Typography>
+                 <h4 className='label'> Biography: </h4> <p className='content'>{this.props.talentForm.bio} </p> 
                  </div>
-                 <Typography> 
-                    Location: {this.props.talentForm.city} {this.props.talentForm.state} {this.props.talentForm.zipcode}
-                </Typography>
+                 <h4 className='label'> 
+                    Location: 
+                  </h4> 
+                    <p className='content'>
+                     {this.props.talentForm.city} {this.props.talentForm.state} {this.props.talentForm.zipcode}
+                    </p>
                   
 
                 <h2>Education </h2>
                 {this.props.talentForm.education.map((item) => {
                     return (
-                        <Typography> {item.school} {item.startDate} - {item.endDate} 
+                        <ul>
+                            <p className='content'> {item.school} {moment(item.startDate).format('MMMM Do YYYY')} - {moment(item.endDate).format('MMMM Do YYYY')}   </p> 
                         <div>
+                        <p className='content'>
                             {item.degree}
+                        </p>
                         </div>
-                        </Typography>
+                         </ul>
 
                     )
 
@@ -45,11 +57,15 @@ export class ReviewPage extends Component {
                 <h2>Employment </h2>
                 {this.props.talentForm.employment.map((item) => {
                     return (
-                        <Typography> {item.company} {item.startDate} - {item.endDate} 
+                        <ul>
+                            <p className='content'> {item.company} {moment(item.startDate).format('MMMM Do YYYY')} - {moment(item.endDate).format('MMMM Do YYYY')}</p>
                         <div>
+                        <p className='content'> 
                             {item.title}
+                            </p>
                         </div>
-                        </Typography>
+                        
+                        </ul>
 
                     )
 
@@ -58,11 +74,15 @@ export class ReviewPage extends Component {
                 <h2>Certifications </h2>
                 {this.props.talentForm.certification.map((item) => {
                     return (
-                        <Typography> {item.certificate} expires {item.expirationDate}
+                         <ul>
+                            <p className='content'>{item.certificate} expires {moment(item.certificate).format('MMMM Do YYYY')} </p>
                             <div>
+                            <p className='content'>
                              Issued by:   {item.issuingCompany}
+                             </p>
                             </div>
-                        </Typography>
+                      
+                        </ul>
 
                     )
 
@@ -71,7 +91,9 @@ export class ReviewPage extends Component {
                 <h2> Skills </h2> 
                 {this.props.talentForm.skillsExpertise.map((item) => {
                     return (
-                    <Typography> {item.skillName} for {item.time}  </Typography>
+                        <ul>
+                        <p className='content'>{item.skillName} for {item.time}  </p>
+                        </ul>
                     )
 
                 })}
@@ -80,7 +102,9 @@ export class ReviewPage extends Component {
 
                 {this.props.talentForm.equipment.map((item) => {
                     return (
-                        <Typography> {item.proficiency_name} </Typography>
+                         <ul>
+                            <p className='content'>{item.proficiency_name}  </p>
+                        </ul>
                     )
 
                 })}
@@ -88,12 +112,20 @@ export class ReviewPage extends Component {
                 <h2> Brands </h2> 
                 {this.props.talentForm.brands.map((item) => {
                     return (
-                        <Typography> {item.proficiency_name} </Typography>
+                        <ul>
+                            <p className='content'> {item.proficiency_name} </p>
+                        </ul>
                     )
 
                 })}
-                <Button variant="outlined" onClick= {this.sendToServer}> Save Profile </Button>
-            </div>
+                    <Grid container direction="row" alignItems="top" spacing={2}>
+                <Grid item xs={9}/>
+                <Grid item xs={2}>
+                <Button color="primary" variant="outlined" onClick= {this.sendToServer}> Save Profile </Button>
+                </Grid>
+                </Grid>
+             </CardContent  >
+             </Card>
         ) 
     }
 }

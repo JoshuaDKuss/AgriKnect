@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from '@material-ui/core';
+import { Button, Box } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../../Styles/styles';
@@ -42,10 +42,10 @@ export class TalentProfileEquipmentItem extends Component {
 
     render() {
         return (
-            <div>
+           <Box display='inline'>
                 <Button variant='contained' color={this.state.color} onClick={(event) => this.addOrDeleteSkill(event, this.props.item)}> {this.props.item.proficiency_name} </Button>
 
-            </div>
+            </Box>
         )
     }
 }

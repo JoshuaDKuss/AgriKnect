@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, Card, CardHeader, CardContent } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -13,8 +13,12 @@ export class Brands extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <div>
-                <h3> What brands do you have experience with?  </h3>
+             <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="What brands do you have experience with?" />
+
+                    <CardContent  >
+           
+                
 
                 {this.props.proficiencies.brands.map((item) => {
                     return (
@@ -33,7 +37,8 @@ export class Brands extends Component {
                 <Button variant='contained' color={this.state.allisChalmersColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Allis Chalmers', 'allisChalmersColor')}> Allis Chalmers </Button> */}
 
 
-            </div>
+                </CardContent>
+            </Card>
         )
     }
 }
