@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import {Button} from '@material-ui/core';
 import Modal from 'react-modal';
+import './FarmJobAvailable.css';
 // import FarmJobsAvailableItem from '../FarmJobAvailableItem/FarmJobAvailableItem'
 
 // Modal.setAppElement('#root')
@@ -33,25 +34,51 @@ export class FarmJobsAvailable extends Component {
     render() {
         
         return (
-            <div className={'farmJobItem'}>
-                <li>
-               
-                {this.props.job.title}&nbsp; {moment(this.props.job.start_date).format("MM DD, YYYY")}&nbsp; ${this.props.job.payment_amount} &nbsp;{this.props.job.payment_period} &nbsp;
+            <>
+             {/* </div> */}
+            {/* <div className={'farmJobItem'}> */}
+                {/* <li> */}
+                <div className={"centerIt"}>
+                <table>
+                <tbody>
+                <tr>
+                    <th>Title:</th>
+                    <th>Dates:</th>
+                    <th>Pay: </th>
+                    <th> </th>
+                </tr>
+                <tr>
+                    <td>{this.props.job.title}</td>
+                    <td>{moment(this.props.job.start_date).format("MMM Do, YYYY")}</td>
+                    <td>${this.props.job.payment_amount} &nbsp;{this.props.job.payment_period}</td>
+                    <td><Button variant="outlined" onClick={this.showModal}>View</Button>
+                    <Button variant="outlined" onClick={this.deleteJob}>Delete</Button></td>
+                </tr>
+                
+
+                {/* Title: {this.props.job.title}&nbsp; 
+                {moment(this.props.job.start_date).format("MMM Do, YYYY")}&nbsp; 
+                Pay: ${this.props.job.payment_amount} &nbsp;{this.props.job.payment_period} &nbsp;
                 <Button variant="outlined" onClick={this.showModal}>View</Button>
                 <Button variant="outlined" onClick={this.deleteJob}>Delete</Button>
-                </li>
+                </li> */}
                 <Modal isOpen={this.state.show} className={"jobModal"}>
                     <p>Job Title:  {this.props.job.title}</p>
                     <p>Farm Name: {this.props.job.farm_name}</p>
                      <p>Location: {this.props.job.city},  <span>{this.props.job.state}</span></p>
                     <p className={"modalStartDate"}>Farm Type:  {this.props.job.type} <br/>
-                    <span>Start Date: {moment(this.props.job.start_date).format("MM DD, YYYY")}</span><br/> 
+                    <span>Start Date: {moment(this.props.job.start_date).format("MMM Do, YYYY")}</span><br/> 
                     <span>Pay: ${this.props.job.payment_amount}/{this.props.job.payment_period}</span></p>
                     <h3>Description:</h3>
                     <p>{this.props.job.description}</p>
+                    <p>{this.props.job.brand}</p>
                     <Button variant="outlined" onClick={this.closeModal}>Close</Button>
                 </Modal>
+                </tbody>
+                </table>
+            {/* </div> */}
             </div>
+            </>
         )
     }
     

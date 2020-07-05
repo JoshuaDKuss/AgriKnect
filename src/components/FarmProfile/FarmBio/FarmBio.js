@@ -132,8 +132,9 @@ export class farmBio extends Component {
                                 <div className={'bioButton'}>
                                     <Button variant="outlined" 
                                     onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
-                                    <h4>Farm Size </h4>&nbsp;
-                                    <a>{bio.size} </a>
+                                    {/* <h4>Farm Size </h4>&nbsp;
+                                    <a>{bio.size} </a> */}
+                                    <h4>Farm Size: {bio.size} </h4>
                                 </div>
 
                                 
@@ -172,14 +173,18 @@ export class farmBio extends Component {
                             /> */}
                             <CardContent>
                                 <Typography>
+                                
                                 <div className={'farmDetails'}>
                                 {/* {JSON.stringify(this.props.reduxState.farmBioReducer)} */}
-                                <h3 className={'farmDetailsHeader'}>Farm Details</h3>
+                                <h3 className={"centerIt"}
+                                // className={'farmDetailsHeader'}
+                                >Farm Details</h3>
                                 {this.props.reduxState.farmBioReducer.map((details) => {
                                 return (
                                 <FarmDetails details={details} key={details.id} history={this.props.history} />
                                 )
                             })}
+                            
                         </div>
                         </Typography>
                         </CardContent>
@@ -202,7 +207,7 @@ export class farmBio extends Component {
                         title="Apartment"
                     /> */}
                     <CardContent>
-                        <Typography>
+                        {/* <Typography> */}
                         <div className={'farmJobsAvailable'}>
                             {/* {JSON.stringify(this.props.reduxState.farmJobsAvailable)} */}
                             <h3 className={'farmJobs'}>Available Jobs </h3>
@@ -215,7 +220,7 @@ export class farmBio extends Component {
                                 })}
                             </ul>
                         </div>
-                       </Typography>
+                       {/* </Typography> */}
 
                     </CardContent>
                 </Card>

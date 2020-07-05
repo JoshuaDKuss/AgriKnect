@@ -18,7 +18,10 @@ export class JobSkills extends Component {
                 <CardContent  >
                     <h4> General Agriculture </h4>
 
-                  
+
+                    {/* <ul> */}
+                        <div>
+
                         {this.props.proficiencies.generalAgriculture.map((item) => {
                             return (
                                 <JobSkillsItem item={item} key={item.id} />
@@ -26,6 +29,10 @@ export class JobSkills extends Component {
 
                         })}
 
+
+
+                    </div>
+                    {/* </ul> */}
 
 
                     <h4> Precision Farming Technology  </h4>
