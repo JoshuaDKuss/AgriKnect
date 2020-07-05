@@ -201,8 +201,8 @@ export class TalentProfile extends Component {
                                     </div>
                                     </Grid>
                                     
-                                    <Grid item xs={2}>
-                                    <Button className={"aboutEdit"} variant="contained">
+                                    <Grid item xs={0}>
+                                    <Button className={"aboutEdit"}>
                                         {editButtonControl}
                                         {/* <Button size="small"className={classes.talentProfileButton} variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button> */}
                                     </Button>
