@@ -75,7 +75,7 @@ export class ReviewPage extends Component {
                 {this.props.talentForm.certification.map((item) => {
                     return (
                          <ul>
-                            <p className='content'>{item.certificate} expires {moment(item.certificate).format('MMMM Do YYYY')} </p>
+                            <p className='content'>{item.certificate} expires {moment(item.expirationDate).format('MMMM Do YYYY')} </p>
                             <div>
                             <p className='content'>
                              Issued by:   {item.issuingCompany}
