@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Button } from '@material-ui/core';
+import { Button, Card, CardHeader, CardContent, CardActions } from '@material-ui/core';
 import EmploymentItem from '../EmploymentItem/EmploymentItem'; 
 
 export class Employment extends Component {
@@ -23,9 +23,13 @@ export class Employment extends Component {
     render() {
         const { classes } = this.props; //need this for Material UI
         return (
-            <div>
+            <> 
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes = {{title: classes.title}} title= "Add Your Employment Experience Here" />
+                    
+                <CardContent  >
                 <ul>
-                    <h3> Add your employment history </h3>
+                 
                     {this.state.employmentList.map((item) => {
                         return (
                             <EmploymentItem item={item} key={item} />
@@ -33,9 +37,13 @@ export class Employment extends Component {
 
                     })}
                 </ul>
-
+                </CardContent>
+                <CardActions style={{ justifyContent: 'center' }}>
                 <Button onClick={this.addEmployment} variant='outlined'> Add another employment</Button>
-            </div>
+                </CardActions>
+                </Card >
+            </>
+          
         )
     }
 }

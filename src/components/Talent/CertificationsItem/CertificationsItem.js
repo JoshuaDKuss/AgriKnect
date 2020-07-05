@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import {TextField, Typography } from '@material-ui/core';
+import {TextField, Typography, CardContent } from '@material-ui/core';
 
 export class CertificationsItem extends Component {
 
@@ -48,17 +48,18 @@ export class CertificationsItem extends Component {
         const { classes } = this.props; //need this for Material UI
         return (
             <div>
-                <div>
                    
 
                  
-
+                 <CardContent style={{ paddingLeft: 150}}>
                     <div ref={node => this.inCertificate = node}>
                         <TextField id="standard-basic" label="License or certificate" onChange={(event) => this.addCertificate(event, 'certificate')} />
                     </div>
   
                     <TextField onChange={(event) => this.addCertificate(event, 'issuingCompany')} id="standard-basic" label="Issuing Company" />
 
+                </CardContent>
+                <CardContent style={{ textAlign: 'center' }}>
                     <div>
                         <TextField
                             id="date"
@@ -83,13 +84,8 @@ export class CertificationsItem extends Component {
                
                         />
                     </div>
+                    </CardContent>
 
-                   
-
-
-
-
-                </div>
             </div>
         )
     }

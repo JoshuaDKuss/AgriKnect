@@ -4,7 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
 import { withRouter } from "react-router";
-import { Typography, TextField, Button } from "@material-ui/core";
+import { Typography, TextField, Button, Card, CardContent, CardHeader, Grid } from "@material-ui/core";
+import './JobReview.css';
+import moment from 'moment';
 
 
 export class JobReview extends Component {
@@ -14,6 +16,7 @@ export class JobReview extends Component {
     }
 
     render() {
+        const { classes } = this.props; //need this for cards 
        let housingProvided = "Housing not provided"
         if (this.props.job.housingProvided) {
             housingProvided = `Housing provided. ${this.props.job.housingDetails}`
@@ -24,36 +27,54 @@ export class JobReview extends Component {
             relocationProvided = `Relocation stipend provided`
         }
         return (
-            <div>
-                <h1> Please review your information </h1>
+         
+                <Card >
+                    <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="Please review your information" />
+
+                    <CardContent >
 
                 <h2> Job Description </h2>
 
                 <div>
-                    <Typography> Job Title {this.props.job.jobTitle} </Typography>
+                        <h4 className='label'> Job Title: </h4> 
+                        <p className='content'>{this.props.job.jobTitle} </p>
                 </div>
                 <div>
-                <Typography>
-                    Description: {this.props.job.jobDescription} 
-                </Typography>
+                    <h4 className='label'> Description: </h4>
+                    <p className='content'> {this.props.job.jobDescription}</p>
+                    
+                
                 </div>
                 <div>
-                    <Typography>
-                        Job Type: {this.props.job.jobType} {this.props.job.startDate} {this.props.job.endDate}
-                    </Typography>
+                        <h4 className='label'> 
+                        Job Type: 
+                        </h4>
+                        <p className='content'> 
+                            {this.props.job.jobType} {moment( this.props.job.startDate ).format('MMMM Do YYYY')} - {moment( this.props.job.endDate ).format('MMMM Do YYYY')} 
+                        </p>
+         
                 </div>
                 <div>
-                    <Typography>
-                        Housing: {housingProvided}
+                        <h4 className='label'> Housing: </h4>
+                        <p className='content'> 
+                        {housingProvided}
+                        </p>
                         <div>
-                            Relocation: {relocationProvided}
+                            <h4 className='label'> 
+                            Relocation:
+                            </h4>
+                            <p className='content'> 
+                             {relocationProvided}
+                             </p>
                         </div>
-                    </Typography>
+       
                 </div>
                   <div>
-                    <Typography>
-                        Payment: {this.props.job.paymentAmount} {this.props.job.paymentType} 
-                    </Typography>
+                        <h4 className='label'>
+                        Payment: </h4>
+                        <p className='content'> 
+                        {this.props.job.paymentAmount} {this.props.job.paymentType} 
+                    </p>
                 </div>
 
 
@@ -81,8 +102,15 @@ export class JobReview extends Component {
                     )
 
                 })}
-                <Button onClick={(event) => this.sendJobPosting(event)}> Save Job Posting </Button> 
-            </div>
+                
+                        <Grid container direction="row" alignItems="top" spacing={2}>
+                            <Grid item xs={9} />
+                            <Grid item xs={2}>
+                                <Button color='primary' variant='outlined' onClick={(event) => this.sendJobPosting(event)}> Save Job Posting </Button> 
+                            </Grid>
+                        </Grid>
+                    </CardContent  >
+                </Card>
         )
     }
 }

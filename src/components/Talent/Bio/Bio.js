@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { TextField, Typography } from '@material-ui/core';
+import { TextField, Card, CardContent, CardHeader } from '@material-ui/core';
 
 export class Bio extends Component {
 
@@ -25,23 +25,28 @@ export class Bio extends Component {
         const { classes } = this.props; //need this for Material UI
 
         return (
-            <div>
-                <Typography> Please include a short bio </Typography>
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="Please include a short bio" />
+
+                <CardContent  >
+                
 
               
                     <TextField
                         id="outlined-multiline-flexible"
                         label="Bio"
                         multiline
-                        rowsMax={4}
+                        fullWidth
+                        rows={6}
                     value={this.props.talentForm.bio} 
                         
                     onChange={(event) => this.addBio(event)}
                         variant="outlined"
                     />
 
-              
-            </div>
+              </CardContent>
+              </Card>
+        
         )
     }
 }

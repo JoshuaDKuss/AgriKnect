@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Select, MenuItem } from '@material-ui/core';
+import { Select, MenuItem, Card, CardHeader, CardContent } from '@material-ui/core';
+import './ExpertiseLevel.css'
 
 export class ExpertiseLevel extends Component {
     handleYearSelection = (event) => {
@@ -13,14 +14,21 @@ export class ExpertiseLevel extends Component {
     }
 
     render() {
+        const { classes } = this.props; //need this for cards 
+
         return (
-            <div>
-                <h3>  What is your expertise level for each skill? </h3> 
+            
+                <Card >
+                    <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="What is your expertise level for each skill?" />
+
+                    <CardContent  >
                 <ul>
                     {this.props.skills.map( skill => {
                         return(
                             <li>
-                                {skill.proficiency_name}
+                                <span className="skill">
+                                {skill.proficiency_name} 
+                                </span>
                                 {/* data-skill={skill.id} */}
                                 <Select onChange={this.handleYearSelection}   > 
                                     <MenuItem> </MenuItem>
@@ -44,7 +52,9 @@ export class ExpertiseLevel extends Component {
                         )
                     })}
                 </ul>
-            </div>
+                </CardContent>
+                </Card>
+           
         )
     }
 }

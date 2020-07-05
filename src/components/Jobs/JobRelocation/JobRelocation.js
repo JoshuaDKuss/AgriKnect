@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { TextField, Typography, RadioGroup, FormControlLabel, FormLabel, FormControl, Radio } from '@material-ui/core';
+import { TextField, Typography, RadioGroup, FormControlLabel, FormLabel, FormControl, Radio, Card, CardContent, CardHeader } from '@material-ui/core';
 
 export class JobRelocation extends Component {
     chooseAccomodation(event) {
@@ -22,7 +22,7 @@ export class JobRelocation extends Component {
     }
 
     render() { 
-        
+        const { classes } = this.props; //need this for Material UI
 
         let housingDescription = ''; 
         if (this.props.housing.housingProvided == 'true') {
@@ -38,7 +38,10 @@ export class JobRelocation extends Component {
             </div >
         }
         return (
-            <div>
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="What type of job are you filling?" />
+
+                <CardContent style={{ textAlign: 'center' }}  >
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Will housing accomodation be provided?</FormLabel>
                     <RadioGroup value={this.props.housing.housingProvided} aria-label="accomodation" name="accomodation" onChange={(event) => this.chooseAccomodation(event)}>
@@ -49,7 +52,7 @@ export class JobRelocation extends Component {
 
                 {housingDescription}
 
-             <div>
+                    <CardContent style={{ textAlign: 'center' }}  >
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Will a relocation stipend be provided?</FormLabel>
                         <RadioGroup value={this.props.housing.relocationProvided} aria-label="relocation" name="relocation" onChange={(event) => this.chooseRelocation(event)}>
@@ -57,8 +60,9 @@ export class JobRelocation extends Component {
                         <FormControlLabel value="false" control={<Radio />} label="No" />
                     </RadioGroup>
                 </FormControl>
-                </div>
-            </div>
+                </CardContent>
+           </CardContent>
+           </Card>
         )
     }
 }
