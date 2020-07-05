@@ -31,24 +31,33 @@ export class FarmDetails extends Component {
 
         return (
             <>
+            <div className={"centerIt"}>
             <div className={'farmDetailItem'}>
-                <div>
-                    <p>Size: {this.props.details.size} </p>
-                </div>
-                <div className={'farmBioSize'}>
-                                    <h4>About:</h4>
+                {/* <div> */}
+                    {/* <p>Size: {this.props.details.size} </p> */}
+                {/* </div> */}
+                <div 
+                // className={'farmBioSize'}
+                >
+                                    <h3>About:</h3>
                                     <p>{this.props.details.bio}</p>
                                 </div>
-                <div>
-                <p>Farm Type: {iconToRender}{this.props.details.type}</p>
+                <div 
+                // className={"centerIt"}
+                >
+                <p>Farm Type: 
+                    {iconToRender}
+                    {this.props.details.type}</p>
                 </div>
-                <p>Email: {this.props.details.username}<br/>
-                        Owner: {this.props.details.first_name} &nbsp;
-                                {this.props.details.last_name} <br/>
+                <div className={"centerIt"}>
+                <h4>Owner: {this.props.details.first_name} {this.props.details.last_name}</h4>
+                    <p>Email: {this.props.details.username}
+                         <br/>
                         Phone: {this.props.details.phone}</p>
+                        </div>
                 
             </div>
-            
+            </div>
             </>
         )
     }

@@ -14,7 +14,8 @@ export class JobSkills extends Component {
                     <h3> What skills are you looking for?  </h3>
                     <h4> General Agriculture </h4>
 
-                    <ul>
+                    {/* <ul> */}
+                        <div>
                         {this.props.proficiencies.generalAgriculture.map((item) => {
                             return (
                                 <JobSkillsItem item={item} key={item.id} />
@@ -23,8 +24,8 @@ export class JobSkills extends Component {
                         })}
 
 
-
-                    </ul>
+                    </div>
+                    {/* </ul> */}
 
                     <h4> Precision Farming Technology  </h4>
 

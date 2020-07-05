@@ -1,0 +1,19 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    
+  }
+  th, td {
+    padding: 7px;
+    text-align: left;
+    
+  }
+  th {
+    width: 25%;
+    margin: 5px;
+  }
+  table {
+    width: 100%;    
+    background-color: #f3f3f3;
+    margin: 10px;
+  }
