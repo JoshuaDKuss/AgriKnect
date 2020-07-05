@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../../Styles/styles';
-import { Button } from '@material-ui/core';
+import { Button, Card, CardContent, CardHeader, CardActions, Grid } from '@material-ui/core';
 import EditTalentCertificationsItem from './EditTalentCertificationItem';
 import EditTalentCertificationsItemServer from './EditTalentCertificationItemServer';
 
@@ -39,9 +39,15 @@ export class EditTalentCertifications extends Component {
         const { classes } = this.props; //need this for Material UI
 
         return (
-            <div>
+            <Grid container direction="row" alignItems="top" spacing={2}>
+                    <Grid item xs={4} />
+                    <Grid item xs={4}>
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="Add Your Certifications Here" />
+
+                <CardContent  >
                 <ul>
-                    <h3> Add any certifications or licenses you have </h3>
+                    {/* <h3> Add any certifications or licenses you have </h3> */}
                     {this.props.certifications.map((item) => {
                         return (
                             <EditTalentCertificationsItemServer item={item} key={item.id} />
@@ -56,12 +62,21 @@ export class EditTalentCertifications extends Component {
 
                     })}
                 </ul>
+                </CardContent>
+                    <CardActions style={{ justifyContent: 'center' }}>
+                        <Button onClick={this.addCertificate} variant='outlined'> Add another license/certificate</Button>
+                        <Button onClick={this.submitEditedCertificates} variant="outlined"> Submit </Button> 
+                    </CardActions>
 
-                <Button onClick={this.addCertificate} variant='outlined'> Add another license/certificate</Button>
-                 <Button onClick={this.submitEditedCertificates} variant="outlined"> Submit </Button> 
+            </Card>
+            </Grid>
+            </Grid>
+
+                // {/* <Button onClick={this.addCertificate} variant='outlined'> Add another license/certificate</Button>
+                //  <Button onClick={this.submitEditedCertificates} variant="outlined"> Submit </Button>  */}
 
 
-            </div>
+           
 
         )
     }

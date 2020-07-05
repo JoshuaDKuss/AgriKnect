@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, Grid, Card, CardContent, CardHeader } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -19,9 +19,15 @@ export class TalentProfileEquipment extends Component {
         const { classes } = this.props; //need this for Material UI
         return (
             <>
-            <div>
-                <h3> What equipment do you have experience with?  </h3>
+                <Grid container direction="row" alignItems="top" spacing={2}>
+                    <Grid item xs={4} />
+                    <Grid item xs={4}>
+                        <Card >
+                            <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="What equipment and brands do you have experience with?" />
 
+                            <CardContent  >
+                <div>
+                <h3> Equipment  </h3>
                 {this.props.proficiencies.equipment.map((item) => {
                     return (
                         <TalentProfileEquipmentItem item={item} key={item.id} />
@@ -33,7 +39,7 @@ export class TalentProfileEquipment extends Component {
             </div>
 
             <div>
-                <h3> What brands do you have experience with?  </h3>
+                <h3> Brands  </h3>
 
                 {this.props.proficiencies.brands.map((item) => {
                     return (
@@ -44,7 +50,16 @@ export class TalentProfileEquipment extends Component {
 
 
             </div>
-                <Button onClick={this.submitEditedEquipment}> Submit </Button>
+            </CardContent>
+         </Card>
+        </Grid>
+            <Grid item xs={9}/>
+            <Grid item xs={2}>
+                
+                <Button color="primary" variant="outlined" onClick={this.submitEditedEquipment}> Submit </Button>
+            </Grid>
+                    <Grid item xs={12} />
+            </Grid>
          </>
         ) //end return 
     } // end render

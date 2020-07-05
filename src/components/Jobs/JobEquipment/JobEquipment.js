@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Card, CardHeader, CardContent} from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
@@ -9,21 +10,23 @@ export class JobEquipment extends Component {
     render() {
         const { classes } = this.props; //need this for Material UI
         return (
-            <div>
-               
-                    <h3> What equipment does the job require? </h3>
-                  
+           <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="What equipment does the job require?" />
 
-                    <ul>
+                <CardContent  >
+               
+                   
+                    
                         {this.props.proficiencies.equipment.map((item) => {
                             return (
                                 <JobEquipmentItem item={item} key={item.id} />
                             )
 
                         })}
-                    </ul>
+                  
 
-                </div>
+                </CardContent>
+             </Card >
 
          ) }
     }
