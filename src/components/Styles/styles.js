@@ -23,10 +23,19 @@ const styles = {
         //Width: 85%,
         // width: 100%,
     },
+    // card: {
+    //     textAlign: 'center',
+    //     //maxWidth: 400,
+    // },
     card: {
-        textAlign: 'center',
-        //maxWidth: 400,
-    },
+        maxWidth: 1100,
+        margin: "auto",
+        transition: "0.3s",
+        boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+        "&:hover": {
+          boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
+    }
+},
     paper: {
         textAlign: 'center',
     },

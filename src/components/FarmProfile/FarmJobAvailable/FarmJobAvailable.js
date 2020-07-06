@@ -79,7 +79,7 @@ export class FarmJobsAvailable extends Component {
                     <h3>Description:</h3>
                     <p>{this.props.job.description}</p>
                     <p>{this.props.job.brand}</p>
-                    <Button variant="outlined" onClick={this.closeModal}>Close</Button>
+                    <Button variant="outlined" onClick={this.closeModal} className={"closeBtn"}>Close</Button>
                 </Modal>
                 </tbody>
                 </table>
