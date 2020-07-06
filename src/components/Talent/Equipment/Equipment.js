@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { Card, CardContent, CardHeader } from '@material-ui/core';
+import { Card, CardContent, CardHeader, Grid } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -17,13 +17,14 @@ export class Equipment extends Component {
 
                 <CardContent  >
                
-
+                    <Grid container spacing={2} >
                 {this.props.proficiencies.equipment.map((item) => {
                     return (
                         <EquipmentItem item={item} key={item.id} />
                     )
 
                 })}
+                    </Grid>
 
               
           </CardContent>
