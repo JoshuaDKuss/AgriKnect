@@ -41,8 +41,11 @@ export class farmBio extends Component {
         // const bull = <span className={classes.bullet}>•</span>;
         let editButtonControl = <span> </span>
         if (this.props.reduxState.user.id == this.props.match.params.id) {
-            editButtonControl = <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
-        }
+            editButtonControl = <Button variant="outlined"
+                onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
+            // editButtonControl = <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
+        } 
+
         
         // let iconToRender = <span> </span>
         //  if(this.props.details.type === 'Row Crop'){
@@ -130,8 +133,9 @@ export class farmBio extends Component {
                                 </div> */}
 
                                 <div className={'bioButton'}>
-                                    <Button variant="outlined" 
-                                    onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
+                                    {editButtonControl}
+                                    {/* <Button variant="outlined" 
+                                    onClick={(event) => this.editFarmBio(event)}>edit farm</Button> */}
                                     {/* <h4>Farm Size </h4>&nbsp;
                                     <a>{bio.size} </a> */}
                                     <h4>Farm Size: {bio.size} </h4>
