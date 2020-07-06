@@ -64,7 +64,7 @@ export class EditTalentEmployment extends Component {
                  </CardContent  >
                     <CardActions style={{ justifyContent: 'center' }}>
 
-                <Button onClick={this.addEmployment} variant='outlined'> Add another license/certificate</Button>
+                <Button onClick={this.addEmployment} variant='outlined'> Add additional employment</Button>
                 <Button onClick={this.submitEditedEmployment} variant="outlined"> Submit </Button>
                     </CardActions>
                     </Card>

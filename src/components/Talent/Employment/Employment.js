@@ -19,6 +19,7 @@ export class Employment extends Component {
             employmentList: [...previousState.employmentList, this.state.counter + 1]
         }));
     }
+    
 
     render() {
         const { classes } = this.props; //need this for Material UI
