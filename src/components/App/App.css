@@ -72,3 +72,14 @@ input {
 }
 
 
+.fillBtn {
+    opacity: 0;
+    width: 200px;
+    /* height: 50px; */
+}
+
+.fillBtn:hover {
+    cursor: pointer;
+}
+
+
