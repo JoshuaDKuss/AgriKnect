@@ -2,9 +2,12 @@
     color: #419B2A;
     background: rgb(7, 31, 0);
     padding: 20px;
-    bottom: 0;
+    /* margin-bottom: 0px; */
     text-align: center;
-    position: sticky;
+    /* position: sticky; */
+    /* flex-shrink: 0; */
+   margin-top: 20vh;
     width: 100%;
+    /* padding-top: 10vh; */
 }
 
