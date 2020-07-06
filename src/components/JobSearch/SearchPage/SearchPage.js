@@ -124,7 +124,7 @@ class SearchPage extends Component {
       );
     }
     return (
-      <div>
+      <div className={'searchPage'}>
         <div>
           <input
             value={this.state.search}
