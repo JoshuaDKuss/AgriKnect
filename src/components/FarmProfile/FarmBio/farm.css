@@ -106,9 +106,12 @@ margin-bottom: 10px;
     width: 700px;
     height: 70%;
     margin: auto;
-    background: white;
+    background: rgb(226, 226, 226);
     /* text-align: center; */
 }
 .modalStartDate {
 margin-left: 20px;
 }
+/* .closeBtn{
+    color: red;
+} */

@@ -14,9 +14,10 @@ import EditIcon from '@material-ui/icons/Edit';
 import Card from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper'
+import Paper from '@material-ui/core/Paper';
+import profilePhoto from '../TalentProfile/farmPhoto.jpeg'
 // import spacing from '@material-ui/core/s'
-import faker from 'faker';
+// import faker from 'faker';
 import './talent.css'
 
 // const styles = muiBaseTheme => ({
@@ -168,7 +169,7 @@ export class TalentProfile extends Component {
                                     <Grid spacing={1}>
                                         <Grid>
                                     <div>
-                                        <img alt="avatar" className={"avatarImg"} src={faker.image.avatar()} />
+                                        <img alt="avatar" className={"avatarImg"} src={profilePhoto} />
                                     </div>
                                     </Grid>
                                     
