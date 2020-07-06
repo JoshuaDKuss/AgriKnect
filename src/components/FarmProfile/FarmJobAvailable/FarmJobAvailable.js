@@ -4,6 +4,7 @@ import moment from "moment";
 import {Button} from '@material-ui/core';
 import Modal from 'react-modal';
 import './FarmJobAvailable.css';
+import { withRouter } from 'react-router-dom';
 // import FarmJobsAvailableItem from '../FarmJobAvailableItem/FarmJobAvailableItem'
 
 // Modal.setAppElement('#root')
@@ -32,6 +33,11 @@ export class FarmJobsAvailable extends Component {
     }
 
     render() {
+        let deleteButtonControl = <span> </span>
+        if (this.props.reduxState.user.id == this.props.match.params.id) {
+            deleteButtonControl = <Button variant="outlined" onClick={this.deleteJob}>Delete</Button>
+            // editButtonControl = <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button>
+        } 
         
         return (
             <>
@@ -52,7 +58,8 @@ export class FarmJobsAvailable extends Component {
                     <td>{moment(this.props.job.start_date).format("MMM Do, YYYY")}</td>
                     <td>${this.props.job.payment_amount} &nbsp;{this.props.job.payment_period}</td>
                     <td><Button variant="outlined" onClick={this.showModal}>View</Button>
-                    <Button variant="outlined" onClick={this.deleteJob}>Delete</Button></td>
+                    {deleteButtonControl} </td>
+                    {/* <Button variant="outlined" onClick={this.deleteJob}>Delete</Button></td> */}
                 </tr>
                 
 
@@ -86,4 +93,4 @@ export class FarmJobsAvailable extends Component {
 
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
-export default connect(reduxStateToProps)(FarmJobsAvailable);
+export default connect(reduxStateToProps)(withRouter(FarmJobsAvailable));
