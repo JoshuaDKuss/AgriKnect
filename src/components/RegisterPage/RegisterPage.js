@@ -81,7 +81,7 @@ class RegisterPage extends Component {
           </div>
           <div>
             <label htmlFor="username">
-              Username:
+              Email:
               <input
                 type="text"
                 name="username"
@@ -110,7 +110,7 @@ class RegisterPage extends Component {
                 onChange={this.handleInputChangeFor("userType")}
               >
                 <option></option>
-                <option value="talent">talent</option>
+                <option value="talent">worker</option>
                 <option value="employer">employer</option>
               </select>
             </label>

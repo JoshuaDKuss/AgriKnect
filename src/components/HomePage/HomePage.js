@@ -6,6 +6,11 @@ import "./HomePage.css";
 
 class HomePage extends Component {
 
+  componentDidMount() {
+    this.props.dispatch({
+      type: "FETCH_INITIAL_JOBS",
+    });
+  }
   // goToProfile = () =>{
   //   console.log('go to profile clicked');
   //   //this.props.history.push(`/farmProfile/${this.props.reduxState.user.id}`);

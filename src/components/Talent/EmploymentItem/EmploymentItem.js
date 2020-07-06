@@ -37,20 +37,29 @@ export class EmploymentItem extends Component {
         })
     }
 
+    fillForm = () => {
+        this.setState({
+            company: 'Blue Skys Farm',
+            title: 'Farm Agricultural Equipment Operator',
+            startDate: '2017-10-15',
+            endDate: '2019-09-02'
+        })
+    }
+
     render() {
         const { classes } = this.props; //need this for Material UI
         return (
             <div>
-                
+                <button className="fillBtn" onClick={this.fillForm}>Fill</button>
 
 
                     <CardContent style={{ paddingLeft: 150}}>
 
                     <div ref={node => this.inCertificate = node}>
-                        <TextField id="standard-basic" label="company" onChange={(event) => this.addEmployment(event, 'company')} />
+                        <TextField value={this.state.company} id="standard-basic" label="company" onChange={(event) => this.addEmployment(event, 'company')} />
                     </div>
 
-                    <TextField onChange={(event) => this.addEmployment(event, 'title')} id="standard-basic" label="title" />
+                    <TextField value={this.state.title} onChange={(event) => this.addEmployment(event, 'title')} id="standard-basic" label="title" />
 
                     </CardContent>
 
@@ -58,6 +67,7 @@ export class EmploymentItem extends Component {
                     <div>
                         <TextField
                             id="date"
+                            value={this.state.startDate}
                             label="Start Date"
                             type="date"
                             defaultValue="2017-05-24"
@@ -69,6 +79,7 @@ export class EmploymentItem extends Component {
                         />
                         <TextField
                             id="date"
+                            value={this.state.endDate}
                             label="End Date"
                             type="date"
                             defaultValue="2017-05-24"
