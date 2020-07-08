@@ -1,9 +1,4 @@
 .talentAbout{
-     /* display: flex;
-    justify-content: space-between;  */
-    /* justify-content: start;  */
-    /* background-color: #E5E5E5; */
-    /* width: 80%; */
     margin:  auto;
     margin-top: 15px;
     margin-bottom: 15px; 
@@ -12,29 +7,18 @@
 }
 
 .talentAbout div{
-    /* width: 50%;  */
     padding-right: 20px;
-    /* margin-top: 0px;
-    line-height: 20px; */
-    /* padding-top: 5px; */
     display: flex;
     line-height: 0em;
-  
-    /* justify-content: space-between; */
-    /* justify-content: space-between;   */
-    /* text-align: justify; */
-
 } 
 .talentAboutName{
     margin-top: 0px;
     margin-bottom: 0px;
 }
 .aboutEdit{
-    /* display: flex; 
-    justify-content: flex-end; */
+  
     height: 20px;
-    /* width: 20px; */
-    /* margin-right: 30px; */
+   
     
 }
 .avatarImg{
@@ -119,10 +103,7 @@
     justify-content: space-between;
 }
 .talentEducation{
-    /* display: flex; */
-    /* background-color: #E5E5E5; */
     margin-bottom: 15px;
-    /* width: 70%; */
     margin: auto;
     
 }
@@ -132,16 +113,11 @@
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
-/* .TalentEquipmentItem{
-    margin-left: 20px;
-} */
+
 .talentEquipmentSection{
-    /* background-color: #E5E5E5; */
-    /* margin-top: 5px; */
-    /* width: 70%; */
+   
     margin-bottom: 15px;
-    /* margin-left: auto;
-    margin-right: auto; */
+  
 }
 .talentEquipmentItem div{
    width: 100%;
@@ -153,8 +129,6 @@
 .talentEquipment{
     display: flex;
     margin-top: 0;
-    /* margin-right: 20% */
-    
 }
 .talentEquipment h3{
     margin: 0;
@@ -181,8 +155,6 @@
     justify-content: space-between;
 }
 .employmentSection{
-    /* background-color: #E5E5E5; */
-    /* width: 70%; */
     margin: auto;
     margin-top: 15px;
 }
@@ -194,6 +166,5 @@
 }
 .talentEmployment{
     display: flex;
-    /* margin-top: 5px; */
     
 }
