@@ -15,7 +15,6 @@ export class EducationItem extends Component {
     }
 
     state = {
-     
         school: '',
         degree: '',
         startDate: '2017-01-01',
@@ -40,20 +39,11 @@ export class EducationItem extends Component {
         })
     }
 
-    fillForm = () => {
-        this.setState({
-            school: 'Mankato East Senior High School',
-            degree: 'High School Diploma',
-            startDate: '2005-08-15',
-            endDate: '2009-06-15'
-        })
-    }
 
     render() {
         const { classes } = this.props; //need this for Material UI
         return (
             <div>
-                <button className="fillBtn" onClick={this.fillForm}>Fill</button>
                 {/* <div> */}
 
 
@@ -77,7 +67,7 @@ export class EducationItem extends Component {
                     <div>
                         <TextField
                             id="date"
-                            value={this.state.startDate}
+                            // value={this.state.startDate}
                             label="Start Date"
                             type="date"
                             defaultValue="2017-05-24"
@@ -89,7 +79,7 @@ export class EducationItem extends Component {
                         />
                         <TextField
                             id="date"
-                            value={this.state.endDate}
+                            // value={this.state.endDate}
                             label="End Date"
                             type="date"
                             defaultValue="2017-05-24"
