@@ -8,11 +8,11 @@ import { Button, Grid } from '@material-ui/core';
 import styles from '../../Styles/styles';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+//import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types'; 
-import CardMedia from '@material-ui/core/CardMedia';
+//import CardMedia from '@material-ui/core/CardMedia';
 import RowCropBio from './row-crop-field2.png';
 import Icon from './farm-icon.png';
 // import { sizing } from '@material-ui/system';
@@ -62,28 +62,6 @@ export class farmBio extends Component {
         return (
             <>
 
-                {/* <Card className={classes.root} variant="outlined">
-                    <CardContent>
-                        <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        Word of the Day
-                        </Typography>
-                        <Typography variant="h5" component="h2">
-                        be{bull}nev{bull}o{bull}lent
-                        </Typography>
-                        <Typography className={classes.pos} color="textSecondary">
-                        adjective
-                        </Typography>
-                        <Typography variant="body2" component="p">
-                        well meaning and kindly.
-                        <br />
-                        {'"a benevolent smile"'}
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
-                </Card> */}
-
                 
             <div >
                 <Grid container direction="row" 
@@ -120,10 +98,6 @@ export class farmBio extends Component {
                                     {bio.city}, {bio.state}
                                     &nbsp;{bio.zipcode}</p>
                                     
-                                    {/* <p>Email: {bio.username}<br/>
-                                    Owner: {bio.first_name} &nbsp;
-                                    {bio.last_name} <br/>
-                                    Phone: {bio.phone}</p> */}
                                 </div>
                                 
 

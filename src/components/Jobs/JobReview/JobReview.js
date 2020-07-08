@@ -12,7 +12,12 @@ import moment from 'moment';
 export class JobReview extends Component {
     sendJobPosting = () => {
         console.log('in jobPosting')
-        this.props.dispatch({ type: 'SET_JOB_POSTING', payload: { job: this.props.job, id: this.props.user.id }, history: this.props.history })
+        this.props.dispatch({ type: 'SET_JOB_POSTING', 
+                            payload: { job: this.props.job, 
+                            id: this.props.user.id }
+                            // , history: this.props.history 
+        })
+        this.props.history.push('/ThankYouPageJob');
     }
 
     render() {

@@ -1,30 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 //import {Button} from '@material-ui/core';
-import { Typography, Select, MenuItem, 
-        //FormControl, InputLabel, FormHelperText 
-        } from '@material-ui/core';
+import { Select, MenuItem, 
+        Card, CardContent, CardHeader } from '@material-ui/core';
 //import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
 import { withStyles } from '@material-ui/core/styles';
 
-// const useStyles = {
-//     FormControl: {
-//             // margin: theme.spacing(1),
-//             minWidth: 250,
-//         }
-// }    // needed this for MUI select
 
-// const useStyles = makeStyles((theme) => ({
-//     FormControl: {
-//       margin: theme.spacing(1),
-//       minWidth: 250,
-//     },
-//     selectEmpty: {
-//       marginTop: theme.spacing(3),
-//     },
-//   }));
 
 export class Size extends Component {
 
@@ -40,10 +24,19 @@ export class Size extends Component {
     render() {
         const { classes } = this.props; //need this for Material UI    
         return (
-            <div className={"centerIt"}>
-                <Typography>  What is the size of your farm? </Typography> <br/>
-                <ul>
-                            <li>
+            // <div className={"centerIt"}>
+                // <Typography>  What is the size of your farm? </Typography> <br/>
+                // <ul>
+
+                <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} 
+                //classes={{ title: classes.title }} 
+                title="What is the size of your farm?" />
+
+                <CardContent>
+
+              
+                            {/* <li> */}
                                 <Select 
                                 variant="outlined" 
                                 onChange={this.handleSizeSelection} 
@@ -57,9 +50,9 @@ export class Size extends Component {
                                     <MenuItem value = "75-100 employees"> 75-100 employees </MenuItem>
                                     <MenuItem value = "100+ employees"> 100+ employees </MenuItem>
                                 </Select> <br/>
-                            </li>
-                </ul>
-            </div>
+                            {/* </li> */}
+            </CardContent>
+            </Card >
         )
     }
 }
