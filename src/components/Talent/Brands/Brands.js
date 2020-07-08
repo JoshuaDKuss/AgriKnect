@@ -28,15 +28,6 @@ export class Brands extends Component {
                 })}
                     </Grid>
 
-                {/* <Button variant='contained' color={this.state.johnDeereColor} onClick={(event) => this.addOrDeleteEquipment(event, 'John Deere', 'johnDeereColor')}> John Deere </Button>
-                <Button variant='contained' color={this.state.caseIhColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Case IH', 'caseIhColor')}> Case IH</Button>
-                <Button variant='contained' color={this.state.newHollandColor} onClick={(event) => this.addOrDeleteEquipment(event, 'New Holland', 'newHollandColor')}> New Holland </Button>
-                <Button variant='contained' color={this.state.caterpillarColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Caterpillar', 'caterpillarColor')}> Caterpillar </Button>
-                <Button variant='contained' color={this.state.masseyColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Massey Fergueson', 'masseyColor')}> Massey Fergueson </Button>
-                <Button variant='contained' color={this.state.claasColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Claas', 'claasColor')}> Claas </Button>
-                <Button variant='contained' color={this.state.kubotaColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Kubota', 'kubotaColor')}> Kubota</Button>
-                <Button variant='contained' color={this.state.allisChalmersColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Allis Chalmers', 'allisChalmersColor')}> Allis Chalmers </Button> */}
-
 
                 </CardContent>
             </Card>

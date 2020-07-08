@@ -35,7 +35,6 @@ export class TalentProfileEquipmentItem extends Component {
                 color: ''
             })
         } //end of conditional 
-        console.log(this.state)
         this.props.dispatch({ type: 'SET_EDITED_EQUIPMENT', payload: property })
 
     } //end of addOrDelete function 

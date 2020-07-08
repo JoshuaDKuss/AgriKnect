@@ -7,7 +7,6 @@ import { TextField, Typography, RadioGroup, FormControlLabel, FormLabel, FormCon
 
 export class JobRelocation extends Component {
     chooseAccomodation(event) {
-        console.log(event.target.value)
         this.props.dispatch({ type: 'SET_ACCOMODATION', payload: event.target.value })
         
     }
@@ -17,7 +16,6 @@ export class JobRelocation extends Component {
     }
 
      chooseRelocation(event) {
-        console.log(event.target.value)
         this.props.dispatch({ type: 'SET_RELOCATION', payload: event.target.value })
     }
 

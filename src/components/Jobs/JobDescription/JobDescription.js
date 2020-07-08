@@ -72,11 +72,9 @@ export class JobDescription extends Component {
                         id="date"
                         label="Start Date"
                         type="date"
-                        // defaultValue="2017-05-24"
                         InputLabelProps={{
                             shrink: true,
                         }}
-                        // value={this.state.startDate}
                         onChange={(event) => this.sendDates(event, 'startDate')}
 
                     />
@@ -84,11 +82,9 @@ export class JobDescription extends Component {
                         id="date"
                         label="End Date"
                         type="date"
-                        // defaultValue="2017-05-24"
                         InputLabelProps={{
                             shrink: true,
                         }}
-                        // value={this.state.endDate}
                         onChange={(event) => this.sendDates(event, 'endDate')}
 
                     />

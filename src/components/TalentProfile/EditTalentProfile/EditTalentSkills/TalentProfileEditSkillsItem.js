@@ -36,7 +36,6 @@ export class TalentProfileEditSkillsItem extends Component {
                 color: ''
             })
         } //end of conditional 
-        console.log(this.state)
         this.props.dispatch({ type: 'SET_EDITED_SKILLS', payload: property })
 
     } //end of addOrDelete function 

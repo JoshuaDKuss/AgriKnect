@@ -22,7 +22,7 @@ export class Education extends Component {
         }));
     }
 
-    // style={{ backgroundColor: "#B4C6CE" }}
+  
 
     render() {
         const { classes } = this.props; //need this for Material UI

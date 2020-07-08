@@ -7,9 +7,7 @@ import { Select, MenuItem, Grid, Card, CardHeader, CardContent } from '@material
 
 export class TalentProfileEditExpertise extends Component {
     handleYearSelection = (event) => {
-        console.log(event.target.value)
         this.props.dispatch({ type: 'SET_EDITED_SKILLS_EXPERTISE', payload: { skillID: event.target.value.skill, skillName: event.target.value.name, time: event.target.value.time } })
-        // skillId: event.target.dataset.skill, skillName: event.target.dataset.proficiency_name,
     }
 
     render() {

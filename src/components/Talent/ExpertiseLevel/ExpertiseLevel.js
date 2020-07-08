@@ -8,9 +8,7 @@ import './ExpertiseLevel.css'
 
 export class ExpertiseLevel extends Component {
     handleYearSelection = (event) => {
-        console.log(event.target.value)
         this.props.dispatch({ type: 'SET_SKILLS_EXPERIENCE', payload: { skillID: event.target.value.skill, skillName: event.target.value.name,  time: event.target.value.time} })
-        // skillId: event.target.dataset.skill, skillName: event.target.dataset.proficiency_name,
     }
 
     render() {
@@ -29,7 +27,7 @@ export class ExpertiseLevel extends Component {
                                 <span className="skill">
                                 {skill.proficiency_name} 
                                 </span>
-                                {/* data-skill={skill.id} */}
+                              
                                 <Select onChange={this.handleYearSelection}   > 
                                     <MenuItem> </MenuItem>
                                     <MenuItem value = {{time: "less than 1 year", skill: skill.id}} > Less than 1 year </MenuItem>

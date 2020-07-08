@@ -30,7 +30,6 @@ export class EditTalentEmployment extends Component {
             counter: this.state.counter - 1,
             employmentList: [...previousState.employmentList, this.state.counter - 1]
         }));
-        console.log(this.state)
     }
 
 

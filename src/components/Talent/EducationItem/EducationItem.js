@@ -8,15 +8,10 @@ import { TextField, Typography, Card, CardContent, CardActions } from '@material
 export class EducationItem extends Component {
     componentWillUnmount() {
         if(this.state.school === null && this.state.degree === null && this.state.startDate === null && this.state.endDate === null) {
-            console.log('no education')
         } else{
             this.props.dispatch({ type: 'SET_EDUCATION', payload: { state: this.state } })
         }
         
-    }
-
-    componentDidMount() {
-        console.log('STATE STATE STATE', this.props.item)
     }
 
     state = {
@@ -32,8 +27,7 @@ export class EducationItem extends Component {
                 ...this.state,
                 [property]: event.target.value,
             })
-            console.log(event.target.value);
-            console.log('STATE', this.state)
+           
        
     }
 
@@ -50,11 +44,7 @@ export class EducationItem extends Component {
         const { classes } = this.props; //need this for Material UI
         return (
             <div>
-                {/* <div> */}
-
-
-                  {/* <Card>
-                      <CardActions> */}
+             
 
                 <CardContent style={{ paddingLeft: 150}}>
                    
@@ -76,7 +66,6 @@ export class EducationItem extends Component {
                             // value={this.state.startDate}
                             label="Start Date"
                             type="date"
-                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -88,7 +77,6 @@ export class EducationItem extends Component {
                             // value={this.state.endDate}
                             label="End Date"
                             type="date"
-                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}

@@ -10,11 +10,6 @@ export class EditTalentCertificationsItem extends Component {
 
 
 
-    componentDidMount() {
-        console.log(this.props.item)
-    }
-    
-
     state = {
         id: this.props.item,
         certificate: null,
@@ -26,19 +21,15 @@ export class EditTalentCertificationsItem extends Component {
 
 
     addCertificate = (event, property) => {
-        console.log(event.target.value)
         this.setState({
             ...this.state,
             [property]: event.target.value,
         })
-        console.log(this.state);
 
     }
 
 
-    // removeCertification = () => {
-    //     console.log(this.props.item)
-    // }
+
 
     toggleEditMode = () => {
         this.setState({
@@ -94,28 +85,13 @@ export class EditTalentCertificationsItem extends Component {
 
                         />
                         <Button variant="outlined" onClick={this.toggleEditModeSave}> Save </Button> 
-                    {/* <Button variant="outlined" onClick={this.deleteCertificate}> Delete </Button>  */}
+                 
                     </div> 
              </>
         } else {
             JSXToRender = 
                 <> </>
-            //    <>
-            //          <div>
-
-            //         <Typography> Certificate Name: {this.state.certificate}  </Typography>
-            //         </div>
-            //     <Typography>Issuing Company: {this.state.issuingCompany}  </Typography>
-                  
-
-            //         <div>
-            //         <Typography> Issue Date: {moment(this.state.issueDate).format(("YYYY-MM-DD"))}</Typography>
-            //         <Typography> Expiration Date: {moment(this.state.expirationDate).format(("YYYY-MM-DD"))}</Typography>
-                       
-            //             <Button variant="outlined" onClick={this.toggleEditMode}> Edit </Button>
-            //         <Button variant="outlined" onClick={this.deleteCertificate}> Delete </Button> 
-            //         </div> 
-            //     </>
+          
               
         }
 
@@ -132,8 +108,5 @@ export class EditTalentCertificationsItem extends Component {
 
 EditTalentCertificationsItem.propTypes = { classes: PropTypes.object.isRequired };
 
-// const mapStateToProps = state => ({
-//     certification: state.talentForm.formData.certification,
-// });
 
 export default connect()(withStyles(styles)(EditTalentCertificationsItem)); 

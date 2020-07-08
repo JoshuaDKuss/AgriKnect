@@ -12,7 +12,6 @@ import Typography from '@material-ui/core/Typography';
 export class ThankYouEditTalent extends Component {
 
     goToTalentProfile = () =>{
-        console.log('go to talent profile clicked');
         this.props.history.push(`/talentProfile/${this.props.reduxState.user.id}`);
     }
     render() {
