@@ -79,7 +79,7 @@ export class CertificationsItem extends Component {
                             id="date"
                             label="Issue Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -91,7 +91,7 @@ export class CertificationsItem extends Component {
                             value={this.state.expirationDate}
                             label="Expiration Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}

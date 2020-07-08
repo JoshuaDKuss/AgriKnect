@@ -85,7 +85,7 @@ export class EducationItem extends Component {
                             value={this.state.startDate}
                             label="Start Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -97,7 +97,7 @@ export class EducationItem extends Component {
                             value={this.state.endDate}
                             label="End Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}
