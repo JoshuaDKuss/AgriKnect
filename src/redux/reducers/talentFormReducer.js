@@ -10,10 +10,10 @@ const formData = (state = {
     certification: [], 
     education: [],
     employment: [],
-    city: '',
-    state: '',
-    zipcode: 0,
-    bio: ''
+    city: null,
+    state: null,
+    zipcode: null,
+    bio: null
 }, action) => {
     let certificateObject = {
         certificate: '',

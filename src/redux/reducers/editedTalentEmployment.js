@@ -4,11 +4,11 @@ const editedTalentEmployment = (state = [], action) => {
         const index = state.findIndex(item => item.id == action.payload.id)
         if (index < 0) {
             let employmentToAdd = {
-                id: '',
-                title: '',
-                company: '',
-                startDate: '',
-                endDate: ''
+                id: null,
+                title: null,
+                company: null,
+                startDate: null,
+                endDate: null
             }
             console.log('need to add')
             employmentToAdd.id = action.payload.id
@@ -27,11 +27,11 @@ const editedTalentEmployment = (state = [], action) => {
         const index = state.findIndex(item => item.id == action.payload.id)
         if (index < 0) {
            let employmentToAdd = {
-                id: '',
-                title: '',
-                company: '',
-                startDate: '',
-                endDate: ''
+                id: null,
+                title: null,
+                company: null,
+                startDate: null,
+                endDate: null
             }
             console.log('need to add')
             employmentToAdd.id = action.payload.id
@@ -45,11 +45,11 @@ const editedTalentEmployment = (state = [], action) => {
         } else {
 
             let employmentToAdd = {
-                id: '',
-                title: '',
-                company: '',
-                startDate: '',
-                endDate: ''
+                id: null,
+                title: null,
+                company: null,
+                startDate: null,
+                endDate: null
             }
            
             employmentToAdd.id = action.payload.id

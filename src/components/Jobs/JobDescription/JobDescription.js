@@ -8,10 +8,10 @@ import { TextField, Typography, RadioGroup, FormControlLabel, FormLabel, FormCon
 export class JobDescription extends Component {
 
     state = {
-        jobTitle: '',
-        jobDescription: '',
-        startDate: '',
-        endDate: ''
+        jobTitle: null,
+        jobDescription: null,
+        startDate: null,
+        endDate: null
     }
 
     sendTitle(event) {
@@ -34,15 +34,6 @@ export class JobDescription extends Component {
         }
     }
 
-    fillForm = () => {
-        this.setState({
-            jobTitle: 'Tractor Operator',
-            jobDescription: 'The primary responsibility of a Farms Seasonal Tractor Operator is to drive tractor to accomplish daily and weekly tasks for field production. This individual has the ability to work well independently with little guidance as well as work in a team environment.',
-            startDate: '2020-08-08',
-            endDate: '2021-08-08'
-        })
-    }
-
     render() {
         const { classes } = this.props; //need this for Material UI
         return (
@@ -50,12 +41,9 @@ export class JobDescription extends Component {
                 <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="What type of job are you filling?" />
 
                 <CardContent style={{ textAlign: 'center' }}  >
-                <button className="fillBtn" onClick={this.fillForm}>Fill</button><br/>
-                {/* value is this.props.job.jobTitle */}
-                <TextField value={this.state.jobTitle} id="standard-basic" label="Job Title" onChange={(event) => this.sendTitle(event)} />
+                <TextField value={this.props.job.jobTitle} id="standard-basic" label="Job Title" onChange={(event) => this.sendTitle(event)} />
                 </CardContent>
-                
-                
+                 
                 <CardContent style={{ textAlign: 'center' }}  >
                     <div> 
                  <TextField
@@ -63,7 +51,7 @@ export class JobDescription extends Component {
                         label="Description"
                         multiline
                         rows={6}
-                        value={this.state.jobDescription}
+                        value={this.props.job.jobDescription}
                         onChange={(event) => this.sendDescription(event)}
                         variant="outlined"
                     />
@@ -84,11 +72,11 @@ export class JobDescription extends Component {
                         id="date"
                         label="Start Date"
                         type="date"
-                        defaultValue="2017-05-24"
+                        // defaultValue="2017-05-24"
                         InputLabelProps={{
                             shrink: true,
                         }}
-                        value={this.state.startDate}
+                        // value={this.state.startDate}
                         onChange={(event) => this.sendDates(event, 'startDate')}
 
                     />
@@ -96,11 +84,11 @@ export class JobDescription extends Component {
                         id="date"
                         label="End Date"
                         type="date"
-                        defaultValue="2017-05-24"
+                        // defaultValue="2017-05-24"
                         InputLabelProps={{
                             shrink: true,
                         }}
-                        value={this.state.endDate}
+                        // value={this.state.endDate}
                         onChange={(event) => this.sendDates(event, 'endDate')}
 
                     />
