@@ -98,7 +98,7 @@ export class JobPosting extends Component {
         if (this.state.formCounter === 0) {
             backButton = <span> </span>
         } else {
-            backButton = <Box display='inline' ml={25} ><Button outline="variant" onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button> </Box> 
+            backButton = <Box display='inline' ml={25} ><Button variant="outlined" onClick={(event) => this.changeFormCounter(event, 'subtract')}> Back </Button> </Box> 
         }
 
         let nextButton = <span></span>

@@ -1,33 +1,70 @@
 .talentAbout{
-    display: flex;
-    justify-content: start;
-    background-color: #E5E5E5;
-    width: 70%;
+     /* display: flex;
+    justify-content: space-between;  */
+    /* justify-content: start;  */
+    /* background-color: #E5E5E5; */
+    /* width: 80%; */
     margin:  auto;
     margin-top: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 15px; 
+   
+    
 }
+
 .talentAbout div{
-    width: 50%;
+    /* width: 50%;  */
+    padding-right: 20px;
+    /* margin-top: 0px;
+    line-height: 20px; */
+    /* padding-top: 5px; */
+    display: flex;
+    line-height: 0em;
+  
+    /* justify-content: space-between; */
+    /* justify-content: space-between;   */
+    /* text-align: justify; */
+
+} 
+.talentAboutName{
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .aboutEdit{
-    display: flex;
-    justify-content: flex-end;
+    /* display: flex; 
+    justify-content: flex-end; */
     height: 20px;
+    /* width: 20px; */
+    /* margin-right: 30px; */
     
+}
+.avatarImg{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin-left: 10px;
 }
 .experienceHeader{
     display: block;
     text-align: start;
     margin: 0;
+   
+}
+.headerColor{
+    color: #6B818C;
 }
 .talentExperienceSection{
-    background-color: #E5E5E5;
+    /* background-color: #E5E5E5; */
     /* margin-top: 5px; */
-    width: 70%;
+    /* width: 70%; */
     margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     margin-top: 10px;
+}
+.talentExperienceSection hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 .talentExpHeader{
     display: flex;
@@ -44,13 +81,29 @@
     justify-content: space-between;
 }
 .talentCertificationSection{
-    background-color: #E5E5E5;
-    width: 70%;
+    /* background-color: #E5E5E5; */
+    /* width: 70%; */
     margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+.talentExperienceSection hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+.talentEquipmentSection hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 .talentCertificationSection h3{
     margin-bottom: 0px;
+    color: #6B818C;
+}
+.talentEmploymentItem div{
+    width: 33%;
 }
 .talentCert{
    
@@ -67,26 +120,40 @@
 }
 .talentEducation{
     /* display: flex; */
-    background-color: #E5E5E5;
-    margin-bottom: 10px;
-    width: 70%;
+    /* background-color: #E5E5E5; */
+    margin-bottom: 15px;
+    /* width: 70%; */
     margin: auto;
     
+}
+.talentEducation hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 /* .TalentEquipmentItem{
     margin-left: 20px;
 } */
 .talentEquipmentSection{
-    background-color: #E5E5E5;
+    /* background-color: #E5E5E5; */
     /* margin-top: 5px; */
-    width: 70%;
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    /* width: 70%; */
+    margin-bottom: 15px;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+.talentEquipmentItem div{
+   width: 100%;
+   margin-right: 50px;
+    
+    
+    
 }
 .talentEquipment{
     display: flex;
     margin-top: 0;
+    /* margin-right: 20% */
     
 }
 .talentEquipment h3{
@@ -99,16 +166,31 @@
 .talentEmploymentItem div{
    display: flex;
    justify-content: space-evenly;
+   
+}
+.talentEmploymentItem span{
+    margin-right: 10px;
+    
+}
+.talentEmploymentItem p{
+    margin-top: 0;
+
 }
 .employmentHeader{
     display: flex;
     justify-content: space-between;
 }
 .employmentSection{
-    background-color: #E5E5E5;
-    width: 70%;
+    /* background-color: #E5E5E5; */
+    /* width: 70%; */
     margin: auto;
-    margin-bottom: 10px;
+    margin-top: 15px;
+}
+.employmentSection hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 .talentEmployment{
     display: flex;

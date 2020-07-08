@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, CardHeader, CardContent } from '@material-ui/core';
+import { Button, Card, CardHeader, CardContent, Grid } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -19,13 +19,14 @@ export class Brands extends Component {
                     <CardContent  >
            
                 
-
+                    <Grid container spacing={2} >
                 {this.props.proficiencies.brands.map((item) => {
                     return (
                         <BrandsItem item={item} key={item.id} />
                     )
 
                 })}
+                    </Grid>
 
                 {/* <Button variant='contained' color={this.state.johnDeereColor} onClick={(event) => this.addOrDeleteEquipment(event, 'John Deere', 'johnDeereColor')}> John Deere </Button>
                 <Button variant='contained' color={this.state.caseIhColor} onClick={(event) => this.addOrDeleteEquipment(event, 'Case IH', 'caseIhColor')}> Case IH</Button>
