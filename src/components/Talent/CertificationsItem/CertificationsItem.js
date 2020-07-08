@@ -42,14 +42,7 @@ export class CertificationsItem extends Component {
         })
     }
 
-    fillForm = () => {
-        this.setState({
-            certificate: 'Class A CDL',
-            issuingCompany: 'State of MN',
-            issueDate: '2019-02-17',
-            expirationDate: '2023-02-17'
-        })
-    }
+  
 
     render() {
         let certificateValue = ''
@@ -62,20 +55,23 @@ export class CertificationsItem extends Component {
         return (
             <div>
                    
-                   <button className="fillBtn" onClick={this.fillForm}>Fill</button>
                  
                  <CardContent style={{ paddingLeft: 150}}>
                     <div ref={node => this.inCertificate = node}>
-                        <TextField value={this.state.certificate} id="standard-basic" label="License or certificate" onChange={(event) => this.addCertificate(event, 'certificate')} />
+                        <TextField 
+                        // value={this.state.certificate} 
+                        id="standard-basic" label="License or certificate" onChange={(event) => this.addCertificate(event, 'certificate')} />
                     </div>
   
-                    <TextField value={this.state.issuingCompany} onChange={(event) => this.addCertificate(event, 'issuingCompany')} id="standard-basic" label="Issuing Company" />
+                    <TextField 
+                    // value={this.state.issuingCompany} 
+                    onChange={(event) => this.addCertificate(event, 'issuingCompany')} id="standard-basic" label="Issuing Company" />
 
                 </CardContent>
                 <CardContent style={{ textAlign: 'center' }}>
                     <div>
                         <TextField
-                            value={this.state.issueDate}
+                            // value={this.state.issueDate}
                             id="date"
                             label="Issue Date"
                             type="date"
@@ -88,7 +84,7 @@ export class CertificationsItem extends Component {
                         />
                         <TextField
                             id="date"
-                            value={this.state.expirationDate}
+                            // value={this.state.expirationDate}
                             label="Expiration Date"
                             type="date"
                             // defaultValue="2017-05-24"
