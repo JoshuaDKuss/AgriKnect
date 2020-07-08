@@ -17,10 +17,10 @@ export class EditTalentCertificationsItem extends Component {
 
     state = {
         id: this.props.item,
-        certificate: '',
-        issuingCompany: '',
-        issueDate: '2020-01-01',
-        expirationDate: '2020-01-01',
+        certificate: null,
+        issuingCompany: null,
+        issueDate: null,
+        expirationDate: null,
         editMode: true,
     }
 

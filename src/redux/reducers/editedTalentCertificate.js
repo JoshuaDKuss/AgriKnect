@@ -4,11 +4,11 @@ const editedTalentCertification = (state = [], action) => {
         const index = state.findIndex(item => item.id == action.payload.id)
         if (index < 0) {
          let certificateToAdd = {
-                id: '',
-                certificate: '',
-                issuingCompany: '',
-                issueDate: '',
-                expirationDate: ''
+                id: null,
+                certificate: null,
+                issuingCompany: null,
+                issueDate: null,
+                 expirationDate: null
             } //end of certificate to add 
             certificateToAdd.id = action.payload.id;
             certificateToAdd.certificate = action.payload.certification_name;
@@ -25,11 +25,11 @@ const editedTalentCertification = (state = [], action) => {
         const index = state.findIndex(item => item.id == action.payload.id)
         if (index < 0) {
             let certificateToAdd = {
-                id: '',
-                certificate: '',
-                issuingCompany: '',
-                issueDate: '',
-                expirationDate: ''
+                id: null,
+                certificate: null,
+                issuingCompany: null,
+                issueDate: null,
+                expirationDate: null
             } //end of certificate to add 
             certificateToAdd.id = action.payload.id;
             certificateToAdd.certificate = action.payload.certificate;
@@ -42,11 +42,11 @@ const editedTalentCertification = (state = [], action) => {
         } else {
 
             let certificateToAdd = {
-                id: '',
-                certificate: '',
-                issuingCompany: '',
-                issueDate: '',
-                expirationDate: ''
+                id: null,
+                certificate: null,
+                issuingCompany: null,
+                issueDate: null,
+                expirationDate: null
             } //end of certificate to add 
             certificateToAdd.id = action.payload.id;
             certificateToAdd.certificate = action.payload.certificate;
