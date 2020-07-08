@@ -25,7 +25,9 @@ export class FarmBio extends Component {
     render() {
         return (
             <Card >
-                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="Please tell us about your farm" />
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} 
+                //classes={{ title: classes.title }} 
+                title="Please tell us about your farm" />
 
                 <CardContent  >
 
