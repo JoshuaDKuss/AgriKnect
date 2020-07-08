@@ -35,6 +35,7 @@ import ThankYouPageFarm from '../FarmProfile/ThankYouPage/ThankYouPageFarm';
 import ThankYouPageTalent from '../TalentProfile/ThankYouPage/ThankYouPageTalent';
 import ThankYouEditFarm from '../FarmProfile/ThankYouPage/ThankYouEditFarm';
 import ThankYouEditTalent from '../TalentProfile/ThankYouPage/ThankYouEditTalent';
+import ThankYouPageJob from '../Jobs/JobReview/ThankYouPageJob';
 
 import './App.css';
 
@@ -114,6 +115,11 @@ class App extends Component {
               exact
               path="/ThankYouEditTalent"
               component={ThankYouEditTalent}
+            />
+            <ProtectedRoute
+              exact
+              path="/ThankYouPageJob"
+              component={ThankYouPageJob}
             />
             <ProtectedRoute
               exact
