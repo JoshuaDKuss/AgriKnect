@@ -25,7 +25,9 @@ export class FarmBio extends Component {
     render() {
         return (
             <Card >
-                <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="Please tell us about your farm" />
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} 
+                //classes={{ title: classes.title }} 
+                title="Please tell us about your farm" />
 
                 <CardContent  >
 
@@ -37,13 +39,13 @@ export class FarmBio extends Component {
 
                 <TextField
                         id="outlined-multiline-flexible"
-                        label="FarmBio"
+                        label="Farm bio"
                         multiline
                         fullWidth
                         rows={6}
-                    value={this.props.talentForm.bio} 
+                    value={this.props.bio} 
                         
-                    onChange={(event) => this.addBio(event)}
+                    onChange={(event) => this.addFarmBio(event)}
                         variant="outlined"
                     />
 
