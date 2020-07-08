@@ -39,7 +39,7 @@ export class FarmBio extends Component {
 
                 <TextField
                         id="outlined-multiline-flexible"
-                        label="FarmBio"
+                        label="Farm bio"
                         multiline
                         fullWidth
                         rows={6}
