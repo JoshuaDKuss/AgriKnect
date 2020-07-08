@@ -4,11 +4,11 @@ const editedTalentEducation = (state = [], action) => {
         const index = state.findIndex(item => item.id == action.payload.id)
         if (index < 0) {
             let educationToAdd = {
-                id: '',
-                school: '',
-                degree: '',
-                startDate: '',
-                endDate: ''
+                id: null,
+                school: null,
+                degree: null,
+                startDate: null,
+                endDate: null
             }
             console.log('need to add')
             educationToAdd.id = action.payload.id
@@ -27,11 +27,11 @@ const editedTalentEducation = (state = [], action) => {
         const index = state.findIndex(item => item.id == action.payload.id)
         if (index < 0) {
             let educationToAdd = {
-                id: '',
-                school: '',
-                degree: '',
-                startDate: '',
-                endDate: ''
+                id: null,
+                school: null,
+                degree: null,
+                startDate: null,
+                endDate: null
             }//end of certificate to add 
           educationToAdd.id = action.payload.id
             educationToAdd.school = action.payload.school
@@ -44,17 +44,17 @@ const editedTalentEducation = (state = [], action) => {
         } else {
 
             let educationToAdd = {
-                id: '',
-                school: '',
-                degree: '',
-                startDate: '',
-                endDate: ''
+                id: null,
+                school: null,
+                degree: null,
+                startDate: null,
+                endDate: null
             }//end of certificate to add 
           educationToAdd.id = action.payload.id
-            educationToAdd.school = action.payload.institution_name;
+            educationToAdd.school = action.payload.school;
             educationToAdd.degree = action.payload.degree;
-            educationToAdd.startDate = action.payload.start_date;
-            educationToAdd.endDate = action.payload.end_date;
+            educationToAdd.startDate = action.payload.startDate;
+            educationToAdd.endDate = action.payload.endDate;
             console.log('need to delete');
             let filteredEducation = state.filter(education => {
                 return education.id !== action.payload.id

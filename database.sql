@@ -53,7 +53,7 @@ CREATE TABLE "employment" (
 
 CREATE TABLE "jobs" (
 	"id" SERIAL PRIMARY KEY,
-    "user_id" INT REFERENCES "user",
+    "user_id" INT,
     "title" VARCHAR (100),
     "description" VARCHAR (100),
     "type" VARCHAR (100),
@@ -75,7 +75,7 @@ CREATE TABLE "proficiencies" (
 CREATE TABLE "job_proficiencies" (
 	"id" SERIAL PRIMARY KEY,
     "proficiency_id" INTEGER REFERENCES "proficiencies",
-    "job_id" INT REFERENCES "jobs"
+    "job_id" INT 
 );
 
 CREATE TABLE "user_proficiencies" (

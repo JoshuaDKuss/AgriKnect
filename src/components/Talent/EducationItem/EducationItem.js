@@ -7,7 +7,12 @@ import { TextField, Typography, Card, CardContent, CardActions } from '@material
 
 export class EducationItem extends Component {
     componentWillUnmount() {
-        this.props.dispatch({ type: 'SET_EDUCATION', payload: { state: this.state } })
+        if(this.state.school === null && this.state.degree === null && this.state.startDate === null && this.state.endDate === null) {
+            console.log('no education')
+        } else{
+            this.props.dispatch({ type: 'SET_EDUCATION', payload: { state: this.state } })
+        }
+        
     }
 
     componentDidMount() {
@@ -16,10 +21,10 @@ export class EducationItem extends Component {
 
     state = {
      
-        school: '',
-        degree: '',
-        startDate: '2017-01-01',
-        endDate: '2020-01-01'
+        school: null,
+        degree: null,
+        startDate: null,
+        endDate: null
     }
 
     addEducation = (event, property) => {
