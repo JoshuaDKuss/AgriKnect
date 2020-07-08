@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Typography, Grid, Button, 
+import { 
+        Typography, 
+        Grid, Button, 
         Card, CardContent, CardHeader } from '@material-ui/core';
 //import styles from '../../Styles/styles';
 
