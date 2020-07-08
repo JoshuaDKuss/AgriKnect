@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button, Grid } from '@material-ui/core';
-import styles from '../../Styles/styles';
-import Card from '@material-ui/core/Card';
+import { Typography, Grid, Button, 
+        Card, CardContent, CardHeader } from '@material-ui/core';
+//import styles from '../../Styles/styles';
+
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+
+
 
 export class FarmFormReview extends Component {
 
     sendToServer = () => {
-        //console.log(id);
+        
         this.props.dispatch({ type: 'SEND_FARM_FORM', payload: this.props.reduxState.farmForm })  //.farmForm
         //this.props.history.push(`/farmProfile/${this.props.reduxState.user.id}`);
         this.props.history.push('/ThankYouPageFarm');
     }
 
     render() {
+        const { classes } = this.props;
         return (
             <>
-            <div className={"centerIt"}>
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} 
+                //classes={{ title: classes.title }} 
+                title="Please review your information" />
+
+                <CardContent  >
+
+            {/* <div className={"centerIt"}> */}
                 <Grid container direction="row" 
                     //className={classes.gridRoot} 
                     alignItems="top" 
@@ -70,7 +79,9 @@ export class FarmFormReview extends Component {
 
 
                 </Grid>
-            </div>
+            {/* </div> */}
+                </CardContent  >
+             </Card>
             </>
         )
     }
