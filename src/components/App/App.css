@@ -5,19 +5,15 @@ body {
     height: auto;
     
     /* background: linear-gradient(180deg, rgba(190,190,190,1) 0%, rgba(242,242,242,1) 100%); */
-
-    
-    /* wanted a gradient background!! but had issues */
+  
+  /* wanted this gradient background!! but had issues */
     /* background: rgb(173,173,173); */
     /* background: linear-gradient(0deg, rgba(173,173,173,1) 0%, rgba(242,242,242,1) 30%); */
 
+    /* min-height: 1500px; */
 
-    /* min-height: 1500px; */
     background: rgb(242, 242, 242);
-    /* background: linear-gradient(0deg, rgba(173,173,173,1) 0%, rgba(242,242,242,1) 30%); */
-    background: rgb(173,173,173);
-    background: linear-gradient(0deg, rgba(173,173,173,1) 0%, rgba(242,242,242,1) 30%);
-    /* min-height: 1500px; */
+
     /* position: relative; */
     background-repeat: no-repeat;
 }
