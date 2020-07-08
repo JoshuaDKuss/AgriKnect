@@ -5,8 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
 //import { Input } from '@material-ui/core';
-import { TextField, Typography } from '@material-ui/core';
-//import { sizing } from '@material-ui/system';
+import { TextField, Card, CardContent, CardHeader } from '@material-ui/core';
+
 
 export class NameLocation extends Component {
 
@@ -44,7 +44,13 @@ export class NameLocation extends Component {
         const { classes } = this.props; //need this for Material UI
         return (
             <div>
-                <Typography> What is the name of your farm and where is it located? </Typography>
+                <Card>
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} 
+                //classes={{ title: classes.title }} 
+                title="What is the name of your farm and where is it located?" />
+
+                <CardContent  >
+                {/* <Typography> What is the name of your farm and where is it located? </Typography> */}
                 
                 <TextField id="standard-basic" value={this.props.farm_name} label="Farm Name" onChange={(event) => this.addFarmName(event, 'farm_name')} /> &nbsp;
                 <TextField id="standard-basic" value={this.props.street_address} label="Address" onChange={(event) => this.addStreetAddress(event, 'street_address')} />  
@@ -59,6 +65,8 @@ export class NameLocation extends Component {
                 <TextField id="outlined-basic" value={this.props.phone} label="Phone Number" variant="outlined" onChange={(event) => this.addFarmPhone(event, 'phone')} /> 
                 <br/>
                 <br/>
+            </CardContent>
+            </Card>
             </div>
         )
     }

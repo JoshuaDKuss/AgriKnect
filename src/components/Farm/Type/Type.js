@@ -4,7 +4,7 @@ import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
-import { Typography } from '@material-ui/core';
+import { Card, CardHeader, CardContent, Grid } from '@material-ui/core';
 
 //import rowCrop from './documentation/agriknect_icons/rowCrop.png';
 //import livestock from './documentation/agriknect_icons/livestock.png';
@@ -67,21 +67,31 @@ export class Type extends Component {
           }
         
         return (
-            <div>
-                <Typography> What type of farming do you do? </Typography> <br/>
+            <>
+                
+                <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} 
+                //classes={{ title: classes.title }} 
+                title="What type of farming do you do?" />
+
+                <CardContent  >
+                <Grid container spacing={2} >
                 
                 {/* <img src={rowCrop} onClick={(event) => this.addType(event, 'Row Crop')}> Row Crop </img> */}
                 <Button variant='contained' 
                 color={rowCropColor} 
-                onClick={(event) => this.addType( 'Row Crop' )}> Row Crop </Button>&nbsp; 
+                onClick={(event) => this.addType( 'Row Crop' )}> Row Crop </Button>&nbsp; &nbsp; 
                 <Button variant='contained' 
                 color={livestockColor} 
-                onClick={(event) => this.addType( 'Livestock' )}> Livestock </Button>&nbsp; 
+                onClick={(event) => this.addType( 'Livestock' )}> Livestock </Button> &nbsp; &nbsp; 
                 <Button variant='contained' 
                 color={dairyColor} 
                 onClick={(event) => this.addType( 'Dairy' )}> Dairy </Button>
                 <br/><br/>
-            </div>
+                </Grid>
+                </CardContent>
+                </Card>
+            </>
         )
     }
 }

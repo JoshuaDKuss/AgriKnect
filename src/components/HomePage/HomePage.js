@@ -28,14 +28,27 @@ class HomePage extends Component {
           className="getStartedBtn" to={`/talentForm`}
         >Create Profile </Link>
       }
+    }
       // profileToRender = <Link 
       // className="getStartedBtn" to={`/talentProfile/${this.props.user.id}`}
       // >Profile</Link>
-    } else {
-      profileToRender = <Link 
-      className="getStartedBtn" to={`/farmProfile/${this.props.user.id}`}
-      >Profile</Link>
+    if(this.props.user.type === 'employer'){
+      if(this.props.user.form_complete) {
+        profileToRender = <Link
+          className="getStartedBtn" to={`/farmProfile/${this.props.user.id}`}
+        >Profile</Link>
+      } else {
+        profileToRender = <Link
+          className="getStartedBtn" to={`/FarmForm`}
+        >Create Profile </Link>
+      }
     }
+
+    // } else {
+    //   profileToRender = <Link 
+    //   className="getStartedBtn" to={`/farmProfile/${this.props.user.id}`}
+    //   >Profile</Link>
+    // }
 
     return (
       <>
