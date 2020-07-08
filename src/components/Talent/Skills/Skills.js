@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import SkillsItem from '../SkillsItem/SkillsItem'; 
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
-import {Card, CardContent, Typography, CardHeader, CardActions } from '@material-ui/core';
+import {Card, CardContent, Typography, CardHeader, CardActions, Grid, GridList } from '@material-ui/core';
 
 
 
@@ -24,7 +24,7 @@ export class Skills extends Component {
                
                <h4> General Agriculture </h4>
                 {/* <div> */}
-               
+                    <Grid container spacing={2} alignItems='stretch' >
                     {this.props.proficiencies.generalAgriculture.map((item) => {
                         return (
                             <SkillsItem item={item}  key={item.id} />
@@ -32,24 +32,27 @@ export class Skills extends Component {
 
                     })}
 
+                </Grid>
+
                   
 
            
               
                 <h4> Precision Farming Technology  </h4>
-              
+                    <Grid container spacing={2} alignItems='stretch'  >
                 {this.props.proficiencies.precisionFarmingTechnology.map((item) => {
                     return (
                         <SkillsItem item={item} key={item.id} />
                     )
 
                 })}
-
+                 </Grid>
                 {/* </div> */}
                
 
                 <h4> Maintenance and Mechanics  </h4>
                 {/* <div> */}
+                 <Grid container spacing={2} >
                 {this.props.proficiencies.maintenanceAndMechanics.map((item) => {
                     return (
                         <SkillsItem item={item} key={item.id} />
@@ -57,14 +60,16 @@ export class Skills extends Component {
 
                 })}
                 {/* </div> */}
+                    </Grid>
                 <h4>Trucking </h4>
-
+                <Grid container spacing={2} >
                 {this.props.proficiencies.trucking.map((item) => {
                     return (
                         <SkillsItem item={item} key={item.id} />
                     )
 
                 })}
+                    </Grid>
                  </CardContent>
                 </Card>
                 

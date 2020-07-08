@@ -15,30 +15,40 @@ export class Bio extends Component {
        
     // }
     addBio = (event) => {
-         this.props.dispatch({ type: 'SET_BIO', payload: event.target.value })
+         this.props.dispatch({ type: 'SET_BIO', payload: this.state.bio })
         // this.setState({
         //     bio: event.target.value
         // })
         // console.log(event.target.value)
     }
+
+    fillForm = () => {
+        this.setState({
+            bio: 'I am hardworking, learn quickly on my feet, and am passionate about agriculture. Anything that I don’t know, I’m ready to learn!'
+        })
+    }
+
     render() {
         const { classes } = this.props; //need this for Material UI
 
         return (
+            <div>
+            
             <Card >
                 <CardHeader style={{ backgroundColor: "#B4C6CE" }} classes={{ title: classes.title }} title="Please include a short bio" />
 
                 <CardContent  >
-                
+                <button className="fillBtn" onClick={this.fillForm}>Fill</button>
 
               
                     <TextField
+                        value={this.state.bio}
                         id="outlined-multiline-flexible"
                         label="Bio"
                         multiline
                         fullWidth
                         rows={6}
-                    value={this.props.talentForm.bio} 
+                    // value={this.props.talentForm.bio} 
                         
                     onChange={(event) => this.addBio(event)}
                         variant="outlined"
@@ -46,7 +56,7 @@ export class Bio extends Component {
 
               </CardContent>
               </Card>
-        
+              </div>
         )
     }
 }

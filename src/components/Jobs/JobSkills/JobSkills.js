@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Card, CardHeader, CardContent, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles'; 
 import JobSkillsItem from '../JobSkillsItem/JobSkillsItem';
@@ -18,13 +18,9 @@ export class JobSkills extends Component {
                 <CardContent  >
                     <h4> General Agriculture </h4>
 
-                    {/* <ul> */}
-                        <div>
+                    <div>
                   
-
-                    {/* <ul> */}
-                        <div>
-
+                     <Grid container spacing={2} >
                         {this.props.proficiencies.generalAgriculture.map((item) => {
                             return (
                                 <JobSkillsItem item={item} key={item.id} />
@@ -32,41 +28,39 @@ export class JobSkills extends Component {
 
                         })}
 
+                    </Grid>
 
                     </div>
-                    {/* </ul> */}
-
-                    </div>
-                    {/* </ul> */}
+                    
 
 
                     <h4> Precision Farming Technology  </h4>
+                        <Grid container spacing={2} >
+                        {this.props.proficiencies.precisionFarmingTechnology.map((item) => {
+                            return (
+                                <JobSkillsItem item={item} key={item.id} />
+                            )
 
-                    {this.props.proficiencies.precisionFarmingTechnology.map((item) => {
-                        return (
-                            <JobSkillsItem item={item} key={item.id} />
-                        )
-
-                    })}
-
+                        })}
+                        </Grid>
                     <h4> Maintenance and Mechanics  </h4>
+                        <Grid container spacing={2} >
+                        {this.props.proficiencies.maintenanceAndMechanics.map((item) => {
+                            return (
+                                <JobSkillsItem item={item} key={item.id} />
+                            )
 
-                    {this.props.proficiencies.maintenanceAndMechanics.map((item) => {
-                        return (
-                            <JobSkillsItem item={item} key={item.id} />
-                        )
-
-                    })}
-
+                        })}
+                        </Grid>
                     <h4>Trucking </h4>
+                        <Grid container spacing={2} >
+                        {this.props.proficiencies.trucking.map((item) => {
+                            return (
+                                <JobSkillsItem item={item} key={item.id} />
+                            )
 
-                    {this.props.proficiencies.trucking.map((item) => {
-                        return (
-                            <JobSkillsItem item={item} key={item.id} />
-                        )
-
-                    })}
-                
+                        })}
+                        </Grid>
           </CardContent>
         </Card >
         )

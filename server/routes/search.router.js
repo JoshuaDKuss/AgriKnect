@@ -9,7 +9,7 @@ router.get('/:searchItem', (req, res) => {
     const queryText = `
     SELECT "farm"."user_id", "jobs"."id", "farm"."farm_name", "jobs"."type", "title", "street_address", "city", "state", 
     "zipcode", "latitude", "longitude", "start_date", "end_date", "payment_amount", "payment_period", 
-    "description", ARRAY_AGG("proficiency_name") AS proficiencies
+    "description", "relocation_stipend", "housing", "housing_details", ARRAY_AGG("proficiency_name") AS proficiencies
     FROM "jobs" 
     JOIN "farm"
     ON "jobs"."user_id" = "farm"."user_id"
@@ -18,9 +18,9 @@ router.get('/:searchItem', (req, res) => {
     JOIN "proficiencies"
     ON "proficiency_id" = "proficiencies"."id"
     WHERE to_tsvector("title" || ' ' || "jobs"."type" || ' ' || "description" 
-    || ' ' || "city" || ' ' || "state" || ' ' || "zipcode") @@ plainto_tsquery($1)
+    || ' ' || "city" || ' ' || "state" || ' ' || "zipcode" || ' ' || "farm_name") @@ plainto_tsquery($1)
     GROUP BY "farm"."user_id", "farm"."farm_name", "jobs"."type", "title", "street_address", "city", "state", "zipcode",
-    "latitude", "longitude", "start_date", "end_date", "payment_amount", "payment_period", "description", "jobs"."id";`
+    "latitude", "longitude", "start_date", "end_date", "payment_amount", "payment_period", "description", "relocation_stipend", "housing", "housing_details","jobs"."id";`
     
     pool.query(queryText, [searchItem])
     .then((response) => {
