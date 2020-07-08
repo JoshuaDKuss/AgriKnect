@@ -9,10 +9,10 @@ export class EditTalentEducationItem extends Component {
 
     state = {
         id: this.props.item,
-        degree: '',
-        school: '',
-        startDate: '2020-01-01',
-        endDate: '2020-01-01',
+        degree: null,
+        school: null,
+        startDate: null,
+        endDate: null,
         editMode: true,
     }
 

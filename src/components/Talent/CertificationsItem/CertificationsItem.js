@@ -8,15 +8,19 @@ import {TextField, Typography, CardContent } from '@material-ui/core';
 export class CertificationsItem extends Component {
 
     componentWillUnmount() {
+        if (this.state.certificate === null && this.state.issuingCompany === null && this.state.issueDate === null && this.state.expirationDate === null) {
+            console.log('no employment')
+        } else {
         this.props.dispatch({ type: 'SET_CERTIFICATE', payload: { state: this.state} })
+        }
     }
 
     state = {
        
-        certificate: '',
-        issuingCompany: '',
-        issueDate: '2020-01-01',
-        expirationDate: '2020-01-01'
+        certificate: null,
+        issuingCompany: null,
+        issueDate: null,
+        expirationDate: null
     }
 
 
@@ -71,7 +75,7 @@ export class CertificationsItem extends Component {
                             id="date"
                             label="Issue Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -83,7 +87,7 @@ export class CertificationsItem extends Component {
                             // value={this.state.expirationDate}
                             label="Expiration Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}

@@ -8,10 +8,10 @@ import { TextField, Typography, RadioGroup, FormControlLabel, FormLabel, FormCon
 export class JobDescription extends Component {
 
     state = {
-        jobTitle: '',
-        jobDescription: '',
-        startDate: '',
-        endDate: ''
+        jobTitle: null,
+        jobDescription: null,
+        startDate: null,
+        endDate: null
     }
 
     sendTitle(event) {
@@ -72,7 +72,7 @@ export class JobDescription extends Component {
                         id="date"
                         label="Start Date"
                         type="date"
-                        defaultValue="2017-05-24"
+                        // defaultValue="2017-05-24"
                         InputLabelProps={{
                             shrink: true,
                         }}
@@ -84,7 +84,7 @@ export class JobDescription extends Component {
                         id="date"
                         label="End Date"
                         type="date"
-                        defaultValue="2017-05-24"
+                        // defaultValue="2017-05-24"
                         InputLabelProps={{
                             shrink: true,
                         }}

@@ -8,14 +8,18 @@ import { TextField, Typography, CardContent } from '@material-ui/core';
 export class EmploymentItem extends Component {
 
     componentWillUnmount() {
-        this.props.dispatch({ type: 'SET_EMPLOYMENT', payload: { state: this.state } })
+        if (this.state.company === null && this.state.title === null && this.state.startDate === null && this.state.endDate === null) {
+            console.log('no employment') 
+        } else {
+            this.props.dispatch({ type: 'SET_EMPLOYMENT', payload: { state: this.state } })
+        }
     }
 
     state = {
-        company: '',
-        title: '',
-        startDate: '2020-01-01',
-        endDate: '2020-01-01'
+        company: null,
+        title: null,
+        startDate: null,
+        endDate: null
     }
 
     addEmployment = (event, property) => {
@@ -64,7 +68,7 @@ export class EmploymentItem extends Component {
                             // value={this.state.startDate}
                             label="Start Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -76,7 +80,7 @@ export class EmploymentItem extends Component {
                             // value={this.state.endDate}
                             label="End Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}

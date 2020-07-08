@@ -1,17 +1,17 @@
 const jobPostingReducer = (state = {
-    jobTitle: '',
-    jobDescription: '',
-    jobType: '',
-    startDate: '2020-01-01',
-    endDate: '2020-01-01',
+    jobTitle: null,
+    jobDescription: null,
+    jobType: null,
+    startDate: null,
+    endDate: null,
     skills: [],
     equipment: [],
     brands: [],
-    housingProvided: '',
-    housingDetails: '',
-    relocationProvided: '', 
-    paymentType: '',
-    paymentAmount: 0
+    housingProvided: null,
+    housingDetails: null,
+    relocationProvided: null, 
+    paymentType: null,
+    paymentAmount: null
 
 }, action) => {
     if (action.type === 'SET_JOB_TITLE') {
