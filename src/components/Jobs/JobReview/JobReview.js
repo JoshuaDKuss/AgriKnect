@@ -14,8 +14,9 @@ export class JobReview extends Component {
         console.log('in jobPosting')
         this.props.dispatch({ type: 'SET_JOB_POSTING', 
                             payload: { job: this.props.job, 
-                            id: this.props.user.id }, 
-                            history: this.props.history })
+                            id: this.props.user.id }
+                            // , history: this.props.history 
+        })
         this.props.history.push('/ThankYouPageJob');
     }
 
