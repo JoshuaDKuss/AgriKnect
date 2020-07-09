@@ -26,10 +26,6 @@
   padding: 24px 10px;
   text-decoration: none;
   font-size: 20px;
-  /* border-radius: 14px 14px 14px 14px; */
-
-  /* these last two make the logout button in
-  the nav bar look like another link */
   border:none;
   cursor: pointer;
   outline:0;
