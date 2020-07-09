@@ -143,12 +143,7 @@ export class farmBio extends Component {
                         alignItems="center" 
                         spacing = {2}
                         style={{width: 1000}}>
-                            {/* <CardMedia
-                                component="img"
-                                className={classes.media}
-                                src="images/Apartment.jpeg"
-                                title= "Apartment"
-                            /> */}
+                            
                             <CardContent>
                                 <Typography>
                                 
@@ -178,14 +173,7 @@ export class farmBio extends Component {
                     spacing = {2}>
                     {/* className={classes.root} */}
                 
-                    {/* <CardMedia
-                        component="img"
-                        className={classes.media}
-                        src="images/Trivia.jpeg"
-                        title="Apartment"
-                    /> */}
                     <CardContent>
-                        {/* <Typography> */}
                         <div className={'farmJobsAvailable'}>
                             {/* {JSON.stringify(this.props.reduxState.farmJobsAvailable)} */}
                             <h3 className={'farmJobs'}>Available Jobs </h3>
@@ -198,7 +186,6 @@ export class farmBio extends Component {
                                 })}
                             </ul>
                         </div>
-                       {/* </Typography> */}
 
                     </CardContent>
                 </Card>
@@ -208,55 +195,7 @@ export class farmBio extends Component {
                 
             </div>
                 
-                                
-                {/* <div className={'farmBio'}>
-                    
-                    {this.props.reduxState.farmBioReducer.map((bio) => {
-                        return (
-                            <>
-                                <div key={bio.id}>
-                                    <h2>{bio.farm_name}</h2>
-                                    <span>{bio.street_address}</span><br/>
-                                    <span>{bio.city}</span>, <span>{bio.state}</span>&nbsp;<span>{bio.zipcode}</span>
-                                    <p>Email: {bio.username}</p>
-                                    <span>Owner: {bio.first_name} </span>
-                                    <span>{bio.last_name}</span>
-                                    <p>Phone: {bio.phone}</p>
-                                </div>
-                                <div className={'farmBioSize'}>
-                                    <h2>About</h2>
-                                    <p>{bio.bio}</p>
-                                </div>
-                                <div>
-                                   {editButtonControl} 
-                                    {/* <Button variant="outlined" onClick={(event) => this.editFarmBio(event)}>edit farm</Button> */}
-                                {/* </div> */}
-                            {/* </> */}
-                        {/* ) */}
-                    {/* })} */}
-                {/* </div> */} 
-
-                {/* <div className={'farmDetails'}>
-                    <h3 className={'farmDetailsHeader'}>Farm Details</h3>
-                    {this.props.reduxState.farmBioReducer.map((details) => {
-                        return (
-                            <FarmDetails details={details} key={details.id} history={this.props.history} />
-                        )
-                    })}
-                </div> */}
-
-                {/* <div className={'farmJobsAvailable'}>
-                    
-                    <h3 className={'farmJobs'}>Available Jobs</h3>
-                    <ul>
-                        {this.props.reduxState.farmJobsAvailable.map((job) => {
-                            return (
-
-                                <FarmJobsAvailable job={job} key={job.id} history={this.props.history} />
-                            )
-                        })}
-                    </ul>
-                </div> */}
+                
             </>
         )
     }

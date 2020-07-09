@@ -94,11 +94,3 @@ export class FarmFormReview extends Component {
 const mapStateToProps = (reduxState) => ({ reduxState })
 
 export default connect(mapStateToProps)(withRouter(FarmFormReview));
-
-// const reduxStateToProps = (reduxState) => {
-//     return {
-//         talentForm: reduxState.talentForm,
-//     }
-// }
-
-// export default connect(reduxStateToProps)(ReviewPage); 

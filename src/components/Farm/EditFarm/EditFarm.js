@@ -9,7 +9,7 @@ import styles from '../../Styles/styles';
 //import '.../FarmProfile/FarmBio/farm.css';
 
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+//import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
@@ -208,7 +208,7 @@ export class EditFarm extends Component {
                                 onClick={(event) => this.addType( 'Dairy' )}> Dairy </Button>
                                 </div> */}
 
-</Typography>
+                        </Typography>
                         </CardContent>
                     </Card>
                     
@@ -240,9 +240,3 @@ const mapStateToProps = (reduxState) => ({ reduxState })
 
 
 export default connect(mapStateToProps)(withRouter(EditFarm));
-
-// const reduxStateToProps = (reduxState) => {
-//     return {
-//         talentForm: reduxState.talentForm,
-//     }
-// }
