@@ -8,7 +8,6 @@ import Logo from "./Agriknect_logo.png";
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
-      {/* <h2 className="nav-title">AgriKnect</h2> */}
       <img src={Logo} alt="AgriKnect logo" id="navLogo" />
     </Link>
     <div className="nav-right">
@@ -35,9 +34,6 @@ const Nav = (props) => (
       {/* Show the link to the info page and the logout button if the user is logged in */}
       {props.user.id ? (
         <>
-          {/* <Link className="nav-link" to="/info">
-            Info Page
-          </Link> */}
           {props.user.type === 'talent' ?
           <Link className="nav-link" to={`/talentProfile/${props.user.id}`}>
             Profile
@@ -53,16 +49,9 @@ const Nav = (props) => (
         </>
       ) : (
         <Link className="nav-link" to="/login">
-          {/* Show this link if they are logged in or not,
-      but call this link 'Home' if they are logged in,
-      and call this link 'Login / Register' if they are not */}
           Login
         </Link>
       )}
-      {/* Always show this link since the about page is not protected */}
-      {/* <Link className="nav-link" to="/about">
-        About
-      </Link> */}
     </div>
   </div>
 );

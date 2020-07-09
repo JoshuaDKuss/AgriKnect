@@ -46,7 +46,7 @@ export class FarmDetails extends Component {
                 // className={"centerIt"}
                 >
                 <p>Farm Type: 
-                    {iconToRender}
+                    {/* {iconToRender} */}
                     {this.props.details.type}</p>
                 </div>
                 <div className={"centerIt"}>

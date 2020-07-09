@@ -7,7 +7,8 @@ function* sendFarmForm(action) {
     const state = action.payload.state;
     const streetAddress = action.payload.street_address;
     console.log(streetAddress, city, state)
-    const coordinates = yield axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${streetAddress}+${city}+${state}.json?access_token=pk.eyJ1IjoiYWdyaWtuZWN0IiwiYSI6ImNrY2RxbXo3NDAxMWQycm5qYnkzMmV1Z3EifQ.nvlD1vWijqAS8fDZk1e_1Q`)
+    console.log(process.env.MAPBOX_API_KEY);
+    const coordinates = yield axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${streetAddress}+${city}+${state}.json?access_token=${process.env.REACT_APP_MAPBOX_API_KEY}`)
     console.log(coordinates.data.features[0].center)
     const longitude = coordinates.data.features[0].center[0]
     const latitude = coordinates.data.features[0].center[1]
