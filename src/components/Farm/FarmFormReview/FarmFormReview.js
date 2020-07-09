@@ -15,9 +15,9 @@ export class FarmFormReview extends Component {
 
     sendToServer = () => {
         
-        this.props.dispatch({ type: 'SEND_FARM_FORM', payload: this.props.reduxState.farmForm })  //.farmForm
+        this.props.dispatch({ type: 'SEND_FARM_FORM', payload: this.props.reduxState.farmForm, history: this.props.history })  //.farmForm
         //this.props.history.push(`/farmProfile/${this.props.reduxState.user.id}`);
-        this.props.history.push('/ThankYouPageFarm');
+        // this.props.history.push('/ThankYouPageFarm');
     }
 
     render() {
