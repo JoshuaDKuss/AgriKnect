@@ -31,11 +31,6 @@ class RegisterPage extends Component {
         },
         history: this.props.history
       });
-      // if (this.state.userType === "talent") {
-      //   this.props.history.push("/talentForm");
-      // } else {
-      //   this.props.history.push("/farmForm");
-      // }
     } else {
       this.props.dispatch({ type: "REGISTRATION_INPUT_ERROR" });
     }
@@ -116,12 +111,6 @@ class RegisterPage extends Component {
             </label>
           </div>
           <div>
-            {/* <input
-              className="register"
-              type="submit"
-              name="submit"
-              value="Create"
-            /> */}
                <input
               className="register"
               type="submit"
@@ -130,17 +119,6 @@ class RegisterPage extends Component {
             />
           </div>
         </form>
-        {/* <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => {
-              this.props.dispatch({ type: "SET_TO_LOGIN_MODE" });
-            }}
-          >
-            Login
-          </button>
-        </center> */}
       </div>
     );
   }
