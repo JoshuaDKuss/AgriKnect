@@ -18,8 +18,12 @@ export class JobSkills extends Component {
                 <CardContent  >
                     <h4> General Agriculture </h4>
 
+                  
+                        <div>
+                  
 
                   
+                   
                      <Grid container spacing={2} >
                         {this.props.proficiencies.generalAgriculture.map((item) => {
                             return (
@@ -29,6 +33,7 @@ export class JobSkills extends Component {
                         })}
 
                     </Grid>
+                    </div>
 
                 
 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import {Button} from '@material-ui/core';
-import { TextField, Typography } from '@material-ui/core';
+
+//import { TextField, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/styles';
+import { TextField, Card, CardContent, CardHeader } from '@material-ui/core';
 
 export class FarmBio extends Component {
     // state = {
@@ -23,11 +24,33 @@ export class FarmBio extends Component {
 
     render() {
         return (
-            <div>
+            <Card >
+                <CardHeader style={{ backgroundColor: "#B4C6CE" }} 
+                //classes={{ title: classes.title }} 
+                title="Please tell us about your farm" />
+
+                <CardContent  >
+
+            {/* <div>
                 <Typography> Please tell us about your farm </Typography>
                 <textarea rows="10" cols="70" value={this.props.bio} 
                 placeholder="Tell us about your farm" onChange={(event) => this.addFarmBio(event)}></textarea>
-            </div>
+            </div> */}
+
+                <TextField
+                        id="outlined-multiline-flexible"
+                        label="Farm bio"
+                        multiline
+                        fullWidth
+                        rows={6}
+                    value={this.props.bio} 
+                        
+                    onChange={(event) => this.addFarmBio(event)}
+                        variant="outlined"
+                    />
+
+            </CardContent>
+            </Card>
         )
     }
 }

@@ -5,11 +5,27 @@ body {
     height: auto;
     
     /* background: linear-gradient(180deg, rgba(190,190,190,1) 0%, rgba(242,242,242,1) 100%); */
-    background: rgb(242, 242, 242);
+  
+  /* wanted this gradient background!! but had issues */
+    /* background: rgb(173,173,173); */
     /* background: linear-gradient(0deg, rgba(173,173,173,1) 0%, rgba(242,242,242,1) 30%); */
+
+    /* min-height: 1500px; */
+
+    background: rgb(242, 242, 242);
+
     /* position: relative; */
     background-repeat: no-repeat;
 }
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  #content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
 
 .alert {
     background-color: #ff4545;
