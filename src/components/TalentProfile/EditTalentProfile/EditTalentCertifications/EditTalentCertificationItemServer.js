@@ -9,9 +9,6 @@ import './EditTalentCertification.css';
 
 export class EditTalentCertificationsItemServer extends Component {
 
-    // componentDidMount(){
-    //     console.log('NEW ONE FROM THE REDUX STATE', this.state.id)
-    // }
 
     state = {
         id: this.props.item.id,
@@ -30,25 +27,16 @@ export class EditTalentCertificationsItemServer extends Component {
             ...this.state,
             [property]: event.target.value,
         })
-        console.log(this.state)
+   
 
     }
 
     deleteCertificate = () => {
-        console.log('delete',this.state.certificate)
         this.props.dispatch({ type: 'DELETE_EDITED_CERTIFICATE', payload: this.state})
     }
 
-    // sendData = (event) => {
-    //     this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: { state: this.state, expirationDate: event.target.value } })
-    //     this.setState({
-    //         ...this.state,
-    //         numberOfChanges: this.state.numberOfChanges + 1
-    //     })
-    // }
 
     toggleEditMode = () => {
-        console.log(this.state.id)
         this.setState({
             ...this.state,
             editMode: !this.state.editMode
@@ -56,7 +44,6 @@ export class EditTalentCertificationsItemServer extends Component {
     }
 
     toggleEditModeSave = () => {
-        // this.preventDefault(this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: this.state}))
         this.props.dispatch({ type: 'SET_EDITED_CERTIFICATION', payload: this.state})
         this.setState({
             ...this.state,

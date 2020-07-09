@@ -30,7 +30,6 @@ export class EditTalentCertifications extends Component {
             counter: this.state.counter - 1,
             educationList: [...previousState.educationList, this.state.counter - 1]
         }));
-        console.log(this.state)
     }
 
 

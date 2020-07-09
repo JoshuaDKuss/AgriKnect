@@ -9,7 +9,6 @@ export class CertificationsItem extends Component {
 
     componentWillUnmount() {
         if (this.state.certificate === null && this.state.issuingCompany === null && this.state.issueDate === null && this.state.expirationDate === null) {
-            console.log('no employment')
         } else {
         this.props.dispatch({ type: 'SET_CERTIFICATE', payload: { state: this.state} })
         }
@@ -30,7 +29,6 @@ export class CertificationsItem extends Component {
             ...this.state,
             [property]: event.target.value,
         })
-        console.log(this.props.certification[this.props.item], )
    
     }
 
@@ -49,7 +47,7 @@ export class CertificationsItem extends Component {
         if (this.props.certification[this.props.item] !== undefined) {
             certificateValue = this.props.certification[this.props.item].certificate
         } 
-        // value={certificateValue}
+      
 
         const { classes } = this.props; //need this for Material UI
         return (

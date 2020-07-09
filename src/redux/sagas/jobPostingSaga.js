@@ -10,7 +10,13 @@ function* sendJobPosting(action) {
             type: 'DELETE_POSTING'
         });
 
-        action.history.push(`/farmProfile/${action.payload.id}`);
+        yield put({
+            type: 'FETCH_FARM'
+        });
+
+        action.history.push(`/ThankYouPageJob`);
+
+       
 
     } catch (error) {
         console.log('User get request failed', error);

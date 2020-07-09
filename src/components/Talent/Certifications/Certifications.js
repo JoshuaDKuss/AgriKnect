@@ -21,7 +21,6 @@ export class Certifications extends Component {
             counter: this.state.counter +1, 
             certificateList: [...previousState.certificateList, this.state.counter +1]
         }));
-        console.log(this.state)
     }
 
     render() {

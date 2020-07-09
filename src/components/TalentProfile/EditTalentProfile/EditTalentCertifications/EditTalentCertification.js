@@ -11,9 +11,6 @@ import EditTalentCertificationsItemServer from './EditTalentCertificationItemSer
 
 export class EditTalentCertifications extends Component {
 
-    componentWillUnmount() {
-        console.log('big component unmounted')
-    }
 
     state = {
         counter: -1,
@@ -31,7 +28,6 @@ export class EditTalentCertifications extends Component {
             counter: this.state.counter - 1,
             certificateList: [...previousState.certificateList, this.state.counter - 1]
         }));
-        console.log(this.state)
     }
 
 
@@ -47,7 +43,7 @@ export class EditTalentCertifications extends Component {
 
                 <CardContent  >
                 <ul>
-                    {/* <h3> Add any certifications or licenses you have </h3> */}
+
                     {this.props.certifications.map((item) => {
                         return (
                             <EditTalentCertificationsItemServer item={item} key={item.id} />
@@ -72,8 +68,7 @@ export class EditTalentCertifications extends Component {
             </Grid>
             </Grid>
 
-                // {/* <Button onClick={this.addCertificate} variant='outlined'> Add another license/certificate</Button>
-                //  <Button onClick={this.submitEditedCertificates} variant="outlined"> Submit </Button>  */}
+            
 
 
            

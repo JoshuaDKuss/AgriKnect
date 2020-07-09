@@ -17,12 +17,10 @@ export class EditTalentEmploymentItem extends Component {
     }
 
     addEmployment = (event, property) => {
-        console.log(event.target.value)
         this.setState({
             ...this.state,
             [property]: event.target.value,
         })
-        console.log(this.state);
 
     }
 
@@ -97,9 +95,5 @@ export class EditTalentEmploymentItem extends Component {
 }
 
 EditTalentEmploymentItem.propTypes = { classes: PropTypes.object.isRequired };
-
-// const mapStateToProps = state => ({
-//     certification: state.talentForm.formData.certification,
-// });
 
 export default connect()(withStyles(styles)(EditTalentEmploymentItem)); 

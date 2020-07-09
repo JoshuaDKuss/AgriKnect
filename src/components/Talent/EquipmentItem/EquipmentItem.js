@@ -35,7 +35,6 @@ export class EquipmentItem extends Component {
                 color: ''
             })
         } //end of conditional 
-        console.log(this.state)
         this.props.dispatch({ type: 'SET_EQUIPMENT', payload: property })
 
     } //end of addOrDelete function 

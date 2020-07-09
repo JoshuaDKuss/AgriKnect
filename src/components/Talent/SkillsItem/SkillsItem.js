@@ -36,7 +36,6 @@ export class SkillsItem extends Component {
                 color: ''
             })
         } //end of conditional 
-        console.log(this.state)
         this.props.dispatch({ type: 'SET_INITIAL_SKILLS', payload: property })
 
     } //end of addOrDelete function 
@@ -46,9 +45,9 @@ export class SkillsItem extends Component {
 
         return (
             <Grid item >
-                {/* <Box >    */}
+
                     <Button className = 'skillButton' size="small"  variant='contained' color={this.state.color} onClick={(event) => this.addOrDeleteSkill(event, this.props.item)}> {this.props.item.proficiency_name} </Button>
-                {/* </Box>   */}
+
             </Grid>
            
         )

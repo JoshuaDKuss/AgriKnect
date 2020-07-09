@@ -8,25 +8,16 @@ import { TextField, Card, CardContent, CardHeader } from '@material-ui/core';
 export class Bio extends Component {
 
     state = {
-        bio: ''
+        bio: null
     }
 
-    // componentWillUnmount() {
-       
-    // }
+   
     addBio = (event) => {
          this.props.dispatch({ type: 'SET_BIO', payload: this.state.bio })
         this.setState({
             bio: event.target.value
         })
-        // console.log(event.target.value)
     }
-
-    // fillForm = () => {
-    //     this.setState({
-    //         bio: 'I am hardworking, learn quickly on my feet, and am passionate about agriculture. Anything that I don’t know, I’m ready to learn!'
-    //     })
-    // }
 
     render() {
         const { classes } = this.props; //need this for Material UI

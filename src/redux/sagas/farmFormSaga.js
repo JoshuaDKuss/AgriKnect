@@ -17,8 +17,10 @@ function* sendFarmForm(action) {
         console.log('in send farm form', data);
         const response = yield axios.post(`/farm`, data);
         yield put({
-            type: 'SET_FARM', payload: response.data
+            type: 'FETCH_FARM'
         });
+
+       action.history.push('/ThankYouPageFarm');
     } catch (error) {
         console.log('Farm post request failed', error);
     }

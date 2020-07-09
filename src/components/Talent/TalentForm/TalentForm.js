@@ -37,13 +37,11 @@ export class TalentForm extends Component {
                 ...this.state,
                 formCounter: this.state.formCounter + 1
             })
-            console.log(this.state.formCounter)
         } else {
             this.setState({
                 ...this.state,
                 formCounter: this.state.formCounter - 1
             })
-            console.log(this.state.formCounter)
         }
     }
 

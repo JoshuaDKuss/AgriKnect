@@ -23,17 +23,14 @@ export class EditTalentEmploymentItemServer extends Component {
             ...this.state,
             [property]: event.target.value,
         })
-        console.log(this.state)
 
     }
 
     deleteEmployment = () => {
-        console.log('delete',this.state.certificate)
         this.props.dispatch({ type: 'DELETE_EDITED_EMPLOYMENT', payload: this.state})
     }
 
      toggleEditMode = () => {
-        console.log(this.state.id)
         this.setState({
             ...this.state,
             editMode: !this.state.editMode
@@ -134,9 +131,5 @@ export class EditTalentEmploymentItemServer extends Component {
 }
 
 EditTalentEmploymentItemServer.propTypes = { classes: PropTypes.object.isRequired };
-
-// const mapStateToProps = state => ({
-//     certification: state.talentForm.formData.certification,
-// });
 
 export default connect()(withStyles(styles)(EditTalentEmploymentItemServer)); 

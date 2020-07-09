@@ -22,6 +22,7 @@ export class JobSkills extends Component {
                         <div>
                   
 
+                  
                    
                      <Grid container spacing={2} >
                         {this.props.proficiencies.generalAgriculture.map((item) => {
@@ -34,6 +35,7 @@ export class JobSkills extends Component {
                     </Grid>
                     </div>
 
+                
 
 
                     <h4> Precision Farming Technology  </h4>

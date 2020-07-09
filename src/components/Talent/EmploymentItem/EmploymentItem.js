@@ -9,7 +9,6 @@ export class EmploymentItem extends Component {
 
     componentWillUnmount() {
         if (this.state.company === null && this.state.title === null && this.state.startDate === null && this.state.endDate === null) {
-            console.log('no employment') 
         } else {
             this.props.dispatch({ type: 'SET_EMPLOYMENT', payload: { state: this.state } })
         }
@@ -28,8 +27,7 @@ export class EmploymentItem extends Component {
                 ...this.state,
                 [property]: event.target.value,
             })
-            console.log(event.target.value);
-            console.log('STATE', this.state)
+          
         
     }
 
@@ -68,7 +66,6 @@ export class EmploymentItem extends Component {
                             // value={this.state.startDate}
                             label="Start Date"
                             type="date"
-                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -80,7 +77,6 @@ export class EmploymentItem extends Component {
                             // value={this.state.endDate}
                             label="End Date"
                             type="date"
-                            // defaultValue="2017-05-24"
                             InputLabelProps={{
                                 shrink: true,
                             }}
