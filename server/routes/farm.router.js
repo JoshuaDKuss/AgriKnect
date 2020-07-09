@@ -50,23 +50,62 @@ router.get('/:id', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', rejectUnauthenticated, (req, res) => {
-    console.log('farm router post', req.body);
+// router.post('/', rejectUnauthenticated, (req, res) => {
+//     console.log('farm router post', req.body);
+//     const farmQueryText = `INSERT INTO farm ("farm_name", "street_address", "city", "state", "zipcode", 
+//                         "phone", "size", "type", "bio", "user_id", "latitude", "longitude") 
+//                         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);`; //RETURNING "id"?
+//     const farmValues = [req.body.payload.farm_name, req.body.payload.street_address, req.body.payload.city, req.body.payload.state,
+//                         req.body.payload.zipcode, req.body.payload.phone, req.body.payload.size, req.body.payload.type, req.body.payload.bio, req.user.id,
+//                       req.body.latitude, req.body.longitude];
+//     pool.query(farmQueryText, farmValues)
+//     .then((response)=>{
+   
+//       const userId = req.user.id;
+//       let userFormQuery = `UPDATE "user" SET "form_complete" = $1 WHERE "id" = $2;`;
+
+//        pool.query(userFormQuery, [false, userId]);
+//         res.sendStatus(201)
+//         console.log()
+//     })
+//     .catch((error)=>{
+//         console.log('Error POSTING farm to the DB', error);
+//         res.sendStatus(500);
+//     })
+// });
+
+router.post('/', async (req, res) => {
+  console.log(req.body)
+  const userId = req.user.id;
+  const userForm = true;
+
+  const createTalentProfile = await pool.connect();
+
+  try {
+    await createTalentProfile.query('BEGIN');
     const farmQueryText = `INSERT INTO farm ("farm_name", "street_address", "city", "state", "zipcode", 
-                        "phone", "size", "type", "bio", "user_id", "latitude", "longitude") 
-                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);`; //RETURNING "id"?
-    const farmValues = [req.body.payload.farm_name, req.body.payload.street_address, req.body.payload.city, req.body.payload.state,
-                        req.body.payload.zipcode, req.body.payload.phone, req.body.payload.size, req.body.payload.type, req.body.payload.bio, req.user.id,
-                      req.body.latitude, req.body.longitude];
-    pool.query(farmQueryText, farmValues)
-    .then((response)=>{
-        res.sendStatus(201)
-    })
-    .catch((error)=>{
-        console.log('Error POSTING farm to the DB', error);
-        res.sendStatus(500);
-    })
-});
+                       "phone", "size", "type", "bio", "user_id", "latitude", "longitude") 
+                       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);`; //RETURNING "id"?
+
+     const farmValues = [req.body.payload.farm_name, req.body.payload.street_address, req.body.payload.city, req.body.payload.state,
+                         req.body.payload.zipcode, req.body.payload.phone, req.body.payload.size, req.body.payload.type, req.body.payload.bio, req.user.id,
+                          req.body.latitude, req.body.longitude];
+    const result = await createTalentProfile.query(farmQueryText, farmValues);
+
+    let userFormQuery = `UPDATE "user" SET "form_complete" = $1 WHERE "id" = $2;`;
+
+    await createTalentProfile.query(userFormQuery, [userForm, userId]);
+
+    await createTalentProfile.query('COMMIT');
+    res.sendStatus(200);
+  } catch (err) {
+    await createTalentProfile.query('ROLLBACK');
+    res.sendStatus(500);
+    throw err;
+  } finally {
+    createTalentProfile.release();
+  }
+})
 
 
 

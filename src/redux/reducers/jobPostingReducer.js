@@ -92,8 +92,8 @@ const jobPostingReducer = (state = {
             jobTitle: '',
             jobDescription: '',
             jobType: '',
-            startDate: '2020-01-01',
-            endDate: '2020-01-01',
+            startDate: null,
+            endDate: null,
             skills: [],
             equipment: [],
             brands: [],
@@ -101,7 +101,7 @@ const jobPostingReducer = (state = {
             housingDetails: '',
             relocationProvided: '',
             paymentType: '',
-            paymentAmount: 0
+            paymentAmount: null
 
         }
     } else {

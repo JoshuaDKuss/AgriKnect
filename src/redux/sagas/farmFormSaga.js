@@ -17,6 +17,9 @@ function* sendFarmForm(action) {
         console.log('in send farm form', data);
         const response = yield axios.post(`/farm`, data);
         yield put({
+            type: 'DELETE_FARM'
+        });
+        yield put({
             type: 'FETCH_FARM'
         });
 
