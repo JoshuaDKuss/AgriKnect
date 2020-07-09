@@ -11,29 +11,6 @@ import { Card, CardHeader, CardContent, Grid } from '@material-ui/core';
 //import dairy from './documentation/agriknect_icons/dairy.png';
 
 export class Type extends Component {
-      
-    // componentDidMount( ) {
-
-    //     this.props.type.map(type => {
-    //         for (let i = 0; i < this.state.listOfProperties.length; i++){
-    //             if (type === this.state.listOfProperties[i]) {
-    //                 this.setState({
-    //                     ...this.state,
-    //                     [this.state.listOfProperties[i]]: 'primary'
-    //                 }) //end of setState
-    //         } //end of conditional
-    //     }
-    //     })
-    // }   
-
-    // state = {
-    //     // type = {
-    //     rowCropColor: '',
-    //     livestockColor: '',
-    //     dairyColor: '',
-    //     listOfProperties: ['Row Crop', 'Livestock', 'Dairy']
-    //     // }
-    // }
     
     //sends type to redux state 
     

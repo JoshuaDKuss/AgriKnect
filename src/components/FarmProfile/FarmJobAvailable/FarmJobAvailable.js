@@ -63,12 +63,6 @@ export class FarmJobsAvailable extends Component {
                 </tr>
                 
 
-                {/* Title: {this.props.job.title}&nbsp; 
-                {moment(this.props.job.start_date).format("MMM Do, YYYY")}&nbsp; 
-                Pay: ${this.props.job.payment_amount} &nbsp;{this.props.job.payment_period} &nbsp;
-                <Button variant="outlined" onClick={this.showModal}>View</Button>
-                <Button variant="outlined" onClick={this.deleteJob}>Delete</Button>
-                </li> */}
                 <Modal isOpen={this.state.show} className={"jobModal"}>
                     <p>Job Title:  {this.props.job.title}</p>
                     <p>Farm Name: {this.props.job.farm_name}</p>

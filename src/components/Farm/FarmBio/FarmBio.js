@@ -31,12 +31,6 @@ export class FarmBio extends Component {
 
                 <CardContent  >
 
-            {/* <div>
-                <Typography> Please tell us about your farm </Typography>
-                <textarea rows="10" cols="70" value={this.props.bio} 
-                placeholder="Tell us about your farm" onChange={(event) => this.addFarmBio(event)}></textarea>
-            </div> */}
-
                 <TextField
                         id="outlined-multiline-flexible"
                         label="Farm bio"

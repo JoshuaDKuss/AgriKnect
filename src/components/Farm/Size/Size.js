@@ -25,8 +25,6 @@ export class Size extends Component {
         const { classes } = this.props; //need this for Material UI    
         return (
             // <div className={"centerIt"}>
-                // <Typography>  What is the size of your farm? </Typography> <br/>
-                // <ul>
 
                 <Card >
                 <CardHeader style={{ backgroundColor: "#B4C6CE" }} 
@@ -35,8 +33,6 @@ export class Size extends Component {
 
                 <CardContent>
 
-              
-                            {/* <li> */}
                                 <Select 
                                 variant="outlined" 
                                 onChange={this.handleSizeSelection} 
@@ -50,7 +46,7 @@ export class Size extends Component {
                                     <MenuItem value = "75-100 employees"> 75-100 employees </MenuItem>
                                     <MenuItem value = "100+ employees"> 100+ employees </MenuItem>
                                 </Select> <br/>
-                            {/* </li> */}
+                            
             </CardContent>
             </Card >
         )

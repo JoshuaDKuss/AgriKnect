@@ -100,4 +100,8 @@ input {
     cursor: pointer;
 }
 
+#largeReview {
+  font-size: large;
+}
+
 

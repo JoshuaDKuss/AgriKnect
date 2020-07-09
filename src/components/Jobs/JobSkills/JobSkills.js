@@ -19,8 +19,7 @@ export class JobSkills extends Component {
                     <h4> General Agriculture </h4>
 
                   
-                        <div>
-                  
+                    <div>
 
                   
                    
