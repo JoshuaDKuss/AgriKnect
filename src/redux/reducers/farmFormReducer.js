@@ -84,6 +84,23 @@ const farmForm = (state = {
                zipcode: action.payload
            };
 
+    } else if (action.type === 'DELETE_FARM') {
+
+        return {
+           
+
+                farm_name: "",
+                street_address: "",
+                city: "",
+                state: "",
+                zipcode: "",
+                phone: "",
+                size: "",
+                type: [],
+                bio: "",
+            
+        };
+
     } else {
          return state;
     }
