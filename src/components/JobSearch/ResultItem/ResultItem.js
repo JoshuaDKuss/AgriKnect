@@ -58,9 +58,9 @@ class ResultItem extends Component {
           <div className="jobSearchTitle">
             <h3>{this.props.title}</h3>
             <p style={{fontSize: 15}}>{this.props.farmName}</p>
-            {/* <p style={{fontSize: 15}}>
-              {this.props.city}, {this.props.state}
-            </p> */}
+
+            {/* <p style={{fontSize: 15}}> {this.props.city}, {this.props.state} </p> */}
+
           </div>
           <div className="match">
             <svg>
