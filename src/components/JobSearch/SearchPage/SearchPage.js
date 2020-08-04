@@ -168,11 +168,9 @@ class SearchPage extends Component {
                 ),
               }}
             />
-            {/* <input
-              value={this.state.search}
-              onChange={this.handleChange}
-              placeholder="title, keyword, location"
-            ></input> */}
+
+            {/* <input value={this.state.search} onChange={this.handleChange} placeholder="title, keyword, location"></input> */}
+
             <br />
             <br />
           </div>
@@ -282,9 +280,8 @@ class SearchPage extends Component {
                     <h3>{this.state.title}</h3>
                     <p style={{ fontSize: 15 }}>{this.state.farmName}</p>
                   
-                    {/* <p style={{fontSize: 15}}>
-              {this.props.city}, {this.props.state}
-            </p> */}
+                    {/* <p style={{fontSize: 15}}> {this.props.city}, {this.props.state} </p> */}
+
                   </div>
                   <Link style={{color: '#419B2A'}} to={`/farmProfile/${this.state.userId}`}>
                     View Profile
