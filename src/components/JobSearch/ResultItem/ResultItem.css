@@ -49,15 +49,13 @@
 .matchLabel {
     /* background-color: chartreuse; */
     position: absolute;
-    /* top: 50px;
-    left: 67px; */
+    
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 100%;
-    top: 25;
+    /* top: 25;
     left: 0; */
     width: 20px;
     height: 20px;
@@ -89,13 +87,13 @@
     width: 200px;
 }
 
-
 /* svg circle:nth-child(1) {
     stroke-dashoffset: 25%;
     stroke-dasharray: 1;
     stroke: #00ff43;
     z-index: 2000;
 } */
+
 .match svg circle:nth-child(2) {
     stroke-dasharray: calc(116 * 3.14159265358979) ;
     stroke: #419B2A;
