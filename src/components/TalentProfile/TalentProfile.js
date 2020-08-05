@@ -40,7 +40,6 @@ export class TalentProfile extends Component {
     editSkills = () => {
         this.props.history.push(`/talentProfile/editSkills/${this.props.reduxState.user.id}`);
         console.log(this.props.reduxState.user.id)
-
     }
 
     editEquipment = () => {
@@ -50,19 +49,16 @@ export class TalentProfile extends Component {
     editCertifications = () => {
         this.props.history.push(`/talentProfile/editCertificate/${this.props.reduxState.user.id}`);
         console.log(this.props.reduxState.user.id)
-
     }
 
     editEducation = () => {
         this.props.history.push(`/talentProfile/editEducation/${this.props.reduxState.user.id}`);
         console.log(this.props.reduxState.user.id)
-
     }
 
     editEmployment = () => {
         this.props.history.push(`/talentProfile/editEmployment/${this.props.reduxState.user.id}`);
         console.log(this.props.reduxState.user.id)
-
     }
 
     renderEditButtons = () => {
@@ -81,7 +77,6 @@ export class TalentProfile extends Component {
         let editButtonControl = <span> </span>
         if (this.props.reduxState.user.id == this.props.match.params.id) {
             editButtonControl = <Button size="small" variant="outlined" onClick={this.renderEditButtons}> Edit Profile </Button>
-
         }
         const { classes } = this.props;
         let JSXRendered = <span> </span>
@@ -157,10 +152,9 @@ export class TalentProfile extends Component {
                                     
                                         </div>
                                         </Grid>
-
-
                                    
                                     </Grid>
+            
                                     <Grid item xs ={8}>
                                     <div>
                                         
@@ -169,9 +163,7 @@ export class TalentProfile extends Component {
                                             <Typography className={"MuiTypography--subheading"}>
                                             <p>{talent.bio}</p>
                                         </Typography>
-                                    </Typography>
-                                       
-                                       
+                                    </Typography>                                                                         
                                     </div>
                                     </Grid>
                                     
@@ -183,6 +175,7 @@ export class TalentProfile extends Component {
                                 </Card>
                             </div>
                            
+            
                             <div className={"talentExperienceSection"}>
                                 <Card className={classes.card}>
                                     <div className={"talentExpHeader"}>
@@ -197,7 +190,6 @@ export class TalentProfile extends Component {
                                             </Typography>
                                             {generalAgriculture.map((skills) => {
                                                 return (
-
                                                     <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
                                                 )
                                             })}
@@ -209,7 +201,6 @@ export class TalentProfile extends Component {
                                             </Typography>
                                             {precisionFarming.map((skills) => {
                                                 return (
-
                                                     <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
                                                 )
                                             })}
@@ -221,7 +212,6 @@ export class TalentProfile extends Component {
                                             </Typography>
                                             {Maintenance.map((skills) => {
                                                 return (
-
                                                     <TalentProficiencyCat skills={skills.proficiency_name} key={skills.id} history={this.props.history} />
                                                 )
                                             })}
@@ -239,7 +229,6 @@ export class TalentProfile extends Component {
                                             })}
 
                                         </div>
-
 
                                     </div>
                                 </Card>
