@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
+
 export class TalentProfileItem extends Component {
     render() {
         return (
@@ -19,7 +20,6 @@ export class TalentProfileItem extends Component {
                 </div>
                 <div>
                     <h3>Education</h3>
-
                 </div>
                 <div>
                     <h3>Employment</h3>
@@ -32,5 +32,3 @@ export class TalentProfileItem extends Component {
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
 export default connect(reduxStateToProps)(TalentProfileItem);
-
-
