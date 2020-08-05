@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import moment from 'moment';
 
 export class TalentEducation extends Component {
-
     
     render() {
         return (
