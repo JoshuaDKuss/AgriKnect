@@ -74,6 +74,4 @@ const editedTalentCertification = (state = [], action) => {
     }
 }
 
-
-
 export default editedTalentCertification;
