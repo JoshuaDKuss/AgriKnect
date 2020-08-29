@@ -76,6 +76,4 @@ const editedTalentEducation = (state = [], action) => {
     }
 }
 
-
-
 export default editedTalentEducation;
