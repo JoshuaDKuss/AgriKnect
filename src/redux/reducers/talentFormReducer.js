@@ -1,7 +1,5 @@
 import { combineReducers } from 'redux';
 
-
-
 const formData = (state = {
     initialSkills: [],
     skillsExpertise: [],
@@ -122,8 +120,6 @@ const formData = (state = {
         certificateToAdd.expirationDate = action.payload.state.expirationDate; 
 
         return {...state, certification: [...state.certification, certificateToAdd]}
-        
-        
 
     } else if (action.type === 'EDIT_CERTIFICATE') {
         console.log(action.payload);
@@ -184,17 +180,14 @@ const formData = (state = {
         return { ...state, city: action.payload}
         
        
-
     } else if (action.type === 'SET_STATE') {
 
         return { ...state, state: action.payload }
 
 
-
     } else if (action.type === 'SET_ZIPCODE') {
 
         return { ...state, zipcode: action.payload }
-
 
 
     }  else if (action.type === 'SET_BIO') {
@@ -205,7 +198,6 @@ const formData = (state = {
         };
      
       
-
     }{
         return state; 
     }
@@ -223,5 +215,4 @@ export default combineReducers({
     formData,
     proficiencies
 });
-
 // export default talentForm;
