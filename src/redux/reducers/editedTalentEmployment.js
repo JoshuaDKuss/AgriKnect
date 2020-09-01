@@ -17,7 +17,6 @@ const editedTalentEmployment = (state = [], action) => {
             employmentToAdd.startDate = action.payload.start_date;
             employmentToAdd.endDate = action.payload.end_date;
 
-
             return [...state, employmentToAdd]
         } else {
             return state
@@ -39,9 +38,7 @@ const editedTalentEmployment = (state = [], action) => {
             employmentToAdd.title = action.payload.title;
             employmentToAdd.startDate = action.payload.startDate;
             employmentToAdd.endDate = action.payload.endDate;
-
             return [...state, employmentToAdd]
-
         } else {
 
             let employmentToAdd = {
@@ -77,7 +74,5 @@ const editedTalentEmployment = (state = [], action) => {
         return state;
     }
 }
-
-
 
 export default editedTalentEmployment;
